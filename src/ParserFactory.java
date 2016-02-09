@@ -25,7 +25,9 @@ public class ParserFactory
 
 	Integer direRoaming = 0;
 	Integer radiantRoaming = 0;
-	UniqueInfoFactory uniqueInfoFactory=new UniqueInfoFactory();
+	UniqueInfoFactory uniqueInfoFactory = new UniqueInfoFactory();
+	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
+
 	public Document parse_html(String html) throws IOException, InterruptedException
 	{
 		Document doc = new Document("");
@@ -93,6 +95,7 @@ public class ParserFactory
 
 	void parseMatchById(String id, Team[] team, Player[] player, Match match) throws IOException, InterruptedException
 	{
+		System.out.println("Parsing match with ID:" + id + ".");
 		/*********DOCUMENTS,PAGE STRINGS**********/
 		//<editor-fold desc="DOCUMENTS">
 		Document docMainPage = parse_html("http://www.dotabuff.com/matches/" + id);
@@ -716,7 +719,6 @@ public class ParserFactory
 			killEvents[i] = new KillEvent();
 		}
 		Integer killsCounter = 0;
-		System.out.println();
 
 		for (int i = 1; i < tempKillsArray.length - 2; i++)
 		{
@@ -1811,7 +1813,7 @@ public class ParserFactory
 		//</editor-fold>
 		//</editor-fold>
 
-		//<editor-fold desc="ROLES DETECTOR: MatchInfo.Player.role">
+		//<editor-fold desc="ROLES DETECTOR: Player.role">
 		/**Radiant**/
 		for (int i = 0; i < mainPageRadiantHeroLine.length - 1; i++)
 		{
@@ -1918,19 +1920,19 @@ public class ParserFactory
 				tempString = substringer(logLine[i], "<span class=\"time", "</span>");
 				tempString = removeTags(tempString);
 				towerchik.second = mapTimeToSeconds(tempString);
-				tempString = substringer(logLine[i],"<a href","</a>");
-				tempString=removeTags(tempString);
-				tempString=tempString.replaceFirst(" ","");
-				towerchik.whoDestroy=tempString;
-				tempString=substringer(logLine[i],"Tier", "Tower");
-				if(tempString.contains("1"))
-					towerchik.tierLevel=1;
-				if(tempString.contains("2"))
-					towerchik.tierLevel=2;
-				if(tempString.contains("3"))
-					towerchik.tierLevel=3;
-				if(tempString.contains("4"))
-					towerchik.tierLevel=4;
+				tempString = substringer(logLine[i], "<a href", "</a>");
+				tempString = removeTags(tempString);
+				tempString = tempString.replaceFirst(" ", "");
+				towerchik.whoDestroy = tempString;
+				tempString = substringer(logLine[i], "Tier", "Tower");
+				if (tempString.contains("1"))
+					towerchik.tierLevel = 1;
+				if (tempString.contains("2"))
+					towerchik.tierLevel = 2;
+				if (tempString.contains("3"))
+					towerchik.tierLevel = 3;
+				if (tempString.contains("4"))
+					towerchik.tierLevel = 4;
 				towerEventsArrayList.add(towerchik);
 			}
 		}
@@ -1938,81 +1940,103 @@ public class ParserFactory
 		//</editor-fold>
 
 		//<editor-fold desc="FIRST OBJECTIVES">
-		Boolean roshanDetected=false;
-		Boolean FBDetected=false;
-		Boolean F10KDetected=false;
-		Integer radiantKillsCounter=0;
-		Integer direKillsCounter=0;
-		for (int i = 0; i < logLine.length ; i++)
+		Boolean roshanDetected = false;
+		Boolean FBDetected = false;
+		Boolean F10KDetected = false;
+		Integer radiantKillsCounter = 0;
+		Integer direKillsCounter = 0;
+		for (int i = 0; i < logLine.length; i++)
 		{
-			if(logLine[i].contains("killed") && !logLine[i].contains("Roshan") && !logLine[i].contains("The Radiant")  && !logLine[i].contains("The Dire"))
+			if (logLine[i].contains("killed") && !logLine[i].contains("Roshan") && !logLine[i].contains("The Radiant") && !logLine[i].contains("The Dire"))
 			{
-				currentIndex=logLine[i].indexOf("the-dire object");
-				tempIndex=logLine[i].indexOf("the-radiant object");
-				if(currentIndex<tempIndex)
+				currentIndex = logLine[i].indexOf("the-dire object");
+				tempIndex = logLine[i].indexOf("the-radiant object");
+				if (currentIndex < tempIndex)
 				{
 					direKillsCounter++;
-					if(!FBDetected)
+					if (!FBDetected)
 					{
-						tempString=substringer(logLine[i],"<span class=\"time","</span>");
-						tempString=removeTags(tempString);
-						match.FBTime=mapTimeToSeconds(tempString);
-						team[0].isFirstBlood=false;
-						team[1].isFirstBlood=true;
-						FBDetected=true;
+						tempString = substringer(logLine[i], "<span class=\"time", "</span>");
+						tempString = removeTags(tempString);
+						match.FBTime = mapTimeToSeconds(tempString);
+						team[0].isFirstBlood = false;
+						team[1].isFirstBlood = true;
+						FBDetected = true;
 					}
-					if(direKillsCounter==10 && !F10KDetected)
+					if (direKillsCounter == 10 && !F10KDetected)
 					{
-						tempString=substringer(logLine[i],"<span class=\"time","</span>");
-						tempString=removeTags(tempString);
-						match.F10KTime=mapTimeToSeconds(tempString);
-						team[0].isF10K=false;
-						team[1].isF10K=true;
-						F10KDetected=true;
+						tempString = substringer(logLine[i], "<span class=\"time", "</span>");
+						tempString = removeTags(tempString);
+						match.F10KTime = mapTimeToSeconds(tempString);
+						team[0].isF10K = false;
+						team[1].isF10K = true;
+						F10KDetected = true;
 					}
 				}
-				if(tempIndex<currentIndex)
+				if (tempIndex < currentIndex)
 				{
 					radiantKillsCounter++;
-					if(!FBDetected)
+					if (!FBDetected)
 					{
-						tempString=substringer(logLine[i],"<span class=\"time","</span>");
-						tempString=removeTags(tempString);
-						match.FBTime=mapTimeToSeconds(tempString);
-						team[0].isFirstBlood=true;
-						match.firstBloodRadiant=true;
-						team[1].isFirstBlood=false;
-						FBDetected=true;
+						tempString = substringer(logLine[i], "<span class=\"time", "</span>");
+						tempString = removeTags(tempString);
+						match.FBTime = mapTimeToSeconds(tempString);
+						team[0].isFirstBlood = true;
+						match.firstBloodRadiant = true;
+						team[1].isFirstBlood = false;
+						FBDetected = true;
 					}
-					if(radiantKillsCounter==10 && !F10KDetected)
+					if (radiantKillsCounter == 10 && !F10KDetected)
 					{
-						tempString=substringer(logLine[i],"<span class=\"time","</span>");
-						tempString=removeTags(tempString);
-						match.F10KTime=mapTimeToSeconds(tempString);
-						team[0].isF10K=true;
-						match.first10KillsRadiant=true;
-						team[1].isF10K=false;
-						F10KDetected=true;
+						tempString = substringer(logLine[i], "<span class=\"time", "</span>");
+						tempString = removeTags(tempString);
+						match.F10KTime = mapTimeToSeconds(tempString);
+						team[0].isF10K = true;
+						match.first10KillsRadiant = true;
+						team[1].isF10K = false;
+						F10KDetected = true;
 					}
 				}
 			}
-			if(logLine[i].contains("Roshan") && !roshanDetected)
+			if (logLine[i].contains("Roshan") && !roshanDetected)
 			{
-				tempString=substringer(logLine[i],"<span class=\"time","</span>");
-				tempString=removeTags(tempString);
-				match.FRoshanTime=mapTimeToSeconds(tempString);
-				if(logLine[i].contains("The Dire") && !roshanDetected)
+				tempString = substringer(logLine[i], "<span class=\"time", "</span>");
+				tempString = removeTags(tempString);
+				match.FRoshanTime = mapTimeToSeconds(tempString);
+				if (logLine[i].contains("The Dire") && !roshanDetected)
 				{
-					team[1].isFirstRoshan=true;
-					match.firstRoshanRadiant=false;
-					roshanDetected=true;
+					team[1].isFirstRoshan = true;
+					match.firstRoshanRadiant = false;
+					roshanDetected = true;
 				}
-				if(logLine[i].contains("The Radiant") && !roshanDetected)
+				if (logLine[i].contains("The Radiant") && !roshanDetected)
 				{
-					team[0].isFirstRoshan=true;
-					match.firstRoshanRadiant=true;
-					roshanDetected=true;
+					team[0].isFirstRoshan = true;
+					match.firstRoshanRadiant = true;
+					roshanDetected = true;
 				}
+			}
+		}
+		//</editor-fold>
+
+		//<editor-fold desc="BUYBACKS">
+		ArrayList<BuyBackEvent> buyBackArrayList = new ArrayList<BuyBackEvent>();
+		for (int i = 0; i < logLine.length; i++)
+		{
+			if (logLine[i].contains("bought back"))
+			{
+				BuyBackEvent buybacker = new BuyBackEvent();
+				tempString = substringer(logLine[i], "<span class=\"time", "</span>");
+				tempString = removeTags(tempString);
+				buybacker.second = mapTimeToSeconds(tempString);
+				tempString = substringer(logLine[i], "<span class=\"gold", "</span>");
+				tempString = removeTags(tempString);
+				buybacker.goldCost = Integer.parseInt(tempString);
+				tempString = substringer(logLine[i], "<a href", "</a>");
+				tempString = removeTags(tempString);
+				tempString = tempString.replaceFirst(" ", "");
+				buybacker.whoBoughtBack = tempString;
+				buyBackArrayList.add(buybacker);
 			}
 		}
 		//</editor-fold>
@@ -2056,9 +2080,9 @@ public class ParserFactory
 			System.out.println("Read " + leaguesToParse.get(i) + " league.");
 			docs[i] = parse_html("http://www.dotabuff.com/esports/leagues/" + leaguesToParse.get(i) + "/matches");
 			if (i == 0)
-				writeToFile("\n" + leaguesToParse.get(i) + ";" + currentDate, "files/LeaguesParsed.txt");
+				fileOperationsFactory.writeToFile("\n" + leaguesToParse.get(i) + ";" + currentDate, "files/LeaguesParsed.txt");
 			else
-				writeToFile(leaguesToParse.get(i) + ";" + currentDate, "files/LeaguesParsed.txt");
+				fileOperationsFactory.writeToFile(leaguesToParse.get(i) + ";" + currentDate, "files/LeaguesParsed.txt");
 			html = docs[i].toString();
 			html = substringer(html, "<tbody>", "</tbody>");
 			String[] matchInLeague = html.split("</tr>");
@@ -2370,45 +2394,6 @@ public class ParserFactory
 			difference = 420;
 
 		return difference;
-	}
-
-	void writeToFile(String whatToWrite, String fileName)
-	{
-		try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fileName, true))))
-		{
-			out.println(whatToWrite);
-		} catch (IOException e)
-		{
-		}
-
-	}
-
-	void cleanAndWriteToFile(String whatToWrite, String fileName) throws FileNotFoundException
-	{
-		PrintWriter writer = new PrintWriter(fileName);
-		writer.print(whatToWrite);
-		writer.close();
-	}
-
-	String readFile(String fileName) throws IOException
-	{
-		BufferedReader br = new BufferedReader(new FileReader(fileName));
-		try
-		{
-			StringBuilder sb = new StringBuilder();
-			String line = br.readLine();
-
-			while (line != null)
-			{
-				sb.append(line);
-				sb.append("\n");
-				line = br.readLine();
-			}
-			return sb.toString();
-		} finally
-		{
-			br.close();
-		}
 	}
 
 	Integer mapTimeToSeconds(String time)

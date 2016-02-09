@@ -14,6 +14,7 @@ public class Worker
 	MatchFinderFactory matchFinder = new MatchFinderFactory();
 	AnalizingFactory analizingFactory = new AnalizingFactory();
 	UniqueInfoFactory uniqueInfoFactory = new UniqueInfoFactory();
+	StatisticsFactory statisticsFactory = new StatisticsFactory();
 
 	SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy");
 	Scanner scanner = new Scanner(System.in);
@@ -21,7 +22,7 @@ public class Worker
 	void start_work() throws IOException, InterruptedException, ParseException
 	{
 		String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
-		ArrayList<String> matchesToParse = parserHelper.parseMatches(leagueLinks);
+		//ArrayList<String> matchesToParse = parserHelper.parseMatches(leagueLinks);
 
 		Match match = new Match();
 		Player[] player = new Player[10];
@@ -36,15 +37,14 @@ public class Worker
 			team[i] = new Team();
 		}
 		parserHelper.parseMatchById("2125768709", team, player, match);
-		for (int i = 0; i < matchesToParse.size() ; i++)
+		/*for (int i = 0; i < matchesToParse.size() ; i++)
 		{
 			if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))
 			{
-				System.out.println("Parsing match with ID:" + matchesToParse.get(i) + ".");
 				parserHelper.parseMatchById(matchesToParse.get(i), team, player, match);
 				parserHelper.writeToFile("\n" + matchesToParse.get(i), "files/MatchesParsed.txt");
 			}
-		}
+		}*/
 
 	}
 }

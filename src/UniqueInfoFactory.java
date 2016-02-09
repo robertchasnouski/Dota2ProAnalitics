@@ -6,10 +6,11 @@ import java.util.Date;
 
 public class UniqueInfoFactory
 {
-	ParserFactory parserFactory=new ParserFactory();
+	FileOperationsFactory fileOperationsFactory=new FileOperationsFactory();
+
 	Boolean checkIfIdAlreadyParsed(String id) throws IOException
 	{
-		String matchIdList=parserFactory.readFile("files/MatchesParsed.txt");
+		String matchIdList=fileOperationsFactory.readFile("files/MatchesParsed.txt");
 		String [] matchesId=matchIdList.split("\n");
 		Boolean exist=false;
 		for (int i = 0; i < matchesId.length; i++)
@@ -23,7 +24,7 @@ public class UniqueInfoFactory
 	{
 		ArrayList<String> needToParse = new ArrayList<>();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH");
-		String leagueFileString = parserFactory.readFile("files/LeaguesParsed.txt");
+		String leagueFileString = fileOperationsFactory.readFile("files/LeaguesParsed.txt");
 
 		Date d1 = null;
 		Date d2 = null;
@@ -65,7 +66,7 @@ public class UniqueInfoFactory
 			if (j != oneLeague.length - 1 && oneLeague[j] != "")
 				writeLine += "\n";
 		}
-		parserFactory.cleanAndWriteToFile(writeLine, "files/LeaguesParsed.txt");
+		fileOperationsFactory.cleanAndWriteToFile(writeLine, "files/LeaguesParsed.txt");
 		return needToParse;
 	}
 }
