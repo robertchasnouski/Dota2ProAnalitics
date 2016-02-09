@@ -25,7 +25,7 @@ public class ParserFactory
 
 	Integer direRoaming = 0;
 	Integer radiantRoaming = 0;
-
+	UniqueInfoFactory uniqueInfoFactory=new UniqueInfoFactory();
 	public Document parse_html(String html) throws IOException, InterruptedException
 	{
 		Document doc = new Document("");
@@ -1918,14 +1918,103 @@ public class ParserFactory
 				tempString = substringer(logLine[i], "<span class=\"time", "</span>");
 				tempString = removeTags(tempString);
 				towerchik.second = mapTimeToSeconds(tempString);
-				System.out.println(towerchik.second);
 				tempString = substringer(logLine[i],"<a href","</a>");
 				tempString=removeTags(tempString);
-				System.out.println(tempString);
+				tempString=tempString.replaceFirst(" ","");
+				towerchik.whoDestroy=tempString;
+				tempString=substringer(logLine[i],"Tier", "Tower");
+				if(tempString.contains("1"))
+					towerchik.tierLevel=1;
+				if(tempString.contains("2"))
+					towerchik.tierLevel=2;
+				if(tempString.contains("3"))
+					towerchik.tierLevel=3;
+				if(tempString.contains("4"))
+					towerchik.tierLevel=4;
+				towerEventsArrayList.add(towerchik);
 			}
 		}
 		//</editor-fold>
+		//</editor-fold>
 
+		//<editor-fold desc="FIRST OBJECTIVES">
+		Boolean roshanDetected=false;
+		Boolean FBDetected=false;
+		Boolean F10KDetected=false;
+		Integer radiantKillsCounter=0;
+		Integer direKillsCounter=0;
+		for (int i = 0; i < logLine.length ; i++)
+		{
+			if(logLine[i].contains("killed") && !logLine[i].contains("Roshan") && !logLine[i].contains("The Radiant")  && !logLine[i].contains("The Dire"))
+			{
+				currentIndex=logLine[i].indexOf("the-dire object");
+				tempIndex=logLine[i].indexOf("the-radiant object");
+				if(currentIndex<tempIndex)
+				{
+					direKillsCounter++;
+					if(!FBDetected)
+					{
+						tempString=substringer(logLine[i],"<span class=\"time","</span>");
+						tempString=removeTags(tempString);
+						match.FBTime=mapTimeToSeconds(tempString);
+						team[0].isFirstBlood=false;
+						team[1].isFirstBlood=true;
+						FBDetected=true;
+					}
+					if(direKillsCounter==10 && !F10KDetected)
+					{
+						tempString=substringer(logLine[i],"<span class=\"time","</span>");
+						tempString=removeTags(tempString);
+						match.F10KTime=mapTimeToSeconds(tempString);
+						team[0].isF10K=false;
+						team[1].isF10K=true;
+						F10KDetected=true;
+					}
+				}
+				if(tempIndex<currentIndex)
+				{
+					radiantKillsCounter++;
+					if(!FBDetected)
+					{
+						tempString=substringer(logLine[i],"<span class=\"time","</span>");
+						tempString=removeTags(tempString);
+						match.FBTime=mapTimeToSeconds(tempString);
+						team[0].isFirstBlood=true;
+						match.firstBloodRadiant=true;
+						team[1].isFirstBlood=false;
+						FBDetected=true;
+					}
+					if(radiantKillsCounter==10 && !F10KDetected)
+					{
+						tempString=substringer(logLine[i],"<span class=\"time","</span>");
+						tempString=removeTags(tempString);
+						match.F10KTime=mapTimeToSeconds(tempString);
+						team[0].isF10K=true;
+						match.first10KillsRadiant=true;
+						team[1].isF10K=false;
+						F10KDetected=true;
+					}
+				}
+			}
+			if(logLine[i].contains("Roshan") && !roshanDetected)
+			{
+				tempString=substringer(logLine[i],"<span class=\"time","</span>");
+				tempString=removeTags(tempString);
+				match.FRoshanTime=mapTimeToSeconds(tempString);
+				if(logLine[i].contains("The Dire") && !roshanDetected)
+				{
+					team[1].isFirstRoshan=true;
+					match.firstRoshanRadiant=false;
+					roshanDetected=true;
+				}
+				if(logLine[i].contains("The Radiant") && !roshanDetected)
+				{
+					team[0].isFirstRoshan=true;
+					match.firstRoshanRadiant=true;
+					roshanDetected=true;
+				}
+			}
+		}
 		//</editor-fold>
 	}
 
@@ -1960,7 +2049,7 @@ public class ParserFactory
 		Document[] docs = new Document[leagueLinks.length];
 		ArrayList<String> leaguesToParse = new ArrayList<>();
 		ArrayList<String> matchesToParse = new ArrayList<>();
-		leaguesToParse = checkIfLeagueParsed(leagueLinks);
+		leaguesToParse = uniqueInfoFactory.checkIfLeagueParsed(leagueLinks);
 
 		for (int i = 0; i < leaguesToParse.size(); i++)
 		{
@@ -2281,56 +2370,6 @@ public class ParserFactory
 			difference = 420;
 
 		return difference;
-	}
-
-	ArrayList<String> checkIfLeagueParsed(String[] getFromSite) throws IOException, ParseException
-	{
-		ArrayList<String> needToParse = new ArrayList<>();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH");
-		String leagueFileString = readFile("files/LeaguesParsed.txt");
-
-		Date d1 = null;
-		Date d2 = null;
-		Date date = new Date();
-		String currentDate = format.format(date);
-		d1 = format.parse(currentDate);
-
-		String[] oneLeague = leagueFileString.split("\n");
-
-
-		for (int i = 0; i < getFromSite.length; i++)
-		{
-			Boolean exist = false;
-			for (int j = 0; j < oneLeague.length; j++)
-			{
-				if (oneLeague[j].contains(getFromSite[i]))
-				{
-					exist = true;
-					String[] leagueParts = oneLeague[j].split(";");
-					d2 = format.parse(leagueParts[1]);
-					long diff = d1.getTime() - d2.getTime();
-					long diffHours = diff / (60 * 60 * 1000);
-					if (diffHours > 24)
-					{
-						needToParse.add(leagueParts[0]);
-						leagueParts[1] = currentDate;
-						oneLeague[j] = "";
-					} else
-						continue;
-				}
-			}
-			if (exist == false)
-				needToParse.add(getFromSite[i]);
-		}
-		String writeLine = "";
-		for (int j = 0; j < oneLeague.length; j++)
-		{
-			writeLine += oneLeague[j];
-			if (j != oneLeague.length - 1 && oneLeague[j] != "")
-				writeLine += "\n";
-		}
-		cleanAndWriteToFile(writeLine, "files/LeaguesParsed.txt");
-		return needToParse;
 	}
 
 	void writeToFile(String whatToWrite, String fileName)

@@ -9,6 +9,7 @@ public class Match
 	//<editor-fold desc="Event Times">
 	public Integer F10KTime;
 	public Integer FBTime;
+	public Integer FRoshanTime;
 	public Integer matchTime;
 	//</editor-fold>
 
@@ -28,6 +29,10 @@ public class Match
 
 	public Match()
 	{
+		this.firstBloodRadiant=false;
+		this.firstRoshanRadiant=false;
+		this.first10KillsRadiant=false;
+		this.winRadiant=false;
 	}
 
 	public void setMatch(String id, String date, String team1, String team2, String score)
