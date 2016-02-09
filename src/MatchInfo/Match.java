@@ -19,9 +19,11 @@ public class Match
 	public String team2;
 	public String score;
 	public String id;
+	public String leagueName;
+	public Integer leagueId;
 
 	public Boolean first10KillsRadiant;
-	public Boolean firstRoshanRadiant;
+	public Boolean firstRoshanRadiant; //TODO
 	public Boolean firstBloodRadiant;
 
 	public Match()

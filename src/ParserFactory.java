@@ -1,4 +1,5 @@
 import MatchInfo.*;
+import com.sun.javafx.font.Glyph;
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -27,9 +28,9 @@ public class ParserFactory
 
 	public Document parse_html(String html) throws IOException, InterruptedException
 	{
-		Document doc=new Document("");
-		int numtries=10;
-		while(numtries-- != 0)
+		Document doc = new Document("");
+		int numtries = 10;
+		while (numtries-- != 0)
 		{
 			try
 			{
@@ -37,15 +38,13 @@ public class ParserFactory
 						.userAgent("Mozilla/5.0 (Windows NT 6.0) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.46 Safari/536.5")
 						.get();
 				break;
-			}
-			catch (HttpStatusException e)
+			} catch (HttpStatusException e)
 			{
-				System.out.println("HttpStatusException."+html+". Trying to repeat...");
+				System.out.println("HttpStatusException." + html + ". Trying to repeat...");
 
 				Thread.sleep(10000);
 				continue;
-			}
-			catch (SocketTimeoutException e)
+			} catch (SocketTimeoutException e)
 			{
 				System.out.println("SocketTimeoutException. Trying to repeat...");
 				Thread.sleep(10000);
@@ -353,6 +352,12 @@ public class ParserFactory
 
 		/****PARAMETERS****/
 
+		//<editor-fold desc="MATCH GENERAL INFO">
+		tempString = substringer(stringMainPage, "<a class=\"esports-link\"", "</a>");
+		match.leagueName = removeTags(tempString);
+		tempString = substringer(tempString, "/leagues/", "\">");
+		match.leagueId = Integer.parseInt(tempString.substring(9, tempString.length()));
+		//</editor-fold>
 
 		//<editor-fold desc="TEAM GENERAL INFO">
 		//Winteam
@@ -875,7 +880,7 @@ public class ParserFactory
 					String whoDied = tempString;
 
 					String lostGold;
-					if(logLine[j].contains("lost"))
+					if (logLine[j].contains("lost"))
 					{
 						tempIndex = logLine[j].indexOf("lost");
 						currentIndex = logLine[j].indexOf("</span>", tempIndex);
@@ -883,8 +888,7 @@ public class ParserFactory
 						lostGold = tempString;
 						currentIndex = lostGold.lastIndexOf("\">");
 						lostGold = lostGold.substring(currentIndex + 2, lostGold.length());
-					}
-					else lostGold="300";
+					} else lostGold = "300";
 
 					for (int i = 0; i < 5; i++)
 					{
@@ -999,7 +1003,7 @@ public class ParserFactory
 					String whoDied = tempString;
 
 					String lostGold;
-					if(logLine[j].contains("lost"))
+					if (logLine[j].contains("lost"))
 					{
 						tempIndex = logLine[j].indexOf("lost");
 						currentIndex = logLine[j].indexOf("</span>", tempIndex);
@@ -1007,8 +1011,7 @@ public class ParserFactory
 						lostGold = tempString;
 						currentIndex = lostGold.lastIndexOf("\">");
 						lostGold = lostGold.substring(currentIndex + 2, lostGold.length());
-					}
-					else lostGold="300";
+					} else lostGold = "300";
 
 					for (int i = 0; i < 5; i++)
 					{
@@ -1829,25 +1832,100 @@ public class ParserFactory
 		}
 		//</editor-fold>
 
-		//<editor-fold desc="OSI">
-		//<editor-fold desc="SUPPORT OSI">
-		;
+		//<editor-fold desc="EXPIRIENCE: Player.minuteXPM, Team. minuteXPM"
+		//<editor-fold desc="Radiant Expirience">
+		for (int i = 0; i < 5; i++)
+		{
+			tempString = substringer(farmPageRadiantHeroLine[i], "<td class=\"r-tab r-group-2\"", "</td>");
+			tempString = removeTag(tempString, "span");
+			tempString = removeTag(tempString, "td");
+			tempString = removeTag(tempString, "div");
+			tempIndex = tempString.indexOf(" ");
+			tempString = tempString.substring(tempIndex, tempString.length());
+			tempString = tempString.replaceAll(" ", "");
+			tempString = tempString.replaceAll("\n", "");
+			String[] tempGPMArray = tempString.split(",");
+			for (int j = 0; j < tempGPMArray.length; j++)
+			{
+				player[i].minuteXPM[j] = Integer.parseInt(tempGPMArray[j]);
+			}
+		}
+		for (int i = 0; i < 150; i++)
+		{
+			for (int j = 0; j < 5; j++)
+			{
+				if (player[j].minuteXPM[i] != 9999)
+					team[0].minuteXPM[i] += player[j].minuteXPM[i];
+			}
+		}
 		//</editor-fold>
-		//<editor-fold desc="CARRY OSI">
-		;
+		//<editor-fold desc="Dire Expirience">
+		for (int i = 0; i < 5; i++)
+		{
+			tempString = substringer(farmPageDireHeroLine[i], "<td class=\"r-tab r-group-2\"", "</td>");
+			tempString = removeTag(tempString, "span");
+			tempString = removeTag(tempString, "td");
+			tempString = removeTag(tempString, "div");
+			tempIndex = tempString.indexOf(" ");
+			tempString = tempString.substring(tempIndex, tempString.length());
+			tempString = tempString.replaceAll(" ", "");
+			tempString = tempString.replaceAll("\n", "");
+			String[] tempGPMArray = tempString.split(",");
+			for (int j = 0; j < tempGPMArray.length; j++)
+			{
+				player[i + 5].minuteXPM[j] = Integer.parseInt(tempGPMArray[j]);
+			}
+		}
+		for (int i = 0; i < 150; i++)
+		{
+			for (int j = 0; j < 5; j++)
+			{
+				if (player[j + 5].minuteXPM[i] != 9999)
+					team[1].minuteXPM[i] += player[j + 5].minuteGPM[i];
+			}
+		}
 		//</editor-fold>
-		//<editor-fold desc="JUNGLER OSI">
-		;
 		//</editor-fold>
-		//<editor-fold desc="MIDER OSI">
-		;
-		//</editor-fold>
-		//<editor-fold desc="HARDLINER OSI">
-		;
-		//</editor-fold>
-		//<editor-fold desc="GLOBAL OSI">
 
+		//<editor-fold desc="GLYPHS AND TOWERS">
+		//<editor-fold desc="Glyphs">
+		ArrayList<GlyphEvent> glyphEventsArrayList = new ArrayList<GlyphEvent>();
+		for (int i = 0; i < logLine.length; i++)
+		{
+			if (logLine[i].contains("Glyph of Fortification"))
+			{
+				GlyphEvent glyphik = new GlyphEvent();
+				tempString = substringer(logLine[i], "<span class=\"time", "</span>");
+				tempString = removeTags(tempString);
+				glyphik.second = mapTimeToSeconds(tempString);
+				if (logLine[i].contains("The Radiant"))
+					glyphik.side = 1;
+				else if (logLine[i].contains("The Dire"))
+					glyphik.side = 2;
+				else System.out.println("Glyph Identification Error.");
+
+				glyphEventsArrayList.add(glyphik);
+			}
+		}
 		//</editor-fold>
+		//<editor-fold desc="Towers">
+		ArrayList<TowerEvent> towerEventsArrayList = new ArrayList<TowerEvent>();
+		for (int i = 0; i < logLine.length; i++)
+		{
+			if (logLine[i].contains("Tier"))
+			{
+				TowerEvent towerchik = new TowerEvent();
+				tempString = substringer(logLine[i], "<span class=\"time", "</span>");
+				tempString = removeTags(tempString);
+				towerchik.second = mapTimeToSeconds(tempString);
+				System.out.println(towerchik.second);
+				tempString = substringer(logLine[i],"<a href","</a>");
+				tempString=removeTags(tempString);
+				System.out.println(tempString);
+			}
+		}
+		//</editor-fold>
+
 		//</editor-fold>
 	}
 
@@ -2292,6 +2370,12 @@ public class ParserFactory
 		{
 			br.close();
 		}
+	}
+
+	Integer mapTimeToSeconds(String time)
+	{
+		String[] tempMapTimeArray = time.split(":");
+		return Integer.parseInt(tempMapTimeArray[0]) * 60 + Integer.parseInt(tempMapTimeArray[1]);
 	}
 }
 

@@ -59,6 +59,9 @@ public class Team
 	public Boolean isF10K;
 	public Boolean isFirstRoshan;
 	//</editor-fold>
+	//<editor-fold desc="Expirience">
+	public Integer[] minuteXPM = new Integer[150];//TODO: TEST
+	//</editor-fold>
 
 	public Team()
 	{
@@ -66,6 +69,7 @@ public class Team
 		for (int i = 0; i < this.minuteGPM.length; i++)
 		{
 			this.minuteGPM[i]=0;
+			this.minuteXPM[i]=0;
 		}
 		for (int i = 0; i < this.minuteLastHits.length; i++)
 		{

@@ -7,7 +7,6 @@ public class Player
 	public Integer role; /*1-Mider. 2-Carry. 3-Support. 4-Hardliner. 5-Jungler.*/
 
 	public Integer level;
-	public Integer OSI;
 
 	public Integer partisipation;
 	public Integer runesUsed;
@@ -61,10 +60,12 @@ public class Player
 
 	public Integer gemTimeCarried;
 	//</editor-fold>
+	//<editor-fold desc="Expirience">
+	public Integer[] minuteXPM = new Integer[150];//TODO: TEST
+	//</editor-fold>
 
 	public Player()
 	{
-		this.OSI = 0;
 		for (int i = 0; i < 6; i++)
 		{
 			this.item[i] = null;
@@ -72,6 +73,7 @@ public class Player
 		for (int i = 0; i < this.minuteGPM.length; i++)
 		{
 			this.minuteGPM[i] = 9999;
+			this.minuteXPM[i] = 9999;
 		}
 		for (int i = 0; i < this.fiveMinuteNetWorth.length; i++)
 		{
