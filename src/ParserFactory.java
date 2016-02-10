@@ -93,7 +93,7 @@ public class ParserFactory
 	}
 
 
-	void parseMatchById(String id, Team[] team, Player[] player, Match match) throws IOException, InterruptedException
+	void parseMatchById(String id, Team[] team, Player[] player, Match match,ArrayList<KillEvent> killEventArrayList,ArrayList<BuyBackEvent> buyBackEventArrayList,ArrayList<GlyphEvent> glyphEventArrayList,ArrayList<TowerEvent> towerEventArrayList,ArrayList<WardEvent> wardEventArrayList) throws IOException, InterruptedException
 	{
 		System.out.println("Parsing match with ID:" + id + ".");
 		/*********DOCUMENTS,PAGE STRINGS**********/
@@ -789,6 +789,8 @@ public class ParserFactory
 			}
 
 		}
+		for (int i = 0; i < killEvents.length; i++)
+		killEventArrayList.add(killEvents[i]);
 		//</editor-fold>
 
 		//<editor-fold desc="WARDMAP">
@@ -840,6 +842,7 @@ public class ParserFactory
 				wardEvent.lifeTime = 420;
 			}
 		}
+		wardEventArrayList=wardEvents;
 		//</editor-fold>
 
 		//<editor-fold desc="NET WORTH:    MatchInfo.Player: TotalGold, MinuteGPM, fiveMinuteNetWorth">
@@ -1089,7 +1092,7 @@ public class ParserFactory
 		//</editor-fold>
 		//</editor-fold>
 
-		//<editor-fold desc="TIME: MatchInfo.Match: matchTime, FBTime, F10KTime; MatchInfo.Player: timeDead">
+		//<editor-fold desc="TIME: Match: matchTime, FBTime, F10KTime; MatchInfo.Player: timeDead">
 
 		tempString = substringer(headerString, "Region", "</dd>");
 		tempString = removeTags(tempString);
@@ -1891,7 +1894,7 @@ public class ParserFactory
 
 		//<editor-fold desc="GLYPHS AND TOWERS">
 		//<editor-fold desc="Glyphs">
-		ArrayList<GlyphEvent> glyphEventsArrayList = new ArrayList<GlyphEvent>();
+	//	ArrayList<GlyphEvent> glyphArrayList = new ArrayList<GlyphEvent>();
 		for (int i = 0; i < logLine.length; i++)
 		{
 			if (logLine[i].contains("Glyph of Fortification"))
@@ -1906,12 +1909,13 @@ public class ParserFactory
 					glyphik.side = 2;
 				else System.out.println("Glyph Identification Error.");
 
-				glyphEventsArrayList.add(glyphik);
+				glyphEventArrayList.add(glyphik);
 			}
 		}
+	//	glyphEventArrayList=glyphArrayList;
 		//</editor-fold>
 		//<editor-fold desc="Towers">
-		ArrayList<TowerEvent> towerEventsArrayList = new ArrayList<TowerEvent>();
+		//ArrayList<TowerEvent> towerArrayList = new ArrayList<TowerEvent>();
 		for (int i = 0; i < logLine.length; i++)
 		{
 			if (logLine[i].contains("Tier"))
@@ -1933,9 +1937,10 @@ public class ParserFactory
 					towerchik.tierLevel = 3;
 				if (tempString.contains("4"))
 					towerchik.tierLevel = 4;
-				towerEventsArrayList.add(towerchik);
+				towerEventArrayList.add(towerchik);
 			}
 		}
+		//towerEventArrayList=towerArrayList;
 		//</editor-fold>
 		//</editor-fold>
 
@@ -2020,7 +2025,7 @@ public class ParserFactory
 		//</editor-fold>
 
 		//<editor-fold desc="BUYBACKS">
-		ArrayList<BuyBackEvent> buyBackArrayList = new ArrayList<BuyBackEvent>();
+	//	ArrayList<BuyBackEvent> buyBackArrayList = new ArrayList<BuyBackEvent>();
 		for (int i = 0; i < logLine.length; i++)
 		{
 			if (logLine[i].contains("bought back"))
@@ -2036,9 +2041,10 @@ public class ParserFactory
 				tempString = removeTags(tempString);
 				tempString = tempString.replaceFirst(" ", "");
 				buybacker.whoBoughtBack = tempString;
-				buyBackArrayList.add(buybacker);
+				buyBackEventArrayList.add(buybacker);
 			}
 		}
+		//buyBackEventArrayList=buyBackArrayList;
 		//</editor-fold>
 	}
 

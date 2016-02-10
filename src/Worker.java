@@ -1,6 +1,4 @@
-import MatchInfo.Match;
-import MatchInfo.Player;
-import MatchInfo.Team;
+import MatchInfo.*;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -11,7 +9,6 @@ import java.util.Scanner;
 public class Worker
 {
 	ParserFactory parserHelper = new ParserFactory();
-	MatchFinderFactory matchFinder = new MatchFinderFactory();
 	AnalizingFactory analizingFactory = new AnalizingFactory();
 	UniqueInfoFactory uniqueInfoFactory = new UniqueInfoFactory();
 	StatisticsFactory statisticsFactory = new StatisticsFactory();
@@ -27,6 +24,12 @@ public class Worker
 		Match match = new Match();
 		Player[] player = new Player[10];
 		Team[] team = new Team[2];
+		ArrayList<KillEvent> killEventArrayList=new ArrayList<KillEvent>();
+		ArrayList<BuyBackEvent> buyBackEventArrayList=new ArrayList<BuyBackEvent>();
+		ArrayList<GlyphEvent> glyphEventArrayList=new ArrayList<GlyphEvent>();
+		ArrayList<TowerEvent> towerEventArrayList=new ArrayList<TowerEvent>();
+		ArrayList<WardEvent> wardEventArrayList=new ArrayList<WardEvent>();
+
 		//TODO: Add BuyBackEvent, WardEvent, TowerEvent,GlyphEvent,KillEvent
 		for (int i = 0; i < 10; i++)
 		{
@@ -36,8 +39,11 @@ public class Worker
 		{
 			team[i] = new Team();
 		}
-		parserHelper.parseMatchById("2125768709", team, player, match);
 
+		parserHelper.parseMatchById("2125768709", team, player, match,killEventArrayList,buyBackEventArrayList,glyphEventArrayList,towerEventArrayList,wardEventArrayList);
+		//TODO: TEST ArrayLists
+		//TODO: TEST Events
+		//TODO: Test new parameters
 		/*for (int i = 0; i < matchesToParse.size() ; i++)
 		{
 			if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))
