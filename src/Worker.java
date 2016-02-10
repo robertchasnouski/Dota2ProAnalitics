@@ -37,6 +37,7 @@ public class Worker
 			team[i] = new Team();
 		}
 		parserHelper.parseMatchById("2125768709", team, player, match);
+
 		/*for (int i = 0; i < matchesToParse.size() ; i++)
 		{
 			if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))
