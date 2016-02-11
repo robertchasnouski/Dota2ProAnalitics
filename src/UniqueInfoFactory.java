@@ -6,20 +6,21 @@ import java.util.Date;
 
 public class UniqueInfoFactory
 {
-	FileOperationsFactory fileOperationsFactory=new FileOperationsFactory();
+	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 
 	Boolean checkIfIdAlreadyParsed(String id) throws IOException
 	{
-		String matchIdList=fileOperationsFactory.readFile("files/MatchesParsed.txt");
-		String [] matchesId=matchIdList.split("\n");
-		Boolean exist=false;
+		String matchIdList = fileOperationsFactory.readFile("files/MatchesParsed.txt");
+		String[] matchesId = matchIdList.split("\n");
+		Boolean exist = false;
 		for (int i = 0; i < matchesId.length; i++)
 		{
-			if(matchesId[i].equals(id))
-				exist=true;
+			if (matchesId[i].equals(id))
+				exist = true;
 		}
 		return exist;
 	}
+
 	ArrayList<String> checkIfLeagueParsed(String[] getFromSite) throws IOException, ParseException
 	{
 		ArrayList<String> needToParse = new ArrayList<>();

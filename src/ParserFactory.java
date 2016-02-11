@@ -93,7 +93,7 @@ public class ParserFactory
 	}
 
 
-	void parseMatchById(String id, Team[] team, Player[] player, Match match,ArrayList<KillEvent> killEventArrayList,ArrayList<BuyBackEvent> buyBackEventArrayList,ArrayList<GlyphEvent> glyphEventArrayList,ArrayList<TowerEvent> towerEventArrayList,ArrayList<WardEvent> wardEventArrayList) throws IOException, InterruptedException
+	void parseMatchById(String id, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException, InterruptedException
 	{
 		System.out.println("Parsing match with ID:" + id + ".");
 		/*********DOCUMENTS,PAGE STRINGS**********/
@@ -790,7 +790,7 @@ public class ParserFactory
 
 		}
 		for (int i = 0; i < killEvents.length; i++)
-		killEventArrayList.add(killEvents[i]);
+			killEventArrayList.add(killEvents[i]);
 		//</editor-fold>
 
 		//<editor-fold desc="WARDMAP">
@@ -841,8 +841,9 @@ public class ParserFactory
 			{
 				wardEvent.lifeTime = 420;
 			}
+			wardEvents.add(wardEvent);
 		}
-		wardEventArrayList=wardEvents;
+		wardEventArrayList.addAll(wardEvents);
 		//</editor-fold>
 
 		//<editor-fold desc="NET WORTH:    MatchInfo.Player: TotalGold, MinuteGPM, fiveMinuteNetWorth">
@@ -862,6 +863,7 @@ public class ParserFactory
 			{
 				player[i].minuteGPM[j] = Integer.parseInt(tempGPMArray[j]);
 			}
+			match.universalX=tempGPMArray.length;
 		}
 		for (int j = 0; j < logLine.length; j++)
 		{
@@ -1657,7 +1659,15 @@ public class ParserFactory
 		tempString = removeTags(tempString);
 		if (tempString.equals("-"))
 			tempString = "0";
-		team[1].gemsDropped += Integer.parseInt(tempString);
+		team[0].gemsDropped = Integer.parseInt(tempString);
+
+		currentIndex = visionPageRadiantTotalLine.indexOf("<td class=\"r-tab r-group-4");
+		tempIndex = visionPageRadiantTotalLine.indexOf("</td>", currentIndex);
+		tempString = visionPageRadiantTotalLine.substring(currentIndex, tempIndex);
+		tempString = removeTags(tempString);
+		if (tempString.equals("-"))
+			tempString = "0";
+		team[0].gemsBought = Integer.parseInt(tempString);
 		//</editor-fold>
 		//<editor-fold desc="Dire Vision">
 		for (int i = 0; i < 5; i++)
@@ -1812,7 +1822,15 @@ public class ParserFactory
 		tempString = removeTags(tempString);
 		if (tempString.equals("-"))
 			tempString = "0";
-		team[0].gemsDropped += Integer.parseInt(tempString);
+		team[1].gemsDropped = Integer.parseInt(tempString);
+
+		currentIndex = visionPageDireTotalLine.indexOf("<td class=\"r-tab r-group-4");
+		tempIndex = visionPageDireTotalLine.indexOf("</td>", currentIndex);
+		tempString = visionPageDireTotalLine.substring(currentIndex, tempIndex);
+		tempString = removeTags(tempString);
+		if (tempString.equals("-"))
+			tempString = "0";
+		team[1].gemsBought = Integer.parseInt(tempString);
 		//</editor-fold>
 		//</editor-fold>
 
@@ -1860,7 +1878,9 @@ public class ParserFactory
 			for (int j = 0; j < 5; j++)
 			{
 				if (player[j].minuteXPM[i] != 9999)
+				{
 					team[0].minuteXPM[i] += player[j].minuteXPM[i];
+				}
 			}
 		}
 		//</editor-fold>
@@ -1894,7 +1914,7 @@ public class ParserFactory
 
 		//<editor-fold desc="GLYPHS AND TOWERS">
 		//<editor-fold desc="Glyphs">
-	//	ArrayList<GlyphEvent> glyphArrayList = new ArrayList<GlyphEvent>();
+		//	ArrayList<GlyphEvent> glyphArrayList = new ArrayList<GlyphEvent>();
 		for (int i = 0; i < logLine.length; i++)
 		{
 			if (logLine[i].contains("Glyph of Fortification"))
@@ -1909,10 +1929,14 @@ public class ParserFactory
 					glyphik.side = 2;
 				else System.out.println("Glyph Identification Error.");
 
+				tempString = substringer(logLine[i],"for "," after");
+				tempString = tempString.substring(4,tempString.length());
+				glyphik.goldValue=Integer.parseInt(tempString);
+
 				glyphEventArrayList.add(glyphik);
 			}
 		}
-	//	glyphEventArrayList=glyphArrayList;
+		//	glyphEventArrayList=glyphArrayList;
 		//</editor-fold>
 		//<editor-fold desc="Towers">
 		//ArrayList<TowerEvent> towerArrayList = new ArrayList<TowerEvent>();
@@ -2025,7 +2049,7 @@ public class ParserFactory
 		//</editor-fold>
 
 		//<editor-fold desc="BUYBACKS">
-	//	ArrayList<BuyBackEvent> buyBackArrayList = new ArrayList<BuyBackEvent>();
+		//	ArrayList<BuyBackEvent> buyBackArrayList = new ArrayList<BuyBackEvent>();
 		for (int i = 0; i < logLine.length; i++)
 		{
 			if (logLine[i].contains("bought back"))

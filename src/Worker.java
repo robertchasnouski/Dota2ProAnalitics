@@ -12,6 +12,7 @@ public class Worker
 	AnalizingFactory analizingFactory = new AnalizingFactory();
 	UniqueInfoFactory uniqueInfoFactory = new UniqueInfoFactory();
 	StatisticsFactory statisticsFactory = new StatisticsFactory();
+	WriterReaderFactory writerReaderFactory = new WriterReaderFactory();
 
 	SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy");
 	Scanner scanner = new Scanner(System.in);
@@ -24,11 +25,11 @@ public class Worker
 		Match match = new Match();
 		Player[] player = new Player[10];
 		Team[] team = new Team[2];
-		ArrayList<KillEvent> killEventArrayList=new ArrayList<KillEvent>();
-		ArrayList<BuyBackEvent> buyBackEventArrayList=new ArrayList<BuyBackEvent>();
-		ArrayList<GlyphEvent> glyphEventArrayList=new ArrayList<GlyphEvent>();
-		ArrayList<TowerEvent> towerEventArrayList=new ArrayList<TowerEvent>();
-		ArrayList<WardEvent> wardEventArrayList=new ArrayList<WardEvent>();
+		ArrayList<KillEvent> killEventArrayList = new ArrayList<KillEvent>();
+		ArrayList<BuyBackEvent> buyBackEventArrayList = new ArrayList<BuyBackEvent>();
+		ArrayList<GlyphEvent> glyphEventArrayList = new ArrayList<GlyphEvent>();
+		ArrayList<TowerEvent> towerEventArrayList = new ArrayList<TowerEvent>();
+		ArrayList<WardEvent> wardEventArrayList = new ArrayList<WardEvent>();
 
 		//TODO: Add BuyBackEvent, WardEvent, TowerEvent,GlyphEvent,KillEvent
 		for (int i = 0; i < 10; i++)
@@ -40,10 +41,13 @@ public class Worker
 			team[i] = new Team();
 		}
 
-		parserHelper.parseMatchById("2125768709", team, player, match,killEventArrayList,buyBackEventArrayList,glyphEventArrayList,towerEventArrayList,wardEventArrayList);
+		parserHelper.parseMatchById("2125768709", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
+
 		//TODO: TEST ArrayLists
 		//TODO: TEST Events
 		//TODO: Test new parameters
+		//TODO: Before writing to file need to give to each team its rating
 		/*for (int i = 0; i < matchesToParse.size() ; i++)
 		{
 			if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))

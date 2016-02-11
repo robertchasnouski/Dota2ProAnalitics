@@ -42,7 +42,7 @@ public class StatisticsFactory
 			if (i != fileLines.length - 1)
 				outputString += "\n";
 		}
-		fileOperationsFactory.cleanAndWriteToFile(outputString,"files/TeamRatings.txt");
+		fileOperationsFactory.cleanAndWriteToFile(outputString, "files/TeamRatings.txt");
 	}
 
 	StatisticsFactory()

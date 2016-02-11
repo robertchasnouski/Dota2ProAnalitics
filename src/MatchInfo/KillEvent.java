@@ -8,7 +8,8 @@ public class KillEvent
 
 	public Integer second;
 	public Integer whoKill;
-  	public Integer assistsNumber;
+	public Integer assistsNumber;
+
 	public KillEvent()
 	{
 

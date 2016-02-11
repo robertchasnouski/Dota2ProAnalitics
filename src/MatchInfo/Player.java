@@ -56,8 +56,6 @@ public class Player
 	public Integer smokeHits;
 	public Integer smokeTotalHeroes;
 
-	//TODO gemsRaised
-
 	public Integer gemTimeCarried;
 	//</editor-fold>
 	//<editor-fold desc="Expirience">
