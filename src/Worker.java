@@ -41,13 +41,16 @@ public class Worker
 			team[i] = new Team();
 		}
 
-		parserHelper.parseMatchById("2125768709", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		parserHelper.parseMatchById("2140228532", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 
+		//ToDO -time on roshan and fb
 		//TODO: TEST ArrayLists
 		//TODO: TEST Events
 		//TODO: Test new parameters
 		//TODO: Before writing to file need to give to each team its rating
+		//TODO: MAke smoke not purchase but used
+		//TODO: Raxes count after battle
 		/*for (int i = 0; i < matchesToParse.size() ; i++)
 		{
 			if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))

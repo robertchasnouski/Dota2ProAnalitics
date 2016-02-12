@@ -10,8 +10,13 @@ public class KillEvent
 	public Integer whoKill;
 	public Integer assistsNumber;
 
+	public Integer[] killers = new Integer[5];
+	public Integer dier;
 	public KillEvent()
 	{
-
+		for (int i = 0; i <5; i++)
+		{
+			this.killers[i]=0;
+		}
 	}
 }

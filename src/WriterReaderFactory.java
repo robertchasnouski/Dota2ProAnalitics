@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 public class WriterReaderFactory
 {
-	FileInfoFactory file = new FileInfoFactory();
-
 	void writeInfoFromPlayers(Player[] players)
 	{
 
@@ -198,9 +196,16 @@ public class WriterReaderFactory
 		{
 			writeToFile(Float.toString(killEvent.get(i).x), true);
 			writeToFile(Float.toString(killEvent.get(i).y), true);
-			writeToFile(Integer.toString(killEvent.get(i).whoKill), true);
 			writeToFile(Integer.toString(killEvent.get(i).second), true);
-			writeToFile(Integer.toString(killEvent.get(i).assistsNumber), false);
+			writeToFile(Integer.toString(killEvent.get(i).dier), true);
+			for (int j = 0; j < 5; j++)
+			{
+				if (j != 4)
+					writeToFile(Integer.toString(killEvent.get(i).killers[j]), true);
+				else
+					writeToFile(Integer.toString(killEvent.get(i).killers[j]), false);
+			}
+
 			if (i != killEvent.size() - 1)
 				writeToFile("**", false);
 		}
@@ -220,8 +225,7 @@ public class WriterReaderFactory
 		for (int i = 0; i < glyphEvent.size(); i++)
 		{
 			writeToFile(Integer.toString(glyphEvent.get(i).side), true);
-			writeToFile(Integer.toString(glyphEvent.get(i).second), true);
-			writeToFile(Integer.toString(glyphEvent.get(i).goldValue), false);
+			writeToFile(Integer.toString(glyphEvent.get(i).second), false);
 			if (i != glyphEvent.size() - 1)
 				writeToFile("**", false);
 		}

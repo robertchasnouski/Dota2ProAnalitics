@@ -6,7 +6,7 @@ public class Team
 	public String name;
 	public Integer rating;
 	public Integer side;
-
+	public Integer raxesRemain;
 
 	//<editor-fold desc="General Info">
 	public Integer kills;
@@ -62,11 +62,12 @@ public class Team
 	public Boolean isFirstRoshan;
 	//</editor-fold>
 	//<editor-fold desc="Expirience">
-	public Integer[] minuteXPM = new Integer[150];//TODO: TEST
+	public Integer[] minuteXPM = new Integer[150];
 	//</editor-fold>
 
 	public Team()
 	{
+		this.raxesRemain=6;
 		this.gemsDropped = 0;
 		for (int i = 0; i < this.minuteGPM.length; i++)
 		{

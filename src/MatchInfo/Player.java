@@ -31,12 +31,12 @@ public class Player
 	//</editor-fold>
 	//<editor-fold desc="Net Worth: totalGold, minuteGPM, fiveMinuteNetWorth">
 	public Integer totalGold;
-	public Integer[] minuteGPM = new Integer[150];//TODO: TEST
-	public Integer[] fiveMinuteNetWorth = new Integer[30];//TODO: TEST
+	public Integer[] minuteGPM = new Integer[150];
+	public Integer[] fiveMinuteNetWorth = new Integer[30];
 	//</editor-fold>
 	//<editor-fold desc="LastHits: minuteLastHits, perMinuteLastHits">
-	public Integer[] minuteLastHits = new Integer[150];//TODO TEST
-	public Integer[] perMinuteLastHits = new Integer[150];//TODO TEST
+	public Integer[] minuteLastHits = new Integer[150];
+	public Integer[] perMinuteLastHits = new Integer[150];
 	//</editor-fold>
 	//<editor-fold desc="Objectives">
 	public Integer towersDestroyed;
@@ -59,7 +59,7 @@ public class Player
 	public Integer gemTimeCarried;
 	//</editor-fold>
 	//<editor-fold desc="Expirience">
-	public Integer[] minuteXPM = new Integer[150];//TODO: TEST
+	public Integer[] minuteXPM = new Integer[150];
 	//</editor-fold>
 
 	public Player()

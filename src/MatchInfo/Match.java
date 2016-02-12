@@ -9,8 +9,8 @@ public class Match
 	public Boolean winRadiant;
 
 	public String date;
-	public String team1Id;//TODO implement
-	public String team2Id;//TODO implement
+	public String team1Id;
+	public String team2Id;
 	public String id;
 	public String leagueName;
 	public Integer leagueId;

@@ -374,7 +374,7 @@ public class ParserFactory
 		tempIndex = winTeam.indexOf("Victory");
 		winTeam = winTeam.substring(currentIndex + 2, tempIndex);
 		winTeam = winTeam.toLowerCase();
-		if (winTeam == "dire")
+		if (winTeam.equals("dire"))
 			match.winRadiant = false;
 		else
 			match.winRadiant = true;
@@ -731,6 +731,86 @@ public class ParserFactory
 			tempKillsArray[i] = removeTag(tempKillsArray[i], "img");
 			if (i % 2 == 0)//killEvent
 			{
+				//<editor-fold desc="Dier and killers">
+				tempString = tempKillsArray[i];
+				tempString = tempString.replaceAll("auto attack ", "");
+				String[] doubleString = tempString.split("killed");
+				if (doubleString[0].contains("The Dire") || doubleString[0].contains("The Radiant"))
+				{
+					String whoDie = substringer(doubleString[1], "title=\"", "\" data");
+					whoDie = whoDie.substring(7, whoDie.length());
+					Integer numberWhoDie = 0;
+					for (int j = 0; j < 10; j++)
+					{
+						if (player[j].hero.contains(whoDie))
+							numberWhoDie = j + 1;
+					}
+					killEvents[killsCounter].dier = numberWhoDie;
+					if (doubleString[1].contains("Assisted"))
+					{
+						doubleString[1] = doubleString[1].substring(doubleString[1].indexOf("Assisted by"), doubleString[1].length());
+						String[] assistersKills = doubleString[1].split("</a>");
+						Integer assistsCounter = 0;
+						for (int j = 0; j < assistersKills.length - 1; j++)
+						{
+							String whoAssists = substringer(assistersKills[j], "title=\"", "\" data");
+							whoAssists = whoAssists.substring(7, whoAssists.length());
+							for (int k = 0; k < 10; k++)
+							{
+								if (player[k].hero.contains(whoAssists))
+								{
+									killEvents[killsCounter].killers[assistsCounter] = k + 1;
+									assistsCounter++;
+									k = 10;
+								}
+							}
+						}
+					}
+				} else
+				{
+					String whoKill = substringer(doubleString[0], "title=\"", "\" data");
+					whoKill = whoKill.substring(7, whoKill.length());
+					Integer numberWhoKill = 0;
+					for (int j = 0; j < 10; j++)
+					{
+						if (player[j].hero.contains(whoKill))
+							numberWhoKill = j + 1;
+					}
+					killEvents[killsCounter].killers[0] = numberWhoKill;
+
+
+					String whoDie = substringer(doubleString[1], "title=\"", "\" data");
+					whoDie = whoDie.substring(7, whoDie.length());
+					Integer numberWhoDie = 0;
+					for (int j = 0; j < 10; j++)
+					{
+						if (player[j].hero.contains(whoDie))
+							numberWhoDie = j + 1;
+					}
+					killEvents[killsCounter].dier = numberWhoDie;
+					if (doubleString[1].contains("Assisted"))
+					{
+						doubleString[1] = doubleString[1].substring(doubleString[1].indexOf("Assisted by"), doubleString[1].length());
+						String[] assistersKills = doubleString[1].split("</a>");
+						Integer assistsCounter = 1;
+						for (int j = 0; j < assistersKills.length - 1; j++)
+						{
+							String whoAssists = substringer(assistersKills[j], "title=\"", "\" data");
+							whoAssists = whoAssists.substring(7, whoAssists.length());
+							Integer numberWhoAssists = 0;
+							for (int k = 0; k < 10; k++)
+							{
+								if (player[k].hero.contains(whoAssists))
+								{
+									killEvents[killsCounter].killers[assistsCounter] = k + 1;
+									assistsCounter++;
+									k = 10;
+								}
+							}
+						}
+					}
+				}
+				//</editor-fold>
 				if (!tempKillsArray[i].contains("Assisted by"))
 					killEvents[killsCounter].assistsNumber = 0;
 				else
@@ -863,7 +943,7 @@ public class ParserFactory
 			{
 				player[i].minuteGPM[j] = Integer.parseInt(tempGPMArray[j]);
 			}
-			match.universalX=tempGPMArray.length;
+			match.universalX = tempGPMArray.length;
 		}
 		for (int j = 0; j < logLine.length; j++)
 		{
@@ -1037,11 +1117,12 @@ public class ParserFactory
 		for (int i = 0; i < 5; i++)
 		{
 			int sum = 0;
-			for (int j = 0; j < 41; j++)
+			for (int j = 0; j < 150; j++)
 			{
-				sum += player[i + 5].minuteGPM[j];
-
-
+				if (player[i + 5].minuteGPM[j] == 9999)
+					break;
+				else
+					sum += player[i + 5].minuteGPM[j];
 			}
 			player[i + 5].totalGold = sum;
 		}
@@ -1867,10 +1948,10 @@ public class ParserFactory
 			tempString = tempString.substring(tempIndex, tempString.length());
 			tempString = tempString.replaceAll(" ", "");
 			tempString = tempString.replaceAll("\n", "");
-			String[] tempGPMArray = tempString.split(",");
-			for (int j = 0; j < tempGPMArray.length; j++)
+			String[] tempXPMArray = tempString.split(",");
+			for (int j = 0; j < tempXPMArray.length; j++)
 			{
-				player[i].minuteXPM[j] = Integer.parseInt(tempGPMArray[j]);
+				player[i].minuteXPM[j] = Integer.parseInt(tempXPMArray[j]);
 			}
 		}
 		for (int i = 0; i < 150; i++)
@@ -1895,10 +1976,10 @@ public class ParserFactory
 			tempString = tempString.substring(tempIndex, tempString.length());
 			tempString = tempString.replaceAll(" ", "");
 			tempString = tempString.replaceAll("\n", "");
-			String[] tempGPMArray = tempString.split(",");
-			for (int j = 0; j < tempGPMArray.length; j++)
+			String[] tempXPMArray = tempString.split(",");
+			for (int j = 0; j < tempXPMArray.length; j++)
 			{
-				player[i + 5].minuteXPM[j] = Integer.parseInt(tempGPMArray[j]);
+				player[i + 5].minuteXPM[j] = Integer.parseInt(tempXPMArray[j]);
 			}
 		}
 		for (int i = 0; i < 150; i++)
@@ -1906,7 +1987,7 @@ public class ParserFactory
 			for (int j = 0; j < 5; j++)
 			{
 				if (player[j + 5].minuteXPM[i] != 9999)
-					team[1].minuteXPM[i] += player[j + 5].minuteGPM[i];
+					team[1].minuteXPM[i] += player[j + 5].minuteXPM[i];
 			}
 		}
 		//</editor-fold>
@@ -1929,9 +2010,6 @@ public class ParserFactory
 					glyphik.side = 2;
 				else System.out.println("Glyph Identification Error.");
 
-				tempString = substringer(logLine[i],"for "," after");
-				tempString = tempString.substring(4,tempString.length());
-				glyphik.goldValue=Integer.parseInt(tempString);
 
 				glyphEventArrayList.add(glyphik);
 			}
@@ -2069,6 +2147,22 @@ public class ParserFactory
 			}
 		}
 		//buyBackEventArrayList=buyBackArrayList;
+		//</editor-fold>
+
+		//<editor-fold desc="MATCH GENERAL INFO">
+		match.team1Id = team[0].id;
+		match.team2Id = team[1].id;
+		//MatchID
+		tempString = substringer(stringMainPage, "<div class=\"header-content-title\"", "<small>");
+		tempString = removeTags(tempString);
+		tempString = tempString.replaceAll("\n", "");
+		tempString = tempString.replaceAll(" ", "");
+		tempString = tempString.replaceAll("Match", "");
+		match.id = tempString;
+		//Date
+		tempString = substringer(stringMainPage, "datetime=\"", "title");
+		tempString = tempString.substring(10, 20);
+		match.date = tempString;
 		//</editor-fold>
 	}
 
