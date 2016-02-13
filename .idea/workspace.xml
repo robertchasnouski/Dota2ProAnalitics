@@ -2,14 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f7f0e7c-0bfe-4b66-baac-6e8d83ffec96" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\team1.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\team2.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\out\production\Dota2ProAnalitics_0.0\FileInfoFactory.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\out\production\Dota2ProAnalitics_0.0\MatchFinderFactory.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\out\production\Dota2ProAnalitics_0.0\Statistics.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FileOperationsFactory.java" afterPath="$PROJECT_DIR$/src/FileOperationsFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MatchInfo/KillEvent.java" afterPath="$PROJECT_DIR$/src/MatchInfo/KillEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MatchInfo/Match.java" afterPath="$PROJECT_DIR$/src/MatchInfo/Match.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ParserFactory$League.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ParserFactory$League.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ParserFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ParserFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/StatisticsFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/StatisticsFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/MatchInfo/Team.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/MatchInfo/Team.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/UniqueInfoFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/UniqueInfoFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/Worker.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/Worker.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/WriterReaderFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/WriterReaderFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/LeaguesParsed.txt" afterPath="$PROJECT_DIR$/files/LeaguesParsed.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/Matches.txt" afterPath="$PROJECT_DIR$/files/Matches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/MatchesParsed.txt" afterPath="$PROJECT_DIR$/files/MatchesParsed.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ParserFactory.java" afterPath="$PROJECT_DIR$/src/ParserFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MatchInfo/Team.java" afterPath="$PROJECT_DIR$/src/MatchInfo/Team.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/StatisticsFactory.java" afterPath="$PROJECT_DIR$/src/StatisticsFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/TeamRatings.txt" afterPath="$PROJECT_DIR$/files/TeamRatings.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UniqueInfoFactory.java" afterPath="$PROJECT_DIR$/src/UniqueInfoFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Worker.java" afterPath="$PROJECT_DIR$/src/Worker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WriterReaderFactory.java" afterPath="$PROJECT_DIR$/src/WriterReaderFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -35,11 +46,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WriterReaderFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WriterReaderFactory.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="250" column="9" selection-start-line="250" selection-start-column="9" selection-end-line="250" selection-end-column="9" />
+              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Worker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Worker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UniqueInfoFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UniqueInfoFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,27 +78,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParserFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ParserFactory.java">
+      <file leaf-file-name="StatisticsFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/StatisticsFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="762" column="44" selection-start-line="762" selection-start-column="44" selection-end-line="762" selection-end-column="44" />
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+              <folding>
+                <element signature="method#addTeamToFileIfNotExists#0;class#StatisticsFactory#0" expanded="false" />
+                <element signature="method#updateTeamRatings#0;class#StatisticsFactory#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParserFactory.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ParserFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.3351648">
+              <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
               <folding>
                 <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
                 <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
-                <element signature="e#43528#43565#0" expanded="true" />
-                <element signature="e#50022#50066#0" expanded="true" />
-                <element signature="e#56909#56948#0" expanded="true" />
-                <element signature="e#59335#59376#0" expanded="true" />
-                <element signature="e#62178#62216#0" expanded="true" />
-                <element signature="e#72725#72759#0" expanded="true" />
+                <element signature="e#3342#3374#0" expanded="true" />
+                <element signature="e#4021#4051#0" expanded="true" />
+                <element signature="e#32910#32940#0" expanded="true" />
+                <element signature="e#33559#33598#0" expanded="true" />
+                <element signature="e#44528#44565#0" expanded="true" />
+                <element signature="e#50976#51020#0" expanded="true" />
+                <element signature="e#57863#57902#0" expanded="true" />
+                <element signature="e#60099#60286#0" expanded="true" />
+                <element signature="e#63132#63170#0" expanded="true" />
+                <element signature="e#73730#73764#0" expanded="true" />
+                <element signature="e#81223#81273#0" expanded="true" />
+                <element signature="e#84250#84279#0" expanded="true" />
+                <element signature="e#86017#86056#0" expanded="true" />
+                <element signature="method#doTests#0;class#ParserFactory#0" expanded="false" />
                 <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
                 <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
                 <element signature="method#laneChooser#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#checkIfCarry#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#checkIfSupport#0;class#ParserFactory#0" expanded="false" />
                 <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
                 <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
                 <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
                 <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#timeToMinutes#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#calculateIfMatchCanBeParsed#0;class#ParserFactory#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -77,55 +133,26 @@
         <entry file="file://$PROJECT_DIR$/src/MatchInfo/Player.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="52" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
               <folding>
                 <element signature="e#369#448#0" expanded="true" />
                 <element signature="e#776#850#0" expanded="true" />
-                <element signature="method#showPlayerStatistics#0;class#Player#0" expanded="false" />
+                <element signature="e#1001#1067#0" expanded="true" />
+                <element signature="e#1721#1754#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GlyphEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MatchInfo/GlyphEvent.java">
+      <file leaf-file-name="WriterReaderFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WriterReaderFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KillEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MatchInfo/KillEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Team.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MatchInfo/Team.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53263706">
-              <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+              <caret line="370" column="34" selection-start-line="370" selection-start-column="34" selection-end-line="370" selection-end-column="34" />
               <folding>
-                <element signature="e#1745#1778#0" expanded="true" />
-                <element signature="method#showTeamStatistics#0;class#Team#0" expanded="false" />
+                <element signature="method#writeToFile#0;class#WriterReaderFactory#0" expanded="false" />
+                <element signature="method#cleanArrayLists#0;class#WriterReaderFactory#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Worker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Worker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="40" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -167,18 +194,18 @@
         <option value="$PROJECT_DIR$/src/MatchInfo/TowerEvent.java" />
         <option value="$PROJECT_DIR$/src/Statistics.java" />
         <option value="$PROJECT_DIR$/src/MatchInfo/StatisticsFactory.java" />
-        <option value="$PROJECT_DIR$/src/StatisticsFactory.java" />
-        <option value="$PROJECT_DIR$/src/UniqueInfoFactory.java" />
         <option value="$PROJECT_DIR$/src/FileInfoFactory.java" />
-        <option value="$PROJECT_DIR$/src/MatchInfo/Player.java" />
         <option value="$PROJECT_DIR$/src/MatchInfo/GlyphEvent.java" />
         <option value="$PROJECT_DIR$/src/FileOperationsFactory.java" />
         <option value="$PROJECT_DIR$/src/MatchInfo/Match.java" />
-        <option value="$PROJECT_DIR$/src/ParserFactory.java" />
-        <option value="$PROJECT_DIR$/src/WriterReaderFactory.java" />
         <option value="$PROJECT_DIR$/src/MatchInfo/KillEvent.java" />
-        <option value="$PROJECT_DIR$/src/Worker.java" />
         <option value="$PROJECT_DIR$/src/MatchInfo/Team.java" />
+        <option value="$PROJECT_DIR$/src/MatchInfo/Player.java" />
+        <option value="$PROJECT_DIR$/src/StatisticsFactory.java" />
+        <option value="$PROJECT_DIR$/src/UniqueInfoFactory.java" />
+        <option value="$PROJECT_DIR$/src/WriterReaderFactory.java" />
+        <option value="$PROJECT_DIR$/src/Worker.java" />
+        <option value="$PROJECT_DIR$/src/ParserFactory.java" />
       </list>
     </option>
   </component>
@@ -244,8 +271,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -612,12 +639,15 @@
       <workItem from="1454951274037" duration="34461000" />
       <workItem from="1455141950534" duration="2412000" />
       <workItem from="1455206192550" duration="11233000" />
-      <workItem from="1455266025902" duration="16888000" />
+      <workItem from="1455266025902" duration="17084000" />
+      <workItem from="1455298175963" duration="13592000" />
+      <workItem from="1455354578663" duration="5708000" />
+      <workItem from="1455362961283" duration="3979000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="312427000" />
+    <option name="totallyTimeSpent" value="335902000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -630,20 +660,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.48184568" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.79425114" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29863483" sideWeight="0.115733735" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33788395" sideWeight="0.11043873" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0113464445" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29863483" sideWeight="0.88426626" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33788395" sideWeight="0.49092284" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33105803" sideWeight="0.88426626" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33788395" sideWeight="0.8895613" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21406959" sideWeight="0.49317408" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22314675" sideWeight="0.49317408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -661,17 +691,17 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.48184568" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.8033283" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.79425114" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29863483" sideWeight="0.15582451" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33788395" sideWeight="0.11043873" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0113464445" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29863483" sideWeight="0.8441755" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33788395" sideWeight="0.49092284" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29863483" sideWeight="0.88426626" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33788395" sideWeight="0.8895613" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21406959" sideWeight="0.49317408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -697,7 +727,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="60" />
+      <option name="time" value="61" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -706,24 +736,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/FileOperationsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-          <folding>
-            <element signature="method#writeToFile#0;class#FileOperationsFactory#0" expanded="false" />
-            <element signature="method#cleanAndWriteToFile#0;class#FileOperationsFactory#0" expanded="false" />
-            <element signature="method#readFile#0;class#FileOperationsFactory#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WriterReaderFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#writeToFile#0;class#WriterReaderFactory#0" expanded="false" />
+            <element signature="method#cleanArrayLists#0;class#WriterReaderFactory#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -735,19 +754,31 @@
           <folding>
             <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
-            <element signature="e#43528#43565#0" expanded="true" />
-            <element signature="e#50022#50066#0" expanded="true" />
-            <element signature="e#56909#56948#0" expanded="true" />
-            <element signature="e#59335#59376#0" expanded="true" />
-            <element signature="e#62178#62216#0" expanded="true" />
-            <element signature="e#72725#72759#0" expanded="true" />
+            <element signature="e#3342#3374#0" expanded="true" />
+            <element signature="e#4021#4051#0" expanded="true" />
+            <element signature="e#32910#32940#0" expanded="true" />
+            <element signature="e#33559#33598#0" expanded="true" />
+            <element signature="e#44528#44565#0" expanded="true" />
+            <element signature="e#50976#51020#0" expanded="true" />
+            <element signature="e#57863#57902#0" expanded="true" />
+            <element signature="e#60099#60286#0" expanded="true" />
+            <element signature="e#63132#63170#0" expanded="true" />
+            <element signature="e#73730#73764#0" expanded="true" />
+            <element signature="e#81223#81273#0" expanded="true" />
+            <element signature="e#84250#84279#0" expanded="true" />
+            <element signature="e#86017#86056#0" expanded="true" />
+            <element signature="method#doTests#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#laneChooser#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfCarry#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfSupport#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#timeToMinutes#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#calculateIfMatchCanBeParsed#0;class#ParserFactory#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -785,19 +816,31 @@
           <folding>
             <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
-            <element signature="e#43528#43565#0" expanded="true" />
-            <element signature="e#50022#50066#0" expanded="true" />
-            <element signature="e#56909#56948#0" expanded="true" />
-            <element signature="e#59335#59376#0" expanded="true" />
-            <element signature="e#62178#62216#0" expanded="true" />
-            <element signature="e#72725#72759#0" expanded="true" />
+            <element signature="e#3342#3374#0" expanded="true" />
+            <element signature="e#4021#4051#0" expanded="true" />
+            <element signature="e#32910#32940#0" expanded="true" />
+            <element signature="e#33559#33598#0" expanded="true" />
+            <element signature="e#44528#44565#0" expanded="true" />
+            <element signature="e#50976#51020#0" expanded="true" />
+            <element signature="e#57863#57902#0" expanded="true" />
+            <element signature="e#60099#60286#0" expanded="true" />
+            <element signature="e#63132#63170#0" expanded="true" />
+            <element signature="e#73730#73764#0" expanded="true" />
+            <element signature="e#81223#81273#0" expanded="true" />
+            <element signature="e#84250#84279#0" expanded="true" />
+            <element signature="e#86017#86056#0" expanded="true" />
+            <element signature="method#doTests#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#laneChooser#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfCarry#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfSupport#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#timeToMinutes#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#calculateIfMatchCanBeParsed#0;class#ParserFactory#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -838,19 +881,31 @@
           <folding>
             <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
-            <element signature="e#43528#43565#0" expanded="true" />
-            <element signature="e#50022#50066#0" expanded="true" />
-            <element signature="e#56909#56948#0" expanded="true" />
-            <element signature="e#59335#59376#0" expanded="true" />
-            <element signature="e#62178#62216#0" expanded="true" />
-            <element signature="e#72725#72759#0" expanded="true" />
+            <element signature="e#3342#3374#0" expanded="true" />
+            <element signature="e#4021#4051#0" expanded="true" />
+            <element signature="e#32910#32940#0" expanded="true" />
+            <element signature="e#33559#33598#0" expanded="true" />
+            <element signature="e#44528#44565#0" expanded="true" />
+            <element signature="e#50976#51020#0" expanded="true" />
+            <element signature="e#57863#57902#0" expanded="true" />
+            <element signature="e#60099#60286#0" expanded="true" />
+            <element signature="e#63132#63170#0" expanded="true" />
+            <element signature="e#73730#73764#0" expanded="true" />
+            <element signature="e#81223#81273#0" expanded="true" />
+            <element signature="e#84250#84279#0" expanded="true" />
+            <element signature="e#86017#86056#0" expanded="true" />
+            <element signature="method#doTests#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#laneChooser#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfCarry#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfSupport#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#timeToMinutes#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#calculateIfMatchCanBeParsed#0;class#ParserFactory#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -891,19 +946,31 @@
           <folding>
             <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
-            <element signature="e#43528#43565#0" expanded="true" />
-            <element signature="e#50022#50066#0" expanded="true" />
-            <element signature="e#56909#56948#0" expanded="true" />
-            <element signature="e#59335#59376#0" expanded="true" />
-            <element signature="e#62178#62216#0" expanded="true" />
-            <element signature="e#72725#72759#0" expanded="true" />
+            <element signature="e#3342#3374#0" expanded="true" />
+            <element signature="e#4021#4051#0" expanded="true" />
+            <element signature="e#32910#32940#0" expanded="true" />
+            <element signature="e#33559#33598#0" expanded="true" />
+            <element signature="e#44528#44565#0" expanded="true" />
+            <element signature="e#50976#51020#0" expanded="true" />
+            <element signature="e#57863#57902#0" expanded="true" />
+            <element signature="e#60099#60286#0" expanded="true" />
+            <element signature="e#63132#63170#0" expanded="true" />
+            <element signature="e#73730#73764#0" expanded="true" />
+            <element signature="e#81223#81273#0" expanded="true" />
+            <element signature="e#84250#84279#0" expanded="true" />
+            <element signature="e#86017#86056#0" expanded="true" />
+            <element signature="method#doTests#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#laneChooser#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfCarry#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfSupport#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#timeToMinutes#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#calculateIfMatchCanBeParsed#0;class#ParserFactory#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -944,19 +1011,31 @@
           <folding>
             <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
-            <element signature="e#43528#43565#0" expanded="true" />
-            <element signature="e#50022#50066#0" expanded="true" />
-            <element signature="e#56909#56948#0" expanded="true" />
-            <element signature="e#59335#59376#0" expanded="true" />
-            <element signature="e#62178#62216#0" expanded="true" />
-            <element signature="e#72725#72759#0" expanded="true" />
+            <element signature="e#3342#3374#0" expanded="true" />
+            <element signature="e#4021#4051#0" expanded="true" />
+            <element signature="e#32910#32940#0" expanded="true" />
+            <element signature="e#33559#33598#0" expanded="true" />
+            <element signature="e#44528#44565#0" expanded="true" />
+            <element signature="e#50976#51020#0" expanded="true" />
+            <element signature="e#57863#57902#0" expanded="true" />
+            <element signature="e#60099#60286#0" expanded="true" />
+            <element signature="e#63132#63170#0" expanded="true" />
+            <element signature="e#73730#73764#0" expanded="true" />
+            <element signature="e#81223#81273#0" expanded="true" />
+            <element signature="e#84250#84279#0" expanded="true" />
+            <element signature="e#86017#86056#0" expanded="true" />
+            <element signature="method#doTests#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#laneChooser#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfCarry#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfSupport#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#timeToMinutes#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#calculateIfMatchCanBeParsed#0;class#ParserFactory#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -997,19 +1076,31 @@
           <folding>
             <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
-            <element signature="e#43528#43565#0" expanded="true" />
-            <element signature="e#50022#50066#0" expanded="true" />
-            <element signature="e#56909#56948#0" expanded="true" />
-            <element signature="e#59335#59376#0" expanded="true" />
-            <element signature="e#62178#62216#0" expanded="true" />
-            <element signature="e#72725#72759#0" expanded="true" />
+            <element signature="e#3342#3374#0" expanded="true" />
+            <element signature="e#4021#4051#0" expanded="true" />
+            <element signature="e#32910#32940#0" expanded="true" />
+            <element signature="e#33559#33598#0" expanded="true" />
+            <element signature="e#44528#44565#0" expanded="true" />
+            <element signature="e#50976#51020#0" expanded="true" />
+            <element signature="e#57863#57902#0" expanded="true" />
+            <element signature="e#60099#60286#0" expanded="true" />
+            <element signature="e#63132#63170#0" expanded="true" />
+            <element signature="e#73730#73764#0" expanded="true" />
+            <element signature="e#81223#81273#0" expanded="true" />
+            <element signature="e#84250#84279#0" expanded="true" />
+            <element signature="e#86017#86056#0" expanded="true" />
+            <element signature="method#doTests#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#laneChooser#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfCarry#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfSupport#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#timeToMinutes#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#calculateIfMatchCanBeParsed#0;class#ParserFactory#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1075,7 +1166,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1083,7 +1173,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1091,7 +1180,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="29" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1107,37 +1195,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UniqueInfoFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="27" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MatchInfo/TowerEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StatisticsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1151,56 +1212,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MatchInfo/KillEvent.java">
+    <entry file="file://$PROJECT_DIR$/src/MatchInfo/Team.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WriterReaderFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="250" column="9" selection-start-line="250" selection-start-column="9" selection-end-line="250" selection-end-column="9" />
+          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ParserFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="762" column="44" selection-start-line="762" selection-start-column="44" selection-end-line="762" selection-end-column="44" />
-          <folding>
-            <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
-            <element signature="e#43528#43565#0" expanded="true" />
-            <element signature="e#50022#50066#0" expanded="true" />
-            <element signature="e#56909#56948#0" expanded="true" />
-            <element signature="e#59335#59376#0" expanded="true" />
-            <element signature="e#62178#62216#0" expanded="true" />
-            <element signature="e#72725#72759#0" expanded="true" />
-            <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#laneChooser#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MatchInfo/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="52" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
-          <folding>
-            <element signature="e#369#448#0" expanded="true" />
-            <element signature="e#776#850#0" expanded="true" />
-            <element signature="method#showPlayerStatistics#0;class#Player#0" expanded="false" />
+            <element signature="method#showTeamStatistics#0;class#Team#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1213,21 +1230,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Worker.java">
+    <entry file="file://$PROJECT_DIR$/src/MatchInfo/KillEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33512545">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MatchInfo/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="40" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="e#369#448#0" expanded="true" />
+            <element signature="e#776#850#0" expanded="true" />
+            <element signature="e#1001#1067#0" expanded="true" />
+            <element signature="e#1721#1754#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MatchInfo/Team.java">
+    <entry file="file://$PROJECT_DIR$/src/UniqueInfoFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53263706">
-          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
-            <element signature="e#1745#1778#0" expanded="true" />
-            <element signature="method#showTeamStatistics#0;class#Team#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StatisticsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="method#addTeamToFileIfNotExists#0;class#StatisticsFactory#0" expanded="false" />
+            <element signature="method#updateTeamRatings#0;class#StatisticsFactory#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WriterReaderFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="370" column="34" selection-start-line="370" selection-start-column="34" selection-end-line="370" selection-end-column="34" />
+          <folding>
+            <element signature="method#writeToFile#0;class#WriterReaderFactory#0" expanded="false" />
+            <element signature="method#cleanArrayLists#0;class#WriterReaderFactory#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Worker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ParserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3351648">
+          <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+          <folding>
+            <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
+            <element signature="e#3342#3374#0" expanded="true" />
+            <element signature="e#4021#4051#0" expanded="true" />
+            <element signature="e#32910#32940#0" expanded="true" />
+            <element signature="e#33559#33598#0" expanded="true" />
+            <element signature="e#44528#44565#0" expanded="true" />
+            <element signature="e#50976#51020#0" expanded="true" />
+            <element signature="e#57863#57902#0" expanded="true" />
+            <element signature="e#60099#60286#0" expanded="true" />
+            <element signature="e#63132#63170#0" expanded="true" />
+            <element signature="e#73730#73764#0" expanded="true" />
+            <element signature="e#81223#81273#0" expanded="true" />
+            <element signature="e#84250#84279#0" expanded="true" />
+            <element signature="e#86017#86056#0" expanded="true" />
+            <element signature="method#doTests#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#laneChooser#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfCarry#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfSupport#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#timeToMinutes#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#calculateIfMatchCanBeParsed#0;class#ParserFactory#0" expanded="false" />
           </folding>
         </state>
       </provider>

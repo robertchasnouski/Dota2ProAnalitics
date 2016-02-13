@@ -8,6 +8,7 @@ public class UniqueInfoFactory
 {
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 
+
 	Boolean checkIfIdAlreadyParsed(String id) throws IOException
 	{
 		String matchIdList = fileOperationsFactory.readFile("files/MatchesParsed.txt");

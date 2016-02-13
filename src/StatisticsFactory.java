@@ -14,6 +14,22 @@ public class StatisticsFactory
 		}
 	}
 
+	public Integer getRatingById(String id,String teamName) throws IOException
+	{
+		String fileString = fileOperationsFactory.readFile("files/TeamRatings.txt");
+		String []lineByLine=fileString.split("\n");
+		for (int i = 0; i < lineByLine.length; i++)
+		{
+			if(lineByLine[i].contains(id))
+			{
+				String []separator=lineByLine[i].split(";");
+				return Integer.parseInt(separator[2]);
+			}
+		}
+		addTeamToFileIfNotExists(teamName,id);
+		return 1000;
+	}
+
 	public void updateTeamRatings(String teamWinId, String teamLostId, Integer increment, Integer decrement) throws IOException
 	{
 		String fileString = fileOperationsFactory.readFile("files/TeamRatings.txt");

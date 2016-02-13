@@ -10,6 +10,7 @@ import java.net.SocketTimeoutException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 
@@ -27,9 +28,16 @@ public class ParserFactory
 	Integer radiantRoaming = 0;
 	UniqueInfoFactory uniqueInfoFactory = new UniqueInfoFactory();
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
+	StatisticsFactory statisticsFactory = new StatisticsFactory();
+	public int parseCounter=0;
 
 	public Document parse_html(String html) throws IOException, InterruptedException
 	{
+		if(parseCounter==100)
+		{
+			Thread.sleep(30000);
+			parseCounter=0;
+		}
 		Document doc = new Document("");
 		int numtries = 10;
 		while (numtries-- != 0)
@@ -40,19 +48,23 @@ public class ParserFactory
 						.userAgent("Mozilla/5.0 (Windows NT 6.0) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.46 Safari/536.5")
 						.get();
 				break;
-			} catch (HttpStatusException e)
+			}
+			catch (HttpStatusException e)
 			{
 				System.out.println("HttpStatusException." + html + ". Trying to repeat...");
 
 				Thread.sleep(10000);
 				continue;
-			} catch (SocketTimeoutException e)
+			}
+			catch (SocketTimeoutException e)
 			{
 				System.out.println("SocketTimeoutException. Trying to repeat...");
 				Thread.sleep(10000);
 				continue;
 			}
 		}
+		parseCounter++;
+		Thread.sleep(500);
 		return doc;
 	}
 
@@ -99,7 +111,6 @@ public class ParserFactory
 		/*********DOCUMENTS,PAGE STRINGS**********/
 		//<editor-fold desc="DOCUMENTS">
 		Document docMainPage = parse_html("http://www.dotabuff.com/matches/" + id);
-		Document docBuildsPage = parse_html("http://www.dotabuff.com/matches/" + id + "/builds");
 		Document docKillsPage = parse_html("http://www.dotabuff.com/matches/" + id + "/kills");
 		Document docFarmPage = parse_html("http://www.dotabuff.com/matches/" + id + "/farm");
 		Document docObjectivesPage = parse_html("http://www.dotabuff.com/matches/" + id + "/objectives");
@@ -110,7 +121,6 @@ public class ParserFactory
 
 		//<editor-fold desc="STRINGS">
 		String stringMainPage = docMainPage.toString();
-		String stringBuildsPage = docBuildsPage.toString();
 		String stringKillsPage = docKillsPage.toString();
 		String stringFarmPage = docFarmPage.toString();
 		String stringObjectivesPage = docObjectivesPage.toString();
@@ -418,7 +428,7 @@ public class ParserFactory
 		}
 		//</editor-fold>
 
-		//<editor-fold desc="GENERAL INFO:    MatchInfo.Player: Hero,Side,K D A,totalGold,HH,HD,LH,DN,Item[6];">
+		//<editor-fold desc="GENERAL INFO:    MatchInfo.Player: Hero,Side,K D A,totalGold,HH,HD,LH,DN,Item[6],Level;">
 		//<editor-fold desc="RADIANT GENERAL INFO">
 		/**RADIANT**/
 		tempString = substringer(mainPageRadiantTotalLine, "<td class=\"r-tab r-group-2 cell-centered\">", "</td>");
@@ -429,6 +439,10 @@ public class ParserFactory
 
 		for (int i = 0; i < mainPageRadiantHeroLine.length - 1; i++)
 		{
+			/**Level**/
+			tempString = substringer(mainPageRadiantHeroLine[i], "<td class=\"r-tab r-group-1 cell-centered", "</td>");
+			tempString = removeTags(tempString);
+			player[i].level = Integer.parseInt(tempString);
 			/**HeroName**/
 			tempString = substringer(mainPageRadiantHeroLine[i], "<a href=\"/heroes", "</a>");
 			tempString = substringer(tempString, "title=", "data");
@@ -488,13 +502,23 @@ public class ParserFactory
 
 			tempString = tempString.replaceAll("<td class=\"r-tab r-group-4\">", "");
 			String[] heroRadiantItems = tempString.split("</div>");
-			for (int j = 0; j < heroRadiantItems.length; j++)
+			int howMuchItems = 0;
+			if (heroRadiantItems.length > 6)
+				howMuchItems = 6;
+			else
+				howMuchItems = heroRadiantItems.length;
+			for (int j = 0; j < howMuchItems; j++)
 			{
-				heroRadiantItems[j] = substringer(heroRadiantItems[j], "title=\"", "data");
-				heroRadiantItems[j] = heroRadiantItems[j].replaceAll("title=", "");
-				heroRadiantItems[j] = heroRadiantItems[j].replaceAll("\"", "");
-				heroRadiantItems[j] = heroRadiantItems[j].substring(0, heroRadiantItems[j].length() - 1);
-				player[i].item[j] = heroRadiantItems[j];
+				if (heroRadiantItems[j].contains("title"))
+				{
+					heroRadiantItems[j] = substringer(heroRadiantItems[j], "title=\"", "data");
+					heroRadiantItems[j] = heroRadiantItems[j].replaceAll("title=", "");
+					heroRadiantItems[j] = heroRadiantItems[j].replaceAll("\"", "");
+					heroRadiantItems[j] = heroRadiantItems[j].substring(0, heroRadiantItems[j].length() - 1);
+					player[i].item[j] = heroRadiantItems[j];
+				} else
+					player[i].item[j] = "nottoparse";
+
 			}
 		}
 		//</editor-fold>
@@ -506,6 +530,10 @@ public class ParserFactory
 		tempString = tempString.replaceAll("\\.", "");
 		for (int i = 0; i < mainPageDireHeroLine.length - 1; i++)
 		{
+			//Level
+			tempString = substringer(mainPageDireHeroLine[i], "<td class=\"r-tab r-group-1 cell-centered", "</td>");
+			tempString = removeTags(tempString);
+			player[i + 5].level = Integer.parseInt(tempString);
 			//HeroName
 			tempString = substringer(mainPageDireHeroLine[i], "<a href=\"/heroes", "</a>");
 			tempString = substringer(tempString, "title=", "data");
@@ -558,7 +586,12 @@ public class ParserFactory
 
 			tempString = tempString.replaceAll("<td class=\"r-tab r-group-4\">", "");
 			String[] heroDireItems = tempString.split("</div>");
-			for (int j = 0; j < heroDireItems.length; j++)
+			int howMuchItems = 0;
+			if (heroDireItems.length > 6)
+				howMuchItems = 6;
+			else
+				howMuchItems = heroDireItems.length;
+			for (int j = 0; j < howMuchItems; j++)
 			{
 				if (j >= 6)
 					break;
@@ -722,6 +755,8 @@ public class ParserFactory
 
 		for (int i = 1; i < tempKillsArray.length - 2; i++)
 		{
+			if (tempKillsArray[i].contains("suicide"))
+				continue;
 			//	tempKillsArray [1..length-2]
 			String killTime;
 			Float xKill;
@@ -777,7 +812,6 @@ public class ParserFactory
 							numberWhoKill = j + 1;
 					}
 					killEvents[killsCounter].killers[0] = numberWhoKill;
-
 
 					String whoDie = substringer(doubleString[1], "title=\"", "\" data");
 					whoDie = whoDie.substring(7, whoDie.length());
@@ -870,7 +904,10 @@ public class ParserFactory
 
 		}
 		for (int i = 0; i < killEvents.length; i++)
-			killEventArrayList.add(killEvents[i]);
+		{
+			if (killEvents[i].second != null)
+				killEventArrayList.add(killEvents[i]);
+		}
 		//</editor-fold>
 
 		//<editor-fold desc="WARDMAP">
@@ -1182,8 +1219,7 @@ public class ParserFactory
 		tempString = tempString.replaceAll("Region", "");
 		tempString = tempString.replaceAll("\n", "");
 		tempString = tempString.replaceAll(" ", "");
-		tempString = tempString.substring(0, 2);
-		match.matchTime = Integer.parseInt(tempString);
+		match.matchTime = timeToMinutes(tempString);
 
 		int tempKillsDireCounter = 0;
 		int tempKillsRadiantCounter = 0;
@@ -1572,6 +1608,8 @@ public class ParserFactory
 		tempString = substringer(objectivesPageDireTotalLine, "<td class=\"r-tab r-group-2 cell-centered", "</td>");
 		tempString = removeTags(tempString);
 		tempString = tempString.replaceAll(",", "");
+		if (tempString.equals("-"))
+			tempString = "0";
 		team[1].towerDamage = Integer.parseInt(tempString);
 		//RoshanKills
 		currentIndex = objectivesPageDireTotalLine.lastIndexOf("<td class=\"r-tab r-group-1 cell-centered");
@@ -2163,6 +2201,24 @@ public class ParserFactory
 		tempString = substringer(stringMainPage, "datetime=\"", "title");
 		tempString = tempString.substring(10, 20);
 		match.date = tempString;
+		//</editor-fold>sy
+
+		//<editor-fold desc="TEAM RATINGS">
+		team[0].rating = statisticsFactory.getRatingById(team[0].id, team[0].name);
+		team[1].rating = statisticsFactory.getRatingById(team[1].id, team[1].name);
+		//</editor-fold>
+
+		//<editor-fold desc="RAXES COUNT">
+		for (int i = 0; i < logLine.length; i++)
+		{
+			if (logLine[i].contains("Barracks"))
+			{
+				if (logLine[i].contains("the-dire object"))
+					team[0].raxesRemain--;
+				else
+					team[1].raxesRemain--;
+			}
+		}
 		//</editor-fold>
 	}
 
@@ -2178,8 +2234,6 @@ public class ParserFactory
 		teams[0].showTeamStatistics();
 		System.out.println("--------------------------------------------------------------");
 		teams[1].showTeamStatistics();
-
-
 	}
 
 	ArrayList<String> parseMatches(String[] leagueLinks) throws IOException, InterruptedException, ParseException
@@ -2216,7 +2270,11 @@ public class ParserFactory
 				{
 					tempString = substringer(matchInLeague[j], "<a href=\"/matches/", "</a>");
 					tempString = removeTags(tempString);
-					matchesToParse.add(tempString);
+					String timeChecker = substringer(matchInLeague[j], "<time", "title");
+					timeChecker = timeChecker.substring(16, 32);
+					timeChecker = timeChecker.replaceAll("T", " ");
+					if (calculateIfMatchCanBeParsed(timeChecker))
+						matchesToParse.add(tempString);
 				}
 			}
 		}
@@ -2522,8 +2580,69 @@ public class ParserFactory
 
 	Integer mapTimeToSeconds(String time)
 	{
-		String[] tempMapTimeArray = time.split(":");
-		return Integer.parseInt(tempMapTimeArray[0]) * 60 + Integer.parseInt(tempMapTimeArray[1]);
+		if (time.contains("-"))
+		{
+			if (time.length() == 6)
+			{
+				time = time.replaceAll("-", "");
+				String[] tempMapTimeArray = time.split(":");
+				return Integer.parseInt(tempMapTimeArray[0]) * 60 + Integer.parseInt(tempMapTimeArray[1]) * (-1);
+			} else
+			{
+				time = time.replaceAll("-", "");
+				String[] tempMapTimeArray = time.split(":");
+				return Integer.parseInt(tempMapTimeArray[0]) * 3600 + Integer.parseInt(tempMapTimeArray[1]) * 60 + Integer.parseInt(tempMapTimeArray[2]) * (-1);
+			}
+		} else
+		{
+			if (time.length() == 5)
+			{
+				String[] tempMapTimeArray = time.split(":");
+				return Integer.parseInt(tempMapTimeArray[0]) * 60 + Integer.parseInt(tempMapTimeArray[1]);
+			} else
+			{
+				String[] tempMapTimeArray = time.split(":");
+				return Integer.parseInt(tempMapTimeArray[0]) * 3600 + Integer.parseInt(tempMapTimeArray[1]) * 60 + Integer.parseInt(tempMapTimeArray[2]);
+			}
+		}
+	}
+
+	Integer timeToMinutes(String time)
+	{
+		if (time.length() == 5)
+		{
+			String[] tempMapTimeArray = time.split(":");
+			return Integer.parseInt(tempMapTimeArray[0]);
+
+		} else
+		{
+			String[] tempMapTimeArray = time.split(":");
+			return Integer.parseInt(tempMapTimeArray[0]) * 60 + Integer.parseInt(tempMapTimeArray[1]);
+
+		}
+
+	}
+
+	Boolean calculateIfMatchCanBeParsed(String time)
+	{
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+		Date d1 = null;
+		Date d2 = null;
+		try
+		{
+			d1 = Calendar.getInstance().getTime();
+			d2 = format.parse(time);
+		} catch (ParseException e)
+		{
+			e.printStackTrace();
+		}
+		long diff = d1.getTime() - d2.getTime();
+		long hours = TimeUnit.MILLISECONDS.toHours(diff);
+		if (hours >= 4)
+			return true;
+		else
+			return false;
 	}
 }
 
