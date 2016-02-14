@@ -37,4 +37,12 @@ public class Match
 		this.winRadiant = false;
 	}
 
+	public void matchZeros()
+	{
+		this.firstBloodRadiant = false;
+		this.firstRoshanRadiant = false;
+		this.first10KillsRadiant = false;
+		this.winRadiant = false;
+	}
+
 }

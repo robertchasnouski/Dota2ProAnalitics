@@ -42,7 +42,9 @@ public class Worker
 
 		//TODO: Phase 1: Make full updatable and workable parse system
 		//TODO: End of 1 phase
-
+		//TODO: Write ZeroFactories
+		//TODO: If Roshan =0
+		//TODO: Make constructors and zeros more informative
 		//TODO: Phase 2: Prototype analizing
 		//TODO: Phase 3: Advanced analizing
 
@@ -60,6 +62,7 @@ public class Worker
 				writerReaderFactory.writeMatchTestInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 				fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/MatchesParsed.txt");
 				writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
+				writerReaderFactory.makeZeros(team,player,match);
 			}
 		}
 
