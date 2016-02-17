@@ -9,14 +9,14 @@ import java.util.Scanner;
 public class Worker
 {
 	ParserFactory parserHelper = new ParserFactory();
-	AnalizingFactory analizingFactory = new AnalizingFactory();
 	UniqueInfoFactory uniqueInfoFactory = new UniqueInfoFactory();
 	StatisticsFactory statisticsFactory = new StatisticsFactory();
 	WriterReaderFactory writerReaderFactory = new WriterReaderFactory();
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
+	MainAnaliticsFactory mainAnaliticsFactory=new MainAnaliticsFactory();
+
 	SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy");
 	Scanner scanner = new Scanner(System.in);
-
 	void start_work() throws IOException, InterruptedException, ParseException
 	{
 		ArrayList<KillEvent> killEventArrayList = new ArrayList<KillEvent>();
@@ -41,10 +41,6 @@ public class Worker
 		ArrayList<String> matchesToParse = parserHelper.parseMatches(leagueLinks);
 
 		//TODO: Phase 1: Make full updatable and workable parse system
-		//TODO: End of 1 phase
-		//TODO: Write ZeroFactories
-		//TODO: If Roshan =0
-		//TODO: Make constructors and zeros more informative
 		//TODO: Phase 2: Prototype analizing
 		//TODO: Phase 3: Advanced analizing
 
@@ -53,19 +49,21 @@ public class Worker
 			2. players=10
 			3.
 		 */
-
+		//parserHelper.parseMatchById("2147302916", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		//writerReaderFactory.writeMatchTestInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 		for (int i = 0; i < matchesToParse.size(); i++)
 		{
 			if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))
 			{
 				parserHelper.parseMatchById(matchesToParse.get(i), team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-				writerReaderFactory.writeMatchTestInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
+				writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 				fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/MatchesParsed.txt");
 				writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 				writerReaderFactory.makeZeros(team,player,match);
 			}
 		}
 
+		mainAnaliticsFactory.startWork();
 	}
 }
 

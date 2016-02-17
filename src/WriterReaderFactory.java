@@ -37,7 +37,8 @@ public class WriterReaderFactory
 			System.out.println("F10KTime error");
 		writeToFile("FRTIme:" + Integer.toString(match.FRoshanTime), false);
 		if (match.FRoshanTime > match.matchTime * 60 || match.FRoshanTime < -90)
-			System.out.println("FRTime error");
+			if (match.FRoshanTime != 9999)
+				System.out.println("FRTime error");
 		writeToFile("##", false);
 		//Team
 		writeToFile("TEAMS INFO:", false);
@@ -59,19 +60,19 @@ public class WriterReaderFactory
 			if (teams[i].partisipation < 0 || teams[i].partisipation > 100)
 				System.out.println("Partisipation error");
 			writeToFile("HH:" + Integer.toString(teams[i].heroHeal), true);
-			if (teams[i].heroHeal < 0 || teams[i].heroHeal > 100000)
+			if (teams[i].heroHeal < 0 || teams[i].heroHeal > 300000)
 				System.out.println("HeroHeal error");
 			writeToFile("HD:" + Integer.toString(teams[i].heroDamage), true);
-			if (teams[i].heroDamage < 0 || teams[i].heroDamage > 100000)
+			if (teams[i].heroDamage < 0 || teams[i].heroDamage > 300000)
 				System.out.println("HeroDamage error");
 			writeToFile("TD:" + Integer.toString(teams[i].towerDamage), true);
-			if (teams[i].towerDamage < 0 || teams[i].towerDamage > 100000)
+			if (teams[i].towerDamage < 0 || teams[i].towerDamage > 300000)
 				System.out.println("TowerDamage error");
 			writeToFile("totalGPM:" + Integer.toString(teams[i].totalGPM), true);
-			if (teams[i].totalGPM < 50 || teams[i].totalGPM > 10000)
+			if (teams[i].totalGPM < -5000 || teams[i].totalGPM > 20000)
 				System.out.println("TotalGPM error");
 			writeToFile("totalXPM:" + Integer.toString(teams[i].totalXPM), true);
-			if (teams[i].totalXPM < 0 || teams[i].totalXPM > 10000)
+			if (teams[i].totalXPM < 0 || teams[i].totalXPM > 20000)
 				System.out.println("TotalXPM error");
 			writeToFile("totalLH:" + Integer.toString(teams[i].totalLH), true);
 			if (teams[i].totalLH < 0 || teams[i].totalLH > 15000)
@@ -89,16 +90,16 @@ public class WriterReaderFactory
 			if (teams[i].roshanKills < 0 || teams[i].roshanKills > 10)
 				System.out.println("RoshanKills error");
 			writeToFile("GfK:" + Integer.toString(teams[i].goldForKills), true);
-			if (teams[i].goldForKills < 0 || teams[i].goldForKills > 100000)
+			if (teams[i].goldForKills < 0 || teams[i].goldForKills > 150000)
 				System.out.println("GoldForKills error");
 			writeToFile("GF:" + Integer.toString(teams[i].goldFed), true);
-			if (teams[i].goldFed < 0 || teams[i].goldFed > 100000)
+			if (teams[i].goldFed < 0 || teams[i].goldFed > 150000)
 				System.out.println("GoldFed error");
 			writeToFile("GL:" + Integer.toString(teams[i].goldLost), true);
-			if (teams[i].goldLost < 0 || teams[i].goldLost > 100000)
+			if (teams[i].goldLost < 0 || teams[i].goldLost > 150000)
 				System.out.println("GoldLost error");
 			writeToFile("totalGold:" + Integer.toString(teams[i].totalGold), true);
-			if (teams[i].totalGold < 0 || teams[i].totalGold > 100000)
+			if (teams[i].totalGold < 0 || teams[i].totalGold > 300000)
 				System.out.println("TotalGold error");
 			writeToFile("OWP:" + Integer.toString(teams[i].observerWardsPlaced), true);
 			if (teams[i].observerWardsPlaced < 0 || teams[i].observerWardsPlaced > 50)
@@ -142,7 +143,7 @@ public class WriterReaderFactory
 					writeToFile(Integer.toString(teams[i].minuteGPM[j]), true);
 				else
 					writeToFile(Integer.toString(teams[i].minuteGPM[j]), false);
-				if (teams[i].minuteGPM[j] < -2000 || teams[i].minuteGPM[j] > 10000)
+				if (teams[i].minuteGPM[j] < -20000 || teams[i].minuteGPM[j] > 20000)
 					System.out.println("minuteGPM error");
 			}
 			//XPM
@@ -154,7 +155,7 @@ public class WriterReaderFactory
 					writeToFile(Integer.toString(teams[i].minuteXPM[j]), true);
 				else
 					writeToFile(Integer.toString(teams[i].minuteXPM[j]), false);
-				if (teams[i].minuteXPM[j] < 0 || teams[i].minuteXPM[j] > 10000)
+				if (teams[i].minuteXPM[j] < 0 || teams[i].minuteXPM[j] > 20000)
 					System.out.println("minuteXPM error");
 			}
 			//LH
@@ -309,9 +310,17 @@ public class WriterReaderFactory
 		for (int i = 0; i < killEvent.size(); i++)
 		{
 			writeToFile("X:" + Float.toString(killEvent.get(i).x), true);
+			if (killEvent.get(i).x < 0 || killEvent.get(i).x > 100)
+				System.out.println("KillEvents X error");
 			writeToFile("Y:" + Float.toString(killEvent.get(i).y), true);
+			if (killEvent.get(i).y < 0 || killEvent.get(i).y > 100)
+				System.out.println("KillEvents Y error");
 			writeToFile("Second:" + Integer.toString(killEvent.get(i).second), true);
+			if (killEvent.get(i).second < -90 || killEvent.get(i).second > match.matchTime * 60 + 60)
+				System.out.println("KillEvents Second error");
 			writeToFile("Dier:" + Integer.toString(killEvent.get(i).dier), true);
+			if (killEvent.get(i).dier < 0 || killEvent.get(i).dier > 10)
+				System.out.println("KillEvents Dier error");
 			writeToFile("Killers:", false);
 			for (int j = 0; j < 5; j++)
 			{
@@ -319,6 +328,8 @@ public class WriterReaderFactory
 					writeToFile(Integer.toString(killEvent.get(i).killers[j]), true);
 				else
 					writeToFile(Integer.toString(killEvent.get(i).killers[j]), false);
+				if (killEvent.get(i).killers[j] < 0 || killEvent.get(i).killers[j] > 10)
+					System.out.println("KillEvents Dier error");
 			}
 
 			if (i != killEvent.size() - 1)
@@ -331,9 +342,17 @@ public class WriterReaderFactory
 		for (int i = 0; i < wardEvent.size(); i++)
 		{
 			writeToFile("X:" + Float.toString(wardEvent.get(i).x), true);
+			if (wardEvent.get(i).x < 0 || wardEvent.get(i).x > 100)
+				System.out.println("WardEvent X error");
 			writeToFile("Y:" + Float.toString(wardEvent.get(i).y), true);
+			if (wardEvent.get(i).y < 0 || wardEvent.get(i).y > 100)
+				System.out.println("WardEvent Y error");
 			writeToFile("Second:" + Integer.toString(wardEvent.get(i).second), true);
+			if (wardEvent.get(i).second < -90 || wardEvent.get(i).second > match.matchTime * 60 + 60)
+				System.out.println("WardEvent second error");
 			writeToFile("LifeTime:" + Integer.toString(wardEvent.get(i).lifeTime), false);
+			if (wardEvent.get(i).lifeTime < 0 || wardEvent.get(i).lifeTime > 420)
+				System.out.println("WardEvent LifeTime error");
 			if (i != wardEvent.size() - 1)
 				writeToFile("**", false);
 		}
@@ -344,7 +363,11 @@ public class WriterReaderFactory
 		for (int i = 0; i < glyphEvent.size(); i++)
 		{
 			writeToFile("Side:" + Integer.toString(glyphEvent.get(i).side), true);
+			if (glyphEvent.get(i).side < 1 || glyphEvent.get(i).side > 2)
+				System.out.println("GlyphEvent Side error");
 			writeToFile("Second:" + Integer.toString(glyphEvent.get(i).second), false);
+			if (glyphEvent.get(i).second < -90 || glyphEvent.get(i).second > match.matchTime*60+60)
+				System.out.println("GlyphEvent Second error");
 			if (i != glyphEvent.size() - 1)
 				writeToFile("**", false);
 		}
@@ -356,7 +379,11 @@ public class WriterReaderFactory
 		{
 			writeToFile("Who:" + buyBackEvent.get(i).whoBoughtBack, true);
 			writeToFile("Second:" + Integer.toString(buyBackEvent.get(i).second), true);
+			if (buyBackEvent.get(i).second <-90 || buyBackEvent.get(i).second > match.matchTime*60+60)
+				System.out.println("BuyBackEvent Second error");
 			writeToFile("GoldCost:" + Integer.toString(buyBackEvent.get(i).goldCost), false);
+			if (buyBackEvent.get(i).goldCost < 0 || buyBackEvent.get(i).goldCost > 4000)
+				System.out.println("BuyBackEvent goldCost error");
 			if (i != buyBackEvent.size() - 1)
 				writeToFile("**", false);
 		}
@@ -368,10 +395,15 @@ public class WriterReaderFactory
 		{
 			writeToFile("WhoDestroy:" + towerEvent.get(i).whoDestroy, true);
 			writeToFile("Second:" + Integer.toString(towerEvent.get(i).second), true);
+			if (towerEvent.get(i).second < -90 || towerEvent.get(i).second > match.matchTime*60+60)
+				System.out.println("TowerEvent second error");
 			writeToFile("TierLevel:" + Integer.toString(towerEvent.get(i).tierLevel), false);
+			if (towerEvent.get(i).tierLevel < 1 || towerEvent.get(i).tierLevel > 4)
+				System.out.println("TowerEvent tierLevel error");
 			if (i != towerEvent.size() - 1)
 				writeToFile("**", false);
 		}
+
 		writeToFile("\n", false);
 	}
 
@@ -507,7 +539,7 @@ public class WriterReaderFactory
 					writeToFile(Integer.toString(teams[i].minuteGPM[j]), true);
 				else
 					writeToFile(Integer.toString(teams[i].minuteGPM[j]), false);
-				if (teams[i].minuteGPM[j] < -2000 || teams[i].minuteGPM[j] > 10000)
+				if (teams[i].minuteGPM[j] < -20000 || teams[i].minuteGPM[j] > 20000)
 					System.out.println("minuteGPM error");
 			}
 			//XPM
@@ -519,7 +551,7 @@ public class WriterReaderFactory
 					writeToFile(Integer.toString(teams[i].minuteXPM[j]), true);
 				else
 					writeToFile(Integer.toString(teams[i].minuteXPM[j]), false);
-				if (teams[i].minuteXPM[j] < 0 || teams[i].minuteXPM[j] > 10000)
+				if (teams[i].minuteXPM[j] < 0 || teams[i].minuteXPM[j] > 20000)
 					System.out.println("minuteXPM error");
 			}
 			//LH
@@ -737,18 +769,19 @@ public class WriterReaderFactory
 		writeToFile("\n", false);
 	}
 
-	void makeZeros(Team [] teams,Player[] players,Match match)
+	void makeZeros(Team[] teams, Player[] players, Match match)
 	{
-		for (int i = 0; i <teams.length ; i++)
+		for (int i = 0; i < teams.length; i++)
 		{
 			teams[i].teamZeros();
 		}
-		for (int i = 0; i <players.length ; i++)
+		for (int i = 0; i < players.length; i++)
 		{
 			players[i].playerZeros();
 		}
 		match.matchZeros();
 	}
+
 	void writeToFile(String whatToWrite, Boolean giveSeparator)
 	{
 		try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("files/Matches.txt", true))))
@@ -771,6 +804,7 @@ public class WriterReaderFactory
 		glyphEvent.clear();
 		buyBackEvent.clear();
 	}
+
 
 	public WriterReaderFactory()
 	{
