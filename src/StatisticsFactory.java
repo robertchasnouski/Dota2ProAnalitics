@@ -14,19 +14,19 @@ public class StatisticsFactory
 		}
 	}
 
-	public Integer getRatingById(String id,String teamName) throws IOException
+	public Integer getRatingById(String id, String teamName) throws IOException
 	{
 		String fileString = fileOperationsFactory.readFile("files/TeamRatings.txt");
-		String []lineByLine=fileString.split("\n");
+		String[] lineByLine = fileString.split("\n");
 		for (int i = 0; i < lineByLine.length; i++)
 		{
-			if(lineByLine[i].contains(id))
+			if (lineByLine[i].contains(id))
 			{
-				String []separator=lineByLine[i].split(";");
+				String[] separator = lineByLine[i].split(";");
 				return Integer.parseInt(separator[2]);
 			}
 		}
-		addTeamToFileIfNotExists(teamName,id);
+		addTeamToFileIfNotExists(teamName, id);
 		return 1000;
 	}
 

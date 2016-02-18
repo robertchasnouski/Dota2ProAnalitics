@@ -230,7 +230,7 @@ public class WriterReaderFactory
 			writeToFile("GL:" + Integer.toString(players[i].goldLost), true);
 			if (players[i].goldLost < 0 || players[i].goldLost > 100000)
 				System.out.println("GoldLost error");
-			writeToFile("KDA:" + Integer.toString(players[i].totalGold), true);
+			writeToFile("TotalGold:" + Integer.toString(players[i].totalGold), true);
 			if (players[i].totalGold < 0 || players[i].totalGold > 100000)
 				System.out.println("TotalGold error");
 			writeToFile("OWP:" + Integer.toString(players[i].observerWardsPlaced), true);
@@ -366,7 +366,7 @@ public class WriterReaderFactory
 			if (glyphEvent.get(i).side < 1 || glyphEvent.get(i).side > 2)
 				System.out.println("GlyphEvent Side error");
 			writeToFile("Second:" + Integer.toString(glyphEvent.get(i).second), false);
-			if (glyphEvent.get(i).second < -90 || glyphEvent.get(i).second > match.matchTime*60+60)
+			if (glyphEvent.get(i).second < -90 || glyphEvent.get(i).second > match.matchTime * 60 + 60)
 				System.out.println("GlyphEvent Second error");
 			if (i != glyphEvent.size() - 1)
 				writeToFile("**", false);
@@ -379,7 +379,7 @@ public class WriterReaderFactory
 		{
 			writeToFile("Who:" + buyBackEvent.get(i).whoBoughtBack, true);
 			writeToFile("Second:" + Integer.toString(buyBackEvent.get(i).second), true);
-			if (buyBackEvent.get(i).second <-90 || buyBackEvent.get(i).second > match.matchTime*60+60)
+			if (buyBackEvent.get(i).second < -90 || buyBackEvent.get(i).second > match.matchTime * 60 + 60)
 				System.out.println("BuyBackEvent Second error");
 			writeToFile("GoldCost:" + Integer.toString(buyBackEvent.get(i).goldCost), false);
 			if (buyBackEvent.get(i).goldCost < 0 || buyBackEvent.get(i).goldCost > 4000)
@@ -395,7 +395,7 @@ public class WriterReaderFactory
 		{
 			writeToFile("WhoDestroy:" + towerEvent.get(i).whoDestroy, true);
 			writeToFile("Second:" + Integer.toString(towerEvent.get(i).second), true);
-			if (towerEvent.get(i).second < -90 || towerEvent.get(i).second > match.matchTime*60+60)
+			if (towerEvent.get(i).second < -90 || towerEvent.get(i).second > match.matchTime * 60 + 60)
 				System.out.println("TowerEvent second error");
 			writeToFile("TierLevel:" + Integer.toString(towerEvent.get(i).tierLevel), false);
 			if (towerEvent.get(i).tierLevel < 1 || towerEvent.get(i).tierLevel > 4)

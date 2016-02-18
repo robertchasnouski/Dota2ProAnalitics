@@ -8,7 +8,7 @@ public class MainAnaliticsFactory
 {
 	AverageAnaliticsFactory averageAnaliticsFactory = new AverageAnaliticsFactory();
 	PrimaryAnaliticsFactory primaryAnaliticsFactory = new PrimaryAnaliticsFactory();
-
+	FileControlFactory fileControlFactory = new FileControlFactory();
 
 	public void startWork() throws IOException
 	{
@@ -29,11 +29,12 @@ public class MainAnaliticsFactory
 		{
 			team[i] = new Team();
 		}
-		//fileControlFactory.createTeamFileIfNotExists("4");
-		//TODO:
 
-		primaryAnaliticsFactory.analizeMatches();
-
+		//primaryAnaliticsFactory.analizeMatches();
+		String matchesFile = fileControlFactory.readFile("files/Matches.txt");
+		String[] matches = matchesFile.split("\n");
+		//TODO: Here need to parse team1ID and team2ID and createFilesIfNotExists
+		primaryAnaliticsFactory.analizeMatch(matches[6]);
 
 		//TODO:
 	}

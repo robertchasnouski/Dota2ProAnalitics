@@ -67,4 +67,14 @@ public class Match
 		this.matchTime = 9999;
 	}
 
+	public void showMatchInfo()
+	{
+		System.out.println("Match ID:" + this.id + "; Date:" + this.date + "; Team1Id:" + this.team1Id + "; Team2Id:" +this.team2Id+".");
+		System.out.println("WinRadiant:" + this.winRadiant + "; FBRadiant:" + this.firstBloodRadiant + "; F10KRadiant:" + this.first10KillsRadiant + ".");
+		System.out.println("LeagueName:" + this.leagueName + "; LeagueID:"+this.leagueId+ ".");
+		System.out.println("FirstRoshanRadiant:" + this.firstRoshanRadiant+".");
+		System.out.println("FBTime:" + this.FBTime + "; F10KTime:" + this.F10KTime + "; FRTime:" + this.FRoshanTime+ ".");
+
+	}
+
 }
