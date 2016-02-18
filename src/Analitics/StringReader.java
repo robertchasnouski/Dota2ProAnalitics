@@ -259,20 +259,79 @@ public class StringReader
 			{
 				player[i].perMinuteLastHits[j] = Integer.parseInt(LHInfoOnePlayer[j + 1]);
 			}
-
 		}
 		//</editor-fold>
-		System.out.println("Match Info:");
-		match.showMatchInfo();
-		System.out.println("Team1 Info:");
-		team[0].showTeamStatistics();
-		System.out.println("Team2 Info:");
-		team[1].showTeamStatistics();
-		for (int i = 0; i < 10; i++)
+
+		//<editor-fold desc="KillEvents">
+		String[] oneKillEvent = killEventsInfo.split("\\*\\*");
+		for (int i = 0; i < Integer.parseInt(oneKillEvent[0]); i++)
 		{
-			System.out.println("Player Info:");
-			player[i].showPlayerStatistics();
+			KillEvent killik = new KillEvent();
+			String[] oneKillEventInfo = oneKillEvent[i + 1].split(";");
+			killik.x = Float.parseFloat(oneKillEventInfo[0]);
+			killik.y = Float.parseFloat(oneKillEventInfo[1]);
+			killik.second = Integer.parseInt(oneKillEventInfo[2]);
+			killik.dier = Integer.parseInt(oneKillEventInfo[3]);
+			killik.killers[0] = Integer.parseInt(oneKillEventInfo[4]);
+			killik.killers[1] = Integer.parseInt(oneKillEventInfo[5]);
+			killik.killers[2] = Integer.parseInt(oneKillEventInfo[6]);
+			killik.killers[3] = Integer.parseInt(oneKillEventInfo[7]);
+			killik.killers[4] = Integer.parseInt(oneKillEventInfo[8]);
+			killEventArrayList.add(killik);
 		}
+		//</editor-fold>
+
+		//<editor-fold desc="BuyBackEvents">
+		String[] oneBuyBackEvent = buyBackEventsInfo.split("\\*\\*");
+		for (int i = 0; i < Integer.parseInt(oneBuyBackEvent[0]); i++)
+		{
+			BuyBackEvent buybackik = new BuyBackEvent();
+			String[] oneBuyBackInfo = oneBuyBackEvent[i + 1].split(";");
+			buybackik.whoBoughtBack = oneBuyBackInfo[0];
+			buybackik.second = Integer.parseInt(oneBuyBackInfo[1]);
+			buybackik.goldCost = Integer.parseInt(oneBuyBackInfo[2]);
+			buyBackEventArrayList.add(buybackik);
+		}
+		//</editor-fold>
+
+		//<editor-fold desc="GlyphEvents">
+		String[] oneGlyphEvent = glyphEventsInfo.split("\\*\\*");
+		for (int i = 0; i < Integer.parseInt(oneGlyphEvent[0]); i++)
+		{
+			GlyphEvent glyphik = new GlyphEvent();
+			String[] oneGlyphInfo = oneGlyphEvent[i + 1].split(";");
+			glyphik.side = Integer.parseInt(oneGlyphInfo[0]);
+			glyphik.second = Integer.parseInt(oneGlyphInfo[1]);
+			glyphEventArrayList.add(glyphik);
+		}
+		//</editor-fold>
+
+		//<editor-fold desc="TowerEvents">
+		String[] oneTowerEvent = towerEventsInfo.split("\\*\\*");
+		for (int i = 0; i < Integer.parseInt(oneTowerEvent[0]); i++)
+		{
+			TowerEvent towerik = new TowerEvent();
+			String[] oneTowerInfo = oneTowerEvent[i + 1].split(";");
+			towerik.whoDestroy = oneTowerInfo[0];
+			towerik.second = Integer.parseInt(oneTowerInfo[1]);
+			towerik.tierLevel = Integer.parseInt(oneTowerInfo[2]);
+			towerEventArrayList.add(towerik);
+		}
+		//</editor-fold>
+
+		//<editor-fold desc="WardEvents">
+		String[] oneWardEvent = wardEventsInfo.split("\\*\\*");
+		for (int i = 0; i < Integer.parseInt(oneWardEvent[0]); i++)
+		{
+			WardEvent wardik = new WardEvent();
+			String[] oneWardInfo = oneWardEvent[i + 1].split(";");
+			wardik.x = Float.parseFloat(oneWardInfo[0]);
+			wardik.y = Float.parseFloat(oneWardInfo[1]);
+			wardik.second = Integer.parseInt(oneWardInfo[2]);
+			wardik.lifeTime = Integer.parseInt(oneWardInfo[3]);
+			wardEventArrayList.add(wardik);
+		}
+		//</editor-fold>
 
 	}
 }
