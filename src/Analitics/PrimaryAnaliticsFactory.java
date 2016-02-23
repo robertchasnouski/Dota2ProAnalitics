@@ -15,11 +15,10 @@ public class PrimaryAnaliticsFactory
 	{
 		String[] tempSeparator1 = stringFromFile.split(";");
 		String matchId = tempSeparator1[0];
-		fileControlFactory.createTeamFileIfNotExists(matchId);
 		//TODO: Writing match that it analized before succesful analysis(Must be after)
 		if (!fileControlFactory.checkIfIdAlreadyParsed(matchId))
 			fileControlFactory.writeToFile(matchId, "files/MatchesAnalized.txt");
-
+		else return;
 		String matchString = stringReader.getMatchInfo(stringFromFile);
 		String teamsString = stringReader.getTeamsInfo(stringFromFile);
 		String playersString = stringReader.getPlayersInfo(stringFromFile);
@@ -29,14 +28,15 @@ public class PrimaryAnaliticsFactory
 		String buyBackEventString = stringReader.getBuyBackEvents(stringFromFile);
 		String towerEventString = stringReader.getTowerEvents(stringFromFile);
 		/**TeamID's**/
-		String[] teamString = teamsString.split("||");
+		String[] teamString = teamsString.split("\\|\\|");
 		String[] tempSeparator2 = teamString[0].split(";");
 		String[] tempSeparator3 = teamString[1].split(";");
 		String team1Id = tempSeparator2[0];
 		String team2Id = tempSeparator3[0];
+		/**Create team file if not exists**/
 		fileControlFactory.createTeamFileIfNotExists(team1Id);
 		fileControlFactory.createTeamFileIfNotExists(team2Id);
-		/****/
+		/**Filling arrays**/
 		ArrayList<KillEvent> killEventArrayList = new ArrayList<KillEvent>();
 		ArrayList<BuyBackEvent> buyBackEventArrayList = new ArrayList<BuyBackEvent>();
 		ArrayList<GlyphEvent> glyphEventArrayList = new ArrayList<GlyphEvent>();
@@ -45,7 +45,6 @@ public class PrimaryAnaliticsFactory
 		Match match = new Match();
 		Player[] player = new Player[10];
 		Team[] team = new Team[2];
-
 		for (int i = 0; i < 10; i++)
 		{
 			player[i] = new Player();
@@ -55,6 +54,17 @@ public class PrimaryAnaliticsFactory
 			team[i] = new Team();
 		}
 		stringReader.fillArraysFromFile(stringFromFile, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		/**Start analizing**/
 
+	}
+
+	public Integer analizeAggression()
+	{
+		return 1;
+	}
+
+	public Integer analizeDefence()
+	{
+		return 1;
 	}
 }

@@ -2,15 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f7f0e7c-0bfe-4b66-baac-6e8d83ffec96" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Analitics/EPPAnaliticsFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Analitics/HeatMapAnaliticsFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jheatchart_0.xml" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\1.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2154270247.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2155027337.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2156951456.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\4.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\8.txt" afterPath="" />
       <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\team1.txt" afterPath="" />
       <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\team2.txt" afterPath="" />
       <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\out\production\Dota2ProAnalitics_0.0\AnalizingFactory.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\out\production\Dota2ProAnalitics_0.0\FileInfoFactory.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\out\production\Dota2ProAnalitics_0.0\MatchFinderFactory.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\out\production\Dota2ProAnalitics_0.0\Statistics.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/Analitics/AverageAnaliticsFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/Analitics/AverageAnaliticsFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/MainAnaliticsFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/MainAnaliticsFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/Analitics/PrimaryAnaliticsFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/Analitics/PrimaryAnaliticsFactory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/Analitics/StringReader.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/Analitics/StringReader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/Worker.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/Worker.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/WriterReaderFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/WriterReaderFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Analitics/AverageAnaliticsFactory.java" afterPath="$PROJECT_DIR$/src/Analitics/AverageAnaliticsFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dota2ProAnalitics_0.0.iml" afterPath="$PROJECT_DIR$/Dota2ProAnalitics_0.0.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/LeaguesParsed.txt" afterPath="$PROJECT_DIR$/files/LeaguesParsed.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainAnaliticsFactory.java" afterPath="$PROJECT_DIR$/src/MainAnaliticsFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/Matches.txt" afterPath="$PROJECT_DIR$/files/Matches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/MatchesAnalized.txt" afterPath="$PROJECT_DIR$/files/MatchesAnalized.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/MatchesParsed.txt" afterPath="$PROJECT_DIR$/files/MatchesParsed.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Analitics/PrimaryAnaliticsFactory.java" afterPath="$PROJECT_DIR$/src/Analitics/PrimaryAnaliticsFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Analitics/StringReader.java" afterPath="$PROJECT_DIR$/src/Analitics/StringReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/TeamRatings.txt" afterPath="$PROJECT_DIR$/files/TeamRatings.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Worker.java" afterPath="$PROJECT_DIR$/src/Worker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WriterReaderFactory.java" afterPath="$PROJECT_DIR$/src/WriterReaderFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Dota2ProAnalitics_0.0.iws" />
@@ -34,11 +58,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="StringReader.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Worker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Worker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WriterReaderFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WriterReaderFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="406" column="5" selection-start-line="406" selection-start-column="5" selection-end-line="406" selection-end-column="5" />
+              <folding>
+                <element signature="method#writeMatchInfoToFile#0;class#WriterReaderFactory#0" expanded="false" />
+                <element signature="method#makeZeros#0;class#WriterReaderFactory#0" expanded="false" />
+                <element signature="method#writeToFile#0;class#WriterReaderFactory#0" expanded="false" />
+                <element signature="method#cleanArrayLists#0;class#WriterReaderFactory#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EPPAnaliticsFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Analitics/EPPAnaliticsFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AverageAnaliticsFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Analitics/AverageAnaliticsFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StringReader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Analitics/StringReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6775148">
-              <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="62" column="74" selection-start-line="62" selection-start-column="74" selection-end-line="62" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getMatchInfo#0;class#StringReader#0" expanded="false" />
@@ -55,16 +126,87 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WriterReaderFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WriterReaderFactory.java">
+      <file leaf-file-name="MainAnaliticsFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MainAnaliticsFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="232" column="34" selection-start-line="232" selection-start-column="34" selection-end-line="232" selection-end-column="34" />
+              <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrimaryAnaliticsFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Analitics/PrimaryAnaliticsFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
-                <element signature="method#writeMatchInfoToFile#0;class#WriterReaderFactory#0" expanded="false" />
-                <element signature="method#makeZeros#0;class#WriterReaderFactory#0" expanded="false" />
-                <element signature="method#writeToFile#0;class#WriterReaderFactory#0" expanded="false" />
-                <element signature="method#cleanArrayLists#0;class#WriterReaderFactory#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#analizeMatch#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeatMapAnaliticsFactory.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Analitics/HeatMapAnaliticsFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.797491">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#joinVertical#0;class#HeatMapAnaliticsFactory#0" expanded="false" />
+                <element signature="e#1528#1539#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileControlFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Analitics/FileControlFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+              <folding>
+                <element signature="method#createTeamFileIfNotExists#0;class#FileControlFactory#0" expanded="false" />
+                <element signature="method#readFile#0;class#FileControlFactory#0" expanded="false" />
+                <element signature="method#checkIfIdAlreadyParsed#0;class#FileControlFactory#0" expanded="false" />
+                <element signature="method#writeToFile#0;class#FileControlFactory#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParserFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ParserFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="106" column="0" selection-start-line="105" selection-start-column="27" selection-end-line="106" selection-end-column="0" />
+              <folding>
+                <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#parseMatchById#0;class#ParserFactory#0" expanded="false" />
+                <element signature="e#27203#27230#0" expanded="true" />
+                <element signature="e#29311#29352#0" expanded="true" />
+                <element signature="e#34154#34193#0" expanded="true" />
+                <element signature="e#45123#45160#0" expanded="true" />
+                <element signature="e#51571#51615#0" expanded="true" />
+                <element signature="e#58458#58497#0" expanded="true" />
+                <element signature="e#74384#74418#0" expanded="true" />
+                <element signature="e#84904#84933#0" expanded="true" />
+                <element signature="method#doTests#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#laneChooser#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#checkIfCarry#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#checkIfSupport#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#timeToMinutes#0;class#ParserFactory#0" expanded="false" />
+                <element signature="method#calculateIfMatchCanBeParsed#0;class#ParserFactory#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -115,15 +257,19 @@
         <option value="$PROJECT_DIR$/src/MatchInfo/Player.java" />
         <option value="$PROJECT_DIR$/src/ParserFactory.java" />
         <option value="$PROJECT_DIR$/src/Analitics/MainAnaliticsFactory.java" />
-        <option value="$PROJECT_DIR$/src/Worker.java" />
-        <option value="$PROJECT_DIR$/src/WriterReaderFactory.java" />
         <option value="$PROJECT_DIR$/src/MatchInfo/Match.java" />
         <option value="$PROJECT_DIR$/src/MatchInfo/Team.java" />
-        <option value="$PROJECT_DIR$/src/Analitics/PrimaryAnaliticsFactory.java" />
-        <option value="$PROJECT_DIR$/src/MainAnaliticsFactory.java" />
         <option value="$PROJECT_DIR$/src/Analitics/FileControlFactory.java" />
         <option value="$PROJECT_DIR$/src/StatisticsFactory.java" />
+        <option value="$PROJECT_DIR$/src/Analitics/EPPAnaliticsFactory.java" />
+        <option value="$PROJECT_DIR$/src/WriterReaderFactory.java" />
+        <option value="$PROJECT_DIR$/src/MainAnaliticsFactory.java" />
+        <option value="$PROJECT_DIR$/src/Analitics/HeatMap.java" />
+        <option value="$PROJECT_DIR$/src/Analitics/PrimaryAnaliticsFactory.java" />
         <option value="$PROJECT_DIR$/src/Analitics/StringReader.java" />
+        <option value="$PROJECT_DIR$/src/Analitics/HeatMapAnaliticsFactory.java" />
+        <option value="$PROJECT_DIR$/src/Worker.java" />
+        <option value="$PROJECT_DIR$/src/Analitics/AverageAnaliticsFactory.java" />
       </list>
     </option>
   </component>
@@ -189,8 +335,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -261,15 +406,16 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/jheatchart-0.6" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="dynamic.classpath" value="false" />
@@ -582,12 +728,15 @@
       <workItem from="1455466598846" duration="6214000" />
       <workItem from="1455547610159" duration="596000" />
       <workItem from="1455612212453" duration="39515000" />
-      <workItem from="1455810463614" duration="7277000" />
+      <workItem from="1455810463614" duration="15575000" />
+      <workItem from="1455877978090" duration="3500000" />
+      <workItem from="1455896731264" duration="10615000" />
+      <workItem from="1455993858406" duration="208000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="393602000" />
+    <option name="totallyTimeSpent" value="416223000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -600,18 +749,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.48184568" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.7806354" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.47881997" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37542662" sideWeight="0.14220877" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3566553" sideWeight="0.11043873" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0113464445" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.8630862" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37542662" sideWeight="0.85779124" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.85779124" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22314675" sideWeight="0.49317408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -619,13 +766,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17473525" sideWeight="0.5068259" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.4969743" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.7760968" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3566553" sideWeight="0.8895613" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.49394855" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.49092284" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.4969743" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -676,56 +825,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ParserFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#parse_html#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#parseMatchById#0;class#ParserFactory#0" expanded="false" />
-            <element signature="e#27203#27230#0" expanded="true" />
-            <element signature="e#29311#29352#0" expanded="true" />
-            <element signature="e#34154#34193#0" expanded="true" />
-            <element signature="e#45123#45160#0" expanded="true" />
-            <element signature="e#51571#51615#0" expanded="true" />
-            <element signature="e#58458#58497#0" expanded="true" />
-            <element signature="e#74384#74418#0" expanded="true" />
-            <element signature="e#84904#84933#0" expanded="true" />
-            <element signature="method#doTests#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#laneChooser#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#checkIfCarry#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#checkIfSupport#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#timeToMinutes#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#calculateIfMatchCanBeParsed#0;class#ParserFactory#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dota2ProAnalitics_0.0.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ParametersDocumentation.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -745,7 +844,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="53" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -756,7 +855,6 @@
           <caret line="211" column="68" selection-start-line="211" selection-start-column="68" selection-end-line="211" selection-end-column="68" />
           <folding>
             <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#parse_html#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#parseMatchById#0;class#ParserFactory#0" expanded="false" />
             <element signature="e#27203#27230#0" expanded="true" />
@@ -809,7 +907,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="53" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -820,7 +918,6 @@
           <caret line="211" column="68" selection-start-line="211" selection-start-column="68" selection-end-line="211" selection-end-column="68" />
           <folding>
             <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#parse_html#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#parseMatchById#0;class#ParserFactory#0" expanded="false" />
             <element signature="e#27203#27230#0" expanded="true" />
@@ -873,7 +970,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -884,7 +981,6 @@
           <caret line="211" column="68" selection-start-line="211" selection-start-column="68" selection-end-line="211" selection-end-column="68" />
           <folding>
             <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#parse_html#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#parseMatchById#0;class#ParserFactory#0" expanded="false" />
             <element signature="e#27203#27230#0" expanded="true" />
@@ -937,7 +1033,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="53" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -948,7 +1044,6 @@
           <caret line="183" column="32" selection-start-line="183" selection-start-column="32" selection-end-line="183" selection-end-column="32" />
           <folding>
             <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#parse_html#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#parseMatchById#0;class#ParserFactory#0" expanded="false" />
             <element signature="e#27203#27230#0" expanded="true" />
@@ -1001,7 +1096,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1084,17 +1179,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MatchInfo/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35342467">
-          <caret line="173" column="4" selection-start-line="173" selection-start-column="4" selection-end-line="189" selection-end-column="5" />
-          <folding>
-            <element signature="method#Player#0;class#Player#0" expanded="false" />
-            <element signature="method#playerZeros#0;class#Player#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MatchInfo/Match.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6328767">
@@ -1105,21 +1189,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Analitics/AverageAnaliticsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UniqueInfoFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="method#checkIfLeagueParsed#0;class#UniqueInfoFactory#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1135,13 +1208,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MatchInfo/BuyBackEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MatchInfo/KillEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MatchInfo/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="81" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="81" />
+          <folding>
+            <element signature="method#Player#0;class#Player#0" expanded="false" />
+            <element signature="method#playerZeros#0;class#Player#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ParserFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="106" column="0" selection-start-line="105" selection-start-column="27" selection-end-line="106" selection-end-column="0" />
           <folding>
             <element signature="class#League#0;class#ParserFactory#0" expanded="false" />
-            <element signature="method#parse_html#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
             <element signature="method#parseMatchById#0;class#ParserFactory#0" expanded="false" />
             <element signature="e#27203#27230#0" expanded="true" />
@@ -1171,33 +1280,15 @@
     <entry file="file://$PROJECT_DIR$/src/MainAnaliticsFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="54" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+          <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/awt/Graphics2D.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MatchInfo/BuyBackEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Worker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3323782">
+          <caret line="580" column="25" selection-start-line="580" selection-start-column="25" selection-end-line="580" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1205,51 +1296,39 @@
     <entry file="file://$PROJECT_DIR$/src/Analitics/FileControlFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-          <folding />
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="method#createTeamFileIfNotExists#0;class#FileControlFactory#0" expanded="false" />
+            <element signature="method#readFile#0;class#FileControlFactory#0" expanded="false" />
+            <element signature="method#checkIfIdAlreadyParsed#0;class#FileControlFactory#0" expanded="false" />
+            <element signature="method#writeToFile#0;class#FileControlFactory#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Analitics/PrimaryAnaliticsFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1688#1699#0" expanded="true" />
-            <element signature="e#1766#1780#0" expanded="true" />
-            <element signature="e#1843#1855#0" expanded="true" />
-            <element signature="e#1918#1930#0" expanded="true" />
-            <element signature="e#1991#2002#0" expanded="true" />
+            <element signature="method#analizeMatch#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MatchInfo/KillEvent.java">
+    <entry file="file://$PROJECT_DIR$/src/Worker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WriterReaderFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="232" column="34" selection-start-line="232" selection-start-column="34" selection-end-line="232" selection-end-column="34" />
-          <folding>
-            <element signature="method#writeMatchInfoToFile#0;class#WriterReaderFactory#0" expanded="false" />
-            <element signature="method#makeZeros#0;class#WriterReaderFactory#0" expanded="false" />
-            <element signature="method#writeToFile#0;class#WriterReaderFactory#0" expanded="false" />
-            <element signature="method#cleanArrayLists#0;class#WriterReaderFactory#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Analitics/StringReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6775148">
-          <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="74" selection-start-line="62" selection-start-column="74" selection-end-line="62" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getMatchInfo#0;class#StringReader#0" expanded="false" />
@@ -1261,6 +1340,49 @@
             <element signature="method#getBuyBackEvents#0;class#StringReader#0" expanded="false" />
             <element signature="method#getTowerEvents#0;class#StringReader#0" expanded="false" />
             <element signature="method#fillArraysFromFile#0;class#StringReader#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Analitics/AverageAnaliticsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WriterReaderFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="406" column="5" selection-start-line="406" selection-start-column="5" selection-end-line="406" selection-end-column="5" />
+          <folding>
+            <element signature="method#writeMatchInfoToFile#0;class#WriterReaderFactory#0" expanded="false" />
+            <element signature="method#makeZeros#0;class#WriterReaderFactory#0" expanded="false" />
+            <element signature="method#writeToFile#0;class#WriterReaderFactory#0" expanded="false" />
+            <element signature="method#cleanArrayLists#0;class#WriterReaderFactory#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Analitics/EPPAnaliticsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Analitics/HeatMapAnaliticsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.797491">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#joinVertical#0;class#HeatMapAnaliticsFactory#0" expanded="false" />
+            <element signature="e#1528#1539#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1330,7 +1452,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>lib</last-edited>
+          <last-edited>jheatchart-0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

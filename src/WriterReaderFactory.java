@@ -403,7 +403,6 @@ public class WriterReaderFactory
 			if (i != towerEvent.size() - 1)
 				writeToFile("**", false);
 		}
-
 		writeToFile("\n", false);
 	}
 
@@ -804,7 +803,6 @@ public class WriterReaderFactory
 		glyphEvent.clear();
 		buyBackEvent.clear();
 	}
-
 
 	public WriterReaderFactory()
 	{

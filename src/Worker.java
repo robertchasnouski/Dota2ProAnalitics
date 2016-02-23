@@ -1,5 +1,6 @@
 import MatchInfo.*;
 
+import java.awt.*;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -42,13 +43,9 @@ public class Worker
 
 		//TODO: Phase 1: Make full updatable and workable parse system
 		//TODO: Phase 2: Prototype analizing
+		//TODO: FB HeatMap
 		//TODO: Phase 3: Advanced analizing
 
-		/*
-			1. Items not null.
-			2. players=10
-			3.
-		 */
 		//parserHelper.parseMatchById("2147302916", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//writerReaderFactory.writeMatchTestInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 		for (int i = 0; i < matchesToParse.size(); i++)
@@ -64,6 +61,7 @@ public class Worker
 		}
 
 		mainAnaliticsFactory.startWork();
+
 	}
 }
 

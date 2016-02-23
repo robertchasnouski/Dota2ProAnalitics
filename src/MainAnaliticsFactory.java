@@ -9,6 +9,7 @@ public class MainAnaliticsFactory
 	AverageAnaliticsFactory averageAnaliticsFactory = new AverageAnaliticsFactory();
 	PrimaryAnaliticsFactory primaryAnaliticsFactory = new PrimaryAnaliticsFactory();
 	FileControlFactory fileControlFactory = new FileControlFactory();
+	HeatMapAnaliticsFactory heatMapAnaliticsFactory = new HeatMapAnaliticsFactory();
 
 	public void startWork() throws IOException
 	{
@@ -30,12 +31,15 @@ public class MainAnaliticsFactory
 			team[i] = new Team();
 		}
 
-		//primaryAnaliticsFactory.analizeMatches();
+		/**PrimaryAnaliticsFactory**/
 		String matchesFile = fileControlFactory.readFile("files/Matches.txt");
 		String[] matches = matchesFile.split("\n");
-		//TODO: Here need to parse team1ID and team2ID and createFilesIfNotExists
-		primaryAnaliticsFactory.analizeMatch(matches[6]);
-
-		//TODO:
+		for (int i = 0; i < 5/**matches.length**/; i++)
+		{
+			primaryAnaliticsFactory.analizeMatch(matches[i]);
+		}
+		/**AverageAnaliticsFactory**/
+		averageAnaliticsFactory.startAverageAnalitics(matchesFile);
+		heatMapAnaliticsFactory.buildHeatMap("5");
 	}
 }

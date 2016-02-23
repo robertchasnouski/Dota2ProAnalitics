@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public class StringReader
 {
+	FileControlFactory fileControlFactory = new FileControlFactory();
+
 	//Give me String and we will return smthg
 	public String getMatchInfo(String match)
 	{
@@ -54,6 +56,30 @@ public class StringReader
 	{
 		String[] tempString = match.split("##");
 		return tempString[7];
+	}
+
+	public String getTeamMatches(String id) throws IOException
+	{
+		String allMatches = fileControlFactory.readFile("files/Matches.txt");
+		String[] oneMatch = allMatches.split("\n");
+		String teamMatches = "";
+		Integer counter = 0;
+		for (int i = 0; i < oneMatch.length; i++)
+		{
+			String teamInfo = getTeamsInfo(oneMatch[i]);
+			String[] oneTeamInfo = teamInfo.split("\\|\\|");
+			String[] firstTeamSplitter = oneTeamInfo[0].split(";");
+			String[] secondTeamSplitter = oneTeamInfo[1].split(";");
+			if (firstTeamSplitter[0].equals(id) || secondTeamSplitter[0].equals(id))
+			{
+				if (counter != 0)
+					teamMatches += "\n";
+				teamMatches += oneMatch[i];
+				counter++;
+			}
+		}
+		System.out.println(teamMatches);
+		return teamMatches;
 	}
 
 	public void fillArraysFromFile(String matchString, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList)
