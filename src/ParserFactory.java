@@ -102,14 +102,12 @@ public class ParserFactory
 		return leagueLink;
 	}
 
-
 	Boolean parseMatchById(String id, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException, InterruptedException
 	{
 		System.out.println("Parsing match with ID:" + id + ".");
 		Document docMainPage = parse_html("http://www.dotabuff.com/matches/" + id);
 		String stringMainPage = docMainPage.toString();
-		//Which matches i must not to parse.
-		if (1 == 0)
+		if (stringMainPage.contains("This match is marked as insignificant"))
 			return false;
 
 		/*********DOCUMENTS,PAGE STRINGS**********/
@@ -370,7 +368,13 @@ public class ParserFactory
 
 		//<editor-fold desc="MATCH GENERAL INFO">
 		tempString = substringer(stringMainPage, "<a class=\"esports-link\"", "</a>");
-		match.leagueName = removeTags(tempString);
+		String leagueNameName=removeTags(tempString);
+		leagueNameName=leagueNameName.replaceAll(";","");
+		leagueNameName=leagueNameName.replaceAll("\\*","");
+		leagueNameName=leagueNameName.replaceAll("*","");
+		leagueNameName=leagueNameName.replaceAll("#","");
+		leagueNameName=leagueNameName.replaceAll("\\#","");
+		match.leagueName = leagueNameName;
 		tempString = substringer(tempString, "/leagues/", "\">");
 		match.leagueId = Integer.parseInt(tempString.substring(9, tempString.length()));
 		//</editor-fold>
@@ -398,6 +402,8 @@ public class ParserFactory
 		String teamName;
 		String teamId;
 		tempString = substringer(stringMainPage, "<section class=\"radiant\"", "</header>");
+		if(!tempString.contains("esports/teams/"))
+			return false;
 		teamId = substringer(tempString, "esports/teams/", "\">");
 		teamName = substringer(tempString, "title=", " class");
 		teamId = teamId.replaceAll("esports/teams/", "");
@@ -407,6 +413,8 @@ public class ParserFactory
 		team[0].name = teamName;
 		//DireTeamName
 		tempString = substringer(stringMainPage, "<section class=\"dire\"", "</header>");
+		if(!tempString.contains("esports/teams/"))
+			return false;
 		teamId = substringer(tempString, "esports/teams/", "\">");
 		teamName = substringer(tempString, "title=", " class");
 		teamId = teamId.replaceAll("esports/teams/", "");
@@ -598,11 +606,14 @@ public class ParserFactory
 			{
 				if (j >= 6)
 					break;
-				heroDireItems[j] = substringer(heroDireItems[j], "title=\"", "data");
-				heroDireItems[j] = heroDireItems[j].replaceAll("title=", "");
-				heroDireItems[j] = heroDireItems[j].replaceAll("\"", "");
-				heroDireItems[j] = heroDireItems[j].substring(0, heroDireItems[j].length() - 1);
-				player[i + 5].item[j] = heroDireItems[j];
+				if (heroDireItems[j].contains("title="))
+				{
+					heroDireItems[j] = substringer(heroDireItems[j], "title=\"", "data");
+					heroDireItems[j] = heroDireItems[j].replaceAll("title=", "");
+					heroDireItems[j] = heroDireItems[j].replaceAll("\"", "");
+					heroDireItems[j] = heroDireItems[j].substring(0, heroDireItems[j].length() - 1);
+					player[i + 5].item[j] = heroDireItems[j];
+				} else player[i + 5].item[j] = "null";
 			}
 		}
 		//</editor-fold>
@@ -676,7 +687,7 @@ public class ParserFactory
 		currentIndex = killsPageDireTotalLine.indexOf("cell-centered r-tab r-group-3 cell-divider\">");
 		tempIndex = killsPageDireTotalLine.indexOf("</td>", currentIndex);
 		tempString = killsPageDireTotalLine.substring(currentIndex + 44, tempIndex);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		team[1].deaths = Integer.parseInt(tempString);
 		for (int i = 0; i < killsPageDireHeroLine.length - 1; i++)
@@ -1522,7 +1533,7 @@ public class ParserFactory
 			}
 			for (int j = 0; j < tempTowersSeparator.length; j++)
 			{
-				if (tempTowersSeparator[j].equals("-"))
+				if (tempTowersSeparator[j].contains("-"))
 					tempTowersSeparator[j] = "0";
 			}
 			player[i].towersDestroyed = Integer.parseInt(tempTowersSeparator[0]);
@@ -1531,7 +1542,7 @@ public class ParserFactory
 			tempString = substringer(objectivesPageRadiantHeroLine[i], "<td class=\"r-tab r-group-2 cell-centered", "</td>");
 			tempString = removeTags(tempString);
 			tempString = tempString.replaceAll(",", "");
-			if (tempString.equals("-"))
+			if (tempString.contains("-"))
 				tempString = "0";
 			player[i].towerDamage = Integer.parseInt(tempString);
 			//RoshanKills
@@ -1539,7 +1550,7 @@ public class ParserFactory
 			tempIndex = objectivesPageRadiantHeroLine[i].indexOf("</td>", currentIndex);
 			tempString = objectivesPageRadiantHeroLine[i].substring(currentIndex, tempIndex);
 			tempString = removeTags(tempString);
-			if (tempString.equals("-"))
+			if (tempString.contains("-"))
 				tempString = "0";
 			player[i].roshanKills = Integer.parseInt(tempString);
 		}
@@ -1589,7 +1600,7 @@ public class ParserFactory
 			}
 			for (int j = 0; j < tempTowersSeparatorDire.length; j++)
 			{
-				if (tempTowersSeparatorDire[j].equals("-"))
+				if (tempTowersSeparatorDire[j].contains("-"))
 					tempTowersSeparatorDire[j] = "0";
 			}
 			player[i + 5].towersDestroyed = Integer.parseInt(tempTowersSeparatorDire[0]);
@@ -1606,7 +1617,7 @@ public class ParserFactory
 			tempIndex = objectivesPageDireHeroLine[i].indexOf("</td>", currentIndex);
 			tempString = objectivesPageDireHeroLine[i].substring(currentIndex, tempIndex);
 			tempString = removeTags(tempString);
-			if (tempString.equals("-"))
+			if (tempString.contains("-"))
 				tempString = "0";
 			player[i + 5].roshanKills = Integer.parseInt(tempString);
 		}
@@ -1620,7 +1631,7 @@ public class ParserFactory
 		}
 		for (int j = 0; j < tempTowersSeparatorDire.length; j++)
 		{
-			if (tempTowersSeparatorDire[j].equals("-"))
+			if (tempTowersSeparatorDire[j].contains("-"))
 				tempTowersSeparatorDire[j] = "0";
 		}
 		team[1].towersDestroyed = Integer.parseInt(tempTowersSeparatorDire[0]);
@@ -1629,7 +1640,7 @@ public class ParserFactory
 		tempString = substringer(objectivesPageDireTotalLine, "<td class=\"r-tab r-group-2 cell-centered", "</td>");
 		tempString = removeTags(tempString);
 		tempString = tempString.replaceAll(",", "");
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		team[1].towerDamage = Integer.parseInt(tempString);
 		//RoshanKills
@@ -1637,7 +1648,7 @@ public class ParserFactory
 		tempIndex = objectivesPageDireTotalLine.indexOf("</td>", currentIndex);
 		tempString = objectivesPageDireTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		team[1].roshanKills = Integer.parseInt(tempString);
 
@@ -1654,7 +1665,7 @@ public class ParserFactory
 			String[] visionSeparator = tempString.split("/");
 			for (int j = 0; j < 2; j++)
 			{
-				if (visionSeparator[j].equals("-"))
+				if (visionSeparator[j].contains("-"))
 					visionSeparator[j] = "0";
 			}
 			player[i].observerWardsPlaced = Integer.parseInt(visionSeparator[0]);
@@ -1667,7 +1678,7 @@ public class ParserFactory
 			visionSeparator = tempString.split("/");
 			for (int j = 0; j < 2; j++)
 			{
-				if (visionSeparator[j].equals("-"))
+				if (visionSeparator[j].contains("-"))
 					visionSeparator[j] = "0";
 			}
 			player[i].observerWardsDestroyed = Integer.parseInt(visionSeparator[0]);
@@ -1678,7 +1689,7 @@ public class ParserFactory
 			tempIndex = visionPageRadiantHeroLine[i].indexOf("</td>", currentIndex);
 			tempString = visionPageRadiantHeroLine[i].substring(currentIndex, tempIndex);
 			tempString = removeTags(tempString);
-			if (tempString.equals("-"))
+			if (tempString.contains("-"))
 				tempString = "0";
 			player[i].dustHits = Integer.parseInt(tempString);
 
@@ -1686,7 +1697,7 @@ public class ParserFactory
 			tempIndex = visionPageRadiantHeroLine[i].indexOf("</td>", currentIndex);
 			tempString = visionPageRadiantHeroLine[i].substring(currentIndex, tempIndex);
 			tempString = removeTags(tempString);
-			if (tempString.equals("-"))
+			if (tempString.contains("-"))
 				tempString = "0";
 			tempString = tempString.replaceAll("%", "");
 			player[i].dustAccuracy = Integer.parseInt(tempString);
@@ -1694,7 +1705,7 @@ public class ParserFactory
 			tempString = substringer(visionPageRadiantHeroLine[i], "<td class=\"r-tab r-group-3 cell-centered", "</td>");
 			tempString = removeTags(tempString);
 			visionSeparator = tempString.split("/");
-			if (visionSeparator[1].equals("-"))
+			if (visionSeparator[1].contains("-"))
 				visionSeparator[1] = "0";
 			player[i].smokeHits = Integer.parseInt(visionSeparator[1]);
 
@@ -1702,7 +1713,7 @@ public class ParserFactory
 			tempIndex = visionPageRadiantHeroLine[i].indexOf("</td>", currentIndex);
 			tempString = visionPageRadiantHeroLine[i].substring(currentIndex, tempIndex);
 			tempString = removeTags(tempString);
-			if (tempString.equals("-"))
+			if (tempString.contains("-"))
 				tempString = "0";
 			player[i].smokeTotalHeroes = Integer.parseInt(tempString);
 			//Gems
@@ -1710,7 +1721,7 @@ public class ParserFactory
 			tempIndex = visionPageRadiantHeroLine[i].indexOf("</td>", currentIndex);
 			tempString = visionPageRadiantHeroLine[i].substring(currentIndex, tempIndex);
 			tempString = removeTags(tempString);
-			if (tempString.equals("-"))
+			if (tempString.contains("-"))
 			{
 				tempString = "0";
 				player[i].gemTimeCarried = Integer.parseInt(tempString);
@@ -1727,7 +1738,7 @@ public class ParserFactory
 		String[] visionSeparator = tempString.split("/");
 		for (int j = 0; j < 2; j++)
 		{
-			if (visionSeparator[j].equals("-"))
+			if (visionSeparator[j].contains("-"))
 				visionSeparator[j] = "0";
 		}
 		team[0].observerWardsPlaced = Integer.parseInt(visionSeparator[0]);
@@ -1740,7 +1751,7 @@ public class ParserFactory
 		visionSeparator = tempString.split("/");
 		for (int j = 0; j < 2; j++)
 		{
-			if (visionSeparator[j].equals("-"))
+			if (visionSeparator[j].contains("-"))
 				visionSeparator[j] = "0";
 		}
 		team[0].observerWardsDestroyed = Integer.parseInt(visionSeparator[0]);
@@ -1751,7 +1762,7 @@ public class ParserFactory
 		tempIndex = visionPageRadiantTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageRadiantTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		team[0].dustHits = Integer.parseInt(tempString);
 
@@ -1759,7 +1770,7 @@ public class ParserFactory
 		tempIndex = visionPageRadiantTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageRadiantTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		tempString = tempString.replaceAll("%", "");
 		team[0].dustAccuracy = Integer.parseInt(tempString);
@@ -1767,7 +1778,7 @@ public class ParserFactory
 		tempString = substringer(visionPageRadiantTotalLine, "<td class=\"r-tab r-group-3 cell-centered", "</td>");
 		tempString = removeTags(tempString);
 		visionSeparator = tempString.split("/");
-		if (visionSeparator[1].equals("-"))
+		if (visionSeparator[1].contains("-"))
 			visionSeparator[1] = "0";
 		team[0].smokeHits = Integer.parseInt(visionSeparator[1]);
 
@@ -1775,7 +1786,7 @@ public class ParserFactory
 		tempIndex = visionPageRadiantTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageRadiantTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		team[0].smokeTotalHeroes = Integer.parseInt(tempString);
 		//Gems
@@ -1783,7 +1794,7 @@ public class ParserFactory
 		tempIndex = visionPageRadiantTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageRadiantTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 		{
 			tempString = "0";
 			team[0].gemTimeCarried = Integer.parseInt(tempString);
@@ -1797,7 +1808,7 @@ public class ParserFactory
 		tempIndex = visionPageRadiantTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageRadiantTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		team[0].gemsDropped = Integer.parseInt(tempString);
 
@@ -1805,7 +1816,7 @@ public class ParserFactory
 		tempIndex = visionPageRadiantTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageRadiantTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		team[0].gemsBought = Integer.parseInt(tempString);
 		//</editor-fold>
@@ -1818,7 +1829,7 @@ public class ParserFactory
 			visionSeparator = tempString.split("/");
 			for (int j = 0; j < 2; j++)
 			{
-				if (visionSeparator[j].equals("-"))
+				if (visionSeparator[j].contains("-"))
 					visionSeparator[j] = "0";
 			}
 			player[i + 5].observerWardsPlaced = Integer.parseInt(visionSeparator[0]);
@@ -1831,7 +1842,7 @@ public class ParserFactory
 			visionSeparator = tempString.split("/");
 			for (int j = 0; j < 2; j++)
 			{
-				if (visionSeparator[j].equals("-"))
+				if (visionSeparator[j].contains("-"))
 					visionSeparator[j] = "0";
 			}
 			player[i + 5].observerWardsDestroyed = Integer.parseInt(visionSeparator[0]);
@@ -1842,7 +1853,7 @@ public class ParserFactory
 			tempIndex = visionPageDireHeroLine[i].indexOf("</td>", currentIndex);
 			tempString = visionPageDireHeroLine[i].substring(currentIndex, tempIndex);
 			tempString = removeTags(tempString);
-			if (tempString.equals("-"))
+			if (tempString.contains("-"))
 				tempString = "0";
 			player[i + 5].dustHits = Integer.parseInt(tempString);
 
@@ -1850,7 +1861,7 @@ public class ParserFactory
 			tempIndex = visionPageDireHeroLine[i].indexOf("</td>", currentIndex);
 			tempString = visionPageDireHeroLine[i].substring(currentIndex, tempIndex);
 			tempString = removeTags(tempString);
-			if (tempString.equals("-"))
+			if (tempString.contains("-"))
 				tempString = "0";
 			tempString = tempString.replaceAll("%", "");
 			player[i + 5].dustAccuracy = Integer.parseInt(tempString);
@@ -1858,7 +1869,7 @@ public class ParserFactory
 			tempString = substringer(visionPageDireHeroLine[i], "<td class=\"r-tab r-group-3 cell-centered", "</td>");
 			tempString = removeTags(tempString);
 			visionSeparator = tempString.split("/");
-			if (visionSeparator[1].equals("-"))
+			if (visionSeparator[1].contains("-"))
 				visionSeparator[1] = "0";
 			player[i + 5].smokeHits = Integer.parseInt(visionSeparator[1]);
 
@@ -1866,7 +1877,7 @@ public class ParserFactory
 			tempIndex = visionPageDireHeroLine[i].indexOf("</td>", currentIndex);
 			tempString = visionPageDireHeroLine[i].substring(currentIndex, tempIndex);
 			tempString = removeTags(tempString);
-			if (tempString.equals("-"))
+			if (tempString.contains("-"))
 				tempString = "0";
 			player[i + 5].smokeTotalHeroes = Integer.parseInt(tempString);
 			//Gems
@@ -1874,7 +1885,7 @@ public class ParserFactory
 			tempIndex = visionPageDireHeroLine[i].indexOf("</td>", currentIndex);
 			tempString = visionPageDireHeroLine[i].substring(currentIndex, tempIndex);
 			tempString = removeTags(tempString);
-			if (tempString.equals("-"))
+			if (tempString.contains("-"))
 			{
 				tempString = "0";
 				player[i + 5].gemTimeCarried = Integer.parseInt(tempString);
@@ -1890,7 +1901,7 @@ public class ParserFactory
 		visionSeparator = tempString.split("/");
 		for (int j = 0; j < 2; j++)
 		{
-			if (visionSeparator[j].equals("-"))
+			if (visionSeparator[j].contains("-"))
 				visionSeparator[j] = "0";
 		}
 		team[1].observerWardsPlaced = Integer.parseInt(visionSeparator[0]);
@@ -1903,7 +1914,7 @@ public class ParserFactory
 		visionSeparator = tempString.split("/");
 		for (int j = 0; j < 2; j++)
 		{
-			if (visionSeparator[j].equals("-"))
+			if (visionSeparator[j].contains("-"))
 				visionSeparator[j] = "0";
 		}
 		team[1].observerWardsDestroyed = Integer.parseInt(visionSeparator[0]);
@@ -1914,7 +1925,7 @@ public class ParserFactory
 		tempIndex = visionPageDireTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageDireTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		team[1].dustHits = Integer.parseInt(tempString);
 
@@ -1922,7 +1933,7 @@ public class ParserFactory
 		tempIndex = visionPageDireTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageDireTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		tempString = tempString.replaceAll("%", "");
 		team[1].dustAccuracy = Integer.parseInt(tempString);
@@ -1930,7 +1941,7 @@ public class ParserFactory
 		tempString = substringer(visionPageDireTotalLine, "<td class=\"r-tab r-group-3 cell-centered", "</td>");
 		tempString = removeTags(tempString);
 		visionSeparator = tempString.split("/");
-		if (visionSeparator[1].equals("-"))
+		if (visionSeparator[1].contains("-"))
 			visionSeparator[1] = "0";
 		team[1].smokeHits = Integer.parseInt(visionSeparator[1]);
 
@@ -1938,7 +1949,7 @@ public class ParserFactory
 		tempIndex = visionPageDireTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageDireTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		team[1].smokeTotalHeroes = Integer.parseInt(tempString);
 		//Gems
@@ -1946,7 +1957,7 @@ public class ParserFactory
 		tempIndex = visionPageDireTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageDireTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 		{
 			tempString = "0";
 			team[1].gemTimeCarried = Integer.parseInt(tempString);
@@ -1960,7 +1971,7 @@ public class ParserFactory
 		tempIndex = visionPageDireTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageDireTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		team[1].gemsDropped = Integer.parseInt(tempString);
 
@@ -1968,7 +1979,7 @@ public class ParserFactory
 		tempIndex = visionPageDireTotalLine.indexOf("</td>", currentIndex);
 		tempString = visionPageDireTotalLine.substring(currentIndex, tempIndex);
 		tempString = removeTags(tempString);
-		if (tempString.equals("-"))
+		if (tempString.contains("-"))
 			tempString = "0";
 		team[1].gemsBought = Integer.parseInt(tempString);
 		//</editor-fold>
@@ -2692,7 +2703,7 @@ public class ParserFactory
 		}
 		long diff = d1.getTime() - d2.getTime();
 		long hours = TimeUnit.MILLISECONDS.toHours(diff);
-		if (hours >= 4)
+		if (hours >= 6)
 			return true;
 		else
 			return false;

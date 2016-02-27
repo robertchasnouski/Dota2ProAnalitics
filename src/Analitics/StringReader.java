@@ -78,7 +78,52 @@ public class StringReader
 				counter++;
 			}
 		}
-		System.out.println(teamMatches);
+		return teamMatches;
+	}
+
+	public String getTeamRadiantMatches(String id) throws IOException
+	{
+		String allMatches = fileControlFactory.readFile("files/Matches.txt");
+		String[] oneMatch = allMatches.split("\n");
+		String teamMatches = "";
+		Integer counter = 0;
+		for (int i = 0; i < oneMatch.length; i++)
+		{
+			String teamInfo = getTeamsInfo(oneMatch[i]);
+			String[] oneTeamInfo = teamInfo.split("\\|\\|");
+			String[] firstTeamSplitter = oneTeamInfo[0].split(";");
+			String[] secondTeamSplitter = oneTeamInfo[1].split(";");
+			if (firstTeamSplitter[0].equals(id))
+			{
+				if (counter != 0)
+					teamMatches += "\n";
+				teamMatches += oneMatch[i];
+				counter++;
+			}
+		}
+		return teamMatches;
+	}
+
+	public String getTeamDireMatches(String id) throws IOException
+	{
+		String allMatches = fileControlFactory.readFile("files/Matches.txt");
+		String[] oneMatch = allMatches.split("\n");
+		String teamMatches = "";
+		Integer counter = 0;
+		for (int i = 0; i < oneMatch.length; i++)
+		{
+			String teamInfo = getTeamsInfo(oneMatch[i]);
+			String[] oneTeamInfo = teamInfo.split("\\|\\|");
+			String[] firstTeamSplitter = oneTeamInfo[0].split(";");
+			String[] secondTeamSplitter = oneTeamInfo[1].split(";");
+			if (secondTeamSplitter[0].equals(id))
+			{
+				if (counter != 0)
+					teamMatches += "\n";
+				teamMatches += oneMatch[i];
+				counter++;
+			}
+		}
 		return teamMatches;
 	}
 

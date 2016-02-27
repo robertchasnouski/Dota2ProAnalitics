@@ -7,7 +7,26 @@ public class FileControlFactory
 
 	public void createTeamFileIfNotExists(String id) throws IOException
 	{
-		File f = new File("files/teams/" + id + ".txt");
+
+		File theDir = new File("files/teams/" + id);
+
+		if (!theDir.exists()) {
+
+			boolean result = false;
+
+			try{
+				theDir.mkdir();
+				result = true;
+			}
+			catch(SecurityException se){
+				//handle it
+			}
+			if(result) {
+				System.out.println("Creating directory: " + "files/teams/" + id);
+			}
+		}
+
+		File f = new File("files/teams/" + id + "/TeamMatches.txt");
 		if (!f.exists() && !f.isDirectory())
 		{
 			f.createNewFile();

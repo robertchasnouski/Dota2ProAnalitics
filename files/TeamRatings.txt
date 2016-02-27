@@ -37,3 +37,15 @@
 254140;First Departure;1000
 2581813;Execration;1000
 2552670;.Prodota Gaming.;1000
+2391764;Team Bad English;1000
+2099436;Team Redemption`;1000
+2622695;LUCCINI GAMING $$;1000
+2310555;DrinkingBoys;1000
+2130380;Miracle Minds;1000
+2634068;Vegetables Esports Club;1000
+2678018;LondoNVY;1000
+2674713;San German Rejects;1000
+2635099;CDEC.Youth;1000
+1520578;CDEC Gaming;1000
+2535378;Team FanTuan;1000
+1951061;Newbee.Young;1000

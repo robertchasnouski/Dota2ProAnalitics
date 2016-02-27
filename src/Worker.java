@@ -14,10 +14,8 @@ public class Worker
 	StatisticsFactory statisticsFactory = new StatisticsFactory();
 	WriterReaderFactory writerReaderFactory = new WriterReaderFactory();
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
-	MainAnaliticsFactory mainAnaliticsFactory=new MainAnaliticsFactory();
+	MainAnaliticsFactory mainAnaliticsFactory = new MainAnaliticsFactory();
 
-	SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy");
-	Scanner scanner = new Scanner(System.in);
 	void start_work() throws IOException, InterruptedException, ParseException
 	{
 		ArrayList<KillEvent> killEventArrayList = new ArrayList<KillEvent>();
@@ -43,25 +41,27 @@ public class Worker
 
 		//TODO: Phase 1: Make full updatable and workable parse system
 		//TODO: Phase 2: Prototype analizing
-		//TODO: FB HeatMap
+		//TODO: Make Match ID in Matches.txt file unique
+		//TODO: Going through one parameter tests
 		//TODO: Phase 3: Advanced analizing
 
 		//parserHelper.parseMatchById("2147302916", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//writerReaderFactory.writeMatchTestInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
+
 		for (int i = 0; i < matchesToParse.size(); i++)
 		{
 			if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))
 			{
-				parserHelper.parseMatchById(matchesToParse.get(i), team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-				writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
-				fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/MatchesParsed.txt");
-				writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
-				writerReaderFactory.makeZeros(team,player,match);
+				if (parserHelper.parseMatchById(matchesToParse.get(i), team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList))
+				{
+					writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
+					fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/MatchesParsed.txt");
+					writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
+					writerReaderFactory.makeZeros(team, player, match);
+				}
 			}
 		}
-
 		mainAnaliticsFactory.startWork();
-
 	}
 }
 
