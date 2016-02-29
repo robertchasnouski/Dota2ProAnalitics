@@ -15,9 +15,9 @@ public class HeatMapAnaliticsFactory
 	StringReader stringReader = new StringReader();
 
 	Color firstColor = new Color(0, 255, 0);
-	Color secondColor = new Color(100, 150, 0);
-	Color thirdColor = new Color(150, 150, 0);
-	Color forthColor = new Color(200, 100, 0);
+	Color secondColor = new Color(0, 50, 0);
+	Color thirdColor = new Color(255, 255, 0);
+	Color forthColor = new Color(255, 128, 0);
 	Color fivthColor = new Color(255, 0, 0);
 
 	Integer[][] radiantKillsColorArray = new Integer[300][300];
@@ -49,7 +49,6 @@ public class HeatMapAnaliticsFactory
 
 	public void buildHeatMap(String id) throws IOException
 	{
-		System.out.println(id);
 		String teamRadiantMatches = stringReader.getTeamRadiantMatches(id);
 		String teamDireMatches = stringReader.getTeamDireMatches(id);
 
@@ -179,7 +178,7 @@ public class HeatMapAnaliticsFactory
 		}
 		BufferedImage originalMap = ImageIO.read(new File("files/OriginalMap.png"));
 
-		int mergeWidth = 300;
+		int mergeWidth = 299;
 		BufferedImage radiantDeathHeatMap = joinVertical(originalMap, radiantDeathsImage, mergeWidth);
 		BufferedImage radiantKillsHeatMap = joinVertical(originalMap, radiantKillsImage, mergeWidth);
 		BufferedImage direDeathHeatMap = joinVertical(originalMap, direDeathsImage, mergeWidth);
@@ -214,13 +213,16 @@ public class HeatMapAnaliticsFactory
 
 	public void fillColorArray(Integer xCenter, Integer yCenter, Integer[][] array)
 	{
-		for (int i = -15; i < 15; i++)
+		for (int i = -20; i < 20; i++)
 		{
-			for (int j = -15; j < 15; j++)
+			for (int j = -20; j < 20; j++)
 			{
 				if (xCenter + i >= 0 && xCenter + i < 300 && yCenter + i >= 0 && yCenter + i < 300)
-					array[xCenter + i][yCenter + j] += 1;
+					if (Math.hypot(i, j) <= 20)
+						array[xCenter + i][yCenter + j] += 1;
 			}
 		}
 	}
+
+
 }

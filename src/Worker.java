@@ -8,11 +8,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 //TODO: Phase 1: Make full updatable and workable parse system
-////TODO: Make Match ID in Matches.txt file unique
 ////TODO: Going through one parameter tests
+////TODO: Check error matches
 //TODO: Phase 2: Prototype analizing
-////TODO:
-////TODO:
+////TODO: Rating !Priority!
+/////TODO: Rating system +/-
+////TODO: GameMode can be also AP becouse its reprick and regame
 //TODO: Phase 3: Advanced analizing
 
 public class Worker
@@ -44,17 +45,14 @@ public class Worker
 		{
 			team[i] = new Team();
 		}
-
-		String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
+		/*String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
 		ArrayList<String> matchesFromLeagues = parserHelper.parseMatches(leagueLinks);
 		uniqueInfoFactory.needToParseFile(matchesFromLeagues);
-
-
-		ArrayList<String> matchesToParse = parserHelper.getParsingMatches();
+		ArrayList<String> matchesToParse = parserHelper.getParsingMatches();*/
 		//parserHelper.parseMatchById("2147302916", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//writerReaderFactory.writeMatchTestInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 
-		for (int i = 0; i < matchesToParse.size(); i++)
+		/*for (int i = 0; i < matchesToParse.size(); i++)
 		{
 			if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))
 			{
@@ -71,7 +69,8 @@ public class Worker
 				}
 				tooManyRequestsChecker();
 			}
-		}
+		}*/
+		uniqueInfoFactory.makeMatchesFileClean();
 		mainAnaliticsFactory.startWork();
 	}
 
@@ -79,9 +78,10 @@ public class Worker
 	void tooManyRequestsChecker() throws InterruptedException
 	{
 		alreadyParsedMatches++;
-		if (alreadyParsedMatches == 50)
+		if (alreadyParsedMatches == 30)
 		{
-			Thread.sleep(60000);
+			System.out.println("Okay. Let's have a rest for a while.");
+			Thread.sleep(300000);
 			alreadyParsedMatches = 0;
 		}
 	}

@@ -1,13 +1,13 @@
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
 public class UniqueInfoFactory
 {
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
-
+	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
 	Boolean checkIfIdAlreadyParsed(String id) throws IOException
 	{
@@ -81,5 +81,75 @@ public class UniqueInfoFactory
 				fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/NeedToParse.txt");
 		}
 	}
+
+	void makeMatchesFileClean() throws IOException
+	{
+		//Deleting dublicates
+		String matchesFile = fileOperationsFactory.readFile("files/Matches.txt");
+		String[] matchLine = matchesFile.split("\n");
+		Set<String> lines = new HashSet<String>();
+		for (int i = 0; i < matchLine.length; i++)
+		{
+			lines.add(matchLine[i]);
+		}
+		String formattedString = "";
+		String[] formattedMatches = lines.toArray(new String[lines.size()]);
+		for (int i = 0; i < formattedMatches.length; i++)
+		{
+			formattedString += formattedMatches[i] + "\n";
+		}
+		//Organize by date
+		List<ArrayList<String>> csvLines = new ArrayList<ArrayList<String>>();
+
+		matchLine = formattedString.split("\n");
+		for (String s : matchLine)
+		{
+			String[] dataInLine = s.split(";");
+			ArrayList<String> arrayInArray = new ArrayList<String>(Arrays.asList(dataInLine));
+			csvLines.add(arrayInArray);
+		}
+		Collections.sort(csvLines, comp);
+		formattedString = "";
+		for (int i = 0; i < csvLines.size(); i++)
+		{
+			formattedString += csvLines.get(i) + "\n";
+		}
+		formattedString = formattedString.replaceAll("\\[", "");
+		formattedString = formattedString.replaceAll("]", "");
+		formattedString=formattedString.replaceAll(",",";");
+		String [] eachLineData=formattedString.split("\n");
+		String endString="";
+		fileOperationsFactory.cleanAndWriteToFile("","files/Matches.txt");
+		for (int i = 0; i <eachLineData.length ; i++)
+		{
+			endString="";
+			String []eachData=eachLineData[i].split(";");
+			for (int j = 0; j < eachData.length ; j++)
+			{
+				eachData[j]=eachData[j].replaceFirst(" ", "");
+				endString+=eachData[j]+";";
+			}
+			endString=endString.substring(0,endString.length()-1);
+			fileOperationsFactory.writeToFile(endString,"files/Matches.txt");
+		}
+	}
+
+	Comparator<ArrayList<String>> comp = new Comparator<ArrayList<String>>()
+	{
+		public int compare(ArrayList<String> csvLine1, ArrayList<String> csvLine2)
+		{
+			Date date1 = new Date();
+			Date date2 = new Date();
+			try
+			{
+				date1 = formatter.parse(csvLine1.get(1));
+				date2 = formatter.parse(csvLine2.get(1));
+			} catch (ParseException e)
+			{
+				e.printStackTrace();
+			}
+			return date1.compareTo(date2);
+		}
+	};
 }
 

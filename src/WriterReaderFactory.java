@@ -443,7 +443,7 @@ public class WriterReaderFactory
 		{
 			writeToFile(teams[i].id, true);
 			writeToFile(teams[i].name, true);
-			writeToFile(Integer.toString(teams[i].rating), true);
+			writeToFile("1000", true);
 			writeToFile(Integer.toString(teams[i].kills), true);
 			if (teams[i].kills < 0)
 				System.out.println("KDA error");

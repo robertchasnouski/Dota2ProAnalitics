@@ -40,5 +40,6 @@ public class MainAnaliticsFactory
 		/**AverageAnaliticsFactory**/
 		//averageAnaliticsFactory.startAverageAnalitics(matchesFile);
 		heatMapAnaliticsFactory.buildHeatMap("36");
+
 	}
 }

@@ -107,11 +107,17 @@ public class ParserFactory
 		System.out.println("Parsing match with ID:" + id + ".");
 		Document docMainPage = parse_html("http://www.dotabuff.com/matches/" + id);
 		String stringMainPage = docMainPage.toString();
-		if (stringMainPage.contains("This match is marked as insignificant") || !stringMainPage.contains("Captains Mode"))
+		if (stringMainPage.contains("This match is marked as insignificant"))
 		{
 			System.out.println("Parsing failed");
 			return false;
 		}
+		if (!stringMainPage.contains("Captains Mode") && !stringMainPage.contains("Captains Draft"))
+		{
+			System.out.println("Parsing failed");
+			return false;
+		}
+
 		/*********DOCUMENTS,PAGE STRINGS**********/
 		//<editor-fold desc="DOCUMENTS">
 
