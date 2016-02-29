@@ -38,6 +38,7 @@ public class HeatMapAnaliticsFactory
 
 	public void buildHeatMap(String id) throws IOException
 	{
+		System.out.println(id);
 		String teamRadiantMatches = stringReader.getTeamRadiantMatches(id);
 		String teamDireMatches = stringReader.getTeamDireMatches(id);
 
@@ -168,7 +169,7 @@ public class HeatMapAnaliticsFactory
 
 		BufferedImage originalMap = ImageIO.read(new File("files/OriginalMap.png"));
 
-		int mergeWidth = 779;
+		int mergeWidth = 300;
 		BufferedImage radiantDeathHeatMap = joinVertical(originalMap, radiantDeathsImage, mergeWidth);
 		BufferedImage radiantKillsHeatMap = joinVertical(originalMap, radiantKillsImage, mergeWidth);
 		BufferedImage direDeathHeatMap = joinVertical(originalMap, direDeathsImage, mergeWidth);
@@ -201,11 +202,11 @@ public class HeatMapAnaliticsFactory
 			System.out.println("2 case");
 		}*/
 
-		for (int i = -25; i < 25; i++)
+		for (int i = -15; i < 15; i++)
 		{
-			for (int j = -25; j < 25; j++)
+			for (int j = -15; j < 15; j++)
 			{
-				if (xCenter + i >= 0 && xCenter + i < 800 && yCenter + i >= 0 && yCenter + i < 800)
+				if (xCenter + i >= 0 && xCenter + i < 300 && yCenter + i >= 0 && yCenter + i < 300)
 					array[xCenter + i][yCenter + j] += 1;
 			}
 		}

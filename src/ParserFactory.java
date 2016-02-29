@@ -107,9 +107,11 @@ public class ParserFactory
 		System.out.println("Parsing match with ID:" + id + ".");
 		Document docMainPage = parse_html("http://www.dotabuff.com/matches/" + id);
 		String stringMainPage = docMainPage.toString();
-		if (stringMainPage.contains("This match is marked as insignificant"))
+		if (stringMainPage.contains("This match is marked as insignificant") || !stringMainPage.contains("Captains Mode"))
+		{
+			System.out.println("Parsing failed");
 			return false;
-
+		}
 		/*********DOCUMENTS,PAGE STRINGS**********/
 		//<editor-fold desc="DOCUMENTS">
 
@@ -137,18 +139,7 @@ public class ParserFactory
 		String tempString;
 		Integer equaler = 0;
 
-		/**Match match=new Match();
 
-		 for (int i = 0; i < 10; i++)
-		 {
-		 player[i] = new Player();
-		 }
-
-		 for (int i = 0; i < 2; i++)
-		 {
-		 team[i] = new Team();
-		 }**/
-		/********PARSER********/
 		//<editor-fold desc="MAIN PAGE PARSER">
 		/***********Documentation*************/
 		/** mainPageRadiantHeroLine - array(0-5, 6-empty one) of strings of each hero result(Radiant)**/
@@ -368,12 +359,8 @@ public class ParserFactory
 
 		//<editor-fold desc="MATCH GENERAL INFO">
 		tempString = substringer(stringMainPage, "<a class=\"esports-link\"", "</a>");
-		String leagueNameName=removeTags(tempString);
-		leagueNameName=leagueNameName.replaceAll(";","");
-		leagueNameName=leagueNameName.replaceAll("\\*","");
-		leagueNameName=leagueNameName.replaceAll("*","");
-		leagueNameName=leagueNameName.replaceAll("#","");
-		leagueNameName=leagueNameName.replaceAll("\\#","");
+		String leagueNameName = removeTags(tempString);
+		leagueNameName = replaceAllSeparators(leagueNameName);
 		match.leagueName = leagueNameName;
 		tempString = substringer(tempString, "/leagues/", "\">");
 		match.leagueId = Integer.parseInt(tempString.substring(9, tempString.length()));
@@ -402,24 +389,26 @@ public class ParserFactory
 		String teamName;
 		String teamId;
 		tempString = substringer(stringMainPage, "<section class=\"radiant\"", "</header>");
-		if(!tempString.contains("esports/teams/"))
+		if (!tempString.contains("esports/teams/"))
 			return false;
 		teamId = substringer(tempString, "esports/teams/", "\">");
 		teamName = substringer(tempString, "title=", " class");
 		teamId = teamId.replaceAll("esports/teams/", "");
 		teamName = teamName.replaceAll("title=", "");
 		teamName = teamName.replaceAll("\"", "");
+		teamName = replaceAllSeparators(teamName);
 		team[0].id = teamId;
 		team[0].name = teamName;
 		//DireTeamName
 		tempString = substringer(stringMainPage, "<section class=\"dire\"", "</header>");
-		if(!tempString.contains("esports/teams/"))
+		if (!tempString.contains("esports/teams/"))
 			return false;
 		teamId = substringer(tempString, "esports/teams/", "\">");
 		teamName = substringer(tempString, "title=", " class");
 		teamId = teamId.replaceAll("esports/teams/", "");
 		teamName = teamName.replaceAll("title=", "");
 		teamName = teamName.replaceAll("\"", "");
+		teamName = replaceAllSeparators(teamName);
 		team[1].id = teamId;
 		team[1].name = teamName;
 		//</editor-fold>
@@ -2707,6 +2696,16 @@ public class ParserFactory
 			return true;
 		else
 			return false;
+	}
+
+	public String replaceAllSeparators(String string)
+	{
+		string = string.replaceAll("#", "");
+		string = string.replaceAll("\"", "");
+		string = string.replaceAll("\\*", "");
+		string = string.replaceAll("\\|", "");
+		string = string.replaceAll(";", "");
+		return string;
 	}
 }
 

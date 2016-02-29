@@ -38,17 +38,18 @@ public class Worker
 
 		String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
 		ArrayList<String> matchesToParse = parserHelper.parseMatches(leagueLinks);
-
+		uniqueInfoFactory.needToParseFile(matchesToParse);
 		//TODO: Phase 1: Make full updatable and workable parse system
+		////TODO: Make Match ID in Matches.txt file unique
+		////TODO: Going through one parameter tests
 		//TODO: Phase 2: Prototype analizing
-		//TODO: Make Match ID in Matches.txt file unique
-		//TODO: Going through one parameter tests
+		////TODO:
 		//TODO: Phase 3: Advanced analizing
 
 		//parserHelper.parseMatchById("2147302916", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//writerReaderFactory.writeMatchTestInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 
-		for (int i = 0; i < matchesToParse.size(); i++)
+	/*	for (int i = 0; i < matchesToParse.size(); i++)
 		{
 			if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))
 			{
@@ -58,9 +59,13 @@ public class Worker
 					fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/MatchesParsed.txt");
 					writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 					writerReaderFactory.makeZeros(team, player, match);
+				} else
+				{
+					writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
+					writerReaderFactory.makeZeros(team, player, match);
 				}
 			}
-		}
+		}*/
 		mainAnaliticsFactory.startWork();
 	}
 }
