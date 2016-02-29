@@ -14,6 +14,17 @@ public class HeatMapAnaliticsFactory
 {
 	StringReader stringReader = new StringReader();
 
+	Color firstColor = new Color(0, 255, 0);
+	Color secondColor = new Color(100, 150, 0);
+	Color thirdColor = new Color(150, 150, 0);
+	Color forthColor = new Color(200, 100, 0);
+	Color fivthColor = new Color(255, 0, 0);
+
+	Integer[][] radiantKillsColorArray = new Integer[300][300];
+	Integer[][] radiantDeathsColorArray = new Integer[300][300];
+	Integer[][] direKillsColorArray = new Integer[300][300];
+	Integer[][] direDeathsColorArray = new Integer[300][300];
+
 	public static BufferedImage joinVertical(BufferedImage i1, BufferedImage i2, int mergeWidth)
 	{
 		if (i1.getWidth() != i2.getWidth())
@@ -106,21 +117,15 @@ public class HeatMapAnaliticsFactory
 				direDeaths.add(direKillArrayList.get(i));
 		}
 
-		BufferedImage image = new BufferedImage(800, 800, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage radiantKillsImage = new BufferedImage(300, 300, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage radiantDeathsImage = new BufferedImage(300, 300, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage direKillsImage = new BufferedImage(300, 300, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage direDeathsImage = new BufferedImage(300, 300, BufferedImage.TYPE_INT_ARGB);
 
-		BufferedImage radiantKillsImage = new BufferedImage(800, 800, BufferedImage.TYPE_INT_ARGB);
-		BufferedImage radiantDeathsImage = new BufferedImage(800, 800, BufferedImage.TYPE_INT_ARGB);
-		BufferedImage direKillsImage = new BufferedImage(800, 800, BufferedImage.TYPE_INT_ARGB);
-		BufferedImage direDeathsImage = new BufferedImage(800, 800, BufferedImage.TYPE_INT_ARGB);
 
-		Integer[][] radiantKillsColorArray = new Integer[800][800];
-		Integer[][] radiantDeathsColorArray = new Integer[800][800];
-		Integer[][] direKillsColorArray = new Integer[800][800];
-		Integer[][] direDeathsColorArray = new Integer[800][800];
-
-		for (int i = 0; i < 800; i++)
+		for (int i = 0; i < 300; i++)
 		{
-			for (int j = 0; j < 800; j++)
+			for (int j = 0; j < 300; j++)
 			{
 				radiantKillsColorArray[i][j] = 0;
 				radiantDeathsColorArray[i][j] = 0;
@@ -130,43 +135,48 @@ public class HeatMapAnaliticsFactory
 		}
 		for (int i = 0; i < radiantKills.size(); i++)
 		{
-			Integer xKillCenter = (int) radiantKills.get(i).x * 8;
-			Integer yKillCenter = (int) radiantKills.get(i).y * 8;
+			Integer xKillCenter = (int) radiantKills.get(i).x * 3;
+			Integer yKillCenter = (int) radiantKills.get(i).y * 3;
 			fillColorArray(xKillCenter, yKillCenter, radiantKillsColorArray);
 		}
 		for (int i = 0; i < radiantDeaths.size(); i++)
 		{
-			Integer xDeathCenter = (int) radiantDeaths.get(i).x * 8;
-			Integer yDeathCenter = (int) radiantDeaths.get(i).y * 8;
+			Integer xDeathCenter = (int) radiantDeaths.get(i).x * 3;
+			Integer yDeathCenter = (int) radiantDeaths.get(i).y * 3;
 			fillColorArray(xDeathCenter, yDeathCenter, radiantDeathsColorArray);
 		}
 		for (int i = 0; i < direKills.size(); i++)
 		{
-			Integer xKillsCenter = (int) direKills.get(i).x * 8;
-			Integer yKillsCenter = (int) direKills.get(i).y * 8;
+			Integer xKillsCenter = (int) direKills.get(i).x * 3;
+			Integer yKillsCenter = (int) direKills.get(i).y * 3;
 			fillColorArray(xKillsCenter, yKillsCenter, direKillsColorArray);
 		}
 		for (int i = 0; i < direDeaths.size(); i++)
 		{
-			Integer xDeathCenter = (int) direDeaths.get(i).x * 8;
-			Integer yDeathCenter = (int) direDeaths.get(i).y * 8;
+			Integer xDeathCenter = (int) direDeaths.get(i).x * 3;
+			Integer yDeathCenter = (int) direDeaths.get(i).y * 3;
 			fillColorArray(xDeathCenter, yDeathCenter, direDeathsColorArray);
 		}
-		for (int i = 1; i < 800; i++)
+
+		//int maxRadiantDeaths=findMaxValueInArray(radiantDeathsColorArray);
+		//int maxRadiantKills=findMaxValueInArray(radiantKillsColorArray);
+		//int maxDireDeaths=findMaxValueInArray(direDeathsColorArray);
+		//int maxDireKills=findMaxValueInArray(direKillsColorArray);
+		//TODO: Now heatMap is not scallable
+		for (int i = 1; i < 300; i++)
 		{
-			for (int j = 1; j < 800; j++)
+			for (int j = 1; j < 300; j++)
 			{
 				if (radiantDeathsColorArray[i][j] != 0)
-					radiantDeathsImage.setRGB(i, j, Color.red.getRGB());
+					colorPixel(radiantDeathsColorArray[i][j], radiantDeathsImage, i, j);
 				if (radiantKillsColorArray[i][j] != 0)
-					radiantKillsImage.setRGB(i, j, Color.red.getRGB());
+					colorPixel(radiantKillsColorArray[i][j], radiantKillsImage, i, j);
 				if (direDeathsColorArray[i][j] != 0)
-					direDeathsImage.setRGB(i, j, Color.red.getRGB());
+					colorPixel(direDeathsColorArray[i][j], direDeathsImage, i, j);
 				if (direKillsColorArray[i][j] != 0)
-					direKillsImage.setRGB(i, j, Color.red.getRGB());
+					colorPixel(direKillsColorArray[i][j], direKillsImage, i, j);
 			}
 		}
-
 		BufferedImage originalMap = ImageIO.read(new File("files/OriginalMap.png"));
 
 		int mergeWidth = 300;
@@ -182,26 +192,28 @@ public class HeatMapAnaliticsFactory
 
 	}
 
-	public void fillColorArray(Integer xCenter, Integer yCenter, Integer[][] array)
+	public void colorPixel(Integer pixelValue, BufferedImage image, Integer x, Integer y)
 	{
-		/*if ((xCenter <= 25 && yCenter <= 25) || (xCenter >= 775 && yCenter >= 775) || (xCenter >= 775 && yCenter <= 25) || (xCenter <= 25 && yCenter >= 775))
+		if (pixelValue == 1)
 		{
-			System.out.println("3 case");
-			for (int i = 0; i < 25 ; i++)
-			{
-				for (int j = 0; j < 25 ; j++)
-				{
-
-				}
-			}
-		} else if (xCenter > 25 && xCenter < 775 && yCenter > 25 && yCenter < 775)
+			image.setRGB(x, y, firstColor.getRGB());
+		} else if (pixelValue == 2)
 		{
-			System.out.println("1 case");
+			image.setRGB(x, y, secondColor.getRGB());
+		} else if (pixelValue == 3)
+		{
+			image.setRGB(x, y, thirdColor.getRGB());
+		} else if (pixelValue == 4)
+		{
+			image.setRGB(x, y, forthColor.getRGB());
 		} else
 		{
-			System.out.println("2 case");
-		}*/
+			image.setRGB(x, y, fivthColor.getRGB());
+		}
+	}
 
+	public void fillColorArray(Integer xCenter, Integer yCenter, Integer[][] array)
+	{
 		for (int i = -15; i < 15; i++)
 		{
 			for (int j = -15; j < 15; j++)

@@ -324,8 +324,8 @@ public class WriterReaderFactory
 			writeToFile("Killers:", false);
 			for (int j = 0; j < 5; j++)
 			{
-				if(killEvent.get(i).killers[j].equals("null"))
-					killEvent.get(i).killers[j]=0;
+				if (killEvent.get(i).killers[j].equals("null"))
+					killEvent.get(i).killers[j] = 0;
 				if (j != 4)
 					writeToFile(Integer.toString(killEvent.get(i).killers[j]), true);
 				else
@@ -710,8 +710,8 @@ public class WriterReaderFactory
 			writeToFile(Integer.toString(killEvent.get(i).dier), true);
 			for (int j = 0; j < 5; j++)
 			{
-				if(killEvent.get(i).killers[j].equals("null"))
-					killEvent.get(i).killers[j]=0;
+				if (killEvent.get(i).killers[j].equals("null"))
+					killEvent.get(i).killers[j] = 0;
 				if (j != 4)
 					writeToFile(Integer.toString(killEvent.get(i).killers[j]), true);
 				else

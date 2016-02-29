@@ -33,12 +33,12 @@ public class MainAnaliticsFactory
 		/**PrimaryAnaliticsFactory**/
 		String matchesFile = fileControlFactory.readFile("files/Matches.txt");
 		String[] matches = matchesFile.split("\n");
-		for (int i = 0; i < matches.length; i++)
+		/*for (int i = 0; i < matches.length; i++)
 		{
 			primaryAnaliticsFactory.analizeMatch(matches[i]);
-		}
+		}*/
 		/**AverageAnaliticsFactory**/
 		//averageAnaliticsFactory.startAverageAnalitics(matchesFile);
-		//heatMapAnaliticsFactory.buildHeatMap("36");
+		heatMapAnaliticsFactory.buildHeatMap("36");
 	}
 }

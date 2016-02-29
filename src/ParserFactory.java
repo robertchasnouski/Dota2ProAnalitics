@@ -2304,6 +2304,19 @@ public class ParserFactory
 		return matchesToParse;
 	}
 
+	ArrayList<String> getParsingMatches() throws IOException
+	{
+		String needToParseString = fileOperationsFactory.readFile("files/NeedToParse.txt");
+		String[] match = needToParseString.split("\n");
+		ArrayList<String> matchesToParse = new ArrayList<String>();
+		for (int i = 0; i < match.length; i++)
+		{
+			if (!match[i].equals(""))
+				matchesToParse.add(match[i]);
+		}
+		return matchesToParse;
+	}
+
 	String substringer(String input, String begin, String end)
 	{
 		String temp;

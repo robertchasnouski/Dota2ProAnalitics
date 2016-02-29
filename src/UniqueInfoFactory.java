@@ -74,12 +74,11 @@ public class UniqueInfoFactory
 
 	void needToParseFile(ArrayList<String> matchesToParse) throws IOException
 	{
-		String alreadyInFile=fileOperationsFactory.readFile("files/NeedToParse.txt");
-
-		for (int i = 0; i <matchesToParse.size(); i++)
+		String alreadyInFile = fileOperationsFactory.readFile("files/NeedToParse.txt");
+		for (int i = 0; i < matchesToParse.size(); i++)
 		{
-			if(!alreadyInFile.contains(matchesToParse.get(i)))
-				fileOperationsFactory.writeToFile(matchesToParse.get(i),"files/NeedToParse.txt");
+			if (!alreadyInFile.contains(matchesToParse.get(i)))
+				fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/NeedToParse.txt");
 		}
 	}
 }

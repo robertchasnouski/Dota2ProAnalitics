@@ -7,6 +7,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//TODO: Phase 1: Make full updatable and workable parse system
+////TODO: Make Match ID in Matches.txt file unique
+////TODO: Going through one parameter tests
+//TODO: Phase 2: Prototype analizing
+////TODO:
+////TODO:
+//TODO: Phase 3: Advanced analizing
+
 public class Worker
 {
 	ParserFactory parserHelper = new ParserFactory();
@@ -15,6 +23,7 @@ public class Worker
 	WriterReaderFactory writerReaderFactory = new WriterReaderFactory();
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 	MainAnaliticsFactory mainAnaliticsFactory = new MainAnaliticsFactory();
+	Integer alreadyParsedMatches = 0;
 
 	void start_work() throws IOException, InterruptedException, ParseException
 	{
@@ -37,19 +46,15 @@ public class Worker
 		}
 
 		String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
-		ArrayList<String> matchesToParse = parserHelper.parseMatches(leagueLinks);
-		uniqueInfoFactory.needToParseFile(matchesToParse);
-		//TODO: Phase 1: Make full updatable and workable parse system
-		////TODO: Make Match ID in Matches.txt file unique
-		////TODO: Going through one parameter tests
-		//TODO: Phase 2: Prototype analizing
-		////TODO:
-		//TODO: Phase 3: Advanced analizing
+		ArrayList<String> matchesFromLeagues = parserHelper.parseMatches(leagueLinks);
+		uniqueInfoFactory.needToParseFile(matchesFromLeagues);
 
+
+		ArrayList<String> matchesToParse = parserHelper.getParsingMatches();
 		//parserHelper.parseMatchById("2147302916", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//writerReaderFactory.writeMatchTestInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 
-	/*	for (int i = 0; i < matchesToParse.size(); i++)
+		for (int i = 0; i < matchesToParse.size(); i++)
 		{
 			if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))
 			{
@@ -64,9 +69,21 @@ public class Worker
 					writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 					writerReaderFactory.makeZeros(team, player, match);
 				}
+				tooManyRequestsChecker();
 			}
-		}*/
+		}
 		mainAnaliticsFactory.startWork();
+	}
+
+
+	void tooManyRequestsChecker() throws InterruptedException
+	{
+		alreadyParsedMatches++;
+		if (alreadyParsedMatches == 50)
+		{
+			Thread.sleep(60000);
+			alreadyParsedMatches = 0;
+		}
 	}
 }
 
