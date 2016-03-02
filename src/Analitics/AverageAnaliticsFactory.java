@@ -13,7 +13,6 @@ public class AverageAnaliticsFactory
 	}
 
 
-
 	public Integer getAverageFBTime(String matches, String teamId)
 	{
 		String[] oneMatchString = matches.split("\n");

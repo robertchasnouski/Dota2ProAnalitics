@@ -10,18 +10,21 @@ public class FileControlFactory
 
 		File theDir = new File("files/teams/" + id);
 
-		if (!theDir.exists()) {
+		if (!theDir.exists())
+		{
 
 			boolean result = false;
 
-			try{
+			try
+			{
 				theDir.mkdir();
 				result = true;
-			}
-			catch(SecurityException se){
+			} catch (SecurityException se)
+			{
 				//handle it
 			}
-			if(result) {
+			if (result)
+			{
 				System.out.println("Creating directory: " + "files/teams/" + id);
 			}
 		}

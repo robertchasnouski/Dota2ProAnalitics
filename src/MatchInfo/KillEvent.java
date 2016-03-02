@@ -12,11 +12,12 @@ public class KillEvent
 
 	public Integer[] killers = new Integer[5];
 	public Integer dier;
+
 	public KillEvent()
 	{
-		for (int i = 0; i <5; i++)
+		for (int i = 0; i < 5; i++)
 		{
-			this.killers[i]=0;
+			this.killers[i] = 0;
 		}
 	}
 }

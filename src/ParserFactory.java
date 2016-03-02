@@ -28,8 +28,9 @@ public class ParserFactory
 	Integer radiantRoaming = 0;
 	UniqueInfoFactory uniqueInfoFactory = new UniqueInfoFactory();
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
-	StatisticsFactory statisticsFactory = new StatisticsFactory();
+	RatingFactory ratingFactory = new RatingFactory();
 	public int parseCounter = 0;
+	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
 	public Document parse_html(String html) throws IOException, InterruptedException
 	{
@@ -102,19 +103,19 @@ public class ParserFactory
 		return leagueLink;
 	}
 
-	Boolean parseMatchById(String id, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException, InterruptedException
+	Boolean parseMatchById(Date lastMatchDate,String id, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException, InterruptedException, ParseException
 	{
 		System.out.println("Parsing match with ID:" + id + ".");
 		Document docMainPage = parse_html("http://www.dotabuff.com/matches/" + id);
 		String stringMainPage = docMainPage.toString();
 		if (stringMainPage.contains("This match is marked as insignificant"))
 		{
-			System.out.println("Parsing failed");
+			System.out.println("Parsing failed. Match insignificant");
 			return false;
 		}
 		if (!stringMainPage.contains("Captains Mode") && !stringMainPage.contains("Captains Draft"))
 		{
-			System.out.println("Parsing failed");
+			System.out.println("Parsing failed. Not CM or CD.");
 			return false;
 		}
 
@@ -396,7 +397,10 @@ public class ParserFactory
 		String teamId;
 		tempString = substringer(stringMainPage, "<section class=\"radiant\"", "</header>");
 		if (!tempString.contains("esports/teams/"))
+		{
+			System.out.println("Parsing failed. One of the teams are not esports team");
 			return false;
+		}
 		teamId = substringer(tempString, "esports/teams/", "\">");
 		teamName = substringer(tempString, "title=", " class");
 		teamId = teamId.replaceAll("esports/teams/", "");
@@ -408,7 +412,10 @@ public class ParserFactory
 		//DireTeamName
 		tempString = substringer(stringMainPage, "<section class=\"dire\"", "</header>");
 		if (!tempString.contains("esports/teams/"))
+		{
+			System.out.println("Parsing failed. One of the teams are not esports team");
 			return false;
+		}
 		teamId = substringer(tempString, "esports/teams/", "\">");
 		teamName = substringer(tempString, "title=", " class");
 		teamId = teamId.replaceAll("esports/teams/", "");
@@ -2228,11 +2235,17 @@ public class ParserFactory
 		tempString = substringer(stringMainPage, "datetime=\"", "title");
 		tempString = tempString.substring(10, 20);
 		match.date = tempString;
+		Date matchDate=formatter.parse(match.date);
+		if(lastMatchDate.compareTo(matchDate)!=-1)
+		{
+			System.out.println("Parsing error. Too early date");
+			return false;
+		}
 		//</editor-fold>sy
 
 		//<editor-fold desc="TEAM RATINGS">
-		team[0].rating = statisticsFactory.getRatingById(team[0].id, team[0].name);
-		team[1].rating = statisticsFactory.getRatingById(team[1].id, team[1].name);
+		team[0].rating = ratingFactory.getRatingById(team[0].id, team[0].name);
+		team[1].rating = ratingFactory.getRatingById(team[1].id, team[1].name);
 		//</editor-fold>
 
 		//<editor-fold desc="RAXES COUNT">

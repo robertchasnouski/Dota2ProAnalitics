@@ -116,21 +116,21 @@ public class UniqueInfoFactory
 		}
 		formattedString = formattedString.replaceAll("\\[", "");
 		formattedString = formattedString.replaceAll("]", "");
-		formattedString=formattedString.replaceAll(",",";");
-		String [] eachLineData=formattedString.split("\n");
-		String endString="";
-		fileOperationsFactory.cleanAndWriteToFile("","files/Matches.txt");
-		for (int i = 0; i <eachLineData.length ; i++)
+		formattedString = formattedString.replaceAll(",", ";");
+		String[] eachLineData = formattedString.split("\n");
+		String endString = "";
+		fileOperationsFactory.cleanAndWriteToFile("", "files/Matches.txt");
+		for (int i = 0; i < eachLineData.length; i++)
 		{
-			endString="";
-			String []eachData=eachLineData[i].split(";");
-			for (int j = 0; j < eachData.length ; j++)
+			endString = "";
+			String[] eachData = eachLineData[i].split(";");
+			for (int j = 0; j < eachData.length; j++)
 			{
-				eachData[j]=eachData[j].replaceFirst(" ", "");
-				endString+=eachData[j]+";";
+				eachData[j] = eachData[j].replaceFirst(" ", "");
+				endString += eachData[j] + ";";
 			}
-			endString=endString.substring(0,endString.length()-1);
-			fileOperationsFactory.writeToFile(endString,"files/Matches.txt");
+			endString = endString.substring(0, endString.length() - 1);
+			fileOperationsFactory.writeToFile(endString, "files/Matches.txt");
 		}
 	}
 

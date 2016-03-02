@@ -39,7 +39,7 @@ public class MainAnaliticsFactory
 		}*/
 		/**AverageAnaliticsFactory**/
 		//averageAnaliticsFactory.startAverageAnalitics(matchesFile);
-		heatMapAnaliticsFactory.buildHeatMap("36");
+		heatMapAnaliticsFactory.buildHeatMap("1883502");
 
 	}
 }
