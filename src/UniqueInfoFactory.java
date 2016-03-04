@@ -12,7 +12,9 @@ public class UniqueInfoFactory
 	Boolean checkIfIdAlreadyParsed(String id) throws IOException
 	{
 		String matchIdList = fileOperationsFactory.readFile("files/MatchesParsed.txt");
-		String[] matchesId = matchIdList.split("\n");
+		String brokenMatches=fileOperationsFactory.readFile("files/BrokenMatches.txt");
+		String newString=matchIdList+brokenMatches;
+		String[] matchesId = newString.split("\n");
 		Boolean exist = false;
 		for (int i = 0; i < matchesId.length; i++)
 		{
@@ -82,10 +84,10 @@ public class UniqueInfoFactory
 		}
 	}
 
-	void makeMatchesFileClean() throws IOException
+	void makeMatchesFileClean(String fileName) throws IOException
 	{
 		//Deleting dublicates
-		String matchesFile = fileOperationsFactory.readFile("files/Matches.txt");
+		String matchesFile = fileOperationsFactory.readFile(fileName);
 		String[] matchLine = matchesFile.split("\n");
 		Set<String> lines = new HashSet<String>();
 		for (int i = 0; i < matchLine.length; i++)
@@ -119,7 +121,7 @@ public class UniqueInfoFactory
 		formattedString = formattedString.replaceAll(",", ";");
 		String[] eachLineData = formattedString.split("\n");
 		String endString = "";
-		fileOperationsFactory.cleanAndWriteToFile("", "files/Matches.txt");
+		fileOperationsFactory.cleanAndWriteToFile("", fileName);
 		for (int i = 0; i < eachLineData.length; i++)
 		{
 			endString = "";
@@ -130,7 +132,7 @@ public class UniqueInfoFactory
 				endString += eachData[j] + ";";
 			}
 			endString = endString.substring(0, endString.length() - 1);
-			fileOperationsFactory.writeToFile(endString, "files/Matches.txt");
+			fileOperationsFactory.writeToFile(endString, fileName);
 		}
 	}
 

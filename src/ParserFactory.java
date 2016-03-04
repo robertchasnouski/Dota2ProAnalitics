@@ -103,7 +103,7 @@ public class ParserFactory
 		return leagueLink;
 	}
 
-	Boolean parseMatchById(Date lastMatchDate,String id, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException, InterruptedException, ParseException
+	Boolean parseMatchById(Date lastMatchDate, String id, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException, InterruptedException, ParseException
 	{
 		System.out.println("Parsing match with ID:" + id + ".");
 		Document docMainPage = parse_html("http://www.dotabuff.com/matches/" + id);
@@ -424,6 +424,18 @@ public class ParserFactory
 		teamName = replaceAllSeparators(teamName);
 		team[1].id = teamId;
 		team[1].name = teamName;
+
+		tempString = substringer(mainPageRadiantTotalLine, "r-group-1 cell-centered\">", "</td>");
+		tempString = tempString.substring(25, tempString.length());
+		team[0].totalLevel = Integer.parseInt(tempString);
+		tempString = substringer(mainPageDireTotalLine, "r-group-1 cell-centered\">", "</td>");
+		tempString = tempString.substring(25, tempString.length());
+		team[1].totalLevel = Integer.parseInt(tempString);
+		if (team[0].totalLevel < 30 || team[1].totalLevel < 30)
+		{
+			System.out.println("Parsing failed. Level block");
+			return false;
+		}
 		//</editor-fold>
 
 		//<editor-fold desc="PLAYER ID">
@@ -868,9 +880,12 @@ public class ParserFactory
 							{
 								if (player[k].hero.contains(whoAssists))
 								{
-									killEvents[killsCounter].killers[assistsCounter] = k + 1;
-									assistsCounter++;
-									k = 10;
+									if (assistsCounter != 5)
+									{
+										killEvents[killsCounter].killers[assistsCounter] = k + 1;
+										assistsCounter++;
+										k = 10;
+									}
 								}
 							}
 						}
@@ -2098,9 +2113,20 @@ public class ParserFactory
 				tempString = substringer(logLine[i], "<span class=\"time", "</span>");
 				tempString = removeTags(tempString);
 				towerchik.second = mapTimeToSeconds(tempString);
-				tempString = substringer(logLine[i], "<a href", "</a>");
-				tempString = removeTags(tempString);
-				tempString = tempString.replaceFirst(" ", "");
+				if (!tempString.contains("a href"))
+				{
+					if(tempString.contains("The Radiant"))
+					{
+						towerchik.whoDestroy="Radiant";
+					}
+					else
+						towerchik.whoDestroy="Dire";
+				} else
+				{
+					tempString = substringer(logLine[i], "<a href", "</a>");
+					tempString = removeTags(tempString);
+					tempString = tempString.replaceFirst(" ", "");
+				}
 				towerchik.whoDestroy = tempString;
 				tempString = substringer(logLine[i], "Tier", "Tower");
 				if (tempString.contains("1"))
@@ -2235,13 +2261,13 @@ public class ParserFactory
 		tempString = substringer(stringMainPage, "datetime=\"", "title");
 		tempString = tempString.substring(10, 20);
 		match.date = tempString;
-		Date matchDate=formatter.parse(match.date);
-		if(lastMatchDate.compareTo(matchDate)!=-1)
+		Date matchDate = formatter.parse(match.date);
+		if (lastMatchDate.compareTo(matchDate) != -1)
 		{
 			System.out.println("Parsing error. Too early date");
 			return false;
 		}
-		//</editor-fold>sy
+		//</editor-fold>
 
 		//<editor-fold desc="TEAM RATINGS">
 		team[0].rating = ratingFactory.getRatingById(team[0].id, team[0].name);
@@ -2488,7 +2514,7 @@ public class ParserFactory
 		int max = Math.max(Math.max(Math.max(jungle, topOff), Math.max(topSafe, botOff)), Math.max(botSafe, middle));
 
 		/**Jungler**/
-		if (max == jungle && topOff == 0 && topSafe == 0 && botOff == 0 && botSafe == 0 && middle == 0)
+		if (max == jungle)
 			role = 5;
 		/**Carry**/
 		else if (isCarry == true && max != middle)

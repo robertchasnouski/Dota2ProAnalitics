@@ -32,12 +32,13 @@ public class EPPAnaliticsFactory
 
 		for (int i = 0; i < player.length; i++)
 		{
+			Integer epp=0;
 			/**1-Mider. 2-Carry. 3-Support. 4-Hardliner. 5-Jungler.**/
 			//<editor-fold desc="MIDER">
 			if (player[i].role == 1)
 			{
 				//EG creeps(High priority)
-				//LH accuracy(<5%)
+
 				//HeroDamage(HighPriority)
 				//KDA
 				//TowerDamage

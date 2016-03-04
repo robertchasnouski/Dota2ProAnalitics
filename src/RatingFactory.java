@@ -262,22 +262,11 @@ public class RatingFactory
 				}
 				//</editor-fold>
 
-				if (firstTeamWin)
-				{
-					//	fileOperationsFactory.writeToFile(matchId+";"+team1Rating+";"+Integer.toString(incrementator),"files/teams/"+team1Id+"/TeamMatches.txt");
-					//	fileOperationsFactory.writeToFile(matchId + ";" + team2Rating + ";" + Integer.toString(incrementator*(-1)),"files/teams/"+team2Id+"/TeamMatches.txt");
-				//	updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
-				} else
-				{
-					//	fileOperationsFactory.writeToFile(matchId+";"+Integer.toString(team1Rating-incrementator)+";"+Integer.toString(incrementator*(-1)),"files/teams/"+team1Id+"/TeamMatches.txt");
-					//	fileOperationsFactory.writeToFile(matchId + ";" + Integer.toString(team2Rating+incrementator) + ";" + Integer.toString(incrementator),"files/teams/"+team2Id+"/TeamMatches.txt");
-				//	updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
-				}
+
 				//fileOperationsFactory.writeToFile(matchId, "files/MatchesRated.txt");
 			}
 		}
 	}
-
 
 	public String calculateRatingDifference(Integer t1R, Integer t2R)
 	{

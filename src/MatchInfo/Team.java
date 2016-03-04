@@ -7,6 +7,7 @@ public class Team
 	public Integer rating;
 	public Integer side;
 	public Integer raxesRemain;
+	public Integer totalLevel;
 
 	//<editor-fold desc="General Info">
 	public Integer kills;
