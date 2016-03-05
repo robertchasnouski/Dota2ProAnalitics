@@ -12,6 +12,7 @@ import java.util.Date;
 ////TODO: Check error matches and check if they are in parsed matches
 ////TODO: Test Writing and reading the same information
 ////TODO: Why dublicates appear?
+////
 //TODO: Phase 2: Prototype analizing
 ////TODO: GameMode can be also AP because its reprick and regame
 //TODO: Phase 3: Advanced analizing
@@ -47,8 +48,7 @@ public class Worker
 			team[i] = new Team();
 		}
 
-		checkIfTemporaryFileIsClean();
-
+		//checkIfTemporaryFileIsClean();
 		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 
 		//ratingFactory.organizeRating();
@@ -75,7 +75,6 @@ public class Worker
 		{
 			uniqueInfoFactory.makeMatchesFileClean("files/TemporaryMatches.txt");
 			tempFile = fileOperationsFactory.readFile("files/TemporaryMatches.txt");
-			System.out.println(tempFile);
 			fileOperationsFactory.cleanAndWriteToFile(oldFile + tempFile, "files/Matches.txt");
 		}
 		fileOperationsFactory.cleanAndWriteToFile("", "files/TemporaryMatches.txt");
@@ -108,6 +107,10 @@ public class Worker
 					{
 						if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList))
 							fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/MatchesParsed.txt");
+						for (int j = 0; j <10 ; j++)
+						{
+							System.out.println("ROLE:"+player[j].role);
+						}
 						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 						writerReaderFactory.makeZeros(team, player, match);
 					} else

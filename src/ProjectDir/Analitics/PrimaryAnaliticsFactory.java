@@ -8,53 +8,23 @@ import java.util.ArrayList;
 public class PrimaryAnaliticsFactory
 {
 	FileControlFactory fileControlFactory = new FileControlFactory();
-	StringReader stringReader = new StringReader();
 
 
-	public void analizeMatch(String stringFromFile) throws IOException
+
+	public void analizeMatch(String stringFromFile, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
 	{
 		String[] tempSeparator1 = stringFromFile.split(";");
 		String matchId = tempSeparator1[0];
-		//TODO: Writing match that it analized before succesful analysis(Must be after)
+
+		/**Create team file if not exists**/
+		fileControlFactory.createTeamFileIfNotExists(team[0].id);
+		fileControlFactory.createTeamFileIfNotExists(team[1].id);
+		/**Start analizing**/
+
+		/**End analizing**/
 		if (!fileControlFactory.checkIfIdAlreadyParsed(matchId))
 			fileControlFactory.writeToFile(matchId, "files/MatchesAnalized.txt");
 		else return;
-		String matchString = stringReader.getMatchInfo(stringFromFile);
-		String teamsString = stringReader.getTeamsInfo(stringFromFile);
-		String playersString = stringReader.getPlayersInfo(stringFromFile);
-		String killEventString = stringReader.getKillEvents(stringFromFile);
-		String wardEventString = stringReader.getWardEvents(stringFromFile);
-		String glyphEventString = stringReader.getGlyphEvents(stringFromFile);
-		String buyBackEventString = stringReader.getBuyBackEvents(stringFromFile);
-		String towerEventString = stringReader.getTowerEvents(stringFromFile);
-		/**TeamID's**/
-		String[] teamString = teamsString.split("\\|\\|");
-		String[] tempSeparator2 = teamString[0].split(";");
-		String[] tempSeparator3 = teamString[1].split(";");
-		String team1Id = tempSeparator2[0];
-		String team2Id = tempSeparator3[0];
-		/**Create team file if not exists**/
-		fileControlFactory.createTeamFileIfNotExists(team1Id);
-		fileControlFactory.createTeamFileIfNotExists(team2Id);
-		/**Filling arrays**/
-		ArrayList<KillEvent> killEventArrayList = new ArrayList<KillEvent>();
-		ArrayList<BuyBackEvent> buyBackEventArrayList = new ArrayList<BuyBackEvent>();
-		ArrayList<GlyphEvent> glyphEventArrayList = new ArrayList<GlyphEvent>();
-		ArrayList<TowerEvent> towerEventArrayList = new ArrayList<TowerEvent>();
-		ArrayList<WardEvent> wardEventArrayList = new ArrayList<WardEvent>();
-		Match match = new Match();
-		Player[] player = new Player[10];
-		Team[] team = new Team[2];
-		for (int i = 0; i < 10; i++)
-		{
-			player[i] = new Player();
-		}
-		for (int i = 0; i < 2; i++)
-		{
-			team[i] = new Team();
-		}
-		stringReader.fillArraysFromFile(stringFromFile, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-		/**Start analizing**/
 
 	}
 

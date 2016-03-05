@@ -2,10 +2,17 @@ package ProjectDir.MatchInfo;
 
 public class Player
 {
+	public Integer networthPosition;
+	public Integer offLine;
+	public Integer safeLine;
+	public Integer middle;
+	public Integer jungle;
+	public Integer roaming;
+
 	public String playerId;
 
 	public Integer role; /*1-Mider. 2-Carry. 3-Support. 4-Hardliner. 5-Jungler.*/
-
+	public Integer EPP;
 	public Integer level;
 
 	public Integer partisipation;
@@ -64,36 +71,44 @@ public class Player
 
 	public Player()
 	{
-		this.playerId="000000000";
-		this.hero="RandomHero";
-		this.role=0;
-		this.side=0;
-		this.kills=0;
-		this.deaths=0;
-		this.assists=0;
-		this.partisipation=0;
-		this.heroHeal=0;
-		this.heroDamage=0;
-		this.totalGPM=0;
-		this.totalXPM=0;
-		this.totalGold=0;
-		this.totalLH=0;
-		this.towersDestroyed=0;
-		this.towerDamage=0;
-		this.towersDenied=0;
-		this.roshanKills=0;
-		this.goldForKills=0;
-		this.goldFed=0;
-		this.goldLost=0;
-		this.observerWardsDestroyed=0;
-		this.observerWardsPlaced=0;
-		this.sentryWardsDestroyed=0;
-		this.sentryWardsPlaced=0;
-		this.dustHits=0;
-		this.dustAccuracy=0;
-		this.smokeHits=0;
-		this.smokeTotalHeroes=0;
-		this.gemTimeCarried=0;
+		this.roaming=0;
+		this.offLine=0;
+		this.safeLine=0;
+		this.middle=0;
+		this.jungle=0;
+		this.networthPosition=0;
+
+		this.EPP = 0;
+		this.playerId = "000000000";
+		this.hero = "RandomHero";
+		this.role = 0;
+		this.side = 0;
+		this.kills = 0;
+		this.deaths = 0;
+		this.assists = 0;
+		this.partisipation = 0;
+		this.heroHeal = 0;
+		this.heroDamage = 0;
+		this.totalGPM = 0;
+		this.totalXPM = 0;
+		this.totalGold = 0;
+		this.totalLH = 0;
+		this.towersDestroyed = 0;
+		this.towerDamage = 0;
+		this.towersDenied = 0;
+		this.roshanKills = 0;
+		this.goldForKills = 0;
+		this.goldFed = 0;
+		this.goldLost = 0;
+		this.observerWardsDestroyed = 0;
+		this.observerWardsPlaced = 0;
+		this.sentryWardsDestroyed = 0;
+		this.sentryWardsPlaced = 0;
+		this.dustHits = 0;
+		this.dustAccuracy = 0;
+		this.smokeHits = 0;
+		this.smokeTotalHeroes = 0;
+		this.gemTimeCarried = 0;
 		for (int i = 0; i < 6; i++)
 		{
 			this.item[i] = null;
@@ -119,36 +134,44 @@ public class Player
 
 	public void playerZeros()
 	{
-		this.playerId="000000000";
-		this.hero="RandomHero";
-		this.role=0;
-		this.side=0;
-		this.kills=0;
-		this.deaths=0;
-		this.assists=0;
-		this.partisipation=0;
-		this.heroHeal=0;
-		this.heroDamage=0;
-		this.totalGPM=0;
-		this.totalXPM=0;
-		this.totalGold=0;
-		this.totalLH=0;
-		this.towersDestroyed=0;
-		this.towerDamage=0;
-		this.towersDenied=0;
-		this.roshanKills=0;
-		this.goldForKills=0;
-		this.goldFed=0;
-		this.goldLost=0;
-		this.observerWardsDestroyed=0;
-		this.observerWardsPlaced=0;
-		this.sentryWardsDestroyed=0;
-		this.sentryWardsPlaced=0;
-		this.dustHits=0;
-		this.dustAccuracy=0;
-		this.smokeHits=0;
-		this.smokeTotalHeroes=0;
-		this.gemTimeCarried=0;
+		this.roaming=0;
+		this.offLine=0;
+		this.safeLine=0;
+		this.middle=0;
+		this.jungle=0;
+		this.networthPosition=0;
+
+		this.EPP = 0;
+		this.playerId = "000000000";
+		this.hero = "RandomHero";
+		this.role = 0;
+		this.side = 0;
+		this.kills = 0;
+		this.deaths = 0;
+		this.assists = 0;
+		this.partisipation = 0;
+		this.heroHeal = 0;
+		this.heroDamage = 0;
+		this.totalGPM = 0;
+		this.totalXPM = 0;
+		this.totalGold = 0;
+		this.totalLH = 0;
+		this.towersDestroyed = 0;
+		this.towerDamage = 0;
+		this.towersDenied = 0;
+		this.roshanKills = 0;
+		this.goldForKills = 0;
+		this.goldFed = 0;
+		this.goldLost = 0;
+		this.observerWardsDestroyed = 0;
+		this.observerWardsPlaced = 0;
+		this.sentryWardsDestroyed = 0;
+		this.sentryWardsPlaced = 0;
+		this.dustHits = 0;
+		this.dustAccuracy = 0;
+		this.smokeHits = 0;
+		this.smokeTotalHeroes = 0;
+		this.gemTimeCarried = 0;
 		for (int i = 0; i < 6; i++)
 		{
 			this.item[i] = null;
@@ -171,6 +194,7 @@ public class Player
 			this.perMinuteLastHits[i] = 9999;
 		}
 	}
+
 	public void showPlayerStatistics()
 	{
 		System.out.println("Player ID:" + playerId + "; Side:" + side + "; Role:" + role + ".");

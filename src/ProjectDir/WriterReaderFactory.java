@@ -1101,7 +1101,6 @@ public class WriterReaderFactory
 			if (i != towerEvent.size() - 1)
 				writeToFile("**", false);
 		}
-
 		if (error)
 		{
 			String newString = "";
@@ -1112,7 +1111,6 @@ public class WriterReaderFactory
 				newString += lineByLine[i] + "\n";
 			}
 			fileOperationsFactory.cleanAndWriteToFile(newString, "files/TemporaryMatches.txt");
-
 		} else writeToFile("\n", false);
 		if (error)
 			return false;

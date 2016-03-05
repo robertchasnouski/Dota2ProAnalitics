@@ -1,6 +1,7 @@
 package ProjectDir;
 
 import ProjectDir.Analitics.StringReader;
+import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.io.IOException;
 
@@ -49,8 +50,8 @@ public class AverageDataFactory
 	public Double avgJunglerHDM = 0.0;
 	public Double avgJunglerDF10M = 0.0;
 	public Double avgJunglerGPM = 0.0;
-	public Double avgJunlgerPartisipate = 0.0;
-
+	public Double avgJunglerPartisipate = 0.0;
+	public Double avgJunglerTDM = 0.0;
 
 	public Integer miderCounter = 0;
 	public Integer carryCounter = 0;
@@ -65,8 +66,8 @@ public class AverageDataFactory
 	{
 		String allMatchesFile = fileOperationsFactory.readFile("files/Matches.txt");
 		String[] eachMatch = allMatchesFile.split("\n");
-		Integer matchesCount = 100;
-		if (eachMatch.length < 100)
+		Integer matchesCount = 50;
+		if (eachMatch.length < 50)
 			matchesCount = eachMatch.length;
 		for (int i = eachMatch.length - 1; i > eachMatch.length - matchesCount - 1; i--)
 		{
@@ -74,7 +75,7 @@ public class AverageDataFactory
 			String teamsMatchString = stringReader.getTeamsInfo(eachMatch[i]);
 			String playersMatchString = stringReader.getPlayersInfo(eachMatch[i]);
 
-			System.out.println("Match ID:" + generalMatchString.split(";")[0]);
+			//System.out.println("Match ID:" + generalMatchString.split(";")[0]);
 			Double matchTime = (double) Integer.parseInt(generalMatchString.split(";")[2]);
 
 			String[] team1MatchInfo = teamsMatchString.split("\\|\\|")[0].split(";");
@@ -94,20 +95,6 @@ public class AverageDataFactory
 				String killsString = stringReader.getKillEvents(eachMatch[i]);
 				String[] eachKill = killsString.split("\\*\\*");
 
-					/*System.out.println("Kills:"+onePlayerInfo[4]);
-					System.out.println("Deaths:"+onePlayerInfo[5]);
-					System.out.println("Assists:"+onePlayerInfo[6]);
-					System.out.println("GPM:"+onePlayerInfo[11]);
-					System.out.println("HD:"+onePlayerInfo[9]);
-					System.out.println("TD:"+onePlayerInfo[10]);
-					System.out.println("GfK:"+onePlayerInfo[17]);
-					System.out.println("GL:"+onePlayerInfo[19]);
-					System.out.println("Partisipation:"+onePlayerInfo[7]);
-					System.out.println("WD:"+onePlayerInfo[23]);
-					System.out.println("LH1:"+LHArray[1]);
-					System.out.println("LH2:"+LHArray[2]);
-					System.out.println("LH3:"+LHArray[3]);
-					System.out.println("LH4:"+LHArray[4]);*/
 				//Mider
 				if (onePlayerInfo[2].equals("1"))
 				{
@@ -173,12 +160,13 @@ public class AverageDataFactory
 					for (int k = 0; k < Integer.parseInt(eachKill[0]); k++)
 					{
 						String[] killInfo = eachKill[k + 1].split(";");
-						if (Integer.parseInt(killInfo[2]) < 600 && killInfo[3].equals(j))
+						int dier = j + 1;
+						if (Integer.parseInt(killInfo[2]) < 600 && killInfo[3].equals(dier + ""))
 						{
-							avgHardlinerDF10M += Integer.parseInt(onePlayerInfo[7]);
+							avgHardlinerDF10M += 1;
 						}
 					}
-					avgHardlinerXPMF10M = (double) Integer.parseInt(XPMArray[1]) + Integer.parseInt(XPMArray[2]) + Integer.parseInt(XPMArray[3]) + Integer.parseInt(XPMArray[4]) + Integer.parseInt(XPMArray[5]) + Integer.parseInt(XPMArray[6]) + Integer.parseInt(XPMArray[7]) + Integer.parseInt(XPMArray[8]) + Integer.parseInt(XPMArray[9]) + Integer.parseInt(XPMArray[10]);
+					avgHardlinerXPMF10M += (double) Integer.parseInt(XPMArray[1]) + Integer.parseInt(XPMArray[2]) + Integer.parseInt(XPMArray[3]) + Integer.parseInt(XPMArray[4]) + Integer.parseInt(XPMArray[5]) + Integer.parseInt(XPMArray[6]) + Integer.parseInt(XPMArray[7]) + Integer.parseInt(XPMArray[8]) + Integer.parseInt(XPMArray[9]) + Integer.parseInt(XPMArray[10]);
 				}
 				//Jungler
 				if (onePlayerInfo[2].equals("5"))
@@ -189,30 +177,67 @@ public class AverageDataFactory
 					avgJunglerAM += Integer.parseInt(onePlayerInfo[6]) / matchTime;
 					avgJunglerGPM += Integer.parseInt(onePlayerInfo[11]);
 					avgJunglerHDM += Integer.parseInt(onePlayerInfo[9]) / matchTime;
-					avgJunlgerPartisipate += Integer.parseInt(onePlayerInfo[7]);
+					avgJunglerPartisipate += Integer.parseInt(onePlayerInfo[7]);
+					avgJunglerTDM += Integer.parseInt(onePlayerInfo[10]) / matchTime;
 					for (int k = 0; k < Integer.parseInt(eachKill[0]); k++)
 					{
-						System.out.println(eachKill[1]);
 						String[] killInfo = eachKill[k + 1].split(";");
-						if (Integer.parseInt(killInfo[2]) < 600 && killInfo[3].equals(j))
+						int dier = j + 1;
+						if (Integer.parseInt(killInfo[2]) < 600 && killInfo[3].equals(dier + ""))
 						{
-							avgJunglerDF10M += Integer.parseInt(onePlayerInfo[7]);
+							avgJunglerDF10M += 1;
 						}
 					}
 				}
 			}
 		}
 
-		avgMiderKM=avgMiderKM/matchesCount;
-		avgMiderDM=avgMiderDM/matchesCount;
-		avgMiderAM=avgMiderAM/matchesCount;
-		avgMiderTDM=avgMiderTDM/matchesCount;
-		avgMiderHDM=avgMiderHDM/matchesCount;
-		avgMiderGPM=avgMiderGPM/matchesCount;
-		avgMiderGfKGFDifference=avgMiderGfKGFDifference/matchesCount;
-		avgMiderCreepsF10M=avgMiderCreepsF10M/matchesCount;
+		avgMiderKM = avgMiderKM / miderCounter;
+		avgMiderDM = avgMiderDM / miderCounter;
+		avgMiderAM = avgMiderAM / miderCounter;
+		avgMiderTDM = avgMiderTDM / miderCounter;
+		avgMiderHDM = avgMiderHDM / miderCounter;
+		avgMiderGPM = avgMiderGPM / miderCounter;
+		avgMiderGfKGFDifference = avgMiderGfKGFDifference / miderCounter;
+		avgMiderCreepsF10M = avgMiderCreepsF10M / miderCounter;
 
-		System.out.println("Mider Avg. Values:");
+		avgCarryKM = avgCarryKM / carryCounter;
+		avgCarryDM = avgCarryDM / carryCounter;
+		avgCarryAM = avgCarryAM / carryCounter;
+		avgCarryTDM = avgCarryTDM / carryCounter;
+		avgCarryHDM = avgCarryHDM / carryCounter;
+		avgCarryGPM = avgCarryGPM / carryCounter;
+		avgCarryGfKGFDifference = avgCarryGfKGFDifference / carryCounter;
+		avgCarryCreepsF15M = avgCarryCreepsF15M / carryCounter;
+
+		avgSupportKM = avgSupportKM / supportCounter;
+		avgSupportDM = avgSupportDM / supportCounter;
+		avgSupportAM = avgSupportAM / supportCounter;
+		avgSupportHHM = avgSupportHHM / supportCounter;
+		avgSupportHDM = avgSupportHDM / supportCounter;
+		avgSupportGPM = avgSupportGPM / supportCounter;
+		avgSupportPartisipate = avgSupportPartisipate / supportCounter;
+		avgSupportWDM = avgSupportWDM / supportCounter;
+
+		avgHardlinerKM = avgHardlinerKM / hardlinerCounter;
+		avgHardlinerDM = avgHardlinerDM / hardlinerCounter;
+		avgHardlinerAM = avgHardlinerAM / hardlinerCounter;
+		avgHardlinerXPMF10M = avgHardlinerXPMF10M / hardlinerCounter;
+		avgHardlinerPartisipate = avgHardlinerPartisipate / hardlinerCounter;
+		avgHardlinerGPM = avgHardlinerGPM / hardlinerCounter;
+		avgHardlinerDF10M = avgHardlinerDF10M / hardlinerCounter;
+		avgHardlinerHDM = avgHardlinerHDM / hardlinerCounter;
+
+		avgJunglerKM = avgJunglerKM / junglerCounter;
+		avgJunglerDM = avgJunglerDM / junglerCounter;
+		avgJunglerAM = avgJunglerAM / junglerCounter;
+		avgJunglerHDM = avgJunglerHDM / junglerCounter;
+		avgJunglerDF10M = avgJunglerDF10M / junglerCounter;
+		avgJunglerGPM = avgJunglerGPM / junglerCounter;
+		avgJunglerTDM = avgJunglerTDM / junglerCounter;
+		avgJunglerPartisipate = avgJunglerPartisipate / junglerCounter;
+
+		System.out.println("MIDER Avg. Values:");
 		System.out.println("KillsPerMinute:" + avgMiderKM);
 		System.out.println("DeathsPerMinute:" + avgMiderDM);
 		System.out.println("AssistsPerMinute:" + avgMiderAM);
@@ -221,17 +246,7 @@ public class AverageDataFactory
 		System.out.println("GPM:" + avgMiderGPM);
 		System.out.println("GfK-GL:" + avgMiderGfKGFDifference);
 		System.out.println("CreepsF10M:" + avgMiderCreepsF10M);
-		System.out.println();
-		avgCarryKM=avgCarryKM/matchesCount;
-		avgCarryDM=avgCarryDM/matchesCount;
-		avgCarryAM=avgCarryAM/matchesCount;
-		avgCarryTDM=avgCarryTDM/matchesCount;
-		avgCarryHDM=avgCarryHDM/matchesCount;
-		avgCarryGPM=avgCarryGPM/matchesCount;
-		avgCarryGfKGFDifference=avgCarryGfKGFDifference/matchesCount;
-		avgCarryCreepsF15M=avgCarryCreepsF15M/matchesCount;
-
-		System.out.println("Carry Avg. Values:");
+		System.out.println("CARRY Avg. Values:");
 		System.out.println("KillsPerMinute:" + avgCarryKM);
 		System.out.println("DeathsPerMinute:" + avgCarryDM);
 		System.out.println("AssistsPerMinute:" + avgCarryAM);
@@ -240,17 +255,7 @@ public class AverageDataFactory
 		System.out.println("GPM:" + avgCarryGPM);
 		System.out.println("GfK-GL:" + avgCarryGfKGFDifference);
 		System.out.println("CreepsF15M:" + avgCarryCreepsF15M);
-		System.out.println();
-		avgSupportKM=avgSupportKM/matchesCount;
-		avgSupportDM=avgSupportDM/matchesCount;
-		avgSupportAM=avgSupportAM/matchesCount;
-		avgSupportHHM=avgSupportHHM/matchesCount;
-		avgSupportHDM=avgSupportHDM/matchesCount;
-		avgSupportGPM=avgSupportGPM/matchesCount;
-		avgSupportPartisipate=avgSupportPartisipate/matchesCount;
-		avgSupportWDM=avgSupportWDM/matchesCount;
-
-		System.out.println("Support Avg. Values:");
+		System.out.println("SUPPORT Avg. Values:");
 		System.out.println("KillsPerMinute:" + avgSupportKM);
 		System.out.println("DeathsPerMinute:" + avgSupportDM);
 		System.out.println("AssistsPerMinute:" + avgSupportAM);
@@ -259,16 +264,7 @@ public class AverageDataFactory
 		System.out.println("GPM:" + avgSupportGPM);
 		System.out.println("Partisipate:" + avgSupportPartisipate);
 		System.out.println("WardDestroyMinute:" + avgSupportWDM);
-		System.out.println();
-		avgHardlinerKM=avgHardlinerKM/matchesCount;
-		avgHardlinerDM=avgHardlinerDM/matchesCount;
-		avgHardlinerAM=avgHardlinerAM/matchesCount;
-		avgHardlinerXPMF10M=avgHardlinerXPMF10M/matchesCount;
-		avgHardlinerPartisipate=avgHardlinerPartisipate/matchesCount;
-		avgHardlinerGPM=avgHardlinerGPM/matchesCount;
-		avgHardlinerDF10M=avgHardlinerDF10M/matchesCount;
-		avgHardlinerHDM=avgHardlinerHDM/matchesCount;
-		System.out.println("HardLiner Avg. Values:");
+		System.out.println("HARDLINER Avg. Values:");
 		System.out.println("KillsPerMinute:" + avgHardlinerKM);
 		System.out.println("DeathsPerMinute:" + avgHardlinerDM);
 		System.out.println("AssistsPerMinute:" + avgHardlinerAM);
@@ -277,22 +273,13 @@ public class AverageDataFactory
 		System.out.println("GPM:" + avgHardlinerGPM);
 		System.out.println("DF10M:" + avgHardlinerDF10M);
 		System.out.println("HDM:" + avgHardlinerHDM);
-		System.out.println();
-		avgJunglerKM=avgJunglerKM/matchesCount;
-		avgJunglerDM=avgJunglerDM/matchesCount;
-		avgJunglerAM=avgJunglerAM/matchesCount;
-		avgJunglerHDM=avgJunglerHDM/matchesCount;
-		avgJunglerDF10M=avgJunglerDF10M/matchesCount;
-		avgJunglerGPM=avgJunglerGPM/matchesCount;
-
-		System.out.println("Jungler Avg. Values:");
+		System.out.println("JUNGLER Avg. Values:");
 		System.out.println("KillsPerMinute:" + avgJunglerKM);
 		System.out.println("DeathsPerMinute:" + avgJunglerDM);
 		System.out.println("AssistsPerMinute:" + avgJunglerAM);
 		System.out.println("HeroDamageMinute:" + avgJunglerHDM);
 		System.out.println("DF10M:" + avgJunglerDF10M);
 		System.out.println("GPM:" + avgJunglerGPM);
+		System.out.println("Partisipation:" + avgJunglerPartisipate);
 	}
-
-
 }

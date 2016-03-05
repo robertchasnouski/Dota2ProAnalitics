@@ -2009,19 +2009,16 @@ public class ParserFactory
 		{
 			tempString = substringer(mainPageRadiantHeroLine[i], "<div class=\"lanes\">", "</td>");
 			tempString = tempString.substring(110, tempString.length());
-			//System.out.println(player[i].hero);
-			//System.out.println(laneChooser(tempString, true, checkIfCarry(true, i), checkIfSupport(true, i)));
-			player[i].role = laneChooser(tempString, true, checkIfCarry(true, i, player), checkIfSupport(true, i, player));
+			fillRolesDetectorInfo(player, tempString, i);
 		}
 		/**Dire**/
 		for (int i = 0; i < mainPageDireHeroLine.length - 1; i++)
 		{
 			tempString = substringer(mainPageDireHeroLine[i], "<div class=\"lanes\">", "</td>");
 			tempString = tempString.substring(110, tempString.length());
-			//System.out.println(player[i+5].hero);
-			//System.out.println(laneChooser(tempString, false, checkIfCarry(false, i+5), checkIfSupport(false, i+5)));
-			player[i + 5].role = laneChooser(tempString, false, checkIfCarry(false, i + 5, player), checkIfSupport(false, i + 5, player));
+			fillRolesDetectorInfo(player, tempString, i + 5);
 		}
+		rolesDetector(player);
 		//</editor-fold>
 
 		//<editor-fold desc="EXPIRIENCE: Player.minuteXPM, Team. minuteXPM"
@@ -2116,12 +2113,11 @@ public class ParserFactory
 				towerchik.second = mapTimeToSeconds(tempString);
 				if (!tempString.contains("a href"))
 				{
-					if(tempString.contains("The Radiant"))
+					if (tempString.contains("The Radiant"))
 					{
-						towerchik.whoDestroy="Radiant";
-					}
-					else
-						towerchik.whoDestroy="Dire";
+						towerchik.whoDestroy = "Radiant";
+					} else
+						towerchik.whoDestroy = "Dire";
 				} else
 				{
 					tempString = substringer(logLine[i], "<a href", "</a>");
@@ -2370,8 +2366,9 @@ public class ParserFactory
 		return temp;
 	}
 
-	Integer laneChooser(String input, Boolean radiant, boolean isCarry, boolean isSupport)
+	void fillRolesDetectorInfo(Player[] players, String input, Integer number)
 	{
+		//<editor-fold desc="Count lines">
 		String subinput;
 		Integer botSafe = 0;
 		Integer topOff = 0;
@@ -2380,7 +2377,6 @@ public class ParserFactory
 		Integer jungle = 0;
 		Integer topSafe = 0;
 		Integer botOff = 0;
-		Integer role = 0;
 		subinput = "Bottom (Safe)";
 		int lastIndex = 0;
 		int count = 0;
@@ -2477,7 +2473,7 @@ public class ParserFactory
 			}
 		}
 		roaming = count;
-		if (radiant == true)
+		if (number < 5)
 			radiantRoaming += count;
 		else
 			direRoaming += count;
@@ -2511,121 +2507,163 @@ public class ParserFactory
 			}
 		}
 		jungle += count;
-
-		int max = Math.max(Math.max(Math.max(jungle, topOff), Math.max(topSafe, botOff)), Math.max(botSafe, middle));
-
-		/**Jungler**/
-		if (max == jungle)
-			role = 5;
-		/**Carry**/
-		else if (isCarry == true && max != middle)
-			role = 2;
-		/**Mider**/
-		else if (max == middle && !isSupport)
-			role = 1;
-		/**Hardliner**/
-		else if (!isCarry && !isSupport)
-			role = 4;
-		else role = 3;
-		return role;
-	}
-
-	Boolean checkIfCarry(boolean isRadiant, int num, Player[] player)
-	{
-		int largest;
-		int secondLargest;
-		if (isRadiant == true)
+		//</editor-fold>
+		players[number].jungle = jungle;
+		players[number].safeLine = topSafe + botSafe;
+		players[number].offLine = topOff + botOff;
+		players[number].middle = middle;
+		players[number].roaming = roaming;
+		Integer[] networthPositionArray = new Integer[5];
+		//<editor-fold desc="NetWorthPosition">
+		if (number < 5)
 		{
-			largest = player[0].totalGold;
-
-			secondLargest = player[1].totalGold;
-
-			for (int i = 1; i < 5; i++)
+			networthPositionArray[0] = players[0].totalGold;
+			networthPositionArray[1] = players[1].totalGold;
+			networthPositionArray[2] = players[2].totalGold;
+			networthPositionArray[3] = players[3].totalGold;
+			networthPositionArray[4] = players[4].totalGold;
+			Arrays.sort(networthPositionArray);
+			for (int i = 0; i < 5; i++)
 			{
-				if (largest < player[i].totalGold)
+				if (players[i].totalGold == networthPositionArray[0])
 				{
-					secondLargest = largest;
-					largest = player[i].totalGold;
-
-
-				} else if (secondLargest < player[i].totalGold)
+					players[i].networthPosition = 1;
+				} else if (players[i].totalGold == networthPositionArray[1])
 				{
-					secondLargest = player[i].totalGold;
+					players[i].networthPosition = 2;
+				} else if (players[i].totalGold == networthPositionArray[2])
+				{
+					players[i].networthPosition = 3;
+				} else if (players[i].totalGold == networthPositionArray[3])
+				{
+					players[i].networthPosition = 4;
+				} else if (players[i].totalGold == networthPositionArray[4])
+				{
+					players[i].networthPosition = 5;
 				}
 			}
-
 		} else
 		{
-			largest = player[5].totalGold;
-
-			secondLargest = player[6].totalGold;
-
-			for (int i = 6; i < 10; i++)
+			networthPositionArray[0] = players[5].totalGold;
+			networthPositionArray[1] = players[6].totalGold;
+			networthPositionArray[2] = players[7].totalGold;
+			networthPositionArray[3] = players[8].totalGold;
+			networthPositionArray[4] = players[9].totalGold;
+			Arrays.sort(networthPositionArray);
+			for (int i = 0; i < 5; i++)
 			{
-				if (largest < player[i].totalGold)
+				if (players[i + 5].totalGold == networthPositionArray[0])
 				{
-					secondLargest = largest;
-					largest = player[i].totalGold;
-
-
-				} else if (secondLargest < player[i].totalGold)
+					players[i + 5].networthPosition = 1;
+				} else if (players[i + 5].totalGold == networthPositionArray[1])
 				{
-					secondLargest = player[i].totalGold;
+					players[i + 5].networthPosition = 2;
+				} else if (players[i + 5].totalGold == networthPositionArray[2])
+				{
+					players[i + 5].networthPosition = 3;
+				} else if (players[i + 5].totalGold == networthPositionArray[3])
+				{
+					players[i + 5].networthPosition = 4;
+				} else if (players[i + 5].totalGold == networthPositionArray[4])
+				{
+					players[i + 5].networthPosition = 5;
 				}
 			}
 		}
-		if (player[num].totalGold == largest || player[num].totalGold == secondLargest)
-			return true;
-		else return false;
+		//</editor-fold>
 	}
 
-	Boolean checkIfSupport(boolean isRadiant, int num, Player[] player)
+	void rolesDetector(Player[] player)
 	{
-		int min;
-		int secondMin;
-		if (isRadiant == true)
+		for (int i = 0; i < 10; i++)
 		{
-			min = player[0].totalGold;
-
-			secondMin = player[1].totalGold;
-
-			for (int i = 1; i < 5; i++)
+			//Jungler
+			if (player[i].jungle > player[i].middle && player[i].jungle > player[i].safeLine && player[i].jungle > player[i].offLine && player[i].jungle >= player[i].roaming)
 			{
-				if (min > player[i].totalGold)
+				player[i].role = 5;
+			}
+			//Hardliner
+			else if ((player[i].offLine > player[i].middle && player[i].offLine > player[i].jungle && player[i].offLine > player[i].safeLine && player[i].offLine >= player[i].roaming) || (player[i].safeLine > player[i].middle && player[i].safeLine > player[i].jungle && player[i].safeLine > player[i].offLine && player[i].safeLine >= player[i].roaming))
+			{
+				Boolean offExist = false;
+				Boolean safeExist = false;
+				if(i<5)
 				{
-					secondMin = min;
-					min = player[i].totalGold;
-
-
-				} else if (secondMin > player[i].totalGold)
+					for (int j = 0; j < 5; j++)
+					{
+						if (i == j)
+							continue;
+						if (player[j].safeLine > 1)
+							safeExist = true;
+						if (player[j].offLine > 1)
+							offExist = true;
+					}
+				}
+				else
 				{
-					secondMin = player[i].totalGold;
+					for (int j = 5; j < 10; j++)
+					{
+						if (i == j)
+							continue;
+						if (player[j].safeLine > 1)
+							safeExist = true;
+						if (player[j].offLine > 1)
+							offExist = true;
+					}
+				}
+				if(player[i].offLine > player[i].middle && player[i].offLine > player[i].jungle && player[i].offLine > player[i].safeLine && player[i].offLine >= player[i].roaming)
+					if(!offExist)
+						player[i].role=4;
+				if(player[i].safeLine > player[i].middle && player[i].safeLine > player[i].jungle && player[i].safeLine > player[i].offLine && player[i].safeLine >= player[i].roaming)
+					if(!safeExist)
+						player[i].role=4;
+			}
+			//Mider
+			else if(player[i].middle>player[i].safeLine && player[i].middle>player[i].offLine && player[i].middle>player[i].jungle && player[i].middle>=player[i].roaming)
+			{
+				if(player[i].networthPosition<=3)
+				{
+					player[i].role=1;
 				}
 			}
-
-		} else
-		{
-			min = player[5].totalGold;
-
-			secondMin = player[6].totalGold;
-
-			for (int i = 6; i < 10; i++)
+			//Carry
+			else if((player[i].offLine > player[i].middle && player[i].offLine > player[i].jungle && player[i].offLine > player[i].safeLine && player[i].offLine >= player[i].roaming) || (player[i].safeLine > player[i].middle && player[i].safeLine > player[i].jungle && player[i].safeLine > player[i].offLine && player[i].safeLine >= player[i].roaming))
 			{
-				if (min > player[i].totalGold)
-				{
-					secondMin = min;
-					min = player[i].totalGold;
+				if(player[i].networthPosition<=2)
+					player[i].role=2;
+			}
+			else
+			{
+				player[i].role=3;
+			}
 
-
-				} else if (secondMin > player[i].totalGold)
+			if(player[i].role==3 && player[i].networthPosition==3)
+			{
+				boolean carryexist=false;
+				if(i<5)
 				{
-					secondMin = player[i].totalGold;
+					for (int j = 0; j < 5; j++)
+					{
+						if(i==j)
+						continue;
+						if(player[j].role==2)
+							carryexist=true;
+					}
 				}
+				else
+				{
+					for (int j = 5; j < 10; j++)
+					{
+						if(i==j)
+							continue;
+						if(player[j].role==2)
+							carryexist=true;
+					}
+				}
+				if(!carryexist)
+					player[i].role=2;
 			}
 		}
-		if (player[num].totalGold == min || player[num].totalGold == secondMin)
-			return true;
-		else return false;
 	}
 
 	String html2text(String html)
