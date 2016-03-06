@@ -415,6 +415,7 @@ public class WriterReaderFactory
 
 	Boolean writeMatchInfoToFile(Player[] players, Team[] teams, Match match, ArrayList<WardEvent> wardEvent, ArrayList<TowerEvent> towerEvent, ArrayList<KillEvent> killEvent, ArrayList<GlyphEvent> glyphEvent, ArrayList<BuyBackEvent> buyBackEvent) throws IOException
 	{
+		System.out.print("Don't terminate program. Wait...");
 		boolean error = false;
 		//Match
 		writeToFile(match.id, true);
@@ -1112,6 +1113,7 @@ public class WriterReaderFactory
 			}
 			fileOperationsFactory.cleanAndWriteToFile(newString, "files/TemporaryMatches.txt");
 		} else writeToFile("\n", false);
+		System.out.print("Ended.\n");
 		if (error)
 			return false;
 		else return true;

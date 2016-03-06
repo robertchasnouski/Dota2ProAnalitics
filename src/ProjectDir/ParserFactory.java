@@ -2019,6 +2019,9 @@ public class ParserFactory
 			fillRolesDetectorInfo(player, tempString, i + 5);
 		}
 		rolesDetector(player);
+		checkIfMiderExist(player);
+		checkIfCarryExist(player);
+		checkIfHardlinerExist(player);
 		//</editor-fold>
 
 		//<editor-fold desc="EXPIRIENCE: Player.minuteXPM, Team. minuteXPM"
@@ -2527,19 +2530,19 @@ public class ParserFactory
 			{
 				if (players[i].totalGold == networthPositionArray[0])
 				{
-					players[i].networthPosition = 1;
+					players[i].networthPosition = 5;
 				} else if (players[i].totalGold == networthPositionArray[1])
 				{
-					players[i].networthPosition = 2;
+					players[i].networthPosition = 4;
 				} else if (players[i].totalGold == networthPositionArray[2])
 				{
 					players[i].networthPosition = 3;
 				} else if (players[i].totalGold == networthPositionArray[3])
 				{
-					players[i].networthPosition = 4;
+					players[i].networthPosition = 2;
 				} else if (players[i].totalGold == networthPositionArray[4])
 				{
-					players[i].networthPosition = 5;
+					players[i].networthPosition = 1;
 				}
 			}
 		} else
@@ -2554,19 +2557,19 @@ public class ParserFactory
 			{
 				if (players[i + 5].totalGold == networthPositionArray[0])
 				{
-					players[i + 5].networthPosition = 1;
+					players[i + 5].networthPosition = 5;
 				} else if (players[i + 5].totalGold == networthPositionArray[1])
 				{
-					players[i + 5].networthPosition = 2;
+					players[i + 5].networthPosition = 4;
 				} else if (players[i + 5].totalGold == networthPositionArray[2])
 				{
 					players[i + 5].networthPosition = 3;
 				} else if (players[i + 5].totalGold == networthPositionArray[3])
 				{
-					players[i + 5].networthPosition = 4;
+					players[i + 5].networthPosition = 2;
 				} else if (players[i + 5].totalGold == networthPositionArray[4])
 				{
-					players[i + 5].networthPosition = 5;
+					players[i + 5].networthPosition = 1;
 				}
 			}
 		}
@@ -2578,16 +2581,17 @@ public class ParserFactory
 		for (int i = 0; i < 10; i++)
 		{
 			//Jungler
-			if (player[i].jungle > player[i].middle && player[i].jungle > player[i].safeLine && player[i].jungle > player[i].offLine && player[i].jungle >= player[i].roaming)
+			if (player[i].jungle > player[i].middle && player[i].jungle >= player[i].safeLine && player[i].jungle >= player[i].offLine && player[i].jungle >= player[i].roaming)
 			{
 				player[i].role = 5;
+				continue;
 			}
 			//Hardliner
-			else if ((player[i].offLine > player[i].middle && player[i].offLine > player[i].jungle && player[i].offLine > player[i].safeLine && player[i].offLine >= player[i].roaming) || (player[i].safeLine > player[i].middle && player[i].safeLine > player[i].jungle && player[i].safeLine > player[i].offLine && player[i].safeLine >= player[i].roaming))
+			if ((player[i].offLine > player[i].middle && player[i].offLine > player[i].jungle && player[i].offLine > player[i].safeLine && player[i].offLine >= player[i].roaming) || (player[i].safeLine > player[i].middle && player[i].safeLine > player[i].jungle && player[i].safeLine > player[i].offLine && player[i].safeLine >= player[i].roaming))
 			{
 				Boolean offExist = false;
 				Boolean safeExist = false;
-				if(i<5)
+				if (i < 5)
 				{
 					for (int j = 0; j < 5; j++)
 					{
@@ -2598,8 +2602,7 @@ public class ParserFactory
 						if (player[j].offLine > 1)
 							offExist = true;
 					}
-				}
-				else
+				} else
 				{
 					for (int j = 5; j < 10; j++)
 					{
@@ -2611,58 +2614,76 @@ public class ParserFactory
 							offExist = true;
 					}
 				}
-				if(player[i].offLine > player[i].middle && player[i].offLine > player[i].jungle && player[i].offLine > player[i].safeLine && player[i].offLine >= player[i].roaming)
-					if(!offExist)
-						player[i].role=4;
-				if(player[i].safeLine > player[i].middle && player[i].safeLine > player[i].jungle && player[i].safeLine > player[i].offLine && player[i].safeLine >= player[i].roaming)
-					if(!safeExist)
-						player[i].role=4;
+				if (player[i].offLine > player[i].middle && player[i].offLine > player[i].jungle && player[i].offLine > player[i].safeLine && player[i].offLine >= player[i].roaming)
+					if (!offExist && player[i].networthPosition >= 3)
+						player[i].role = 4;
+				if (player[i].safeLine > player[i].middle && player[i].safeLine > player[i].jungle && player[i].safeLine > player[i].offLine && player[i].safeLine >= player[i].roaming)
+					if (!safeExist && player[i].networthPosition >= 3)
+						player[i].role = 4;
+
 			}
 			//Mider
-			else if(player[i].middle>player[i].safeLine && player[i].middle>player[i].offLine && player[i].middle>player[i].jungle && player[i].middle>=player[i].roaming)
+			if (player[i].middle > player[i].safeLine && player[i].middle > player[i].offLine && player[i].middle > player[i].jungle && player[i].middle >= player[i].roaming)
 			{
-				if(player[i].networthPosition<=3)
+				if (player[i].networthPosition <= 2)
 				{
-					player[i].role=1;
+					player[i].role = 1;
+					continue;
 				}
 			}
 			//Carry
-			else if((player[i].offLine > player[i].middle && player[i].offLine > player[i].jungle && player[i].offLine > player[i].safeLine && player[i].offLine >= player[i].roaming) || (player[i].safeLine > player[i].middle && player[i].safeLine > player[i].jungle && player[i].safeLine > player[i].offLine && player[i].safeLine >= player[i].roaming))
+			if (((player[i].offLine > player[i].middle && player[i].offLine > player[i].jungle && player[i].offLine > player[i].safeLine && player[i].offLine >= player[i].roaming) || (player[i].safeLine > player[i].middle && player[i].safeLine > player[i].jungle && player[i].safeLine > player[i].offLine && player[i].safeLine >= player[i].roaming)) && player[i].role == 0)
 			{
-				if(player[i].networthPosition<=2)
-					player[i].role=2;
-			}
-			else
-			{
-				player[i].role=3;
-			}
+				if (player[i].networthPosition <= 2)
+				{
+					player[i].role = 2;
+					continue;
+				}
 
-			if(player[i].role==3 && player[i].networthPosition==3)
-			{
-				boolean carryexist=false;
-				if(i<5)
-				{
-					for (int j = 0; j < 5; j++)
-					{
-						if(i==j)
-						continue;
-						if(player[j].role==2)
-							carryexist=true;
-					}
-				}
-				else
-				{
-					for (int j = 5; j < 10; j++)
-					{
-						if(i==j)
-							continue;
-						if(player[j].role==2)
-							carryexist=true;
-					}
-				}
-				if(!carryexist)
-					player[i].role=2;
 			}
+			if (player[i].networthPosition == 1 && player[i].middle <= 1)
+			{
+				player[i].role = 2;
+				continue;
+			}
+			if (player[i].networthPosition >= 3 && player[i].role == 0 && (player[i].heroHeal >= 1000 || player[i].smokeHits != 0 || player[i].observerWardsPlaced != 0))
+				player[i].role = 3;
+			if (player[i].role == 0)
+				player[i].role = 6;
+
+		}
+	}
+
+	void checkIfCarryExist(Player[] player)
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			if (player[i].role == 6 && player[i].networthPosition <= 3)
+				player[i].role = 2;
+		}
+		//If no carry and hardliner has good <=3
+	}
+
+	void checkIfMiderExist(Player[] player)
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			if (player[i].role == 6 && player[i].middle >= 2 && player[i].networthPosition <= 3)
+			{
+				player[i].role = 1;
+			}
+		}
+	}
+
+	void checkIfHardlinerExist(Player[] player)
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			if (player[i].role == 6 && player[i].networthPosition <= 3)
+				player[i].role = 4;
+			if (player[i].role == 6 && player[i].networthPosition >= 4)
+				player[i].role = 3;
+
 		}
 	}
 

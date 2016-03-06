@@ -255,13 +255,13 @@ public class StringReader
 			team[1].minuteGPM[i] = Integer.parseInt(GPMInfo2Array[i + 1]);
 		}
 		//XPM Array
-		String[] XPMInfo2Array = teamInfo2GPMXPMLH[1].split(";");
+		String[] XPMInfo2Array = teamInfo2GPMXPMLH[2].split(";");
 		for (int i = 0; i < Integer.parseInt(XPMInfo2Array[0]); i++)
 		{
 			team[1].minuteXPM[i] = Integer.parseInt(XPMInfo2Array[i + 1]);
 		}
 		//LH Array
-		String[] LHInfo2Array = teamInfo2GPMXPMLH[1].split(";");
+		String[] LHInfo2Array = teamInfo2GPMXPMLH[3].split(";");
 		for (int i = 0; i < Integer.parseInt(LHInfo2Array[0]); i++)
 		{
 			team[1].perMinuteLastHits[i] = Integer.parseInt(LHInfo2Array[i + 1]);

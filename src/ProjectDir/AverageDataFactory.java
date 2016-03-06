@@ -59,6 +59,7 @@ public class AverageDataFactory
 	public Integer hardlinerCounter = 0;
 	public Integer junglerCounter = 0;
 
+	public Integer allKills=0;
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 	StringReader stringReader = new StringReader();
 
@@ -84,6 +85,8 @@ public class AverageDataFactory
 			String[] onePlayerString = playersMatchString.split("\\|\\|");
 
 			//System.out.println("Match time:" + matchTime);
+
+			allKills+=Integer.parseInt(team1MatchInfo[3]);
 
 			for (int j = 0; j < 10; j++)
 			{
@@ -237,7 +240,8 @@ public class AverageDataFactory
 		avgJunglerTDM = avgJunglerTDM / junglerCounter;
 		avgJunglerPartisipate = avgJunglerPartisipate / junglerCounter;
 
-		System.out.println("MIDER Avg. Values:");
+		System.out.println("Avg. Kills:"+allKills/matchesCount);
+		/*System.out.println("MIDER Avg. Values:");
 		System.out.println("KillsPerMinute:" + avgMiderKM);
 		System.out.println("DeathsPerMinute:" + avgMiderDM);
 		System.out.println("AssistsPerMinute:" + avgMiderAM);
@@ -280,6 +284,6 @@ public class AverageDataFactory
 		System.out.println("HeroDamageMinute:" + avgJunglerHDM);
 		System.out.println("DF10M:" + avgJunglerDF10M);
 		System.out.println("GPM:" + avgJunglerGPM);
-		System.out.println("Partisipation:" + avgJunglerPartisipate);
+		System.out.println("Partisipation:" + avgJunglerPartisipate);*/
 	}
 }

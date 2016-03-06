@@ -9,6 +9,9 @@ public class Team
 	public Integer raxesRemain;
 	public Integer totalLevel;
 
+	public Integer EGPoints;
+	public Integer MGPoints;
+	public Integer LGPoints;
 	//<editor-fold desc="General Info">
 	public Integer kills;
 	public Integer deaths;
@@ -68,6 +71,9 @@ public class Team
 
 	public Team()
 	{
+		this.EGPoints = 0;
+		this.MGPoints = 0;
+		this.LGPoints = 0;
 		this.id = "000000000";
 		this.name = "RandomTeam";
 		this.rating = 1000;
@@ -127,6 +133,9 @@ public class Team
 
 	public void teamZeros()
 	{
+		this.EGPoints = 0;
+		this.MGPoints = 0;
+		this.LGPoints = 0;
 		this.id = "000000000";
 		this.name = "RandomTeam";
 		this.rating = 1000;

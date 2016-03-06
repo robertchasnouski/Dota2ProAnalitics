@@ -10,10 +10,12 @@ public class MainAnaliticsFactory
 {
 	AverageAnaliticsFactory averageAnaliticsFactory = new AverageAnaliticsFactory();
 	PrimaryAnaliticsFactory primaryAnaliticsFactory = new PrimaryAnaliticsFactory();
-	FileControlFactory fileControlFactory = new FileControlFactory();
 	HeatMapAnaliticsFactory heatMapAnaliticsFactory = new HeatMapAnaliticsFactory();
-	AverageDataFactory averageDataFactory = new AverageDataFactory();
 	EPPAnaliticsFactory eppAnaliticsFactory = new EPPAnaliticsFactory();
+	GameStageAnalitics gameStageAnalitics=new GameStageAnalitics();
+
+	AverageDataFactory averageDataFactory = new AverageDataFactory();
+	FileControlFactory fileControlFactory = new FileControlFactory();
 	WriterReaderFactory writerReaderFactory = new WriterReaderFactory();
 	StringReader stringReader = new StringReader();
 
@@ -41,23 +43,32 @@ public class MainAnaliticsFactory
 		/**PrimaryAnaliticsFactory and EPPFactory**/
 		String matchesFile = fileControlFactory.readFile("files/Matches.txt");
 		String[] matches = matchesFile.split("\n");
-		for (int i = 1; i < 2/**matches.length*/; i++)
+		for (int i = 1; i < 3/**matches.length*/; i++)
 		{
 			System.out.println(matches[i]);
 			stringReader.fillArraysFromFile(matches[i], team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+
+			gameStageAnalitics.getEGPoints(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+			gameStageAnalitics.getMGPoints(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+			gameStageAnalitics.getLGPoints(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 			eppAnaliticsFactory.calculatePlayersEPP(averageDataFactory, matches[i], team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+
+			//System.out.println("Team Radiant   EGPoints:"+team[0].EGPoints+" MGPoints:"+team[0].MGPoints+" LGPoints:"+team[0].LGPoints);
+			//System.out.println("Team Dire   EGPoints:"+team[1].EGPoints+" MGPoints:"+team[1].MGPoints+" LGPoints:"+team[1].LGPoints);
 			for (int j = 0; j < 10; j++)
 			{
-				System.out.println("Role:" + player[j].role + " EPP:" + player[j].EPP);
+				System.out.println("Hero:" + player[j].hero + " Role:" + player[j].role + " EPP:" + player[j].EPP);
 			}
+
 			primaryAnaliticsFactory.analizeMatch(matches[i], team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 
 			writerReaderFactory.makeZeros(team, player, match);
 			writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
+
 		}
 		/**AverageAnaliticsFactory**/
 		//averageAnaliticsFactory.startAverageAnalitics(matchesFile);
-		heatMapAnaliticsFactory.buildHeatMap("1883502");
+		//heatMapAnaliticsFactory.buildHeatMap("1883502");
 
 	}
 }

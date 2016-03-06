@@ -1,5 +1,6 @@
 package ProjectDir;
 
+import ProjectDir.Analitics.GameStageAnalitics;
 import ProjectDir.MatchInfo.*;
 
 import java.io.IOException;
@@ -10,9 +11,8 @@ import java.util.Date;
 
 //TODO: Phase 1: Make full updatable and workable parse system
 ////TODO: Check error matches and check if they are in parsed matches
-////TODO: Test Writing and reading the same information
 ////TODO: Why dublicates appear?
-////
+////TODO: MatchDataBase -> NeedToParse -> MatchesParsed (Later)
 //TODO: Phase 2: Prototype analizing
 ////TODO: GameMode can be also AP because its reprick and regame
 //TODO: Phase 3: Advanced analizing
@@ -25,7 +25,7 @@ public class Worker
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 	MainAnaliticsFactory mainAnaliticsFactory = new MainAnaliticsFactory();
 	RatingFactory ratingFactory = new RatingFactory();
-
+	GameStageAnalitics gameStageAnalitics = new GameStageAnalitics();
 	Integer alreadyParsedMatches = 0;
 
 	void start_work() throws IOException, InterruptedException, ParseException
@@ -48,13 +48,12 @@ public class Worker
 			team[i] = new Team();
 		}
 
-		//checkIfTemporaryFileIsClean();
+		checkIfTemporaryFileIsClean();
 		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 
 		//ratingFactory.organizeRating();
-		//mainAnaliticsFactory.startWork();
+		mainAnaliticsFactory.startWork();
 	}
-
 
 	void tooManyRequestsChecker() throws InterruptedException
 	{
@@ -92,12 +91,6 @@ public class Worker
 //		String lastMatchDateString=tempArray[tempArray.length-1].split(";")[1];
 		Date lastMatchDate = formatter.parse("2013-05-12"/**lastMatchDateString**/);
 
-		/*
-			if (parserHelper.parseMatchById(lastMatchDate, "2173255322", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList))
-				writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
-			writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
-			writerReaderFactory.makeZeros(team, player, match);
-		*/
 		if (parse)
 			for (int i = 0; i < matchesToParse.size(); i++)
 			{
@@ -107,10 +100,6 @@ public class Worker
 					{
 						if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList))
 							fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/MatchesParsed.txt");
-						for (int j = 0; j <10 ; j++)
-						{
-							System.out.println("ROLE:"+player[j].role);
-						}
 						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
 						writerReaderFactory.makeZeros(team, player, match);
 					} else
