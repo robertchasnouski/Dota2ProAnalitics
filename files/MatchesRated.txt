@@ -1,5 +1,1 @@
-Kills:16 TotalGPM:42846 TotalLH:421
-Kills:11 TotalGPM:29316 TotalLH:384
-Kills:11 TotalGPM:24748 TotalLH:311
-Kills:12 TotalGPM:29199 TotalLH:378
-Kills:19 TotalGPM:40281 TotalLH:281
+

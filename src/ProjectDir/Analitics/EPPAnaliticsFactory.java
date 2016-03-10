@@ -66,9 +66,9 @@ public class EPPAnaliticsFactory
 				//Partisipate
 				player[i].EPP += (int) ((0.25 * 1000 * player[i].partisipation) / averageDataFactory.avgSupportPartisipate);
 				//HD
-				player[i].EPP += (int) ((0.25 * 1000 * player[i].heroDamage / match.matchTime) / averageDataFactory.avgSupportHDM);
+				player[i].EPP += (int) ((0.3 * 1000 * player[i].heroDamage / match.matchTime) / averageDataFactory.avgSupportHDM);
 				//HH
-				player[i].EPP += (int) ((0.2 * 1000 * player[i].heroHeal / match.matchTime) / averageDataFactory.avgSupportHHM);
+				player[i].EPP += (int) ((0.15 * 1000 * player[i].heroHeal / match.matchTime) / averageDataFactory.avgSupportHHM);
 				//GPM
 				player[i].EPP += (int) ((0.1 * 1000 * player[i].totalGPM) / averageDataFactory.avgSupportGPM);
 				//KDA

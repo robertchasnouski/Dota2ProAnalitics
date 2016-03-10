@@ -8,6 +8,7 @@ public class WardEvent
 	public Integer second;
 	public Integer lifeTime;
 
+	public Integer side;
 	public WardEvent()
 	{
 	}

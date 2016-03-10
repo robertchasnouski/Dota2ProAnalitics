@@ -35,6 +35,7 @@ public class Worker
 		ArrayList<GlyphEvent> glyphEventArrayList = new ArrayList<GlyphEvent>();
 		ArrayList<TowerEvent> towerEventArrayList = new ArrayList<TowerEvent>();
 		ArrayList<WardEvent> wardEventArrayList = new ArrayList<WardEvent>();
+		ArrayList<RoshanEvent> roshanEventArrayList = new ArrayList<RoshanEvent>();
 		Match match = new Match();
 		Player[] player = new Player[10];
 		Team[] team = new Team[2];
@@ -49,10 +50,9 @@ public class Worker
 		}
 
 		checkIfTemporaryFileIsClean();
-		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-
+		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		//ratingFactory.organizeRating();
-		mainAnaliticsFactory.startWork();
+		//mainAnaliticsFactory.startWork();
 	}
 
 	void tooManyRequestsChecker() throws InterruptedException
@@ -79,7 +79,7 @@ public class Worker
 		fileOperationsFactory.cleanAndWriteToFile("", "files/TemporaryMatches.txt");
 	}
 
-	void readNewMatches(boolean parse, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException, ParseException, InterruptedException
+	void readNewMatches(boolean parse, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException, ParseException, InterruptedException
 	{
 		String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
 		ArrayList<String> matchesFromLeagues = parserHelper.parseMatches(leagueLinks);
@@ -91,21 +91,25 @@ public class Worker
 //		String lastMatchDateString=tempArray[tempArray.length-1].split(";")[1];
 		Date lastMatchDate = formatter.parse("2013-05-12"/**lastMatchDateString**/);
 
+		/*parserHelper.parseMatchById(lastMatchDate, "1932536887", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList))
+			fileOperationsFactory.writeToFile("1932536887", "files/MatchesParsed.txt");*/
+
 		if (parse)
 			for (int i = 0; i < matchesToParse.size(); i++)
 			{
 				if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))
 				{
-					if (parserHelper.parseMatchById(lastMatchDate, matchesToParse.get(i), team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList))
+					if (parserHelper.parseMatchById(lastMatchDate, matchesToParse.get(i), team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList))
 					{
-						if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList))
+						if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList))
 							fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/MatchesParsed.txt");
-						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
+						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 						writerReaderFactory.makeZeros(team, player, match);
 					} else
 					{
 						fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/BrokenMatches.txt");
-						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList);
+						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 						writerReaderFactory.makeZeros(team, player, match);
 					}
 					tooManyRequestsChecker();

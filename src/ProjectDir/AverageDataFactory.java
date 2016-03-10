@@ -1,9 +1,11 @@
 package ProjectDir;
 
 import ProjectDir.Analitics.StringReader;
+import ProjectDir.MatchInfo.*;
 import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AverageDataFactory
 {
@@ -59,11 +61,12 @@ public class AverageDataFactory
 	public Integer hardlinerCounter = 0;
 	public Integer junglerCounter = 0;
 
-	public Integer allKills=0;
+
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 	StringReader stringReader = new StringReader();
+	WriterReaderFactory writerReaderFactory = new WriterReaderFactory();
 
-	void getAverageData() throws IOException
+	void getAveragePlayerData() throws IOException
 	{
 		String allMatchesFile = fileOperationsFactory.readFile("files/Matches.txt");
 		String[] eachMatch = allMatchesFile.split("\n");
@@ -86,7 +89,6 @@ public class AverageDataFactory
 
 			//System.out.println("Match time:" + matchTime);
 
-			allKills+=Integer.parseInt(team1MatchInfo[3]);
 
 			for (int j = 0; j < 10; j++)
 			{
@@ -193,7 +195,9 @@ public class AverageDataFactory
 					}
 				}
 			}
+
 		}
+
 
 		avgMiderKM = avgMiderKM / miderCounter;
 		avgMiderDM = avgMiderDM / miderCounter;
@@ -240,7 +244,7 @@ public class AverageDataFactory
 		avgJunglerTDM = avgJunglerTDM / junglerCounter;
 		avgJunglerPartisipate = avgJunglerPartisipate / junglerCounter;
 
-		System.out.println("Avg. Kills:"+allKills/matchesCount);
+
 		/*System.out.println("MIDER Avg. Values:");
 		System.out.println("KillsPerMinute:" + avgMiderKM);
 		System.out.println("DeathsPerMinute:" + avgMiderDM);
@@ -285,5 +289,170 @@ public class AverageDataFactory
 		System.out.println("DF10M:" + avgJunglerDF10M);
 		System.out.println("GPM:" + avgJunglerGPM);
 		System.out.println("Partisipation:" + avgJunglerPartisipate);*/
+	}
+
+
+	public Double allKills = 0.0;
+	public Integer allKillsCounter = 0;
+	public Double smokeHits = 0.0;
+	public Integer smokeHitsCounter = 0;
+	public Double smokeTotalHeroes = 0.0;
+	public Integer smokeTotalHeroesCounter = 0;
+	public Double goldForKills = 0.0;
+	public Integer goldForKillsCounter = 0;
+
+	public Integer secondsT1 = 0;
+	public Integer T1Counter = 0;
+
+	public Integer secondsT2 = 0;
+	public Integer T2Counter = 0;
+
+	public Integer secondsT3 = 0;
+	public Integer T3Counter = 0;
+
+	public Double avgWardLifeTime = 0.0;
+	public Integer wardsPlaced = 0;
+	public Integer wardLifeTime = 0;
+
+
+	public Double avgLHF5M = 0.0;
+	public Double avgLHF510M = 0.0;
+	public Double avgXPMF10M = 0.0;
+	public Double avgF10KTime = 0.0;
+	public Double avgLHM = 0.0;
+	public Double avgGPM = 0.0;
+
+
+	public void getAverageMatchData() throws IOException
+	{
+		ArrayList<KillEvent> killEventArrayList = new ArrayList<KillEvent>();
+		ArrayList<BuyBackEvent> buyBackEventArrayList = new ArrayList<BuyBackEvent>();
+		ArrayList<GlyphEvent> glyphEventArrayList = new ArrayList<GlyphEvent>();
+		ArrayList<TowerEvent> towerEventArrayList = new ArrayList<TowerEvent>();
+		ArrayList<WardEvent> wardEventArrayList = new ArrayList<WardEvent>();
+		ArrayList<RoshanEvent> roshanEventArrayList = new ArrayList<RoshanEvent>();
+		Match match = new Match();
+		Player[] player = new Player[10];
+		Team[] team = new Team[2];
+
+		for (int i = 0; i < 10; i++)
+		{
+			player[i] = new Player();
+		}
+		for (int i = 0; i < 2; i++)
+		{
+			team[i] = new Team();
+		}
+
+		String allMatchesFile = fileOperationsFactory.readFile("files/Matches.txt");
+		String[] eachMatch = allMatchesFile.split("\n");
+		Integer matchesCount = 50;
+
+		if (eachMatch.length < 50)
+			matchesCount = eachMatch.length;
+		Integer LHF5M = 0;
+		Integer LHF5MCounter = 0;
+		Integer LHF510M = 0;
+		Integer LHF510MCounter = 0;
+		Integer XPMCounter = 0;
+		Integer XPMF10M = 0;
+		Integer F10KTime = 0;
+		Integer F10KCounter = 0;
+		Integer minutesCounter = 0;
+		Integer totalLH = 0;
+		Integer totalGPMCounter = 0;
+		Integer totalGPM = 0;
+		for (int i = eachMatch.length - 1; i > eachMatch.length - matchesCount - 1; i--)
+		{
+			stringReader.fillArraysFromFile(eachMatch[i], team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+
+			totalGPM += team[0].totalGPM + team[1].totalGPM;
+			totalGPMCounter += 2;
+
+			for (int j = 0; j < 5; j++)
+			{
+				LHF5M += team[0].perMinuteLastHits[j];
+				LHF5M += team[1].perMinuteLastHits[j];
+				LHF510M += team[0].perMinuteLastHits[j + 5];
+				LHF510M += team[1].perMinuteLastHits[j + 5];
+			}
+			for (int j = 0; j < 10; j++)
+			{
+				XPMF10M += team[0].minuteXPM[j];
+				XPMF10M += team[1].minuteXPM[j];
+			}
+			for (int j = 0; j < match.matchTime; j++)
+			{
+				totalLH += team[0].perMinuteLastHits[j];
+				totalLH += team[1].perMinuteLastHits[j];
+			}
+			minutesCounter += match.matchTime * 2;
+			XPMCounter += 2;
+			LHF5MCounter += 2;
+			LHF510MCounter += 2;
+			allKills += (double) (team[0].kills + team[1].kills) / match.matchTime;
+			allKillsCounter = allKillsCounter + 2;
+
+			smokeHits += (double) (team[0].smokeHits + team[1].smokeHits) / match.matchTime;
+			smokeHitsCounter = smokeHitsCounter + 2;
+
+			smokeTotalHeroes += (double) (team[0].smokeTotalHeroes + team[1].smokeTotalHeroes) / match.matchTime;
+			smokeTotalHeroesCounter = smokeTotalHeroesCounter + 2;
+
+			goldForKills += (team[0].goldForKills + team[1].goldForKills) / match.matchTime;
+			goldForKillsCounter = goldForKillsCounter + 2;
+
+			for (int j = 0; j < towerEventArrayList.size(); j++)
+			{
+				if (towerEventArrayList.get(j).tierLevel == 1)
+				{
+					secondsT1 += towerEventArrayList.get(j).second;
+					T1Counter++;
+				}
+				if (towerEventArrayList.get(j).tierLevel == 2)
+				{
+					secondsT2 += towerEventArrayList.get(j).second;
+					T2Counter++;
+				}
+				if (towerEventArrayList.get(j).tierLevel == 3)
+				{
+					secondsT3 += towerEventArrayList.get(j).second;
+					T3Counter++;
+				}
+			}
+			for (int j = 0; j < wardEventArrayList.size(); j++)
+			{
+				wardsPlaced++;
+				wardLifeTime += wardEventArrayList.get(j).lifeTime;
+			}
+			Integer radKills = 0;
+			Integer direKills = 0;
+			Integer currTime = 0;
+			for (int j = 0; j < killEventArrayList.size(); j++)
+			{
+				if (radKills >= 10 || direKills >= 10)
+					continue;
+				if (killEventArrayList.get(j).dier >= 6)
+					radKills++;
+				else
+					direKills++;
+				currTime = killEventArrayList.get(j).second;
+				if (radKills == 10 || direKills == 10)
+				{
+					F10KTime += currTime;
+					F10KCounter++;
+				}
+
+			}
+		}
+		avgGPM = (double) totalGPM / totalGPMCounter;
+		avgLHM = (double) totalLH / minutesCounter;
+		avgF10KTime = (double) F10KTime / F10KCounter;
+		avgXPMF10M = (double) XPMF10M / XPMCounter;
+		avgLHF5M = (double) LHF5M / LHF5MCounter;
+		avgLHF510M = (double) LHF510M / LHF510MCounter;
+		avgWardLifeTime = (double) wardLifeTime / wardsPlaced;
+		writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
+		writerReaderFactory.makeZeros(team, player, match);
 	}
 }

@@ -25,6 +25,18 @@ public class UniqueInfoFactory
 		return exist;
 	}
 
+	Boolean checkIfIdAlreadyAnalized(String id) throws IOException
+	{
+		String matchIdList = fileOperationsFactory.readFile("files/MatchesAnalized.txt");
+		String[] matchesId = matchIdList.split("\n");
+		Boolean exist = false;
+		for (int i = 0; i < matchesId.length; i++)
+		{
+			if (matchesId[i].equals(id))
+				exist = true;
+		}
+		return exist;
+	}
 	ArrayList<String> checkIfLeagueParsed(String[] getFromSite) throws IOException, ParseException
 	{
 		ArrayList<String> needToParse = new ArrayList<>();

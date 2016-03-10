@@ -58,6 +58,12 @@ public class StringReader
 		return tempString[7];
 	}
 
+	public String getRoshanEvents(String match)
+	{
+		String[] tempString = match.split("##");
+		return tempString[8];
+	}
+
 	public String getTeamMatches(String id) throws IOException
 	{
 		String allMatches = fileControlFactory.readFile("files/Matches.txt");
@@ -127,7 +133,7 @@ public class StringReader
 		return teamMatches;
 	}
 
-	public void fillArraysFromFile(String matchString, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList)
+	public void fillArraysFromFile(String matchString, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList,ArrayList<RoshanEvent> roshanEventArrayList)
 	{
 		String matchInfo = getMatchInfo(matchString);
 		String teamInfo = getTeamsInfo(matchString);
@@ -137,6 +143,7 @@ public class StringReader
 		String wardEventsInfo = getWardEvents(matchString);
 		String towerEventsInfo = getTowerEvents(matchString);
 		String glyphEventsInfo = getGlyphEvents(matchString);
+		String roshanEventsInfo= getRoshanEvents(matchString);
 
 		//<editor-fold desc="MATCH">
 		//Match
@@ -400,7 +407,20 @@ public class StringReader
 			wardik.y = Float.parseFloat(oneWardInfo[1]);
 			wardik.second = Integer.parseInt(oneWardInfo[2]);
 			wardik.lifeTime = Integer.parseInt(oneWardInfo[3]);
+			wardik.side=Integer.parseInt(oneWardInfo[4]);
 			wardEventArrayList.add(wardik);
+		}
+		//</editor-fold>
+
+		//<editor-fold desc="RoshanEvents">
+		String[] oneRoshanEvent = roshanEventsInfo.split("\\*\\*");
+		for (int i = 0; i < Integer.parseInt(oneRoshanEvent[0]); i++)
+		{
+		 	RoshanEvent roshik = new RoshanEvent();
+			String[] oneRoshanInfo = oneRoshanEvent[i + 1].split(";");
+			roshik.whoKill = oneRoshanInfo[0];
+			roshik.second = Integer.parseInt(oneRoshanInfo[1]);
+			roshanEventArrayList.add(roshik);
 		}
 		//</editor-fold>
 

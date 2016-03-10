@@ -104,7 +104,7 @@ public class ParserFactory
 		return leagueLink;
 	}
 
-	Boolean parseMatchById(Date lastMatchDate, String id, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException, InterruptedException, ParseException
+	Boolean parseMatchById(Date lastMatchDate, String id, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException, InterruptedException, ParseException
 	{
 		System.out.println("Parsing match with ID:" + id + ".");
 		Document docMainPage = parse_html("http://www.dotabuff.com/matches/" + id);
@@ -837,7 +837,7 @@ public class ParserFactory
 							whoAssists = whoAssists.substring(7, whoAssists.length());
 							for (int k = 0; k < 10; k++)
 							{
-								if (player[k].hero.contains(whoAssists))
+								if (player[k].hero.equals(whoAssists))
 								{
 									killEvents[killsCounter].killers[assistsCounter] = k + 1;
 									assistsCounter++;
@@ -966,6 +966,7 @@ public class ParserFactory
 		{
 			if (wardOnMap[i].contains("sentry"))
 				continue;
+
 			WardEvent wardEvent = new WardEvent();
 			//X Y
 			currentIndex = wardOnMap[i].indexOf("top: ");
@@ -1005,6 +1006,23 @@ public class ParserFactory
 			} else
 			{
 				wardEvent.lifeTime = 420;
+			}
+			//Side
+			if (wardOnMap[i].contains("Destroyed"))
+			{
+				currentIndex=wardOnMap[i].indexOf("faction-radiant");
+				tempIndex=wardOnMap[i].indexOf("faction-dire");
+				if(currentIndex<tempIndex)
+					wardEvent.side=1;
+				else
+					wardEvent.side=2;
+			}
+			else
+			{
+				if(wardOnMap[i].contains("faction-radiant"))
+					wardEvent.side=1;
+				else
+					wardEvent.side=2;
 			}
 			wardEvents.add(wardEvent);
 		}
@@ -2114,7 +2132,9 @@ public class ParserFactory
 				tempString = substringer(logLine[i], "<span class=\"time", "</span>");
 				tempString = removeTags(tempString);
 				towerchik.second = mapTimeToSeconds(tempString);
-				if (!tempString.contains("a href"))
+
+
+				if (!logLine[i].contains("a href"))
 				{
 					if (tempString.contains("The Radiant"))
 					{
@@ -2124,10 +2144,21 @@ public class ParserFactory
 				} else
 				{
 					tempString = substringer(logLine[i], "<a href", "</a>");
-					tempString = removeTags(tempString);
-					tempString = tempString.replaceFirst(" ", "");
+					if (tempString.contains("the-dire object"))
+					{
+						if (tempString.contains("denies"))
+							towerchik.whoDestroy = "RadiantButDenied";
+						else
+							towerchik.whoDestroy = "Dire";
+					} else
+					{
+						if (tempString.contains("denies"))
+							towerchik.whoDestroy = "DireButDenied";
+						else
+							towerchik.whoDestroy = "Radiant";
+					}
 				}
-				towerchik.whoDestroy = tempString;
+
 				tempString = substringer(logLine[i], "Tier", "Tower");
 				if (tempString.contains("1"))
 					towerchik.tierLevel = 1;
@@ -2283,6 +2314,24 @@ public class ParserFactory
 					team[0].raxesRemain--;
 				else
 					team[1].raxesRemain--;
+			}
+		}
+		//</editor-fold>
+
+		//<editor-fold desc="RoshanEvents">
+		for (int i = 0; i < logLine.length; i++)
+		{
+			if (logLine[i].contains("Roshan"))
+			{
+				RoshanEvent roshik = new RoshanEvent();
+				if (logLine[i].contains("Radiant"))
+					roshik.whoKill = "Radiant";
+				else
+					roshik.whoKill = "Dire";
+				tempString = substringer(logLine[i], "<span class=\"time", "</span>");
+				tempString = removeTags(tempString);
+				roshik.second = mapTimeToSeconds(tempString);
+				roshanEventArrayList.add(roshik);
 			}
 		}
 		//</editor-fold>
