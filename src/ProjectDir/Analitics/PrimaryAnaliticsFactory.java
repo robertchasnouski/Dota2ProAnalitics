@@ -1010,11 +1010,12 @@ public class PrimaryAnaliticsFactory
 	{
 		String writingString = "";
 		/**General Information [0]**/
-		writingString += match.id + ";";
-		writingString += match.date + ";";
-		writingString += match.matchTime + ";";
-		writingString += team[0].id + ";";
-		writingString += team[1].id + ";";
+		writingString += match.id + ";";//[0]
+		writingString += match.date + ";";//[1]
+		writingString += match.matchTime + ";";//[2]
+		writingString += team[0].id + ";";//[3]
+		writingString += team[1].id + ";";//[4]
+		writingString += "0" ;//[5]
 
 		writingString += "##";
 		/**TeamInfo [1]**/
@@ -1045,8 +1046,8 @@ public class PrimaryAnaliticsFactory
 		writingString += farming;
 		writingString += "##";
 		/**FB Information [4]**/
-		writingString += match.firstBloodRadiant + ";";
-		writingString += match.FBTime;
+		writingString += match.firstBloodRadiant + ";"; //[0]
+		writingString += match.FBTime; //[1]
 		writingString += "##";
 		/**F10K Information [5]**/
 		writingString += match.first10KillsRadiant + ";";
@@ -1073,11 +1074,12 @@ public class PrimaryAnaliticsFactory
 	{
 		String writingString = "";
 		/**General Information [0]**/
-		writingString += match.id + ";";
-		writingString += match.date + ";";
-		writingString += match.matchTime + ";";
-		writingString += team[0].id + ";";
-		writingString += team[1].id + ";";
+		writingString += match.id + ";";//[0]
+		writingString += match.date + ";";//[1]
+		writingString += match.matchTime + ";";//[2]
+		writingString += team[0].id + ";";//[3]
+		writingString += team[1].id + ";";//[4]
+		writingString += "1" ;//[5]
 
 		writingString += "##";
 		/**TeamInfo [1]**/

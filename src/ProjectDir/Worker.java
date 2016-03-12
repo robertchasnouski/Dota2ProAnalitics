@@ -49,8 +49,8 @@ public class Worker
 			team[i] = new Team();
 		}
 
-		checkIfTemporaryFileIsClean();
-		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+		//checkIfTemporaryFileIsClean();
+		readNewMatches(false, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		//ratingFactory.organizeRating();
 		//mainAnaliticsFactory.startWork();
 	}
@@ -88,12 +88,13 @@ public class Worker
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
 		String[] tempArray = fileOperationsFactory.readFile("files/Matches.txt").split("\n");
-//		String lastMatchDateString=tempArray[tempArray.length-1].split(";")[1];
-		Date lastMatchDate = formatter.parse("2013-05-12"/**lastMatchDateString**/);
+		String lastMatchDateString=tempArray[tempArray.length-1].split(";")[1];
+		Date lastMatchDate = formatter.parse(lastMatchDateString);
 
-		/*parserHelper.parseMatchById(lastMatchDate, "1932536887", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-		if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList))
-			fileOperationsFactory.writeToFile("1932536887", "files/MatchesParsed.txt");*/
+		//parserHelper.parseMatchById(lastMatchDate, "2095305164", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList,roshanEventArrayList);
+
+		//if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList,roshanEventArrayList))
+		//	fileOperationsFactory.writeToFile("1932536887", "files/MatchesParsed.txt");
 
 		if (parse)
 			for (int i = 0; i < matchesToParse.size(); i++)
@@ -115,7 +116,7 @@ public class Worker
 					tooManyRequestsChecker();
 				}
 			}
-		//uniqueInfoFactory.makeMatchesFileClean("files/Matches.txt");
+		uniqueInfoFactory.makeMatchesFileClean("files/TemporaryMatches.txt");
 		String newMatchesFile = fileOperationsFactory.readFile("files/TemporaryMatches.txt");
 		String oldMatchesFile = fileOperationsFactory.readFile("files/Matches.txt");
 		String allMatchesfile = oldMatchesFile + newMatchesFile;

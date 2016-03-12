@@ -71,7 +71,7 @@ public class MainAnaliticsFactory
 			writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 		}
 		/**AverageAnaliticsFactory**/
-		//averageAnaliticsFactory.startAverageAnalitics(matchesFile);
+		//averageAnaliticsFactory.startAverageAnalitics(teamId);
 		//heatMapAnaliticsFactory.buildHeatMap("1883502");
 
 	}

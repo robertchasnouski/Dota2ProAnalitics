@@ -41,9 +41,11 @@ public class ParserFactory
 			parseCounter = 0;
 		}
 		Document doc = new Document("");
-		int numtries = 10;
+		int numtries = 20;
 		while (numtries-- != 0)
 		{
+			if (numtries == 10)
+				Thread.sleep(500000);
 			try
 			{
 				doc = Jsoup.connect(html)
@@ -62,6 +64,7 @@ public class ParserFactory
 				Thread.sleep(10000);
 				continue;
 			}
+
 		}
 		parseCounter++;
 		Thread.sleep(500);
@@ -119,7 +122,23 @@ public class ParserFactory
 			System.out.println("Parsing failed. Not CM or CD.");
 			return false;
 		}
-
+		String someString = substringer(stringMainPage, "<section class=\"radiant\"", "</header>");
+		if (!someString.contains("esports/teams/"))
+		{
+			System.out.println("Parsing failed. One of the teams are not esports team");
+			return false;
+		}
+		someString = substringer(stringMainPage, "<section class=\"dire\"", "</header>");
+		if (!someString.contains("esports/teams/"))
+		{
+			System.out.println("Parsing failed. One of the teams are not esports team");
+			return false;
+		}
+		if (!stringMainPage.contains("Kills") || !stringMainPage.contains("Objectives"))
+		{
+			System.out.println("Parsing failed. There is no kills page.");
+			return false;
+		}
 		/*********DOCUMENTS,PAGE STRINGS**********/
 		//<editor-fold desc="DOCUMENTS">
 
@@ -397,11 +416,7 @@ public class ParserFactory
 		String teamName;
 		String teamId;
 		tempString = substringer(stringMainPage, "<section class=\"radiant\"", "</header>");
-		if (!tempString.contains("esports/teams/"))
-		{
-			System.out.println("Parsing failed. One of the teams are not esports team");
-			return false;
-		}
+
 		teamId = substringer(tempString, "esports/teams/", "\">");
 		teamName = substringer(tempString, "title=", " class");
 		teamId = teamId.replaceAll("esports/teams/", "");
@@ -412,11 +427,6 @@ public class ParserFactory
 		team[0].name = teamName;
 		//DireTeamName
 		tempString = substringer(stringMainPage, "<section class=\"dire\"", "</header>");
-		if (!tempString.contains("esports/teams/"))
-		{
-			System.out.println("Parsing failed. One of the teams are not esports team");
-			return false;
-		}
 		teamId = substringer(tempString, "esports/teams/", "\">");
 		teamName = substringer(tempString, "title=", " class");
 		teamId = teamId.replaceAll("esports/teams/", "");
@@ -802,6 +812,7 @@ public class ParserFactory
 		{
 			if (tempKillsArray[i].contains("suicide"))
 				continue;
+
 			//	tempKillsArray [1..length-2]
 			String killTime;
 			Float xKill;
@@ -953,7 +964,7 @@ public class ParserFactory
 		}
 		for (int i = 0; i < killEvents.length; i++)
 		{
-			if (killEvents[i].second != null)
+			if (killEvents[i].second != null && killEvents[i].dier != null)
 				killEventArrayList.add(killEvents[i]);
 		}
 		//</editor-fold>
@@ -1010,19 +1021,18 @@ public class ParserFactory
 			//Side
 			if (wardOnMap[i].contains("Destroyed"))
 			{
-				currentIndex=wardOnMap[i].indexOf("faction-radiant");
-				tempIndex=wardOnMap[i].indexOf("faction-dire");
-				if(currentIndex<tempIndex)
-					wardEvent.side=1;
+				currentIndex = wardOnMap[i].indexOf("faction-radiant");
+				tempIndex = wardOnMap[i].indexOf("faction-dire");
+				if (currentIndex < tempIndex)
+					wardEvent.side = 1;
 				else
-					wardEvent.side=2;
-			}
-			else
+					wardEvent.side = 2;
+			} else
 			{
-				if(wardOnMap[i].contains("faction-radiant"))
-					wardEvent.side=1;
+				if (wardOnMap[i].contains("faction-radiant"))
+					wardEvent.side = 1;
 				else
-					wardEvent.side=2;
+					wardEvent.side = 2;
 			}
 			wardEvents.add(wardEvent);
 		}
@@ -2293,7 +2303,7 @@ public class ParserFactory
 		tempString = tempString.substring(10, 20);
 		match.date = tempString;
 		Date matchDate = formatter.parse(match.date);
-		if (lastMatchDate.compareTo(matchDate) != -1)
+		if (lastMatchDate.compareTo(matchDate) == 1  )
 		{
 			System.out.println("Parsing error. Too early date");
 			return false;

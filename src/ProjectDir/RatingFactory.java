@@ -264,8 +264,9 @@ public class RatingFactory
 				}
 				//</editor-fold>
 
-
-				//fileOperationsFactory.writeToFile(matchId, "files/MatchesRated.txt");
+				fileOperationsFactory.writeToFile(matchId+";"+team1Rating+";"+team2Rating+";"+incrementator,"files/teams/"+team1Id+"/TeamMatches.txt");
+				fileOperationsFactory.writeToFile(matchId+";"+team2Rating+";"+team1Rating+";"+incrementator,"files/teams/"+team2Id+"/TeamMatches.txt");
+				fileOperationsFactory.writeToFile(matchId, "files/MatchesRated.txt");
 			}
 		}
 	}
