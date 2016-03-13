@@ -17,6 +17,8 @@ public class AverageDataFactory
 	public Double avgMiderTDM = 0.0;
 	public Double avgMiderGPM = 0.0;
 	public Double avgMiderGfKGFDifference = 0.0;
+	public Double avgMiderLHM = 0.0;
+
 
 	public Double avgCarryKM = 0.0;
 	public Double avgCarryDM = 0.0;
@@ -26,6 +28,7 @@ public class AverageDataFactory
 	public Double avgCarryTDM = 0.0;
 	public Double avgCarryGfKGFDifference = 0.0;
 	public Double avgCarryCreepsF15M = 0.0;
+	public Double avgCarryLHM = 0.0;
 
 	public Double avgSupportKM = 0.0;
 	public Double avgSupportDM = 0.0;
@@ -112,6 +115,7 @@ public class AverageDataFactory
 					avgMiderTDM += Integer.parseInt(onePlayerInfo[10]) / matchTime;
 					avgMiderGfKGFDifference += Integer.parseInt(onePlayerInfo[17]) - Integer.parseInt(onePlayerInfo[19]);
 					avgMiderCreepsF10M += Integer.parseInt(LHArray[1]) + Integer.parseInt(LHArray[2]) + Integer.parseInt(LHArray[3]) + Integer.parseInt(LHArray[4]) + Integer.parseInt(LHArray[5]) + Integer.parseInt(LHArray[6]) + Integer.parseInt(LHArray[7]) + Integer.parseInt(LHArray[8]) + Integer.parseInt(LHArray[9]) + Integer.parseInt(LHArray[10]);
+					avgMiderLHM += Integer.parseInt(onePlayerInfo[13]) / matchTime;
 				}
 				//Carry
 				if (onePlayerInfo[2].equals("2"))
@@ -124,6 +128,7 @@ public class AverageDataFactory
 					avgCarryGPM += Integer.parseInt(onePlayerInfo[11]);
 					avgCarryHDM += Integer.parseInt(onePlayerInfo[9]) / matchTime;
 					avgCarryTDM += Integer.parseInt(onePlayerInfo[10]) / matchTime;
+					avgCarryLHM += Integer.parseInt(onePlayerInfo[13]) / matchTime;
 					if (matchTime <= 15)
 					{
 						for (int k = 1; k < matchTime; k++)
@@ -207,6 +212,7 @@ public class AverageDataFactory
 		avgMiderGPM = avgMiderGPM / miderCounter;
 		avgMiderGfKGFDifference = avgMiderGfKGFDifference / miderCounter;
 		avgMiderCreepsF10M = avgMiderCreepsF10M / miderCounter;
+		avgMiderLHM = avgMiderLHM / miderCounter;
 
 		avgCarryKM = avgCarryKM / carryCounter;
 		avgCarryDM = avgCarryDM / carryCounter;
@@ -216,6 +222,7 @@ public class AverageDataFactory
 		avgCarryGPM = avgCarryGPM / carryCounter;
 		avgCarryGfKGFDifference = avgCarryGfKGFDifference / carryCounter;
 		avgCarryCreepsF15M = avgCarryCreepsF15M / carryCounter;
+		avgCarryLHM = avgCarryLHM / carryCounter;
 
 		avgSupportKM = avgSupportKM / supportCounter;
 		avgSupportDM = avgSupportDM / supportCounter;

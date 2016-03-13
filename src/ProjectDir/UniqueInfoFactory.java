@@ -13,8 +13,8 @@ public class UniqueInfoFactory
 	Boolean checkIfIdAlreadyParsed(String id) throws IOException
 	{
 		String matchIdList = fileOperationsFactory.readFile("files/MatchesParsed.txt");
-		String brokenMatches=fileOperationsFactory.readFile("files/BrokenMatches.txt");
-		String newString=matchIdList+brokenMatches;
+		String brokenMatches = fileOperationsFactory.readFile("files/BrokenMatches.txt");
+		String newString = matchIdList + brokenMatches;
 		String[] matchesId = newString.split("\n");
 		Boolean exist = false;
 		for (int i = 0; i < matchesId.length; i++)
@@ -37,6 +37,7 @@ public class UniqueInfoFactory
 		}
 		return exist;
 	}
+
 	ArrayList<String> checkIfLeagueParsed(String[] getFromSite) throws IOException, ParseException
 	{
 		ArrayList<String> needToParse = new ArrayList<>();
@@ -94,6 +95,16 @@ public class UniqueInfoFactory
 		{
 			if (!alreadyInFile.contains(matchesToParse.get(i)))
 				fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/NeedToParse.txt");
+		}
+	}
+
+	void removeFirstEnter(String fileName) throws IOException
+	{
+		String matchesFile = fileOperationsFactory.readFile(fileName);
+		if (matchesFile.indexOf("\n") == 0)
+		{
+			matchesFile = matchesFile.replaceFirst("\n", "");
+			fileOperationsFactory.cleanAndWriteToFile(matchesFile, "files/TemporaryMatches.txt");
 		}
 	}
 

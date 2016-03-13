@@ -84,8 +84,8 @@ public class GameStageAnalitics
 				roshanDirePoints += 100;
 		}
 		//</editor-fold>
-		System.out.println("In EG Radiant gets: " + (0.4 * 1000 * killsRadiantCounter / 10) + " points for kills," + (0.33 * 1000 * totalRadiantGPM / 22000) + " points for GPM," + (0.27 * 1000 * totalRadiantLH / 235) + " points for LH." + "Towers:" + towerRadiantPoints + ".Roshan:" + roshanRadiantPoints);
-		System.out.println("In EG Dire gets: " + (0.4 * 1000 * killsDireCounter / 10) + " points for kills," + (0.33 * 1000 * totalDireGPM / 22000) + " points for GPM," + (0.27 * 1000 * totalDireLH / 235) + " points for LH." + "Towers:" + towerDirePoints + ".Roshan:" + roshanDirePoints);
+		//System.out.println("In EG Radiant gets: " + (0.4 * 1000 * killsRadiantCounter / 10) + " points for kills," + (0.33 * 1000 * totalRadiantGPM / 22000) + " points for GPM," + (0.27 * 1000 * totalRadiantLH / 235) + " points for LH." + "Towers:" + towerRadiantPoints + ".Roshan:" + roshanRadiantPoints);
+		//System.out.println("In EG Dire gets: " + (0.4 * 1000 * killsDireCounter / 10) + " points for kills," + (0.33 * 1000 * totalDireGPM / 22000) + " points for GPM," + (0.27 * 1000 * totalDireLH / 235) + " points for LH." + "Towers:" + towerDirePoints + ".Roshan:" + roshanDirePoints);
 		//Calculate
 		Double radiantPoints = ((0.4 * 1000 * killsRadiantCounter / 10) + (0.33 * 1000 * totalRadiantGPM / 22000) + (0.27 * 1000 * totalRadiantLH / 235)) + towerRadiantPoints + roshanRadiantPoints;
 		Double direPoints = ((0.4 * 1000 * killsDireCounter / 10) + (0.33 * 1000 * totalDireGPM / 22000) + (0.27 * 1000 * totalDireLH / 235)) + towerDirePoints + roshanDirePoints;
@@ -183,11 +183,11 @@ public class GameStageAnalitics
 		}
 		//</editor-fold>
 
-		System.out.println("In MG Radiant gets: " + (0.33 * 1000 * killsRadiantCounter / 10) + " points for kills," + (0.33 * 1000 * totalRadiantGPM / 28500) + " points for GPM," + (0.33 * 1000 * totalRadiantLH / 330) + " points for LH." + "Towers:" + towerRadiantPoints + ".Roshan:" + roshanRadiantPoints);
-		System.out.println("In MG Dire gets: " + (0.33 * 1000 * killsDireCounter / 10) + " points for kills," + (0.33 * 1000 * totalDireGPM / 28500) + " points for GPM," + (0.33 * 1000 * totalDireLH / 330) + " points for LH." + "Towers:" + towerDirePoints + ".Roshan:" + roshanDirePoints);
+		//System.out.println("In MG Radiant gets: " + (0.25 * 1000 * killsRadiantCounter / 10) + " points for kills," + (0.45 * 1000 * totalRadiantGPM / 28500) + " points for GPM," + (0.30 * 1000 * totalRadiantLH / 330) + " points for LH." + "Towers:" + towerRadiantPoints + ".Roshan:" + roshanRadiantPoints);
+		//System.out.println("In MG Dire gets: " + (0.25 * 1000 * killsDireCounter / 10) + " points for kills," + (0.45 * 1000 * totalDireGPM / 28500) + " points for GPM," + (0.30 * 1000 * totalDireLH / 330) + " points for LH." + "Towers:" + towerDirePoints + ".Roshan:" + roshanDirePoints);
 
-		Double radiantPoints = ((0.33 * 1000 * killsRadiantCounter / 10) + (0.33 * 1000 * totalRadiantGPM / 28500) + (0.33 * 1000 * totalRadiantLH / 330)) + towerRadiantPoints + roshanRadiantPoints;
-		Double direPoints = ((0.33 * 1000 * killsDireCounter / 10) + (0.33 * 1000 * totalDireGPM / 28500) + (0.33 * 1000 * totalDireLH / 330)) + towerDirePoints + roshanDirePoints;
+		Double radiantPoints = ((0.25 * 1000 * killsRadiantCounter / 10) + (0.45 * 1000 * totalRadiantGPM / 28500) + (0.3 * 1000 * totalRadiantLH / 330)) + towerRadiantPoints + roshanRadiantPoints;
+		Double direPoints = ((0.25 * 1000 * killsDireCounter / 10) + (0.45 * 1000 * totalDireGPM / 28500) + (0.3 * 1000 * totalDireLH / 330)) + towerDirePoints + roshanDirePoints;
 
 		team[0].MGPoints = radiantPoints.intValue();
 		team[1].MGPoints = direPoints.intValue();
@@ -278,11 +278,11 @@ public class GameStageAnalitics
 				roshanDirePoints += 100;
 		}
 		//</editor-fold>
-		System.out.println("In LG Radiant gets: " + (0.33 * 1000 * killsRadiantCounter / 14) + " points for kills," + (0.33 * 1000 * totalRadiantGPM / 33000) + " points for GPM," + (0.33 * 1000 * totalRadiantLH / 355) + " points for LH." + "Towers:" + towerRadiantPoints + ".Roshan:" + roshanRadiantPoints);
-		System.out.println("In LG Dire gets: " + (0.33 * 1000 * killsDireCounter / 14) + " points for kills," + (0.33 * 1000 * totalDireGPM / 33000) + " points for GPM," + (0.33 * 1000 * totalDireLH / 355) + " points for LH." + "Towers:" + towerDirePoints + ".Roshan:" + roshanDirePoints);
+		//	System.out.println("In LG Radiant gets: " + (0.33 * 1000 * killsRadiantCounter / 14) + " points for kills," + (0.33 * 1000 * totalRadiantGPM / 33000) + " points for GPM," + (0.33 * 1000 * totalRadiantLH / 355) + " points for LH." + "Towers:" + towerRadiantPoints + ".Roshan:" + roshanRadiantPoints);
+		//System.out.println("In LG Dire gets: " + (0.33 * 1000 * killsDireCounter / 14) + " points for kills," + (0.33 * 1000 * totalDireGPM / 33000) + " points for GPM," + (0.33 * 1000 * totalDireLH / 355) + " points for LH." + "Towers:" + towerDirePoints + ".Roshan:" + roshanDirePoints);
 
-		Double radiantPoints = (0.33 * 1000 * killsRadiantCounter / 14) + (0.33 * 1000 * totalRadiantGPM / 33000) + (0.33 * 1000 * totalRadiantLH / 355) + towerRadiantPoints + roshanRadiantPoints;
-		Double direPoints = (0.33 * 1000 * killsDireCounter / 14) + (0.33 * 1000 * totalDireGPM / 33000) + (0.33 * 1000 * totalDireLH / 355) + towerDirePoints + roshanDirePoints;
+		Double radiantPoints = (0.25 * 1000 * killsRadiantCounter / 14) + (0.45 * 1000 * totalRadiantGPM / 33000) + (0.3 * 1000 * totalRadiantLH / 355) + towerRadiantPoints + roshanRadiantPoints;
+		Double direPoints = (0.25 * 1000 * killsDireCounter / 14) + (0.45 * 1000 * totalDireGPM / 33000) + (0.3 * 1000 * totalDireLH / 355) + towerDirePoints + roshanDirePoints;
 		team[0].LGPoints = radiantPoints.intValue();
 		team[1].LGPoints = direPoints.intValue();
 	}

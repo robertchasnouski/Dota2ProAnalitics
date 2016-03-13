@@ -1,5 +1,6 @@
 package ProjectDir;
 
+import ProjectDir.Analitics.FileControlFactory;
 import ProjectDir.Analitics.StringReader;
 
 import java.io.IOException;
@@ -8,7 +9,7 @@ public class RatingFactory
 {
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 	StringReader stringReader = new StringReader();
-
+	FileControlFactory fileControlFactory=new FileControlFactory();
 	public void organizeRating() throws IOException
 	{
 		String matchFile = fileOperationsFactory.readFile("files/Matches.txt");
@@ -264,9 +265,12 @@ public class RatingFactory
 				}
 				//</editor-fold>
 
+				fileControlFactory.createTeamFileIfNotExists(team1Id);
+				fileControlFactory.createTeamFileIfNotExists(team2Id);
 				fileOperationsFactory.writeToFile(matchId+";"+team1Rating+";"+team2Rating+";"+incrementator,"files/teams/"+team1Id+"/TeamMatches.txt");
 				fileOperationsFactory.writeToFile(matchId+";"+team2Rating+";"+team1Rating+";"+incrementator,"files/teams/"+team2Id+"/TeamMatches.txt");
 				fileOperationsFactory.writeToFile(matchId, "files/MatchesRated.txt");
+				System.out.println("Match "+matchId+" was rated.");
 			}
 		}
 	}

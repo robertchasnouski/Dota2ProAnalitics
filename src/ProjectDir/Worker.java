@@ -50,9 +50,9 @@ public class Worker
 		}
 
 		//checkIfTemporaryFileIsClean();
-		readNewMatches(false, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
-		//ratingFactory.organizeRating();
-		//mainAnaliticsFactory.startWork();
+		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+		ratingFactory.organizeRating();
+		mainAnaliticsFactory.startWork();
 	}
 
 	void tooManyRequestsChecker() throws InterruptedException
@@ -88,11 +88,10 @@ public class Worker
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
 		String[] tempArray = fileOperationsFactory.readFile("files/Matches.txt").split("\n");
-		String lastMatchDateString=tempArray[tempArray.length-1].split(";")[1];
+		String lastMatchDateString = tempArray[tempArray.length - 1].split(";")[1];
 		Date lastMatchDate = formatter.parse(lastMatchDateString);
 
 		//parserHelper.parseMatchById(lastMatchDate, "2095305164", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList,roshanEventArrayList);
-
 		//if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList,roshanEventArrayList))
 		//	fileOperationsFactory.writeToFile("1932536887", "files/MatchesParsed.txt");
 
@@ -116,12 +115,17 @@ public class Worker
 					tooManyRequestsChecker();
 				}
 			}
+		uniqueInfoFactory.removeFirstEnter("files/TemporaryMatches.txt");
 		uniqueInfoFactory.makeMatchesFileClean("files/TemporaryMatches.txt");
 		String newMatchesFile = fileOperationsFactory.readFile("files/TemporaryMatches.txt");
-		String oldMatchesFile = fileOperationsFactory.readFile("files/Matches.txt");
-		String allMatchesfile = oldMatchesFile + newMatchesFile;
-		fileOperationsFactory.cleanAndWriteToFile("", "files/TemporaryMatches.txt");
-		fileOperationsFactory.cleanAndWriteToFile(allMatchesfile, "files/Matches.txt");
+
+		if (!newMatchesFile.equals("\n"))
+		{
+			String oldMatchesFile = fileOperationsFactory.readFile("files/Matches.txt");
+			String allMatchesfile = oldMatchesFile + newMatchesFile;
+			fileOperationsFactory.cleanAndWriteToFile("", "files/TemporaryMatches.txt");
+			fileOperationsFactory.cleanAndWriteToFile(allMatchesfile, "files/Matches.txt");
+		}
 	}
 }
 

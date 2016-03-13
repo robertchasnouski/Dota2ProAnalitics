@@ -46,12 +46,12 @@ public class MainAnaliticsFactory
 		/**PrimaryAnaliticsFactory and EPPFactory**/
 		String matchesFile = fileControlFactory.readFile("files/Matches.txt");
 		String[] matches = matchesFile.split("\n");
-		for (int i = 0; i < 4/**matches.length*/; i++)
+		for (int i = 0; i < matches.length; i++)
 		{
 			String matchId = matches[i].split(";")[0];
-			if (uniqueInfoFactory.checkIfIdAlreadyAnalized("ff"))
+			if (uniqueInfoFactory.checkIfIdAlreadyAnalized(matchId))
 				continue;
-			System.out.println(matches[i]);
+			//System.out.println(matches[i]);
 			stringReader.fillArraysFromFile(matches[i], team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 
 			gameStageAnalitics.getEGPoints(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
@@ -59,16 +59,21 @@ public class MainAnaliticsFactory
 			gameStageAnalitics.getLGPoints(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 			eppAnaliticsFactory.calculatePlayersEPP(averageDataFactory, matches[i], team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 
-			System.out.println("Team Radiant   EGPoints:" + team[0].EGPoints + " MGPoints:" + team[0].MGPoints + " LGPoints:" + team[0].LGPoints);
-			System.out.println("Team Dire   EGPoints:" + team[1].EGPoints + " MGPoints:" + team[1].MGPoints + " LGPoints:" + team[1].LGPoints);
+			//System.out.println("Team Radiant   EGPoints:" + team[0].EGPoints + " MGPoints:" + team[0].MGPoints + " LGPoints:" + team[0].LGPoints);
+			//System.out.println("Team Dire   EGPoints:" + team[1].EGPoints + " MGPoints:" + team[1].MGPoints + " LGPoints:" + team[1].LGPoints);
 			/*for (int j = 0; j < 10; j++)
 			{
 				System.out.println("Hero:" + player[j].hero + " Role:" + player[j].role + " EPP:" + player[j].EPP);
 			}*/
 
 			primaryAnaliticsFactory.analizeMatch(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+			/*System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();*/
 			writerReaderFactory.makeZeros(team, player, match);
 			writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
+			//Write that analized
 		}
 		/**AverageAnaliticsFactory**/
 		//averageAnaliticsFactory.startAverageAnalitics(teamId);
