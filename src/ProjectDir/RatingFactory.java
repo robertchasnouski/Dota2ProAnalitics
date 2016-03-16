@@ -43,7 +43,6 @@ public class RatingFactory
 				String ratingDifference = calculateRatingDifference(team1Rating, team2Rating);
 				Double multiplier = 1.0;
 				Integer incrementator = 0;
-
 				//<editor-fold desc="Calculation">
 				if (firstTeamWin)
 				{
@@ -270,7 +269,7 @@ public class RatingFactory
 				fileOperationsFactory.writeToFile(matchId+";"+team1Rating+";"+team2Rating+";"+incrementator,"files/teams/"+team1Id+"/TeamMatches.txt");
 				fileOperationsFactory.writeToFile(matchId+";"+team2Rating+";"+team1Rating+";"+incrementator,"files/teams/"+team2Id+"/TeamMatches.txt");
 				fileOperationsFactory.writeToFile(matchId, "files/MatchesRated.txt");
-				System.out.println("Match "+matchId+" was rated.");
+				System.out.println("Match "+matchId+" was rated with incrementator:"+incrementator+". Match HardNess:"+matchHardness);
 			}
 		}
 	}
@@ -377,9 +376,9 @@ public class RatingFactory
 
 	public Integer getIncrementator(Integer team1R, Integer team2R, Double multiplier)
 	{
-		Double firstIncrement = 25 * (1 - (double) Math.abs(team1R - team2R) / Math.max(team1R, team2R));
-		if (firstIncrement < 10)
-			firstIncrement = 10.0;
+		Double firstIncrement = 50 * (1 - (double) Math.abs(team1R - team2R) / Math.min(team1R, team2R));
+		if (firstIncrement < 20)
+			firstIncrement = 20.0;
 		Double secondIncrement = firstIncrement * multiplier;
 
 		return secondIncrement.intValue();

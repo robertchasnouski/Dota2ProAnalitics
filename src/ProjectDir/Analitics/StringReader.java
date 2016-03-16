@@ -1,6 +1,7 @@
 package ProjectDir.Analitics;
 
 import ProjectDir.MatchInfo.*;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -133,7 +134,7 @@ public class StringReader
 		return teamMatches;
 	}
 
-	public void fillArraysFromFile(String matchString, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList,ArrayList<RoshanEvent> roshanEventArrayList)
+	public void fillArraysFromFile(String matchString, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList)
 	{
 		String matchInfo = getMatchInfo(matchString);
 		String teamInfo = getTeamsInfo(matchString);
@@ -143,7 +144,7 @@ public class StringReader
 		String wardEventsInfo = getWardEvents(matchString);
 		String towerEventsInfo = getTowerEvents(matchString);
 		String glyphEventsInfo = getGlyphEvents(matchString);
-		String roshanEventsInfo= getRoshanEvents(matchString);
+		String roshanEventsInfo = getRoshanEvents(matchString);
 
 		//<editor-fold desc="MATCH">
 		//Match
@@ -393,6 +394,7 @@ public class StringReader
 			towerik.whoDestroy = oneTowerInfo[0];
 			towerik.second = Integer.parseInt(oneTowerInfo[1]);
 			towerik.tierLevel = Integer.parseInt(oneTowerInfo[2]);
+			towerik.line = oneTowerInfo[3];
 			towerEventArrayList.add(towerik);
 		}
 		//</editor-fold>
@@ -407,7 +409,7 @@ public class StringReader
 			wardik.y = Float.parseFloat(oneWardInfo[1]);
 			wardik.second = Integer.parseInt(oneWardInfo[2]);
 			wardik.lifeTime = Integer.parseInt(oneWardInfo[3]);
-			wardik.side=Integer.parseInt(oneWardInfo[4]);
+			wardik.side = Integer.parseInt(oneWardInfo[4]);
 			wardEventArrayList.add(wardik);
 		}
 		//</editor-fold>
@@ -416,7 +418,7 @@ public class StringReader
 		String[] oneRoshanEvent = roshanEventsInfo.split("\\*\\*");
 		for (int i = 0; i < Integer.parseInt(oneRoshanEvent[0]); i++)
 		{
-		 	RoshanEvent roshik = new RoshanEvent();
+			RoshanEvent roshik = new RoshanEvent();
 			String[] oneRoshanInfo = oneRoshanEvent[i + 1].split(";");
 			roshik.whoKill = oneRoshanInfo[0];
 			roshik.second = Integer.parseInt(oneRoshanInfo[1]);
@@ -424,5 +426,241 @@ public class StringReader
 		}
 		//</editor-fold>
 
+		ArrayList<TowerEvent> addingTower = new ArrayList<TowerEvent>();
+		Boolean t2exist = false;
+		Boolean t1exist = false;
+		for (int i = 0; i < towerEventArrayList.size(); i++)
+		{
+			if (towerEventArrayList.get(i).whoDestroy.equals("Dire"))
+			{
+				if (towerEventArrayList.get(i).tierLevel == 3)
+				{
+					t1exist = false;
+					t2exist = false;
+
+					if (towerEventArrayList.get(i).line.equals("top"))
+					{
+						for (int j = 0; j < towerEventArrayList.size(); j++)
+						{
+							if (i == j)
+								continue;
+							if (towerEventArrayList.get(j).line.equals("top"))
+							{
+								if (towerEventArrayList.get(j).tierLevel == 1)
+									t1exist = true;
+								if (towerEventArrayList.get(j).tierLevel == 2)
+									t2exist = true;
+							}
+						}
+						if (t1exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 1;
+							towerik.line = "top";
+							towerik.second = 60 * 18;
+							towerik.whoDestroy = "Dire";
+							addingTower.add(towerik);
+						}
+						if (t2exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 2;
+							towerik.line = "top";
+							towerik.second = 60 * 25;
+							towerik.whoDestroy = "Dire";
+							addingTower.add(towerik);
+						}
+						t1exist = false;
+						t2exist = false;
+					}
+					if (towerEventArrayList.get(i).line.equals("bottom"))
+					{
+						for (int j = 0; j < towerEventArrayList.size(); j++)
+						{
+							if (i == j)
+								continue;
+							if (towerEventArrayList.get(j).line.equals("bottom"))
+							{
+								if (towerEventArrayList.get(j).tierLevel == 1)
+									t1exist = true;
+								if (towerEventArrayList.get(j).tierLevel == 2)
+									t2exist = true;
+							}
+						}
+						if (t1exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 1;
+							towerik.line = "bottom";
+							towerik.second = 60 * 18;
+							towerik.whoDestroy = "Dire";
+							addingTower.add(towerik);
+						}
+						if (t2exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 2;
+							towerik.line = "bottom";
+							towerik.second = 60 * 25;
+							towerik.whoDestroy = "Dire";
+							addingTower.add(towerik);
+						}
+						t1exist = false;
+						t2exist = false;
+					}
+					if (towerEventArrayList.get(i).line.equals("middle"))
+					{
+						for (int j = 0; j < towerEventArrayList.size(); j++)
+						{
+							if (i == j)
+								continue;
+							if (towerEventArrayList.get(j).line.equals("middle"))
+							{
+								if (towerEventArrayList.get(j).tierLevel == 1)
+									t1exist = true;
+								if (towerEventArrayList.get(j).tierLevel == 2)
+									t2exist = true;
+							}
+						}
+						if (t1exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 1;
+							towerik.line = "middle";
+							towerik.second = 60 * 18;
+							towerik.whoDestroy = "Dire";
+							addingTower.add(towerik);
+						}
+						if (t2exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 2;
+							towerik.line = "middle";
+							towerik.second = 60 * 25;
+							towerik.whoDestroy = "Dire";
+							addingTower.add(towerik);
+						}
+						t1exist = false;
+						t2exist = false;
+					}
+				}
+			}
+			if (towerEventArrayList.get(i).whoDestroy.equals("Radiant"))
+			{
+				if (towerEventArrayList.get(i).tierLevel == 3)
+				{
+					t1exist = false;
+					t2exist = false;
+
+					if (towerEventArrayList.get(i).line.equals("top"))
+					{
+						for (int j = 0; j < towerEventArrayList.size(); j++)
+						{
+							if (i == j)
+								continue;
+							if (towerEventArrayList.get(j).line.equals("top"))
+							{
+								if (towerEventArrayList.get(j).tierLevel == 1)
+									t1exist = true;
+								if (towerEventArrayList.get(j).tierLevel == 2)
+									t2exist = true;
+							}
+						}
+						if (t1exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 1;
+							towerik.line = "top";
+							towerik.second = 60 * 18;
+							towerik.whoDestroy = "Radiant";
+							addingTower.add(towerik);
+						}
+						if (t2exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 2;
+							towerik.line = "top";
+							towerik.second = 60 * 25;
+							towerik.whoDestroy = "Radiant";
+							addingTower.add(towerik);
+						}
+						t1exist = false;
+						t2exist = false;
+					}
+					if (towerEventArrayList.get(i).line.equals("bottom"))
+					{
+						for (int j = 0; j < towerEventArrayList.size(); j++)
+						{
+							if (i == j)
+								continue;
+							if (towerEventArrayList.get(j).line.equals("bottom"))
+							{
+								if (towerEventArrayList.get(j).tierLevel == 1)
+									t1exist = true;
+								if (towerEventArrayList.get(j).tierLevel == 2)
+									t2exist = true;
+							}
+						}
+						if (t1exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 1;
+							towerik.line = "bottom";
+							towerik.second = 60 * 18;
+							towerik.whoDestroy = "Radiant";
+							addingTower.add(towerik);
+						}
+						if (t2exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 2;
+							towerik.line = "bottom";
+							towerik.second = 60 * 25;
+							towerik.whoDestroy = "Radiant";
+							addingTower.add(towerik);
+						}
+						t1exist = false;
+						t2exist = false;
+					}
+					if (towerEventArrayList.get(i).line.equals("middle"))
+					{
+						for (int j = 0; j < towerEventArrayList.size(); j++)
+						{
+							if (i == j)
+								continue;
+							if (towerEventArrayList.get(j).line.equals("middle"))
+							{
+								if (towerEventArrayList.get(j).tierLevel == 1)
+									t1exist = true;
+								if (towerEventArrayList.get(j).tierLevel == 2)
+									t2exist = true;
+							}
+						}
+						if (t1exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 1;
+							towerik.line = "middle";
+							towerik.second = 60 * 18;
+							towerik.whoDestroy = "Radiant";
+							addingTower.add(towerik);
+						}
+						if (t2exist == false)
+						{
+							TowerEvent towerik = new TowerEvent();
+							towerik.tierLevel = 2;
+							towerik.line = "middle";
+							towerik.second = 60 * 25;
+							towerik.whoDestroy = "Radiant";
+							addingTower.add(towerik);
+						}
+						t1exist = false;
+						t2exist = false;
+					}
+				}
+			}
+		}
+		if (addingTower.size() != 0)
+			towerEventArrayList.addAll(addingTower);
 	}
 }

@@ -694,12 +694,13 @@ public class WriterReaderFactory
 				error = true;
 				System.out.println("Tower second error");
 			}
-			writeToFile(Integer.toString(towerEvent.get(i).tierLevel), false);
+			writeToFile(Integer.toString(towerEvent.get(i).tierLevel), true);
 			if (towerEvent.get(i).tierLevel < 1 || towerEvent.get(i).tierLevel > 4)
 			{
 				error = true;
 				System.out.println("Tower level error");
 			}
+			writeToFile(towerEvent.get(i).line, false);
 			if (i != towerEvent.size() - 1)
 				writeToFile("**", false);
 		}

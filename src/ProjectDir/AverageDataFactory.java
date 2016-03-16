@@ -328,7 +328,7 @@ public class AverageDataFactory
 	public Double avgF10KTime = 0.0;
 	public Double avgLHM = 0.0;
 	public Double avgGPM = 0.0;
-
+	public Double avgGF = 0.0;
 
 	public void getAverageMatchData() throws IOException
 	{
@@ -369,6 +369,8 @@ public class AverageDataFactory
 		Integer totalLH = 0;
 		Integer totalGPMCounter = 0;
 		Integer totalGPM = 0;
+		Integer totalGF = 0;
+		Integer totalGFCounter = 0;
 		for (int i = eachMatch.length - 1; i > eachMatch.length - matchesCount - 1; i--)
 		{
 			stringReader.fillArraysFromFile(eachMatch[i], team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
@@ -451,7 +453,10 @@ public class AverageDataFactory
 				}
 
 			}
+			totalGF += team[0].goldFed + team[1].goldFed;
+			totalGFCounter += 2;
 		}
+		avgGF = (double) totalGF / totalGFCounter;
 		avgGPM = (double) totalGPM / totalGPMCounter;
 		avgLHM = (double) totalLH / minutesCounter;
 		avgF10KTime = (double) F10KTime / F10KCounter;

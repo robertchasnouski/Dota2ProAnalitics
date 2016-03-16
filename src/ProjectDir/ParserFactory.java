@@ -2168,7 +2168,14 @@ public class ParserFactory
 							towerchik.whoDestroy = "Radiant";
 					}
 				}
-
+				if (logLine[i].contains("Top"))
+					towerchik.line = "top";
+				else if (logLine[i].contains("Bottom"))
+					towerchik.line = "bottom";
+				else if (logLine[i].contains("Middle"))
+					towerchik.line = "middle";
+				else
+					towerchik.line = "middle";
 				tempString = substringer(logLine[i], "Tier", "Tower");
 				if (tempString.contains("1"))
 					towerchik.tierLevel = 1;
@@ -2303,7 +2310,7 @@ public class ParserFactory
 		tempString = tempString.substring(10, 20);
 		match.date = tempString;
 		Date matchDate = formatter.parse(match.date);
-		if (lastMatchDate.compareTo(matchDate) == 1  )
+		if (lastMatchDate.compareTo(matchDate) == 1)
 		{
 			System.out.println("Parsing error. Too early date");
 			return false;
@@ -2640,7 +2647,7 @@ public class ParserFactory
 		for (int i = 0; i < 10; i++)
 		{
 			//Jungler
-			if (player[i].jungle > player[i].middle && player[i].jungle >= player[i].safeLine && player[i].jungle >= player[i].offLine && player[i].jungle >= player[i].roaming)
+			if (player[i].jungle > player[i].middle && player[i].jungle > player[i].safeLine && player[i].jungle > player[i].offLine && player[i].jungle > player[i].roaming)
 			{
 				player[i].role = 5;
 				continue;

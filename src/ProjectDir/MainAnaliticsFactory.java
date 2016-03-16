@@ -19,6 +19,7 @@ public class MainAnaliticsFactory
 	FileControlFactory fileControlFactory = new FileControlFactory();
 	WriterReaderFactory writerReaderFactory = new WriterReaderFactory();
 	StringReader stringReader = new StringReader();
+	FileOperationsFactory fileOperationsFactory=new FileOperationsFactory();
 
 	public void startWork() throws IOException
 	{
@@ -59,25 +60,20 @@ public class MainAnaliticsFactory
 			gameStageAnalitics.getLGPoints(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 			eppAnaliticsFactory.calculatePlayersEPP(averageDataFactory, matches[i], team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 
-			//System.out.println("Team Radiant   EGPoints:" + team[0].EGPoints + " MGPoints:" + team[0].MGPoints + " LGPoints:" + team[0].LGPoints);
-			//System.out.println("Team Dire   EGPoints:" + team[1].EGPoints + " MGPoints:" + team[1].MGPoints + " LGPoints:" + team[1].LGPoints);
-			/*for (int j = 0; j < 10; j++)
+			/*System.out.println("Team Radiant   EGPoints:" + team[0].EGPoints + " MGPoints:" + team[0].MGPoints + " LGPoints:" + team[0].LGPoints);
+			System.out.println("Team Dire   EGPoints:" + team[1].EGPoints + " MGPoints:" + team[1].MGPoints + " LGPoints:" + team[1].LGPoints);
+			for (int j = 0; j < 10; j++)
 			{
 				System.out.println("Hero:" + player[j].hero + " Role:" + player[j].role + " EPP:" + player[j].EPP);
-			}*/
-
-			primaryAnaliticsFactory.analizeMatch(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
-			/*System.out.println();
-			System.out.println();
-			System.out.println();
+			}
 			System.out.println();*/
+			primaryAnaliticsFactory.analizeMatch(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 			writerReaderFactory.makeZeros(team, player, match);
 			writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
-			//Write that analized
+			fileOperationsFactory.writeToFile(matchId,"files/MatchesAnalized.txt");
 		}
 		/**AverageAnaliticsFactory**/
 		//averageAnaliticsFactory.startAverageAnalitics(teamId);
 		//heatMapAnaliticsFactory.buildHeatMap("1883502");
-
 	}
 }

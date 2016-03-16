@@ -1,6 +1,7 @@
 package ProjectDir.Analitics;
 
 import ProjectDir.AverageDataFactory;
+import ProjectDir.FileOperationsFactory;
 import ProjectDir.MatchInfo.*;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
@@ -25,7 +26,7 @@ public class PrimaryAnaliticsFactory
 		Integer direAggression = analizeDireAggression(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		//System.out.println("Radiant Aggression:" + radiantAggression);
 		//System.out.println("Dire aggression:" + direAggression);
-		if (direAggression < 40 || direAggression > 3500 || radiantAggression < 40 || radiantAggression > 3500)
+		if (direAggression < 40 || direAggression > 3000 || radiantAggression < 40 || radiantAggression > 3000)
 		{
 			System.out.println(match.id);
 			System.out.println("Radiant Aggression:" + radiantAggression);
@@ -39,7 +40,7 @@ public class PrimaryAnaliticsFactory
 		Integer direPushing = analizeDirePushing(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//System.out.println("Radiant Pushing:" + radiantPushing);
 		//System.out.println("Dire Pushing:" + direPushing);
-		if (direPushing < -400 || direPushing > 2200 || radiantPushing < -400 || radiantPushing > 2200)
+		if (direPushing < -400 || direPushing > 2500 || radiantPushing < -400 || radiantPushing > 2500)
 		{
 			System.out.println(match.id);
 			System.out.println("Radiant Pushing:" + radiantPushing);
@@ -67,7 +68,7 @@ public class PrimaryAnaliticsFactory
 		Integer direDefence = analizeDireDefence(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//System.out.println("Radiant defence:" + radiantDefence);
 		//System.out.println("Dire defence:" + direDefence);
-		if ((direDefence < -1000 || direDefence > 1000 || radiantDefence < -1000 || radiantDefence > 1000) && radiantDefence != 9999 && direDefence != 9999)
+		if (((direDefence < -2000 || direDefence > 3000) && radiantDefence == 9999) || ((radiantDefence < -2000 || radiantDefence > 3000) && direDefence == 9999))
 		{
 			System.out.println(match.id);
 			System.out.println("Radiant Defence:" + radiantDefence);
@@ -82,7 +83,7 @@ public class PrimaryAnaliticsFactory
 		Integer direLining = analizeDireLining(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//System.out.println("Radiant Lining:" + radiantLining);
 		//System.out.println("Dire Lining:" + direLining);
-		if (direLining < -2000 || direLining > 2000 || radiantLining < -2000 || radiantLining > 2000)
+		if (direLining < -2400 || direLining > 2000 || radiantLining < -2400 || radiantLining > 2000)
 		{
 			System.out.println(match.id);
 			System.out.println("Radiant Lining:" + radiantLining);
@@ -96,7 +97,7 @@ public class PrimaryAnaliticsFactory
 		Integer direKillAbility = analizeDireKillAbility(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//System.out.println("Radiant KillAbility:" + radiantKillAbility);
 		//System.out.println("Dire KillAbility:" + direKillAbility);
-		if (direKillAbility < -2000 || direKillAbility > 2100 || radiantKillAbility < -2000 || radiantKillAbility > 2100)
+		if (direKillAbility < -4500 || direKillAbility > 2500 || radiantKillAbility < -4500 || radiantKillAbility > 2500)
 		{
 			System.out.println(match.id);
 			System.out.println("Radiant KillAbility:" + radiantKillAbility);
@@ -111,7 +112,7 @@ public class PrimaryAnaliticsFactory
 		Integer direFarming = analizeDireFarming(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//System.out.println("Radiant Farming:" + radiantFarming);
 		//System.out.println("Dire Farming:" + direFarming);
-		if (direFarming < 200 || direFarming > 1800 || radiantFarming < 200 || radiantFarming > 1800)
+		if (direFarming < 200 || direFarming > 2000 || radiantFarming < 200 || radiantFarming > 2000)
 		{
 			System.out.println(match.id);
 			System.out.println("Radiant Farming:" + radiantFarming);
@@ -122,8 +123,12 @@ public class PrimaryAnaliticsFactory
 		}
 		/**End analizing**/
 		/**Write info to file**/
-		//writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantAggression, radiantPushing, radiantVision, radiantDefence, radiantLining, radiantKillAbility, radiantFarming);
-		//writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, direAggression, direPushing, direVision, direDefence, direLining, direKillAbility, direFarming);
+
+		///Write that match was analized
+		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantAggression, radiantPushing, radiantVision, radiantDefence, radiantLining, radiantKillAbility, radiantFarming);
+		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, direAggression, direPushing, direVision, direDefence, direLining, direKillAbility, direFarming);
+		writePlayersInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, direAggression, direPushing, direVision, direDefence, direLining, direKillAbility, direFarming);
+		System.out.println("Match " + match.id + " was analized.");
 	}
 
 	public Integer analizeRadiantAggression(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException
@@ -131,12 +136,10 @@ public class PrimaryAnaliticsFactory
 		Double aggression = 0.0;
 		Double GfK = 0.0;
 		Double killPoints = 0.0;
-		Double smokePoints = 0.0;
-
+		Double GFPoints = 0.0;
 		//GfK
 		GfK = (0.30 * team[0].goldForKills * 1000 / match.matchTime) / (averageDataFactory.goldForKills / averageDataFactory.goldForKillsCounter);
-		//Smoke
-		smokePoints = (0.07 * team[0].smokeHits * 1000 / match.matchTime) / (averageDataFactory.smokeHits / averageDataFactory.smokeHitsCounter);
+		//GFPoints = 200 - (100 * team[0].goldFed / averageDataFactory.avgGF);
 		//KillPoints
 		for (int i = 0; i < killEventArrayList.size(); i++)
 		{
@@ -231,8 +234,7 @@ public class PrimaryAnaliticsFactory
 		killPoints = killPoints / match.matchTime * 25;
 		//System.out.println("Radiant KillPoints:" + killPoints);
 		//System.out.println("Radiant GfKPoints:" + GfK);
-		//System.out.println("Radiant SmokePoints:" + smokePoints);
-		aggression = killPoints + GfK + smokePoints;
+		aggression = killPoints + GfK + GFPoints;
 		return aggression.intValue();
 	}
 
@@ -241,12 +243,11 @@ public class PrimaryAnaliticsFactory
 		Double aggression = 0.0;
 		Double GfK = 0.0;
 		Double killPoints = 0.0;
-		Double smokePoints = 0.0;
-		//KillPoints
+		Double GFPoints = 0.0;
+		//GF
+		//	GFPoints = 200 - (100 * team[1].goldFed / averageDataFactory.avgGF);
 		//GfK
 		GfK = (0.30 * team[1].goldForKills * 1000 / match.matchTime) / (averageDataFactory.goldForKills / averageDataFactory.goldForKillsCounter);
-		//Smoke
-		smokePoints = (0.07 * team[1].smokeHits * 1000 / match.matchTime) / (averageDataFactory.smokeHits / averageDataFactory.smokeHitsCounter);
 		//KillPoints
 		for (int i = 0; i < killEventArrayList.size(); i++)
 		{
@@ -340,8 +341,7 @@ public class PrimaryAnaliticsFactory
 		killPoints = killPoints / match.matchTime * 25;
 		//System.out.println("Dire KillPoints:" + killPoints);
 		//System.out.println("Dire GfKPoints:" + GfK);
-		//System.out.println("Dire SmokePoints:" + smokePoints);
-		aggression = killPoints + GfK + smokePoints;
+		aggression = killPoints + GfK + GFPoints;
 		return aggression.intValue();
 	}
 
@@ -586,7 +586,7 @@ public class PrimaryAnaliticsFactory
 				{
 					//System.out.println("Radiant death under T1");
 					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower -= 150;
+					killUnderSelfTower -= 100;
 				}
 			}
 			////T2
@@ -604,27 +604,10 @@ public class PrimaryAnaliticsFactory
 					//System.out.println("Radiant death under T2");
 					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
 
-					killUnderSelfTower -= 150;
+					killUnderSelfTower -= 100;
 				}
 			}
-			//HG
-			if (killEventArrayList.get(i).x >= 0 && killEventArrayList.get(i).x <= 27 && killEventArrayList.get(i).y >= 68 && killEventArrayList.get(i).y <= 100)
-			{
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//	System.out.println("Radiant kill under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
 
-					killUnderSelfTower += 200;
-				}
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Radiant death under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killUnderSelfTower -= 50;
-				}
-			}
 
 			//Kill on self ancients
 			if (killEventArrayList.get(i).x >= 30 && killEventArrayList.get(i).x <= 36 && killEventArrayList.get(i).y >= 46 && killEventArrayList.get(i).y <= 52)
@@ -689,7 +672,7 @@ public class PrimaryAnaliticsFactory
 					//System.out.println("Dire kill under HG");
 					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
 
-					killOnSelfHG += 200;
+					killOnSelfHG += 175;
 				}
 				if (killEventArrayList.get(i).dier <= 5)
 				{
@@ -776,7 +759,7 @@ public class PrimaryAnaliticsFactory
 				{
 					//System.out.println("Dire death under T1");
 					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower -= 150;
+					killUnderSelfTower -= 100;
 				}
 			}
 			////T2
@@ -794,7 +777,7 @@ public class PrimaryAnaliticsFactory
 					//System.out.println("Dire death under T2");
 					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
 
-					killUnderSelfTower -= 150;
+					killUnderSelfTower -= 100;
 				}
 			}
 			//HG
@@ -805,7 +788,7 @@ public class PrimaryAnaliticsFactory
 					//System.out.println("Dire kill under HG");
 					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
 
-					killOnSelfHG += 200;
+					killOnSelfHG += 175;
 				}
 				if (killEventArrayList.get(i).dier >= 6)
 				{
@@ -930,7 +913,7 @@ public class PrimaryAnaliticsFactory
 		LHF5MPoints = (LHF5M - averageDataFactory.avgLHF5M + 10) * 15;
 		LHF510MPoints = (LHF510M - averageDataFactory.avgLHF510M + 10) * 15;
 		KDF10MPoints = 0.3 * 1000 * KDF10M / 5;
-		XPMF10MPoints = (0.2 * 1000 * XPMF10M / averageDataFactory.avgXPMF10M);
+		XPMF10MPoints = (XPMF10M - averageDataFactory.avgXPMF10M) / 1000 * 50;
 
 		//System.out.println("Radiant LHF5MPoints:" + LHF5MPoints);
 		//System.out.println("Radiant LHF5-10MPoints:" + LHF510MPoints);
@@ -981,7 +964,7 @@ public class PrimaryAnaliticsFactory
 		LHF5MPoints = (LHF5M - averageDataFactory.avgLHF5M + 10) * 15;
 		LHF510MPoints = (LHF510M - averageDataFactory.avgLHF510M + 10) * 15;
 		KDF10MPoints = 0.3 * 1000 * KDF10M / 5;
-		XPMF10MPoints = (0.2 * 1000 * XPMF10M / averageDataFactory.avgXPMF10M);
+		XPMF10MPoints = (XPMF10M - averageDataFactory.avgXPMF10M) / 1000 * 50;
 
 		//System.out.println("Dire LHF5MPoints:" + LHF5MPoints);
 		//System.out.println("Dire LHF5-10MPoints:" + LHF510MPoints);
@@ -1098,6 +1081,11 @@ public class PrimaryAnaliticsFactory
 		totalGPMPoints = 0.15 * 1000 * team[0].totalGPM / averageDataFactory.avgGPM;
 		LHMPoints = (0.2 * 1000 * totalLH / match.matchTime) / averageDataFactory.avgLHM;
 
+		if (carryLHPoints == 0)
+			carryLHPoints = (0.35 * 1000 * averageDataFactory.avgCarryLHM * 0.75) / averageDataFactory.avgCarryLHM;
+		if (miderLHPoints == 0)
+			miderLHPoints = (0.3 * 1000 * averageDataFactory.avgMiderLHM * 0.75) / averageDataFactory.avgMiderLHM;
+
 		//System.out.println("Radiant CarryGPMPoints:" + carryLHPoints);
 		//System.out.println("Radiant MiderGPMPoints:" + miderLHPoints);
 		//System.out.println("Radiant TotalGPMPoints:" + totalGPMPoints);
@@ -1131,6 +1119,11 @@ public class PrimaryAnaliticsFactory
 		totalGPMPoints = 0.15 * 1000 * team[1].totalGPM / averageDataFactory.avgGPM;
 		LHMPoints = (0.2 * 1000 * totalLH / match.matchTime) / averageDataFactory.avgLHM;
 
+		if (carryLHPoints == 0)
+			carryLHPoints = (0.35 * 1000 * averageDataFactory.avgCarryLHM * 0.75) / averageDataFactory.avgCarryLHM;
+		if (miderLHPoints == 0)
+			miderLHPoints = (0.3 * 1000 * averageDataFactory.avgMiderLHM * 0.75) / averageDataFactory.avgMiderLHM;
+
 		//System.out.println("Dire CarryGPMPoints:" + carryLHPoints);
 		//System.out.println("Dire MiderGPMPoints:" + miderLHPoints);
 		//System.out.println("Dire TotalGPMPoints:" + totalGPMPoints);
@@ -1145,13 +1138,12 @@ public class PrimaryAnaliticsFactory
 		Double aggression = 0.0;
 		Double GfK = 0.0;
 		Double killPoints = 0.0;
-		Double smokePoints = 0.0;
+		Double GFPoints = 0.0;
 
 		//GfK
 		GfK = (0.30 * team[0].goldForKills * 1000 / match.matchTime) / (averageDataFactory.goldForKills / averageDataFactory.goldForKillsCounter);
 		//Smoke
-		smokePoints = (0.07 * team[0].smokeHits * 1000 / match.matchTime) / (averageDataFactory.smokeHits / averageDataFactory.smokeHitsCounter);
-		//KillPoints
+		//	GFPoints = 400- (200*team[0].goldFed/ averageDataFactory.avgGF);//KillPoints
 		for (int i = 0; i < killEventArrayList.size(); i++)
 		{
 			if (killEventArrayList.get(i).x <= 79 && killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 59)
@@ -1245,8 +1237,8 @@ public class PrimaryAnaliticsFactory
 		killPoints = killPoints / match.matchTime * 25;
 		System.out.println("Radiant KillPoints:" + killPoints);
 		System.out.println("Radiant GfKPoints:" + GfK);
-		System.out.println("Radiant SmokePoints:" + smokePoints);
-		aggression = killPoints + GfK + smokePoints;
+		System.out.println("Radiant GFPoints:" + GFPoints);
+		aggression = killPoints + GfK + GFPoints;
 		return aggression.intValue();
 	}
 
@@ -1255,13 +1247,12 @@ public class PrimaryAnaliticsFactory
 		Double aggression = 0.0;
 		Double GfK = 0.0;
 		Double killPoints = 0.0;
-		Double smokePoints = 0.0;
+		Double GFPoints = 0.0;
 		//KillPoints
 		//GfK
 		GfK = (0.30 * team[1].goldForKills * 1000 / match.matchTime) / (averageDataFactory.goldForKills / averageDataFactory.goldForKillsCounter);
 		//Smoke
-		smokePoints = (0.07 * team[1].smokeHits * 1000 / match.matchTime) / (averageDataFactory.smokeHits / averageDataFactory.smokeHitsCounter);
-		//KillPoints
+		//GFPoints =(double) (team[1].goldForKills-team[1].goldFed)/ team[1].goldForKills*200;
 		for (int i = 0; i < killEventArrayList.size(); i++)
 		{
 			if (killEventArrayList.get(i).x <= 79 && killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 59)
@@ -1354,8 +1345,8 @@ public class PrimaryAnaliticsFactory
 		killPoints = killPoints / match.matchTime * 25;
 		System.out.println("Dire KillPoints:" + killPoints);
 		System.out.println("Dire GfKPoints:" + GfK);
-		System.out.println("Dire SmokePoints:" + smokePoints);
-		aggression = killPoints + GfK + smokePoints;
+		System.out.println("Dire GFPoints:" + GFPoints);
+		aggression = killPoints + GfK + GFPoints;
 		return aggression.intValue();
 	}
 
@@ -1600,7 +1591,7 @@ public class PrimaryAnaliticsFactory
 				{
 					//System.out.println("Radiant death under T1");
 					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower -= 150;
+					killUnderSelfTower -= 100;
 				}
 			}
 			////T2
@@ -1618,27 +1609,10 @@ public class PrimaryAnaliticsFactory
 					//System.out.println("Radiant death under T2");
 					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
 
-					killUnderSelfTower -= 150;
+					killUnderSelfTower -= 100;
 				}
 			}
-			//HG
-			if (killEventArrayList.get(i).x >= 0 && killEventArrayList.get(i).x <= 27 && killEventArrayList.get(i).y >= 68 && killEventArrayList.get(i).y <= 100)
-			{
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//	System.out.println("Radiant kill under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
 
-					killUnderSelfTower += 200;
-				}
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Radiant death under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killUnderSelfTower -= 50;
-				}
-			}
 
 			//Kill on self ancients
 			if (killEventArrayList.get(i).x >= 30 && killEventArrayList.get(i).x <= 36 && killEventArrayList.get(i).y >= 46 && killEventArrayList.get(i).y <= 52)
@@ -1790,7 +1764,7 @@ public class PrimaryAnaliticsFactory
 				{
 					//System.out.println("Dire death under T1");
 					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower -= 150;
+					killUnderSelfTower -= 100;
 				}
 			}
 			////T2
@@ -1808,7 +1782,7 @@ public class PrimaryAnaliticsFactory
 					//System.out.println("Dire death under T2");
 					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
 
-					killUnderSelfTower -= 150;
+					killUnderSelfTower -= 100;
 				}
 			}
 			//HG
@@ -1944,7 +1918,7 @@ public class PrimaryAnaliticsFactory
 		LHF5MPoints = (LHF5M - averageDataFactory.avgLHF5M + 10) * 15;
 		LHF510MPoints = (LHF510M - averageDataFactory.avgLHF510M + 10) * 15;
 		KDF10MPoints = 0.3 * 1000 * KDF10M / 5;
-		XPMF10MPoints = (0.2 * 1000 * XPMF10M / averageDataFactory.avgXPMF10M);
+		XPMF10MPoints = (XPMF10M - averageDataFactory.avgXPMF10M) / 1000 * 50;
 
 		System.out.println("Radiant LHF5MPoints:" + LHF5MPoints);
 		System.out.println("Radiant LHF5-10MPoints:" + LHF510MPoints);
@@ -1995,8 +1969,9 @@ public class PrimaryAnaliticsFactory
 		LHF5MPoints = (LHF5M - averageDataFactory.avgLHF5M + 10) * 15;
 		LHF510MPoints = (LHF510M - averageDataFactory.avgLHF510M + 10) * 15;
 		KDF10MPoints = 0.3 * 1000 * KDF10M / 5;
-		XPMF10MPoints = (0.2 * 1000 * XPMF10M / averageDataFactory.avgXPMF10M);
-
+		XPMF10MPoints = (XPMF10M - averageDataFactory.avgXPMF10M) / 1000 * 50;
+		System.out.println(XPMF10M);
+		System.out.println(averageDataFactory.avgXPMF10M);
 		System.out.println("Dire LHF5MPoints:" + LHF5MPoints);
 		System.out.println("Dire LHF5-10MPoints:" + LHF510MPoints);
 		System.out.println("Dire KDF10MPoints:" + KDF10MPoints);
@@ -2154,130 +2129,195 @@ public class PrimaryAnaliticsFactory
 
 	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer aggression, Integer pushing, Integer wardAbility, Integer defence, Integer lining, Integer killAbility, Integer farming) throws IOException
 	{
-		String writingString = "";
+		String teamString = "";
 		/**General Information [0]**/
-		writingString += match.id + ";";//[0]
-		writingString += match.date + ";";//[1]
-		writingString += match.matchTime + ";";//[2]
-		writingString += team[0].id + ";";//[3]
-		writingString += team[1].id + ";";//[4]
-		writingString += "0";//[5]
+		teamString += match.id + ";";//[0]
+		teamString += match.date + ";";//[1]
+		teamString += match.matchTime + ";";//[2]
+		teamString += team[0].id + ";";//[3]
+		teamString += (match.winRadiant ? "true" : "false") + ";";//[4]
+		teamString += "0";//[5]
 
-		writingString += "##";
+		teamString += "##";
 		/**TeamInfo [1]**/
-		writingString += team[0].kills + ";";
-		writingString += team[0].deaths + ";";
-		writingString += team[0].assists + ";";
+		teamString += team[0].kills + ";";
+		teamString += team[0].deaths + ";";
+		teamString += team[0].assists;
 
-		writingString += "##";
+		teamString += "##";
 		/**Players And EPP's [2]**/
-		writingString += player[0].playerId + ";";
-		writingString += player[0].EPP + "||";
-		writingString += player[1].playerId + ";";
-		writingString += player[1].EPP + "||";
-		writingString += player[2].playerId + ";";
-		writingString += player[2].EPP + "||";
-		writingString += player[3].playerId + ";";
-		writingString += player[3].EPP + "||";
-		writingString += player[4].playerId + ";";
-		writingString += player[4].EPP;
-		writingString += "##";
+		teamString += player[0].playerId + ";";
+		teamString += player[0].EPP + "||";
+		teamString += player[1].playerId + ";";
+		teamString += player[1].EPP + "||";
+		teamString += player[2].playerId + ";";
+		teamString += player[2].EPP + "||";
+		teamString += player[3].playerId + ";";
+		teamString += player[3].EPP + "||";
+		teamString += player[4].playerId + ";";
+		teamString += player[4].EPP;
+		teamString += "##";
 		/**Parameters [3]**/
-		writingString += aggression + ";";
-		writingString += pushing + ";";
-		writingString += wardAbility + ";";
-		writingString += defence + ";";
-		writingString += lining + ";";
-		writingString += killAbility + ";";
-		writingString += farming;
-		writingString += "##";
+		teamString += aggression + ";";
+		teamString += pushing + ";";
+		teamString += wardAbility + ";";
+		teamString += defence + ";";
+		teamString += lining + ";";
+		teamString += killAbility + ";";
+		teamString += farming;
+		teamString += "##";
 		/**FB Information [4]**/
-		writingString += match.firstBloodRadiant + ";"; //[0]
-		writingString += match.FBTime; //[1]
-		writingString += "##";
+		teamString += (match.firstBloodRadiant ? "true" : "false") + ";"; //[0]
+		teamString += match.FBTime; //[1]
+		teamString += "##";
 		/**F10K Information [5]**/
-		writingString += match.first10KillsRadiant + ";";
-		writingString += match.F10KTime;
-		writingString += "##";
+		teamString += (match.first10KillsRadiant ? "true" : "false") + ";";
+		teamString += match.F10KTime;
+		teamString += "##";
 		/**FR Information [6]**/
-		writingString += match.firstRoshanRadiant + ";";
-		writingString += match.FRoshanTime;
-		writingString += "##";
+		teamString += (match.firstRoshanRadiant ? "true" : "false") + ";";
+		teamString += match.FRoshanTime;
+		teamString += "##";
 		/**KillEvents [7]**/
 		for (int i = 0; i < killEventArrayList.size(); i++)
 		{
-			writingString += killEventArrayList.get(i).dier + ";";
-			writingString += killEventArrayList.get(i).second;
+			teamString += killEventArrayList.get(i).dier + ";";
+			teamString += killEventArrayList.get(i).second;
 			if (i != killEventArrayList.size() - 1)
-				writingString += "||";
+				teamString += "||";
 		}
-		writingString += "##";
+		teamString += "##";
 		/**Rating Changes [8]**/
-		System.out.println(writingString);
+		String oldString = fileControlFactory.readFile("files/teams/" + team[0].id + "/TeamMatches.txt");
+		String[] stringInFile = oldString.split("\n");
+		String ratingChanges = "";
+		for (int i = 0; i < stringInFile.length; i++)
+		{
+			String matchId = stringInFile[i].split(";")[0];
+			if (matchId.equals(match.id) && stringInFile[i].length() <= 40)
+			{
+				ratingChanges = stringInFile[i];
+				stringInFile[i] = teamString + ratingChanges;
+			}
+		}
+		fileControlFactory.cleanAndWriteToFile("", "files/teams/" + team[0].id + "/TeamMatches.txt");
+		for (int i = 0; i < stringInFile.length; i++)
+		{
+			fileControlFactory.writeToFile(stringInFile[i], "files/teams/" + team[0].id + "/TeamMatches.txt");
+		}
+		System.out.println("Team " + team[0].id + " file was changed.");
 	}
 
 	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer aggression, Integer pushing, Integer wardAbility, Integer defence, Integer lining, Integer killAbility, Integer farming) throws IOException
 	{
-		String writingString = "";
+		String teamString = "";
 		/**General Information [0]**/
-		writingString += match.id + ";";//[0]
-		writingString += match.date + ";";//[1]
-		writingString += match.matchTime + ";";//[2]
-		writingString += team[0].id + ";";//[3]
-		writingString += team[1].id + ";";//[4]
-		writingString += "1";//[5]
+		teamString += match.id + ";";//[0]
+		teamString += match.date + ";";//[1]
+		teamString += match.matchTime + ";";//[2]
+		teamString += team[1].id + ";";//[3]
+		teamString += (match.winRadiant ? "false" : "true") + ";";
+		teamString += "1";//[4]
 
-		writingString += "##";
+		teamString += "##";
 		/**TeamInfo [1]**/
-		writingString += team[1].kills + ";";
-		writingString += team[1].deaths + ";";
-		writingString += team[1].assists + ";";
+		teamString += team[1].kills + ";";
+		teamString += team[1].deaths + ";";
+		teamString += team[1].assists;
 
-		writingString += "##";
+		teamString += "##";
 		/**Players And EPP's [2]**/
-		writingString += player[5].playerId + ";";
-		writingString += player[5].EPP + "||";
-		writingString += player[6].playerId + ";";
-		writingString += player[6].EPP + "||";
-		writingString += player[7].playerId + ";";
-		writingString += player[7].EPP + "||";
-		writingString += player[8].playerId + ";";
-		writingString += player[8].EPP + "||";
-		writingString += player[9].playerId + ";";
-		writingString += player[9].EPP;
-		writingString += "##";
+		teamString += player[5].playerId + ";";
+		teamString += player[5].EPP + "||";
+		teamString += player[6].playerId + ";";
+		teamString += player[6].EPP + "||";
+		teamString += player[7].playerId + ";";
+		teamString += player[7].EPP + "||";
+		teamString += player[8].playerId + ";";
+		teamString += player[8].EPP + "||";
+		teamString += player[9].playerId + ";";
+		teamString += player[9].EPP;
+		teamString += "##";
 		/**Parameters [3]**/
-		writingString += aggression + ";";
-		writingString += pushing + ";";
-		writingString += wardAbility + ";";
-		writingString += defence + ";";
-		writingString += lining + ";";
-		writingString += killAbility + ";";
-		writingString += farming;
-		writingString += "##";
+		teamString += aggression + ";";
+		teamString += pushing + ";";
+		teamString += wardAbility + ";";
+		teamString += defence + ";";
+		teamString += lining + ";";
+		teamString += killAbility + ";";
+		teamString += farming;
+		teamString += "##";
 		/**FB Information [4]**/
-		writingString += match.firstBloodRadiant + ";";
-		writingString += match.FBTime;
-		writingString += "##";
+		teamString += (match.firstBloodRadiant ? "false" : "true") + ";";
+		teamString += match.FBTime;
+		teamString += "##";
 		/**F10K Information [5]**/
-		writingString += match.first10KillsRadiant + ";";
-		writingString += match.F10KTime;
-		writingString += "##";
+		teamString += (match.first10KillsRadiant ? "false" : "true") + ";";
+		teamString += match.F10KTime;
+		teamString += "##";
 		/**FR Information [6]**/
-		writingString += match.firstRoshanRadiant + ";";
-		writingString += match.FRoshanTime;
-		writingString += "##";
+		teamString += (match.firstRoshanRadiant ? "false" : "true") + ";";
+		teamString += match.FRoshanTime;
+		teamString += "##";
 		/**KillEvents [7]**/
 		for (int i = 0; i < killEventArrayList.size(); i++)
 		{
-			writingString += killEventArrayList.get(i).dier + ";";
-			writingString += killEventArrayList.get(i).second;
+			teamString += killEventArrayList.get(i).dier + ";";
+			teamString += killEventArrayList.get(i).second;
 			if (i != killEventArrayList.size() - 1)
-				writingString += "||";
+				teamString += "||";
 		}
-		writingString += "##";
+		teamString += "##";
 		/**Rating Changes [8]**/
-		System.out.println(writingString);
+		String oldString = fileControlFactory.readFile("files/teams/" + team[1].id + "/TeamMatches.txt");
+		String[] stringInFile = oldString.split("\n");
+		String ratingChanges = "";
+		for (int i = 0; i < stringInFile.length; i++)
+		{
+			String matchId = stringInFile[i].split(";")[0];
+			if (matchId.equals(match.id) && stringInFile[i].length() <= 40)
+			{
+				ratingChanges = stringInFile[i];
+				stringInFile[i] = teamString + ratingChanges;
+			}
+		}
+		fileControlFactory.cleanAndWriteToFile("", "files/teams/" + team[1].id + "/TeamMatches.txt");
+		for (int i = 0; i < stringInFile.length; i++)
+		{
+			fileControlFactory.writeToFile(stringInFile[i], "files/teams/" + team[1].id + "/TeamMatches.txt");
+		}
+		System.out.println("Team " + team[1].id + " file was changed.");
+	}
+
+	public void writePlayersInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer aggression, Integer pushing, Integer wardAbility, Integer defence, Integer lining, Integer killAbility, Integer farming) throws IOException
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			String playerString = "";
+			playerString += match.id + ";";
+			if (i <= 4)
+				playerString += team[0].id + ";";
+			else
+				playerString += team[1].id + ";";
+			playerString += match.date + ";";
+			playerString += player[i].EPP + ";";
+			if (i <= 4)
+			{
+				if (match.winRadiant)
+					playerString += "true";
+				else
+					playerString += "false";
+			} else
+			{
+				if (match.winRadiant)
+					playerString += "false";
+				else
+					playerString += "true";
+			}
+			fileControlFactory.createPlayerFileIfNotExist(player[i].playerId);
+			fileControlFactory.writeToFile(playerString, "files/players/" + player[i].playerId + ".txt");
+
+		}
 	}
 }
 

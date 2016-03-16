@@ -4,6 +4,7 @@ import ProjectDir.Analitics.GameStageAnalitics;
 import ProjectDir.MatchInfo.*;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -90,6 +91,9 @@ public class Worker
 		String[] tempArray = fileOperationsFactory.readFile("files/Matches.txt").split("\n");
 		String lastMatchDateString = tempArray[tempArray.length - 1].split(";")[1];
 		Date lastMatchDate = formatter.parse(lastMatchDateString);
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
+		date.setTime(lastMatchDate.getTime() - 24 * 60 * 60 * 1000);
 
 		//parserHelper.parseMatchById(lastMatchDate, "2095305164", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList,roshanEventArrayList);
 		//if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList,roshanEventArrayList))
@@ -100,7 +104,7 @@ public class Worker
 			{
 				if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))
 				{
-					if (parserHelper.parseMatchById(lastMatchDate, matchesToParse.get(i), team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList))
+					if (parserHelper.parseMatchById(date, matchesToParse.get(i), team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList))
 					{
 						if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList))
 							fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/MatchesParsed.txt");

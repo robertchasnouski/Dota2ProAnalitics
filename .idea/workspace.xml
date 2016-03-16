@@ -2,69 +2,199 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f7f0e7c-0bfe-4b66-baac-6e8d83ffec96" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ProjectDir/MatchInfo/AnalizedInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ProjectDir/DataWorker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ProjectDir/ReceptionWorker.java" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\111474\DireDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\111474\DireKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\111474\RadiantDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\111474\RadiantKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\1883502\DireDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\1883502\DireKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\1883502\RadiantDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\1883502\RadiantKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\1983234\TeamMatches.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2006913\DireDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2006913\DireKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2006913\RadiantDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2006913\RadiantKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2163\DireDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2163\DireKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2163\RadiantDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2163\RadiantKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2221790\TeamMatches.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2456613\TeamMatches.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2539098\TeamMatches.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2586976\DireDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2586976\DireKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2586976\RadiantDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\2586976\RadiantKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\36\DireDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\36\DireKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\36\RadiantDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\36\RadiantKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\39\DireDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\39\DireKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\39\RadiantDeathsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\39\RadiantKillsHeatMap.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Workspace\Projects\Dota2ProAnalitics_0.0\files\teams\5\TeamMatches.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/AverageDataFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/AverageDataFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/GameStageAnalitics.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/GameStageAnalitics.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/EPPAnaliticsFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/EPPAnaliticsFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/FileControlFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/FileControlFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Main.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/MainAnaliticsFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/MainAnaliticsFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/ParserFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/ParserFactory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/PrimaryAnaliticsFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/PrimaryAnaliticsFactory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/RatingFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/RatingFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/UniqueInfoFactory$1.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/UniqueInfoFactory$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/StringReader.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/StringReader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/MatchInfo/TowerEvent.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/MatchInfo/TowerEvent.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/UniqueInfoFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/UniqueInfoFactory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Worker.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Worker.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/WriterReaderFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/WriterReaderFactory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/AverageDataFactory.java" afterPath="$PROJECT_DIR$/src/ProjectDir/AverageDataFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/BrokenMatches.txt" afterPath="$PROJECT_DIR$/Backup/BrokenMatches.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/12.03/BrokenMatches.txt" afterPath="$PROJECT_DIR$/Backup/12.03/BrokenMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/BrokenMatches.txt" afterPath="$PROJECT_DIR$/files/BrokenMatches.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/Analitics/GameStageAnalitics.java" afterPath="$PROJECT_DIR$/src/ProjectDir/Analitics/GameStageAnalitics.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/Analitics/EPPAnaliticsFactory.java" afterPath="$PROJECT_DIR$/src/ProjectDir/Analitics/EPPAnaliticsFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/Analitics/FileControlFactory.java" afterPath="$PROJECT_DIR$/src/ProjectDir/Analitics/FileControlFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/LeaguesParsed.txt" afterPath="$PROJECT_DIR$/files/LeaguesParsed.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/Main.java" afterPath="$PROJECT_DIR$/src/ProjectDir/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/MainAnaliticsFactory.java" afterPath="$PROJECT_DIR$/src/ProjectDir/MainAnaliticsFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/Matches.txt" afterPath="$PROJECT_DIR$/Backup/Matches.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/12.03/Matches.txt" afterPath="$PROJECT_DIR$/Backup/12.03/Matches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/Matches.txt" afterPath="$PROJECT_DIR$/files/Matches.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/MatchesParsed.txt" afterPath="$PROJECT_DIR$/Backup/MatchesParsed.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/12.03/MatchesParsed.txt" afterPath="$PROJECT_DIR$/Backup/12.03/MatchesParsed.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/MatchesAnalized.txt" afterPath="$PROJECT_DIR$/files/MatchesAnalized.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/MatchesParsed.txt" afterPath="$PROJECT_DIR$/files/MatchesParsed.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/MatchesRated.txt" afterPath="$PROJECT_DIR$/files/MatchesRated.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/NeedToParse.txt" afterPath="$PROJECT_DIR$/files/NeedToParse.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/ParserFactory.java" afterPath="$PROJECT_DIR$/src/ProjectDir/ParserFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java" afterPath="$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/RatingFactory.java" afterPath="$PROJECT_DIR$/src/ProjectDir/RatingFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/Analitics/StringReader.java" afterPath="$PROJECT_DIR$/src/ProjectDir/Analitics/StringReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1105664/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1105664/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/111474/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/111474/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1148284/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1148284/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1195135/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1195135/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1276923/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1276923/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1375614/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1375614/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1449413/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1449413/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1491448/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1491448/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/15/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/15/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1520578/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1520578/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1529126/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1529126/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1532240/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1532240/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1557544/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1557544/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1633432/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1633432/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1674241/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1674241/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1725846/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1725846/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1804536/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1804536/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1836806/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1836806/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1838315/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1838315/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1846548/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1846548/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1869482/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1869482/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1883502/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1883502/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1884355/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1884355/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1914023/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1914023/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1925517/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1925517/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1937628/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1937628/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1939134/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1939134/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1947435/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1947435/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1951061/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1951061/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1966890/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1966890/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2006913/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2006913/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2042882/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2042882/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2099436/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2099436/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2108395/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2108395/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2130380/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2130380/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2163/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2163/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2168675/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2168675/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2217083/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2217083/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2244697/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2244697/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2246141/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2246141/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2276247/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2276247/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2289950/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2289950/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2310555/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2310555/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2318015/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2318015/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2341834/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2341834/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2363730/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2363730/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2384932/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2384932/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2391764/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2391764/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/24/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/24/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2413217/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2413217/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2428289/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2428289/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2429870/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2429870/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2443590/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2443590/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2447557/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2447557/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2458565/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2458565/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2486784/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2486784/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2487631/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2487631/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2512130/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2512130/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2512249/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2512249/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2520702/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2520702/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2527544/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2527544/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2531618/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2531618/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2535294/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2535294/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2535378/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2535378/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2538753/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2538753/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/254140/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/254140/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2542555/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2542555/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2545465/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2545465/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2549939/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2549939/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2552670/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2552670/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2564292/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2564292/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2566305/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2566305/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2568520/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2568520/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2574116/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2574116/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2578382/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2578382/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2581813/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2581813/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2586976/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2586976/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2602410/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2602410/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2604003/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2604003/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2621843/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2621843/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2622695/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2622695/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2629427/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2629427/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2633111/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2633111/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2633249/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2633249/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2634068/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2634068/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2634364/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2634364/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2635099/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2635099/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2635726/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2635726/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2639569/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2639569/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2640025/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2640025/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2640099/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2640099/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2642009/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2642009/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2642171/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2642171/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2642781/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2642781/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2644229/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2644229/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2645562/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2645562/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2650758/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2650758/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2659468/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2659468/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2672298/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2672298/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2673264/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2673264/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2674713/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2674713/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2677536/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2677536/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2678018/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2678018/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2679500/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2679500/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2679554/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2679554/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2684248/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2684248/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2686160/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2686160/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2687319/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2687319/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2687650/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2687650/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2699723/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2699723/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2701329/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2701329/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2702129/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2702129/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2703422/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2703422/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2715174/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2715174/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2715234/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2715234/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2715778/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2715778/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2716225/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2716225/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2717916/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2717916/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2719262/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2719262/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2722597/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2722597/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2722619/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2722619/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2726559/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2726559/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2730057/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2730057/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2736123/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2736123/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2742158/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2742158/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2742611/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2742611/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2744675/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2744675/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2748592/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2748592/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/3/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/3/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/350190/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/350190/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/36/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/36/TeamMatches.txt" />
@@ -74,11 +204,20 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/543897/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/543897/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/55/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/55/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/55316/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/55316/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/67/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/67/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/726228/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/726228/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/741911/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/741911/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/758797/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/758797/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/780157/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/780157/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/787967/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/787967/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/795543/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/795543/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/827550/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/827550/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/TeamRatings.txt" afterPath="$PROJECT_DIR$/files/TeamRatings.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/TemporaryMatches.txt" afterPath="$PROJECT_DIR$/files/TemporaryMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/MatchInfo/TowerEvent.java" afterPath="$PROJECT_DIR$/src/ProjectDir/MatchInfo/TowerEvent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/UniqueInfoFactory.java" afterPath="$PROJECT_DIR$/src/ProjectDir/UniqueInfoFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/Worker.java" afterPath="$PROJECT_DIR$/src/ProjectDir/Worker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/WriterReaderFactory.java" afterPath="$PROJECT_DIR$/src/ProjectDir/WriterReaderFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Dota2ProAnalitics_0.0.iws" />
@@ -102,13 +241,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Worker.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Worker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ProjectDir/Worker.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="false" />
                 <element signature="method#tooManyRequestsChecker#0;class#Worker#0" expanded="false" />
                 <element signature="method#checkIfTemporaryFileIsClean#0;class#Worker#0" expanded="false" />
               </folding>
@@ -116,43 +254,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UniqueInfoFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectDir/UniqueInfoFactory.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ProjectDir/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="method#checkIfIdAlreadyParsed#0;class#UniqueInfoFactory#0" expanded="false" />
-                <element signature="method#checkIfIdAlreadyAnalized#0;class#UniqueInfoFactory#0" expanded="false" />
-                <element signature="method#checkIfLeagueParsed#0;class#UniqueInfoFactory#0" expanded="false" />
-                <element signature="method#needToParseFile#0;class#UniqueInfoFactory#0" expanded="false" />
-                <element signature="class#5020:5401" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainAnaliticsFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectDir/MainAnaliticsFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameStageAnalitics.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/GameStageAnalitics.java">
+      <file leaf-file-name="ReceptionWorker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ProjectDir/ReceptionWorker.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="186" column="10" selection-start-line="186" selection-start-column="10" selection-end-line="186" selection-end-column="10" />
+              <caret line="25" column="57" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataWorker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ProjectDir/DataWorker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="60" column="68" selection-start-line="60" selection-start-column="68" selection-end-line="60" selection-end-column="68" />
               <folding>
-                <element signature="method#getEGPoints#0;class#GameStageAnalitics#0" expanded="false" />
-                <element signature="e#1738#1768#0" expanded="true" />
-                <element signature="method#getLGPoints#0;class#GameStageAnalitics#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#291#305#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnalizedInfo.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/AnalizedInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.484375">
+              <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -161,9 +301,9 @@
         <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+              <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
               <folding>
-                <element signature="imports" expanded="false" />
+                <element signature="imports" expanded="true" />
                 <element signature="method#analizeRadiantAggression#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
                 <element signature="method#analizeDireAggression#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
                 <element signature="method#analizeRadiantPushing#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
@@ -192,57 +332,8 @@
                 <element signature="method#testDireKillAbility#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
                 <element signature="method#testRadiantFarming#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
                 <element signature="method#testDireFarming#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-                <element signature="method#writeRadiantInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
                 <element signature="method#writeDireInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AverageDataFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectDir/AverageDataFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="421" column="32" selection-start-line="421" selection-start-column="32" selection-end-line="421" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileControlFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/FileControlFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GlyphEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/GlyphEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RatingFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectDir/RatingFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="272" column="67" selection-start-line="272" selection-start-column="67" selection-end-line="272" selection-end-column="67" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1885#1919#0" expanded="false" />
-                <element signature="method#calculateRatingDifference#0;class#RatingFactory#0" expanded="false" />
-                <element signature="method#calculateMatchHardness#0;class#RatingFactory#0" expanded="false" />
-                <element signature="method#addTeamToFileIfNotExists#0;class#RatingFactory#0" expanded="false" />
-                <element signature="method#getRatingById#0;class#RatingFactory#0" expanded="false" />
-                <element signature="method#getIncrementator#0;class#RatingFactory#0" expanded="false" />
-                <element signature="method#updateTeamRatings#0;class#RatingFactory#0" expanded="false" />
+                <element signature="method#writePlayersInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -268,11 +359,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Parser.java" />
-        <option value="$PROJECT_DIR$/src/MatchFinderFactory.java" />
-        <option value="$PROJECT_DIR$/src/FileInfoWriterFactory.java" />
-        <option value="$PROJECT_DIR$/src/MatchInfo/UniqueInfoFactory.java" />
-        <option value="$PROJECT_DIR$/src/MatchInfo/WardEvent.java" />
         <option value="$PROJECT_DIR$/src/MatchInfo/BuyBackEvent.java" />
         <option value="$PROJECT_DIR$/src/MatchInfo/TowerEvent.java" />
         <option value="$PROJECT_DIR$/src/Statistics.java" />
@@ -303,22 +389,27 @@
         <option value="$PROJECT_DIR$/src/Analitics/EPPAnaliticsFactory.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/MatchInfo/Player.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/MatchInfo/ParametersFile.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/MatchInfo/TowerEvent.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/MatchInfo/Team.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/Analitics/EPPAnaliticsFactory.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/MatchInfo/RoshanEvent.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/MatchInfo/WardEvent.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/WriterReaderFactory.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/Analitics/StringReader.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/Analitics/AverageAnaliticsFactory.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/ParserFactory.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/RatingFactory.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/AverageDataFactory.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/UniqueInfoFactory.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/MainAnaliticsFactory.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/Analitics/GameStageAnalitics.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/MatchInfo/TowerEvent.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/WriterReaderFactory.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/ParserFactory.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/AverageDataFactory.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/Analitics/StringReader.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/Analitics/EPPAnaliticsFactory.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/MainAnaliticsFactory.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/Analitics/FileControlFactory.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/Main.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/ReceptionWorker.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/RatingFactory.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/UniqueInfoFactory.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/Worker.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/MatchInfo/AnalizedInfo.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/DataWorker.java" />
       </list>
     </option>
   </component>
@@ -385,6 +476,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -468,7 +560,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -827,12 +918,18 @@
       <workItem from="1457788168376" duration="902000" />
       <workItem from="1457789511146" duration="11898000" />
       <workItem from="1457860371630" duration="36104000" />
-      <workItem from="1457909710154" duration="641000" />
+      <workItem from="1457909710154" duration="13099000" />
+      <workItem from="1457988918479" duration="6924000" />
+      <workItem from="1458025785755" duration="9753000" />
+      <workItem from="1458036109448" duration="4456000" />
+      <workItem from="1458047523596" duration="6278000" />
+      <workItem from="1458066522022" duration="1314000" />
+      <workItem from="1458138124876" duration="9912000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="772062000" />
+    <option name="totallyTimeSpent" value="823157000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -844,8 +941,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.4697428" order="6" side_tool="false" content_ui="tabs" />
@@ -853,13 +950,13 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14561403" sideWeight="0.11179173" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0113464445" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0113464445" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.49092284" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37201366" sideWeight="0.88820827" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.838438" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40614334" sideWeight="0.88820827" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46075085" sideWeight="0.838438" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17927383" sideWeight="0.49317408" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -872,32 +969,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32807016" sideWeight="0.49092284" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.4697428" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3327645" sideWeight="0.7624811" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14561403" sideWeight="0.11179173" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0113464445" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.49092284" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26491228" sideWeight="0.88820827" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.838438" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18147014" sideWeight="0.49317408" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32807016" sideWeight="0.49092284" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17473525" sideWeight="0.5068259" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -912,7 +983,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="123" />
+      <option name="time" value="130" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -921,27 +992,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ParametersDocumentation.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/Match.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="2" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectDir/ParserFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1103,25 +1153,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/WardEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/TowerEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1162,32 +1197,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/StringReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="399" column="8" selection-start-line="399" selection-start-column="8" selection-end-line="399" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/EPPAnaliticsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/AverageAnaliticsFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/ParserFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.843949">
-          <caret line="2305" column="53" selection-start-line="2305" selection-start-column="53" selection-end-line="2305" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1206,37 +1219,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/GlyphEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/GameStageAnalitics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3516949">
+          <caret line="186" column="10" selection-start-line="186" selection-start-column="10" selection-end-line="186" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/TowerEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22284645">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/EPPAnaliticsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.5684524">
+          <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/StringReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.89285713">
+          <caret line="662" column="36" selection-start-line="662" selection-start-column="36" selection-end-line="662" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectDir/FileOperationsFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding>
-            <element signature="method#writeToFile#0;class#FileOperationsFactory#0" expanded="false" />
-            <element signature="method#cleanAndWriteToFile#0;class#FileOperationsFactory#0" expanded="false" />
-            <element signature="method#readFile#0;class#FileOperationsFactory#0" expanded="false" />
-          </folding>
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectDir/WriterReaderFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15313654">
-          <caret line="739" column="0" selection-start-line="739" selection-start-column="0" selection-end-line="739" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.21475054">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
           <folding>
             <element signature="method#writeMatchInfoToFile#0;class#WriterReaderFactory#0" expanded="false" />
             <element signature="method#makeZeros#0;class#WriterReaderFactory#0" expanded="false" />
             <element signature="method#writeToFile#0;class#WriterReaderFactory#0" expanded="false" />
+            <element signature="method#cleanArrayLists#0;class#WriterReaderFactory#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/FileControlFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7093276">
+          <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
+          <folding>
+            <element signature="method#writeToFile#0;class#FileControlFactory#0" expanded="false" />
+            <element signature="method#cleanAndWriteToFile#0;class#FileControlFactory#0" expanded="false" />
+            <element signature="method#createPlayerFileIfNotExist#0;class#FileControlFactory#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MainAnaliticsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectDir/RatingFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="272" column="67" selection-start-line="272" selection-start-column="67" selection-end-line="272" selection-end-column="67" />
+          <caret line="377" column="4" selection-start-line="377" selection-start-column="4" selection-end-line="377" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1885#1919#0" expanded="false" />
+            <element signature="method#organizeRating#0;class#RatingFactory#0" expanded="false" />
             <element signature="method#calculateRatingDifference#0;class#RatingFactory#0" expanded="false" />
             <element signature="method#calculateMatchHardness#0;class#RatingFactory#0" expanded="false" />
             <element signature="method#addTeamToFileIfNotExists#0;class#RatingFactory#0" expanded="false" />
@@ -1247,28 +1313,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/FileControlFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/AverageDataFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <caret line="455" column="57" selection-start-line="455" selection-start-column="57" selection-end-line="455" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/GlyphEvent.java">
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/UniqueInfoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.815739">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="method#needToParseFile#0;class#UniqueInfoFactory#0" expanded="false" />
+            <element signature="method#removeFirstEnter#0;class#UniqueInfoFactory#0" expanded="false" />
+            <element signature="method#makeMatchesFileClean#0;class#UniqueInfoFactory#0" expanded="false" />
+            <element signature="class#5019:5400" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Worker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding>
+            <element signature="method#tooManyRequestsChecker#0;class#Worker#0" expanded="false" />
+            <element signature="method#checkIfTemporaryFileIsClean#0;class#Worker#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/ReceptionWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="57" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/ParserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46703297">
+          <caret line="281" column="0" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
+          <folding>
+            <element signature="method#parse_html#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#getLeagues#0;class#ParserFactory#0" expanded="false" />
+            <element signature="e#93018#93059#0" expanded="true" />
+            <element signature="method#doTests#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#parseMatches#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#getParsingMatches#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#substringer#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#fillRolesDetectorInfo#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#rolesDetector#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfCarryExist#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfMiderExist#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#checkIfHardlinerExist#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#removeTag#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#removeTags#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#calculateTimeDifference#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#mapTimeToSeconds#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#timeToMinutes#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#calculateIfMatchCanBeParsed#0;class#ParserFactory#0" expanded="false" />
+            <element signature="method#replaceAllSeparators#0;class#ParserFactory#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+          <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#analizeRadiantAggression#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
             <element signature="method#analizeDireAggression#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
             <element signature="method#analizeRadiantPushing#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
@@ -1297,64 +1423,28 @@
             <element signature="method#testDireKillAbility#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
             <element signature="method#testRadiantFarming#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
             <element signature="method#testDireFarming#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-            <element signature="method#writeRadiantInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
             <element signature="method#writeDireInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
+            <element signature="method#writePlayersInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/GameStageAnalitics.java">
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/DataWorker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="186" column="10" selection-start-line="186" selection-start-column="10" selection-end-line="186" selection-end-column="10" />
+          <caret line="60" column="68" selection-start-line="60" selection-start-column="68" selection-end-line="60" selection-end-column="68" />
           <folding>
-            <element signature="method#getEGPoints#0;class#GameStageAnalitics#0" expanded="false" />
-            <element signature="e#1738#1768#0" expanded="true" />
-            <element signature="method#getLGPoints#0;class#GameStageAnalitics#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#291#305#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/AverageDataFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/AnalizedInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="421" column="32" selection-start-line="421" selection-start-column="32" selection-end-line="421" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.484375">
+          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MainAnaliticsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/UniqueInfoFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#checkIfIdAlreadyParsed#0;class#UniqueInfoFactory#0" expanded="false" />
-            <element signature="method#checkIfIdAlreadyAnalized#0;class#UniqueInfoFactory#0" expanded="false" />
-            <element signature="method#checkIfLeagueParsed#0;class#UniqueInfoFactory#0" expanded="false" />
-            <element signature="method#needToParseFile#0;class#UniqueInfoFactory#0" expanded="false" />
-            <element signature="class#5020:5401" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Worker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#tooManyRequestsChecker#0;class#Worker#0" expanded="false" />
-            <element signature="method#checkIfTemporaryFileIsClean#0;class#Worker#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

@@ -80,4 +80,20 @@ public class FileControlFactory
 		}
 
 	}
+
+	void cleanAndWriteToFile(String whatToWrite, String fileName) throws FileNotFoundException
+	{
+		PrintWriter writer = new PrintWriter(fileName);
+		writer.print(whatToWrite);
+		writer.close();
+	}
+
+	void createPlayerFileIfNotExist(String playerId) throws IOException
+	{
+		File f = new File("files/players/" + playerId + ".txt");
+		if (!f.exists() && !f.isDirectory())
+		{
+			f.createNewFile();
+		}
+	}
 }

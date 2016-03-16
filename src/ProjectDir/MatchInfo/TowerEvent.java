@@ -5,6 +5,7 @@ public class TowerEvent
 	public Integer second;
 	public String whoDestroy;
 	public Integer tierLevel;
+	public String line;
 
 	public TowerEvent()
 	{
