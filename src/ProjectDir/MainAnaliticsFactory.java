@@ -47,7 +47,7 @@ public class MainAnaliticsFactory
 		/**PrimaryAnaliticsFactory and EPPFactory**/
 		String matchesFile = fileControlFactory.readFile("files/Matches.txt");
 		String[] matches = matchesFile.split("\n");
-		for (int i = 0; i < matches.length; i++)
+		for (int i = 0; i < 5/**matches.length**/; i++)
 		{
 			String matchId = matches[i].split(";")[0];
 			if (uniqueInfoFactory.checkIfIdAlreadyAnalized(matchId))

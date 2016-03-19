@@ -677,6 +677,7 @@ public class ParserFactory
 		team[0].deaths = Integer.parseInt(tempString);
 		for (int i = 0; i < killsPageRadiantHeroLine.length - 1; i++)
 		{
+			killsPageRadiantHeroLine[i] =  killsPageRadiantHeroLine[i].replaceAll("\\!\\@\\#\\$\\%\\^\\&amp;", "Name");
 			/**Kills % partisipation**/
 			currentIndex = killsPageRadiantHeroLine[i].indexOf("%");
 			tempIndex = killsPageRadiantHeroLine[i].indexOf("\">", currentIndex - 7);
@@ -717,6 +718,7 @@ public class ParserFactory
 		team[1].deaths = Integer.parseInt(tempString);
 		for (int i = 0; i < killsPageDireHeroLine.length - 1; i++)
 		{
+			killsPageDireHeroLine[i] =  killsPageDireHeroLine[i].replaceAll("\\!\\@\\#\\$\\%\\^\\&amp;", "Name");
 			/**Kills % partisipation**/
 			currentIndex = killsPageDireHeroLine[i].indexOf("%");
 			tempIndex = killsPageDireHeroLine[i].indexOf("\">", currentIndex - 7);

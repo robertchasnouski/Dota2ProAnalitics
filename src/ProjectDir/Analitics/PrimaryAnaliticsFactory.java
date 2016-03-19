@@ -22,20 +22,14 @@ public class PrimaryAnaliticsFactory
 		fileControlFactory.createTeamFileIfNotExists(team[1].id);
 		/**Start analizing**/
 		/****Aggression**/
-		Integer radiantAggression = analizeRadiantAggression(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
-		Integer direAggression = analizeDireAggression(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
-		//System.out.println("Radiant Aggression:" + radiantAggression);
-		//System.out.println("Dire aggression:" + direAggression);
-		if (direAggression < 40 || direAggression > 3000 || radiantAggression < 40 || radiantAggression > 3000)
-		{
-			System.out.println(match.id);
-			System.out.println("Radiant Aggression:" + radiantAggression);
-			System.out.println("Dire aggression:" + direAggression);
-			Integer testRadiantAggression = testRadiantAggression(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
-			Integer testDireAggression = testDireAggression(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
-			System.out.println();
-		}
-		/****Pushing****/
+		Integer radiantKillAbility = 1;
+		String radiantKillAbilityString = analizeRadiantKillAbility(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+		Integer direKillAbility = 1;
+		String direKillAbilityString = analizeDireKillAbility(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+		//System.out.println("Radiant KillAbility:" + radiantKillAbility);
+		//System.out.println("Dire KillAbility:" + direKillAbility);
+
+		/*****Pushing****/
 		Integer radiantPushing = analizeRadiantPushing(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		Integer direPushing = analizeDirePushing(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//System.out.println("Radiant Pushing:" + radiantPushing);
@@ -49,12 +43,14 @@ public class PrimaryAnaliticsFactory
 			Integer testDirePushing = testDirePushing(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 			System.out.println();
 		}
-		/****Vision****/
+
+		/**** Vision****/
 		Integer radiantVision = analizeRadiantVision(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		Integer direVision = analizeDireVision(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//System.out.println("Radiant Vision:" + radiantVision);
 		//System.out.println("Dire Vision:" + direVision);
 		if (direVision < -1000 || direVision > 1800 || radiantVision < -1000 || radiantVision > 1800)
+
 		{
 			System.out.println(match.id);
 			System.out.println("Radiant Vision:" + radiantVision);
@@ -63,27 +59,14 @@ public class PrimaryAnaliticsFactory
 			Integer testDireVision = testDireVision(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 			System.out.println();
 		}
-		/****Defence****/
-		Integer radiantDefence = analizeRadiantDefence(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-		Integer direDefence = analizeDireDefence(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-		//System.out.println("Radiant defence:" + radiantDefence);
-		//System.out.println("Dire defence:" + direDefence);
-		if (((direDefence < -2000 || direDefence > 3000) && radiantDefence == 9999) || ((radiantDefence < -2000 || radiantDefence > 3000) && direDefence == 9999))
-		{
-			System.out.println(match.id);
-			System.out.println("Radiant Defence:" + radiantDefence);
-			System.out.println("Dire Defence:" + direDefence);
-			Integer testRadiantDefence = testRadiantDefence(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-			Integer testDireDefence = testDireDefence(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 
-			System.out.println();
-		}
-		/****Lining****/
+		/*****Lining****/
 		Integer radiantLining = analizeRadiantLining(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		Integer direLining = analizeDireLining(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//System.out.println("Radiant Lining:" + radiantLining);
 		//System.out.println("Dire Lining:" + direLining);
 		if (direLining < -2400 || direLining > 2000 || radiantLining < -2400 || radiantLining > 2000)
+
 		{
 			System.out.println(match.id);
 			System.out.println("Radiant Lining:" + radiantLining);
@@ -92,22 +75,24 @@ public class PrimaryAnaliticsFactory
 			Integer testDireLining = testDireLining(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 			System.out.println();
 		}
-		/****KillAbility****/
-		Integer radiantKillAbility = analizeRadiantKillAbility(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-		Integer direKillAbility = analizeDireKillAbility(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-		//System.out.println("Radiant KillAbility:" + radiantKillAbility);
-		//System.out.println("Dire KillAbility:" + direKillAbility);
-		if (direKillAbility < -4500 || direKillAbility > 2500 || radiantKillAbility < -4500 || radiantKillAbility > 2500)
+
+		/*****TenKills****/
+		Integer radiantTenKills = analizeRadiantTenKills(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		Integer direTenKills = analizeDireTenKills(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		//System.out.println("Radiant TenKills:" + radiantTenKills);
+		//System.out.println("Dire TenKills:" + direTenKills);
+		if (direTenKills < -4500 || direTenKills > 2500 || radiantTenKills < -4500 || radiantTenKills > 2500)
+
 		{
 			System.out.println(match.id);
-			System.out.println("Radiant KillAbility:" + radiantKillAbility);
-			System.out.println("Dire KillAbility:" + direKillAbility);
-			Integer testRadiantKillAbility = testRadiantKillAbility(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-			Integer testDireKillAbility = testDireKillAbility(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+			System.out.println("Radiant TenKills:" + radiantTenKills);
+			System.out.println("Dire TenKills:" + direTenKills);
+			Integer testRadiantTenKills = testRadiantTenKills(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+			Integer testDireTenKills = testDireTenKills(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 			System.out.println();
 		}
 
-		/****Farming****/
+		/*****Farming****/
 		Integer radiantFarming = analizeRadiantFarming(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		Integer direFarming = analizeDireFarming(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//System.out.println("Radiant Farming:" + radiantFarming);
@@ -121,228 +106,1226 @@ public class PrimaryAnaliticsFactory
 			Integer testDireFarming = testDireFarming(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 			System.out.println();
 		}
+		/****FB****/
+		Integer radiantFB = analizeRadiantFB(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		Integer direFB = analizeDireFB(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		System.out.println("Radiant FB:" + radiantFB);
+		System.out.println("Dire FB:" + direFB);
 		/**End analizing**/
-		/**Write info to file**/
+		/*** Write info to file **/
 
 		///Write that match was analized
-		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantAggression, radiantPushing, radiantVision, radiantDefence, radiantLining, radiantKillAbility, radiantFarming);
-		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, direAggression, direPushing, direVision, direDefence, direLining, direKillAbility, direFarming);
-		writePlayersInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, direAggression, direPushing, direVision, direDefence, direLining, direKillAbility, direFarming);
+		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming);
+
+		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming);
+
+		writePlayersInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		System.out.println("Radiant KillAbility:" + radiantKillAbilityString);
+		System.out.println("Dire KillAbility:" + direKillAbilityString);
 		System.out.println("Match " + match.id + " was analized.");
 	}
 
-	public Integer analizeRadiantAggression(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException
+	public String analizeRadiantKillAbility(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException
 	{
-		Double aggression = 0.0;
-		Double GfK = 0.0;
-		Double killPoints = 0.0;
-		Double GFPoints = 0.0;
-		//GfK
-		GfK = (0.30 * team[0].goldForKills * 1000 / match.matchTime) / (averageDataFactory.goldForKills / averageDataFactory.goldForKillsCounter);
-		//GFPoints = 200 - (100 * team[0].goldFed / averageDataFactory.avgGF);
-		//KillPoints
+		Double EGKillPoints = 0.0;
+		Double MGKillPoints = 0.0;
+		Double EGDefPoints = 0.0;
+		Double MGDefPoints = 0.0;
 		for (int i = 0; i < killEventArrayList.size(); i++)
 		{
-			if (killEventArrayList.get(i).x <= 79 && killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 59)
+			if (killEventArrayList.get(i).second < 900)
 			{
-				for (int j = 0; j < roshanEventArrayList.size(); j++)
+				//<editor-fold desc="Usual Kill">
+				////Usual kill
+				if (killEventArrayList.get(i).dier >= 6)
 				{
-					if (roshanEventArrayList.get(j).second >= killEventArrayList.get(i).second - 60 && roshanEventArrayList.get(j).second <= killEventArrayList.get(i).second + 60)
-					{
-						if (killEventArrayList.get(i).dier >= 6)
-						{
-							//System.out.println("Radiant kill in Roshan Pit.");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killPoints += 40;
-						}
-						if (killEventArrayList.get(i).dier <= 5)
-						{
-							//System.out.println("Radiant death in Roshan Pit.");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
 
-							killPoints -= 30;
+					EGKillPoints += 15;
+				}
+				////Usual death
+				if (killEventArrayList.get(i).dier <= 5)
+				{
+					EGKillPoints -= 15;
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill with multiple assists">
+				////Kills KillAssist>2
+				if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).dier >= 6)
+				{
+					EGKillPoints += 15;
+				}
+				////Kills KillAssist>3
+				if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).killers[3] != 0 && killEventArrayList.get(i).dier >= 6)
+				{
+					EGKillPoints += 5;
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under Roshan">
+				if (killEventArrayList.get(i).x <= 79 && killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 53)
+				{
+					for (int j = 0; j < roshanEventArrayList.size(); j++)
+					{
+						if (roshanEventArrayList.get(j).second >= killEventArrayList.get(i).second - 60 && roshanEventArrayList.get(j).second <= killEventArrayList.get(i).second + 60)
+						{
+							if (killEventArrayList.get(i).dier >= 6)
+							{
+								//System.out.println("Radiant Roshan Kill X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+								EGKillPoints += 30;
+							}
+							if (killEventArrayList.get(i).dier <= 5)
+							{
+								//System.out.println("Radiant Roshan death X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+								EGKillPoints -= 30;
+							}
 						}
 					}
 				}
-			}
-			//Usual kill
-			if (killEventArrayList.get(i).dier >= 6)
-			{
-				killPoints += 20;
-			}
-			//If KillAssist>1
-			if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).dier >= 6)
-			{
-				//System.out.println("Radiant kill with high assists");
-				//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-				killPoints += 15;
-			}
-			//If KillAssist>1
-			if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).killers[3] != 0 && killEventArrayList.get(i).dier >= 6)
-			{
-				//System.out.println("Radiant kill with high assists");
-				//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-				killPoints += 5;
-			}
-			//EG kill in jungle
-			if (killEventArrayList.get(i).dier >= 6 && killEventArrayList.get(i).second <= 900)
-			{
+				//</editor-fold>
+				//<editor-fold desc="Kill after Glyph">
+				if (killEventArrayList.get(i).dier >= 6)
+					for (int j = 0; j < glyphEventArrayList.size(); j++)
+					{
+						if (glyphEventArrayList.get(j).side == 1)
+						{
+							if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 15 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
+							{
+								//System.out.println("Radiant kill after glyph X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+								EGDefPoints += 20;
+							}
+						}
+					}
+				if (killEventArrayList.get(i).dier <= 5)
+					for (int j = 0; j < glyphEventArrayList.size(); j++)
+					{
+						if (glyphEventArrayList.get(j).side == 1)
+						{
+							if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 15 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
+							{
+								//System.out.println("Radiant die after glyph X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+								EGDefPoints -= 20;
+							}
+						}
+					}
+				//</editor-fold>
+
+				//<editor-fold desc="Kill in enemy forest">
+				//EG kill in enemy forest
 				if ((killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 62 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 16) && !(killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 35 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 29))
 				{
-					//System.out.println("Radiant Kill in jungle");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-			}
-			//EG kill after T1
-			if (killEventArrayList.get(i).dier >= 6 && killEventArrayList.get(i).second <= 700)
-			{
-				if ((killEventArrayList.get(i).x >= 17 && killEventArrayList.get(i).x <= 45 && killEventArrayList.get(i).y <= 16 && killEventArrayList.get(i).y >= 6))
-				{
-					//System.out.println("Radiant Kill near top tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-				if ((killEventArrayList.get(i).x >= 49 && killEventArrayList.get(i).x <= 60 && killEventArrayList.get(i).y <= 50 && killEventArrayList.get(i).y >= 38))
-				{
-					//System.out.println("Radiant Kill near middle tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-				if ((killEventArrayList.get(i).x >= 81 && killEventArrayList.get(i).x <= 97 && killEventArrayList.get(i).y <= 62 && killEventArrayList.get(i).y >= 45))
-				{
-					//System.out.println("Radiant Kill near bot tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-			}
-			//Kill+tower
-			if (killEventArrayList.get(i).dier >= 6)
-			{
-				for (int j = 0; j < towerEventArrayList.size(); j++)
-				{
-					if (towerEventArrayList.get(j).whoDestroy.equals("Radiant") && towerEventArrayList.get(j).second < killEventArrayList.get(i).second + 50 && towerEventArrayList.get(j).second >= killEventArrayList.get(i).second - 15)
+					if (killEventArrayList.get(i).dier >= 6)
 					{
-
-						//System.out.println("Radiant Kill+tower");
-						//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-						killPoints += 10;
+						//System.out.println("Radiant kill in enemy forest X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+						EGKillPoints += 30;
+					} else
+					{
+						//System.out.println("Radiant death in enemy forest X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+						EGKillPoints -= 30;
 					}
 				}
-			}
-		}
-		killPoints = killPoints / match.matchTime * 25;
-		//System.out.println("Radiant KillPoints:" + killPoints);
-		//System.out.println("Radiant GfKPoints:" + GfK);
-		aggression = killPoints + GfK + GFPoints;
-		return aggression.intValue();
-	}
-
-	public Integer analizeDireAggression(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException
-	{
-		Double aggression = 0.0;
-		Double GfK = 0.0;
-		Double killPoints = 0.0;
-		Double GFPoints = 0.0;
-		//GF
-		//	GFPoints = 200 - (100 * team[1].goldFed / averageDataFactory.avgGF);
-		//GfK
-		GfK = (0.30 * team[1].goldForKills * 1000 / match.matchTime) / (averageDataFactory.goldForKills / averageDataFactory.goldForKillsCounter);
-		//KillPoints
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			if (killEventArrayList.get(i).x <= 79 && killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 59)
-			{
-				for (int j = 0; j < roshanEventArrayList.size(); j++)
+				//</editor-fold>
+				//<editor-fold desc="Kill under  enemy T1">
+				//<editor-fold desc="Kill under T1">
+				if (killEventArrayList.get(i).dier >= 6)
 				{
-					if (roshanEventArrayList.get(j).second >= killEventArrayList.get(i).second - 60 && roshanEventArrayList.get(j).second <= killEventArrayList.get(i).second + 60)
+					if ((killEventArrayList.get(i).x >= 17 && killEventArrayList.get(i).x <= 45 && killEventArrayList.get(i).y <= 16 && killEventArrayList.get(i).y >= 6))
 					{
-						if (killEventArrayList.get(i).dier <= 5)
-						{
-							//System.out.println("Dire kill in Roshan Pit.");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killPoints += 40;
-						}
-						if (killEventArrayList.get(i).dier >= 6)
-						{
-							//System.out.println("Dire death in Roshan Pit.");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-							killPoints -= 30;
-						}
+						//System.out.println("Radiant enemy T1 kill X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+						EGKillPoints += 30;
+					}
+					if ((killEventArrayList.get(i).x >= 51 && killEventArrayList.get(i).x <= 60 && killEventArrayList.get(i).y <= 50 && killEventArrayList.get(i).y >= 38))
+					{
+						//System.out.println("Radiant enemy T1 kill X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+						EGKillPoints += 30;
+					}
+					if ((killEventArrayList.get(i).x >= 81 && killEventArrayList.get(i).x <= 97 && killEventArrayList.get(i).y <= 62 && killEventArrayList.get(i).y >= 45))
+					{
+						//System.out.println("Radiant enemy T1 kill X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+						EGKillPoints += 30;
 					}
 				}
-			}
-			//Usual kill
-			if (killEventArrayList.get(i).dier <= 5)
-			{
-				killPoints += 20;
-			}
-			//If KillAssist>1
-			if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).dier <= 5)
-			{
-				//System.out.println("Dire kill with high assists");
-				//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-				killPoints += 15;
-			}
-			//If KillAssist>2
-			if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).killers[3] != 0 && killEventArrayList.get(i).dier <= 5)
-			{
-				//System.out.println("Dire kill with very high assists");
-				//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-				killPoints += 5;
-			}
-			//EG kill in jungle
-			if (killEventArrayList.get(i).dier <= 5 && killEventArrayList.get(i).second <= 900)
-			{
+				//</editor-fold>
+				//<editor-fold desc="Death under T1">
+				if (killEventArrayList.get(i).dier <= 5)
+				{
+					if ((killEventArrayList.get(i).x >= 17 && killEventArrayList.get(i).x <= 45 && killEventArrayList.get(i).y <= 16 && killEventArrayList.get(i).y >= 6))
+					{
+						//System.out.println("Radiant enemy T1 death X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+						EGKillPoints -= 30;
+					}
+					if ((killEventArrayList.get(i).x >= 51 && killEventArrayList.get(i).x <= 60 && killEventArrayList.get(i).y <= 49 && killEventArrayList.get(i).y >= 38))
+					{
+						//System.out.println("Radiant enemy T1 death X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGKillPoints -= 30;
+					}
+					if ((killEventArrayList.get(i).x >= 81 && killEventArrayList.get(i).x <= 97 && killEventArrayList.get(i).y <= 62 && killEventArrayList.get(i).y >= 45))
+					{
+						//System.out.println("Radiant enemy T1 death X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGKillPoints -= 30;
+					}
+				}
+				//</editor-fold>
+				//</editor-fold>
+				//<editor-fold desc="Kill under enemy T2">
+				if (((killEventArrayList.get(i).x >= 46 && killEventArrayList.get(i).x <= 58 && killEventArrayList.get(i).y >= 7 && killEventArrayList.get(i).y <= 16) || (killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).x <= 72 && killEventArrayList.get(i).y >= 30 && killEventArrayList.get(i).y <= 39) || (killEventArrayList.get(i).x >= 84 && killEventArrayList.get(i).x <= 99 && killEventArrayList.get(i).y >= 36 && killEventArrayList.get(i).y <= 46)))
+				{
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Radiant enemy T2 kill X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGKillPoints += 40;
+					}
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Radiant enemy T2 death X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGKillPoints -= 40;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under enemy Ancients">
+				if (killEventArrayList.get(i).x >= 71 && killEventArrayList.get(i).x <= 77 && killEventArrayList.get(i).y >= 52 && killEventArrayList.get(i).y <= 59)
+				{
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Radiant kill under enemy anci X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGKillPoints += 20;
+					}
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Radiant deaths under enemy anci X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGKillPoints -= 20;
+					}
+				}
+				//</editor-fold>
+
+				//<editor-fold desc="Kill under self T1">
+				if (((killEventArrayList.get(i).x >= 0 && killEventArrayList.get(i).x <= 15 && killEventArrayList.get(i).y >= 35 && killEventArrayList.get(i).y <= 50) || (killEventArrayList.get(i).x >= 36 && killEventArrayList.get(i).x <= 45 && killEventArrayList.get(i).y >= 52 && killEventArrayList.get(i).y <= 60) || (killEventArrayList.get(i).x >= 72 && killEventArrayList.get(i).x <= 84 && killEventArrayList.get(i).y >= 84 && killEventArrayList.get(i).y <= 98)) && killEventArrayList.get(i).second <= 900)
+				{
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Radiant kill under self T1 X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGDefPoints += 30;
+					}
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Radiant death under self T1 X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGDefPoints -= 30;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under self T2">
+				if (((killEventArrayList.get(i).x >= 4 && killEventArrayList.get(i).x <= 15 && killEventArrayList.get(i).y >= 49 && killEventArrayList.get(i).y <= 65) || (killEventArrayList.get(i).x >= 27 && killEventArrayList.get(i).x <= 34 && killEventArrayList.get(i).y >= 64 && killEventArrayList.get(i).y <= 68) || (killEventArrayList.get(i).x >= 42 && killEventArrayList.get(i).x <= 54 && killEventArrayList.get(i).y >= 85 && killEventArrayList.get(i).y <= 95)) && killEventArrayList.get(i).second <= 1200)
+				{
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Radiant kill under self T2 X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGDefPoints += 40;
+					}
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Radiant deaths under self T2 X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGDefPoints -= 40;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under self Ancients">
+				if (killEventArrayList.get(i).x >= 30 && killEventArrayList.get(i).x <= 36 && killEventArrayList.get(i).y >= 46 && killEventArrayList.get(i).y <= 52)
+				{
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Radiant kill under self anci X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGDefPoints += 20;
+					}
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Radiant death under self anci X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGDefPoints -= 20;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under self forest">
 				if ((killEventArrayList.get(i).x >= 37 && killEventArrayList.get(i).x <= 81 && killEventArrayList.get(i).y <= 84 && killEventArrayList.get(i).y >= 65) && !(killEventArrayList.get(i).x >= 59 && killEventArrayList.get(i).x <= 80 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 64))
 				{
-					//System.out.println("Dire Kill in jungle");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-			}
-			//EG kill after T1
-			if (killEventArrayList.get(i).dier <= 5 && killEventArrayList.get(i).second <= 700)
-			{
-				if ((killEventArrayList.get(i).x >= 2 && killEventArrayList.get(i).x <= 18 && killEventArrayList.get(i).y <= 58 && killEventArrayList.get(i).y >= 38))
-				{
-					//System.out.println("Dire Kill near top tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-				if ((killEventArrayList.get(i).x >= 39 && killEventArrayList.get(i).x <= 44 && killEventArrayList.get(i).y <= 62 && killEventArrayList.get(i).y >= 54))
-				{
-					//System.out.println("Dire Kill near middle tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-				if ((killEventArrayList.get(i).x >= 52 && killEventArrayList.get(i).x <= 84 && killEventArrayList.get(i).y <= 99 && killEventArrayList.get(i).y >= 87))
-				{
-					//System.out.println("Dire Kill near bot tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-			}
-			//Kill+tower
-			if (killEventArrayList.get(i).dier <= 5)
-			{
-				for (int j = 0; j < towerEventArrayList.size(); j++)
-				{
-					if (towerEventArrayList.get(j).whoDestroy.equals("Dire") && towerEventArrayList.get(j).second < killEventArrayList.get(i).second + 50 && towerEventArrayList.get(j).second >= killEventArrayList.get(i).second - 15)
+					if (killEventArrayList.get(i).dier >= 6)
 					{
-						//System.out.println("Dire Kill+tower");
-						//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-						killPoints += 10;
+						//System.out.println("Radiant kill under self forest X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGDefPoints += 30;
+					}
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Radiant death under self forest X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + "Second:" + killEventArrayList.get(i).second);
+
+						EGDefPoints -= 30;
 					}
 				}
+				//</editor-fold>
+
+			} else if (killEventArrayList.get(i).second >= 900 && killEventArrayList.get(i).second < 1800)
+			{
+				//<editor-fold desc="Usual Kill">
+				////Usual kill
+				if (killEventArrayList.get(i).dier >= 6)
+				{
+					MGKillPoints += 15;
+				}
+				////Usual death
+				if (killEventArrayList.get(i).dier <= 5)
+				{
+					MGKillPoints -= 15;
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill with multiple assists">
+				////Kills KillAssist>2
+				if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).dier >= 6)
+				{
+					MGKillPoints += 15;
+				}
+				////Kills KillAssist>3
+				if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).killers[3] != 0 && killEventArrayList.get(i).dier >= 6)
+				{
+					MGKillPoints += 5;
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under Roshan">
+				if (killEventArrayList.get(i).x <= 79 && killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 53)
+				{
+					for (int j = 0; j < roshanEventArrayList.size(); j++)
+					{
+						if (roshanEventArrayList.get(j).second >= killEventArrayList.get(i).second - 60 && roshanEventArrayList.get(j).second <= killEventArrayList.get(i).second + 60)
+						{
+							if (killEventArrayList.get(i).dier >= 6)
+							{
+								//System.out.println("Radiant kill Roshan X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								MGKillPoints += 40;
+							}
+							if (killEventArrayList.get(i).dier <= 5)
+							{
+								//System.out.println("Radiant death Roshan X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								MGKillPoints -= 40;
+							}
+						}
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill after Glyph">
+				if (killEventArrayList.get(i).dier >= 6)
+					for (int j = 0; j < glyphEventArrayList.size(); j++)
+					{
+						if (glyphEventArrayList.get(j).side == 1)
+						{
+							if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 15 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
+							{
+								//System.out.println("Radiant kill after glyph X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								MGDefPoints += 20;
+							}
+						}
+					}
+				if (killEventArrayList.get(i).dier <= 5)
+					for (int j = 0; j < glyphEventArrayList.size(); j++)
+					{
+						if (glyphEventArrayList.get(j).side == 1)
+						{
+							if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 15 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
+							{
+								//System.out.println("Radiant death after glyph X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								MGDefPoints -= 20;
+							}
+						}
+					}
+				//</editor-fold>
+
+				//<editor-fold desc="Kill in enemy forest">
+				//MG kill in enemy forest
+				if ((killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 62 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 16) && !(killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 35 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 29))
+				{
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Radiant kill in enemy forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints += 20;
+					} else
+					{
+						//System.out.println("Radiant death in enemy forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints -= 20;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under enemy T2">
+				if (((killEventArrayList.get(i).x >= 46 && killEventArrayList.get(i).x <= 58 && killEventArrayList.get(i).y >= 7 && killEventArrayList.get(i).y <= 16) || (killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).x <= 72 && killEventArrayList.get(i).y >= 30 && killEventArrayList.get(i).y <= 39) || (killEventArrayList.get(i).x >= 84 && killEventArrayList.get(i).x <= 99 && killEventArrayList.get(i).y >= 36 && killEventArrayList.get(i).y <= 46)))
+				{
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Radiant kill under  enemy T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints += 30;
+					}
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Radiant death under enemy T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints -= 30;
+					}
+				}
+				//</editor-fold>
+				/**
+				 //<editor-fold desc="Kill under enemy HG">
+				 if (killEventArrayList.get(i).x >= 63 && killEventArrayList.get(i).x <= 100 && killEventArrayList.get(i).y >= 0 && killEventArrayList.get(i).y <= 36)
+				 {
+				 if (killEventArrayList.get(i).dier >= 6)
+				 {
+				 //System.out.println("Radiant kill under enemy HG X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+				 MGKillPoints += 15;
+				 }
+				 if (killEventArrayList.get(i).dier <= 5)
+				 {
+				 //System.out.println("Radiant death under enemy HG X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+				 MGKillPoints -= 45;
+				 }
+				 }
+				 //</editor-fold
+				 **/
+				//<editor-fold desc="Kill under enemy Ancients">
+				if (killEventArrayList.get(i).x >= 71 && killEventArrayList.get(i).x <= 77 && killEventArrayList.get(i).y >= 52 && killEventArrayList.get(i).y <= 59)
+				{
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Radiant kill under enemy anc X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints += 30;
+					}
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Radiant death under enemy anc X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints -= 30;
+					}
+				}
+				//</editor-fold>
+
+				//<editor-fold desc="Kill under self T2">
+				if (((killEventArrayList.get(i).x >= 4 && killEventArrayList.get(i).x <= 15 && killEventArrayList.get(i).y >= 49 && killEventArrayList.get(i).y <= 65) || (killEventArrayList.get(i).x >= 27 && killEventArrayList.get(i).x <= 34 && killEventArrayList.get(i).y >= 64 && killEventArrayList.get(i).y <= 68) || (killEventArrayList.get(i).x >= 42 && killEventArrayList.get(i).x <= 54 && killEventArrayList.get(i).y >= 85 && killEventArrayList.get(i).y <= 95)) && killEventArrayList.get(i).second <= 1300)
+				{
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Radiant kill under self T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGDefPoints += 20;
+					}
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Radiant death under self T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGDefPoints -= 20;
+					}
+				}
+				//</editor-fold>
+				/**
+				 //<editor-fold desc="Kill under self HG">
+				 if (killEventArrayList.get(i).x >= 0 && killEventArrayList.get(i).x <= 31 && killEventArrayList.get(i).y >= 68 && killEventArrayList.get(i).y <= 100)
+				 {
+				 if (killEventArrayList.get(i).dier >= 6)
+				 {
+				 //System.out.println("Radiant kill under self HG X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+				 MGDefPoints += 45;
+				 }
+				 if (killEventArrayList.get(i).dier <= 5)
+				 {
+				 //System.out.println("Radiant death under self HG X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+				 MGDefPoints -= 15;
+				 }
+				 }
+				 //</editor-fold>
+				 **/
+				//<editor-fold desc="Kill under self Ancients">
+				if (killEventArrayList.get(i).x >= 30 && killEventArrayList.get(i).x <= 36 && killEventArrayList.get(i).y >= 46 && killEventArrayList.get(i).y <= 52)
+				{
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Radiant kill under self ancients X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGDefPoints += 20;
+					}
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Radiant death under self ancients X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGDefPoints -= 20;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under self forest">
+				if ((killEventArrayList.get(i).x >= 37 && killEventArrayList.get(i).x <= 81 && killEventArrayList.get(i).y <= 84 && killEventArrayList.get(i).y >= 65) && !(killEventArrayList.get(i).x >= 59 && killEventArrayList.get(i).x <= 80 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 64))
+				{
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Radiant kill under self forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGDefPoints += 30;
+					}
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Radiant death under self forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGDefPoints -= 30;
+					}
+				}
+				//</editor-fold>
 			}
 		}
-		killPoints = killPoints / match.matchTime * 25;
-		//System.out.println("Dire KillPoints:" + killPoints);
-		//System.out.println("Dire GfKPoints:" + GfK);
-		aggression = killPoints + GfK + GFPoints;
-		return aggression.intValue();
+		return EGKillPoints + "||" + EGDefPoints + "##" + MGKillPoints + "||" + MGDefPoints;
+	}
+
+	public String analizeDireKillAbility(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException
+	{
+		Integer time = 30;
+
+		Double EGKillPoints = 0.0;
+		Double MGKillPoints = 0.0;
+		Double EGDefPoints = 0.0;
+		Double MGDefPoints = 0.0;
+		for (int i = 0; i < killEventArrayList.size(); i++)
+		{
+			if (killEventArrayList.get(i).second < 900)
+			{
+				//<editor-fold desc="Usual Kill">
+				////Usual kill
+				if (killEventArrayList.get(i).dier <= 5)
+				{
+					EGKillPoints += 15;
+				}
+				////Usual death
+				if (killEventArrayList.get(i).dier >= 6)
+				{
+					EGKillPoints -= 15;
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill with multiple assists">
+				////Kills KillAssist>2
+				if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).dier <= 5)
+				{
+					EGKillPoints += 15;
+				}
+				////Kills KillAssist>3
+				if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).killers[3] != 0 && killEventArrayList.get(i).dier <= 5)
+				{
+					EGKillPoints += 5;
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under Roshan">
+				if (killEventArrayList.get(i).x <= 79 && killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 53)
+				{
+					for (int j = 0; j < roshanEventArrayList.size(); j++)
+					{
+						if (roshanEventArrayList.get(j).second >= killEventArrayList.get(i).second - 60 && roshanEventArrayList.get(j).second <= killEventArrayList.get(i).second + 60)
+						{
+							if (killEventArrayList.get(i).dier <= 5)
+							{
+								//System.out.println("Dire kill under Roshan X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								EGKillPoints += 30;
+							}
+							if (killEventArrayList.get(i).dier >= 6)
+							{
+								//System.out.println("Dire death under Roshan X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								EGKillPoints -= 30;
+							}
+						}
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill after Glyph">
+				if (killEventArrayList.get(i).dier <= 5)
+					for (int j = 0; j < glyphEventArrayList.size(); j++)
+					{
+						if (glyphEventArrayList.get(j).side == 2)
+						{
+							if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 15 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
+							{
+								//System.out.println("Dire kill after Glyph X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								EGDefPoints += 20;
+							}
+						}
+					}
+				if (killEventArrayList.get(i).dier >= 6)
+					for (int j = 0; j < glyphEventArrayList.size(); j++)
+					{
+						if (glyphEventArrayList.get(j).side == 2)
+						{
+							if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 15 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
+							{
+								//System.out.println("Dire death after glyph X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								EGDefPoints -= 20;
+							}
+						}
+					}
+				//</editor-fold>
+
+				//<editor-fold desc="Kill in enemy forest">
+				//EG kill in enemy forest
+				if ((killEventArrayList.get(i).x >= 37 && killEventArrayList.get(i).x <= 81 && killEventArrayList.get(i).y <= 84 && killEventArrayList.get(i).y >= 65) && !(killEventArrayList.get(i).x >= 59 && killEventArrayList.get(i).x <= 80 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 64))
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill in enemy forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGKillPoints += 30;
+					} else
+					{
+						//System.out.println("Dire death in enemy forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGKillPoints -= 30;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under  enemy T1">
+
+				if ((killEventArrayList.get(i).x >= 0 && killEventArrayList.get(i).x <= 15 && killEventArrayList.get(i).y >= 35 && killEventArrayList.get(i).y <= 50) || (killEventArrayList.get(i).x >= 36 && killEventArrayList.get(i).x <= 45 && killEventArrayList.get(i).y >= 52 && killEventArrayList.get(i).y <= 60) || (killEventArrayList.get(i).x >= 72 && killEventArrayList.get(i).x <= 84 && killEventArrayList.get(i).y >= 84 && killEventArrayList.get(i).y <= 98))
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill under enemy T1 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+						EGKillPoints += 30;
+					}
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Dire death under enemy T1 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+						EGKillPoints -= 30;
+					}
+
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under enemy T2">
+				if (((killEventArrayList.get(i).x >= 4 && killEventArrayList.get(i).x <= 15 && killEventArrayList.get(i).y >= 49 && killEventArrayList.get(i).y <= 65) || (killEventArrayList.get(i).x >= 27 && killEventArrayList.get(i).x <= 34 && killEventArrayList.get(i).y >= 64 && killEventArrayList.get(i).y <= 68) || (killEventArrayList.get(i).x >= 42 && killEventArrayList.get(i).x <= 54 && killEventArrayList.get(i).y >= 85 && killEventArrayList.get(i).y <= 95)))
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill under enemy T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGKillPoints += 40;
+					}
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Dire death under enemy T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGKillPoints -= 40;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under enemy Ancients">
+				if (killEventArrayList.get(i).x >= 30 && killEventArrayList.get(i).x <= 36 && killEventArrayList.get(i).y >= 46 && killEventArrayList.get(i).y <= 52)
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill under enemy anc X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGKillPoints += 20;
+					}
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Dire death under enemy anc X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGKillPoints -= 20;
+					}
+				}
+				//</editor-fold>
+
+				//<editor-fold desc="Kill under self T1">
+
+				if (killEventArrayList.get(i).dier <= 5)
+				{
+					if ((killEventArrayList.get(i).x >= 17 && killEventArrayList.get(i).x <= 45 && killEventArrayList.get(i).y <= 16 && killEventArrayList.get(i).y >= 6))
+					{
+						//System.out.println("Dire kill under self T1 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+						EGDefPoints += 30;
+					}
+					if ((killEventArrayList.get(i).x >= 51 && killEventArrayList.get(i).x <= 60 && killEventArrayList.get(i).y <= 50 && killEventArrayList.get(i).y >= 38))
+					{
+						//System.out.println("Dire kill under self T1 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGDefPoints += 30;
+					}
+					if ((killEventArrayList.get(i).x >= 81 && killEventArrayList.get(i).x <= 97 && killEventArrayList.get(i).y <= 62 && killEventArrayList.get(i).y >= 45))
+					{
+						//System.out.println("Dire kill under self T1 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGDefPoints += 30;
+					}
+				}
+				if (killEventArrayList.get(i).dier >= 6)
+				{
+					if ((killEventArrayList.get(i).x >= 17 && killEventArrayList.get(i).x <= 45 && killEventArrayList.get(i).y <= 16 && killEventArrayList.get(i).y >= 6))
+					{
+						//System.out.println("Dire death under self T1 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGDefPoints -= 30;
+					}
+					if ((killEventArrayList.get(i).x >= 51 && killEventArrayList.get(i).x <= 60 && killEventArrayList.get(i).y <= 50 && killEventArrayList.get(i).y >= 38))
+					{
+						//System.out.println("Dire death under self T1 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGDefPoints -= 30;
+					}
+					if ((killEventArrayList.get(i).x >= 81 && killEventArrayList.get(i).x <= 97 && killEventArrayList.get(i).y <= 62 && killEventArrayList.get(i).y >= 45))
+					{
+						//System.out.println("Dire death under self T1 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGDefPoints -= 30;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under self T2">
+				if (((killEventArrayList.get(i).x >= 46 && killEventArrayList.get(i).x <= 58 && killEventArrayList.get(i).y >= 7 && killEventArrayList.get(i).y <= 16) || (killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).x <= 72 && killEventArrayList.get(i).y >= 30 && killEventArrayList.get(i).y <= 39) || (killEventArrayList.get(i).x >= 84 && killEventArrayList.get(i).x <= 99 && killEventArrayList.get(i).y >= 36 && killEventArrayList.get(i).y <= 46)))
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill under self T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGDefPoints += 40;
+					}
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Dire death under self T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGDefPoints -= 40;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under self Ancients">
+				if (killEventArrayList.get(i).x >= 71 && killEventArrayList.get(i).x <= 77 && killEventArrayList.get(i).y >= 52 && killEventArrayList.get(i).y <= 59)
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill under self anc X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGDefPoints += 20;
+					}
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Dire death under self anc X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGDefPoints -= 20;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under self forest">
+				if ((killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 62 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 16) && !(killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 35 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 29))
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill under self forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGDefPoints += 30;
+					}
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Dire death under self forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						EGDefPoints -= 30;
+					}
+				}
+				//</editor-fold>
+			} else if (killEventArrayList.get(i).second >= 900 && killEventArrayList.get(i).second < 1800)
+			{
+				//<editor-fold desc="Usual Kill">
+				////Usual kill
+				if (killEventArrayList.get(i).dier <= 5)
+				{
+					MGKillPoints += 15;
+				}
+				////Usual death
+				if (killEventArrayList.get(i).dier >= 6)
+				{
+					MGKillPoints -= 15;
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill with multiple assists">
+				////Kills KillAssist>2
+				if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).dier <= 5)
+				{
+					MGKillPoints += 15;
+				}
+				////Kills KillAssist>3
+				if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).killers[3] != 0 && killEventArrayList.get(i).dier <= 5)
+				{
+					MGKillPoints += 5;
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under Roshan">
+				if (killEventArrayList.get(i).x <= 79 && killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 53)
+				{
+					for (int j = 0; j < roshanEventArrayList.size(); j++)
+					{
+						if (roshanEventArrayList.get(j).second >= killEventArrayList.get(i).second - 60 && roshanEventArrayList.get(j).second <= killEventArrayList.get(i).second + 60)
+						{
+							if (killEventArrayList.get(i).dier <= 5)
+							{
+								//System.out.println("Dire kill under Roshan X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								MGKillPoints += 40;
+							}
+							if (killEventArrayList.get(i).dier >= 6)
+							{
+								//System.out.println("Dire death under Roshan X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								MGKillPoints -= 40;
+							}
+						}
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill after Glyph">
+				if (killEventArrayList.get(i).dier <= 5)
+					for (int j = 0; j < glyphEventArrayList.size(); j++)
+					{
+						if (glyphEventArrayList.get(j).side == 2)
+						{
+							if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 15 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
+							{
+								//System.out.println("Dire kill after glyph X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								MGDefPoints += 20;
+							}
+						}
+					}
+				if (killEventArrayList.get(i).dier >= 6)
+					for (int j = 0; j < glyphEventArrayList.size(); j++)
+					{
+						if (glyphEventArrayList.get(j).side == 2)
+						{
+							if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 15 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
+							{
+								//System.out.println("Dire death after glyph X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+								MGDefPoints -= 20;
+							}
+						}
+					}
+				//</editor-fold>
+
+				//<editor-fold desc="Kill in enemy forest">
+				if ((killEventArrayList.get(i).x >= 37 && killEventArrayList.get(i).x <= 81 && killEventArrayList.get(i).y <= 84 && killEventArrayList.get(i).y >= 65) && !(killEventArrayList.get(i).x >= 59 && killEventArrayList.get(i).x <= 80 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 64))
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill in enemy forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints += 20;
+					} else
+					{
+						//System.out.println("Dire death in enemy forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints -= 20;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under enemy T2">
+				if (((killEventArrayList.get(i).x >= 4 && killEventArrayList.get(i).x <= 15 && killEventArrayList.get(i).y >= 49 && killEventArrayList.get(i).y <= 65) || (killEventArrayList.get(i).x >= 27 && killEventArrayList.get(i).x <= 34 && killEventArrayList.get(i).y >= 64 && killEventArrayList.get(i).y <= 68) || (killEventArrayList.get(i).x >= 42 && killEventArrayList.get(i).x <= 54 && killEventArrayList.get(i).y >= 85 && killEventArrayList.get(i).y <= 95)))
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill under enemy T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints += 30;
+					}
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Dire death under enemy T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints -= 30;
+					}
+				}
+				//</editor-fold>
+				/**
+				 //<editor-fold desc="Kill under enemy HG">
+				 if (killEventArrayList.get(i).x >= 0 && killEventArrayList.get(i).x <= 31 && killEventArrayList.get(i).y >= 68 && killEventArrayList.get(i).y <= 100)
+				 {
+				 if (killEventArrayList.get(i).dier <= 5)
+				 {
+				 //System.out.println("Dire kill under enemy HG X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+				 MGKillPoints += 15;
+				 }
+				 if (killEventArrayList.get(i).dier >= 6)
+				 {
+				 //System.out.println("Dire death under enemy HG X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+				 MGKillPoints -= 45;
+				 }
+				 }
+				 //</editor-fold
+				 **/
+				//<editor-fold desc="Kill under enemy Ancients">
+				if (killEventArrayList.get(i).x >= 30 && killEventArrayList.get(i).x <= 36 && killEventArrayList.get(i).y >= 46 && killEventArrayList.get(i).y <= 52)
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill under enemy anc X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints += 20;
+					}
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Dire death under enemy anc X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGKillPoints -= 20;
+					}
+				}
+				//</editor-fold>
+
+				//<editor-fold desc="Kill under self T2">
+				if (((killEventArrayList.get(i).x >= 46 && killEventArrayList.get(i).x <= 58 && killEventArrayList.get(i).y >= 7 && killEventArrayList.get(i).y <= 16) || (killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).x <= 72 && killEventArrayList.get(i).y >= 30 && killEventArrayList.get(i).y <= 39) || (killEventArrayList.get(i).x >= 84 && killEventArrayList.get(i).x <= 99 && killEventArrayList.get(i).y >= 36 && killEventArrayList.get(i).y <= 46)))
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill under self T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGDefPoints += 30;
+					}
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Dire death under self T2 X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGDefPoints -= 30;
+					}
+				}
+				//</editor-fold>
+				/**
+				 //<editor-fold desc="Kill under self HG">
+				 if (killEventArrayList.get(i).x >= 65 && killEventArrayList.get(i).x <= 100 && killEventArrayList.get(i).y >= 0 && killEventArrayList.get(i).y <= 36)
+				 {
+				 if (killEventArrayList.get(i).dier <= 5)
+				 {
+				 //System.out.println("Dire kill under self HG X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+				 MGDefPoints += 45;
+				 }
+				 if (killEventArrayList.get(i).dier >= 6)
+				 {
+				 //System.out.println("Dire death under self HG X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+				 MGDefPoints -= 15;
+				 }
+				 }
+				 //</editor-fold>
+				 **/
+				//<editor-fold desc="Kill under self Ancients">
+				if (killEventArrayList.get(i).x >= 71 && killEventArrayList.get(i).x <= 77 && killEventArrayList.get(i).y >= 52 && killEventArrayList.get(i).y <= 59)
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill under self anc X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGDefPoints += 20;
+					}
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Dire death under self anc X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+
+						MGDefPoints -= 20;
+					}
+				}
+				//</editor-fold>
+				//<editor-fold desc="Kill under self forest">
+				if ((killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 62 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 16) && !(killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 35 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 29))
+				{
+					if (killEventArrayList.get(i).dier <= 5)
+					{
+						//System.out.println("Dire kill under self forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+						MGDefPoints += 20;
+					}
+					if (killEventArrayList.get(i).dier >= 6)
+					{
+						//System.out.println("Dire death under self forest X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+"Second:"+killEventArrayList.get(i).second);
+						MGDefPoints -= 20;
+					}
+				}
+				//</editor-fold>
+			}
+		}
+		return EGKillPoints + "||" + EGDefPoints + "##" + MGKillPoints + "||" + MGDefPoints;
+	}
+
+	public Integer analizeRadiantLining(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	{
+		Integer lining = 0;
+		Double LHF5MPoints = 0.0;
+		Double LHF510MPoints = 0.0;
+		Double XPMF10MPoints = 0.0;
+		Double KDF10MPoints = 0.0;
+
+		Integer KF10M = 0;
+		Integer DF10M = 0;
+		Integer LHF5M = 0;
+		Integer LHF510M = 0;
+		Integer XPMF10M = 0;
+		Integer KDF10M = 0;
+		for (int i = 0; i < killEventArrayList.size(); i++)
+		{
+			if (killEventArrayList.get(i).dier >= 6 && killEventArrayList.get(i).second <= 600)
+			{
+				KF10M++;
+			}
+			if (killEventArrayList.get(i).dier <= 5 && killEventArrayList.get(i).second <= 600)
+			{
+				DF10M++;
+			}
+		}
+
+		for (int i = 0; i < 5; i++)
+		{
+			LHF5M += team[0].perMinuteLastHits[i];
+			LHF510M += team[0].perMinuteLastHits[i + 5];
+		}
+		for (int i = 0; i < 10; i++)
+		{
+			XPMF10M += team[0].minuteXPM[i];
+		}
+
+		KDF10M = KF10M - DF10M;
+
+		LHF5MPoints = (LHF5M - averageDataFactory.avgLHF5M + 10) * 15;
+		LHF510MPoints = (LHF510M - averageDataFactory.avgLHF510M + 10) * 15;
+		KDF10MPoints = 0.3 * 1000 * KDF10M / 5;
+		XPMF10MPoints = (XPMF10M - averageDataFactory.avgXPMF10M) / 1000 * 50;
+
+		//System.out.println("Radiant LHF5MPoints:" + LHF5MPoints);
+		//System.out.println("Radiant LHF5-10MPoints:" + LHF510MPoints);
+		//System.out.println("Radiant KDF10MPoints:" + KDF10MPoints);
+		//System.out.println("Radiant XPMF10MPoints:" + XPMF10MPoints);
+
+		return (int) (LHF5MPoints + LHF510MPoints + KDF10MPoints + XPMF10MPoints);
+	}
+
+	public Integer analizeDireLining(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	{
+		Integer lining = 0;
+		Double LHF5MPoints = 0.0;
+		Double LHF510MPoints = 0.0;
+		Double XPMF10MPoints = 0.0;
+		Double KDF10MPoints = 0.0;
+
+		Integer KF10M = 0;
+		Integer DF10M = 0;
+		Integer LHF5M = 0;
+		Integer LHF510M = 0;
+		Integer XPMF10M = 0;
+		Integer KDF10M = 0;
+		for (int i = 0; i < killEventArrayList.size(); i++)
+		{
+			if (killEventArrayList.get(i).dier <= 5 && killEventArrayList.get(i).second <= 600)
+			{
+				KF10M++;
+			}
+			if (killEventArrayList.get(i).dier >= 6 && killEventArrayList.get(i).second <= 600)
+			{
+				DF10M++;
+			}
+		}
+
+		for (int i = 0; i < 5; i++)
+		{
+			LHF5M += team[1].perMinuteLastHits[i];
+			LHF510M += team[1].perMinuteLastHits[i + 5];
+		}
+		for (int i = 0; i < 10; i++)
+		{
+			XPMF10M += team[1].minuteXPM[i];
+		}
+
+		KDF10M = KF10M - DF10M;
+
+		LHF5MPoints = (LHF5M - averageDataFactory.avgLHF5M + 10) * 15;
+		LHF510MPoints = (LHF510M - averageDataFactory.avgLHF510M + 10) * 15;
+		KDF10MPoints = 0.3 * 1000 * KDF10M / 5;
+		XPMF10MPoints = (XPMF10M - averageDataFactory.avgXPMF10M) / 1000 * 50;
+
+		//System.out.println("Dire LHF5MPoints:" + LHF5MPoints);
+		//System.out.println("Dire LHF5-10MPoints:" + LHF510MPoints);
+		//System.out.println("Dire KDF10MPoints:" + KDF10MPoints);
+		//System.out.println("Dire XPMF10MPoints:" + XPMF10MPoints);
+
+		return (int) (LHF5MPoints + LHF510MPoints + KDF10MPoints + XPMF10MPoints);
+	}
+
+	public Integer analizeRadiantTenKills(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	{
+		Integer killRadiantCounter = 0;
+		Integer killDireCounter = 0;
+		Integer F10KTime = 0;
+		Integer difference = 0;
+
+
+		Double F10KTPoints = 0.0;
+		Integer F10KDifferencePoints = 0;
+
+		for (int i = 0; i < killEventArrayList.size(); i++)
+		{
+			if (killDireCounter == 10 || killRadiantCounter == 10)
+				continue;
+			if (killEventArrayList.get(i).dier >= 6)
+				killRadiantCounter++;
+			else
+				killDireCounter++;
+			F10KTime = killEventArrayList.get(i).second;
+		}
+		if (killDireCounter > killRadiantCounter)
+		{
+			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
+			if (F10KTPoints < 0)
+				F10KTPoints = F10KTPoints * 10 / killRadiantCounter;
+			else
+				F10KTPoints = F10KTPoints * killRadiantCounter / 10;
+		} else
+			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
+
+
+		difference = killRadiantCounter - killDireCounter;
+		F10KDifferencePoints = difference * 100;
+
+		//System.out.println("Radiant DifferencePoints:" + F10KDifferencePoints);
+		//System.out.println("Radiant TimePoints:" + F10KTPoints);
+
+		return (int) (F10KDifferencePoints + F10KTPoints);
+	}
+
+	public Integer analizeDireTenKills(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	{
+		Integer killRadiantCounter = 0;
+		Integer killDireCounter = 0;
+		Integer F10KTime = 0;
+		Integer difference = 0;
+
+
+		Double F10KTPoints = 0.0;
+		Integer F10KDifferencePoints = 0;
+
+		for (int i = 0; i < killEventArrayList.size(); i++)
+		{
+			if (killDireCounter == 10 || killRadiantCounter == 10)
+				continue;
+			if (killEventArrayList.get(i).dier >= 6)
+				killRadiantCounter++;
+			else
+				killDireCounter++;
+			F10KTime = killEventArrayList.get(i).second;
+		}
+		if (killDireCounter < killRadiantCounter)
+		{
+			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
+			if (F10KTPoints < 0)
+				F10KTPoints = F10KTPoints * 10 / killDireCounter;
+			else
+				F10KTPoints = F10KTPoints * killDireCounter / 10;
+		} else
+			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
+
+
+		difference = killDireCounter - killRadiantCounter;
+		F10KDifferencePoints = difference * 100;
+
+		//System.out.println("Dire DifferencePoints:" + F10KDifferencePoints);
+		//System.out.println("Dire TimePoints:" + F10KTPoints);
+
+		return (int) (F10KDifferencePoints + F10KTPoints);
+	}
+
+	public Integer analizeRadiantFarming(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	{
+		Double LHMPoints = 0.0;
+		Double totalGPMPoints = 0.0;
+		Double carryLHPoints = 0.0;
+		Double miderLHPoints = 0.0;
+
+		Integer carryLH = 0;
+		Integer miderLH = 0;
+		Integer totalLH = 0;
+		for (int i = 0; i < 5; i++)
+		{
+			if (player[i].role == 2)
+				carryLH = player[i].totalLH;
+			if (player[i].role == 1)
+				miderLH = player[i].totalLH;
+		}
+
+		totalLH += player[0].totalLH + player[1].totalLH + player[2].totalLH + player[3].totalLH + player[4].totalLH;
+
+		carryLHPoints = (0.35 * 1000 * carryLH / match.matchTime) / averageDataFactory.avgCarryLHM;
+		miderLHPoints = (0.3 * 1000 * miderLH / match.matchTime) / averageDataFactory.avgMiderLHM;
+		totalGPMPoints = 0.15 * 1000 * team[0].totalGPM / averageDataFactory.avgGPM;
+		LHMPoints = (0.2 * 1000 * totalLH / match.matchTime) / averageDataFactory.avgLHM;
+
+		if (carryLHPoints == 0)
+			carryLHPoints = (0.35 * 1000 * averageDataFactory.avgCarryLHM * 0.75) / averageDataFactory.avgCarryLHM;
+		if (miderLHPoints == 0)
+			miderLHPoints = (0.3 * 1000 * averageDataFactory.avgMiderLHM * 0.75) / averageDataFactory.avgMiderLHM;
+
+		//System.out.println("Radiant CarryGPMPoints:" + carryLHPoints);
+		//System.out.println("Radiant MiderGPMPoints:" + miderLHPoints);
+		//System.out.println("Radiant TotalGPMPoints:" + totalGPMPoints);
+		//System.out.println("Radiant LHMPoints:" + LHMPoints);
+
+		return (int) (carryLHPoints + miderLHPoints + totalGPMPoints + LHMPoints);
+	}
+
+	public Integer analizeDireFarming(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	{
+		Double LHMPoints = 0.0;
+		Double totalGPMPoints = 0.0;
+		Double carryLHPoints = 0.0;
+		Double miderLHPoints = 0.0;
+
+		Integer carryLH = 0;
+		Integer miderLH = 0;
+		Integer totalLH = 0;
+		for (int i = 0; i < 5; i++)
+		{
+			if (player[i + 5].role == 2)
+				carryLH = player[i + 5].totalLH;
+			if (player[i + 5].role == 1)
+				miderLH = player[i + 5].totalLH;
+		}
+
+		totalLH += player[5].totalLH + player[6].totalLH + player[7].totalLH + player[8].totalLH + player[9].totalLH;
+
+		carryLHPoints = (0.35 * 1000 * carryLH / match.matchTime) / averageDataFactory.avgCarryLHM;
+		miderLHPoints = (0.3 * 1000 * miderLH / match.matchTime) / averageDataFactory.avgMiderLHM;
+		totalGPMPoints = 0.15 * 1000 * team[1].totalGPM / averageDataFactory.avgGPM;
+		LHMPoints = (0.2 * 1000 * totalLH / match.matchTime) / averageDataFactory.avgLHM;
+
+		if (carryLHPoints == 0)
+			carryLHPoints = (0.35 * 1000 * averageDataFactory.avgCarryLHM * 0.75) / averageDataFactory.avgCarryLHM;
+		if (miderLHPoints == 0)
+			miderLHPoints = (0.3 * 1000 * averageDataFactory.avgMiderLHM * 0.75) / averageDataFactory.avgMiderLHM;
+
+		//System.out.println("Dire CarryGPMPoints:" + carryLHPoints);
+		//System.out.println("Dire MiderGPMPoints:" + miderLHPoints);
+		//System.out.println("Dire TotalGPMPoints:" + totalGPMPoints);
+		//System.out.println("Dire LHMPoints:" + LHMPoints);
+
+		return (int) (carryLHPoints + miderLHPoints + totalGPMPoints + LHMPoints);
 	}
 
 	public Integer analizeRadiantPushing(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
@@ -526,829 +1509,117 @@ public class PrimaryAnaliticsFactory
 		return (int) (killUnderWardPoints + wardsDestroyedPoints + avgLifeTimeOfWardPoints);
 	}
 
-	public Integer analizeRadiantDefence(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	public Integer analizeRadiantFB(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
 	{
-		if (match.winRadiant == true)
-			return 9999;
+		Integer timePoints = 0;
 
-		Integer killAfterGliffPoints = 0;
-		Integer killOnSelfAncients = 0;
-		Integer killInSelfForest = 0;
-		Integer killOnSelfHG = 0;
-		Integer killUnderSelfTower = 0;
-		Integer denied = 0;
-		/**Kills**/
-		////Kills after gliff
-		for (int i = 0; i < killEventArrayList.size(); i++)
+		if (killEventArrayList.get(0).second <= 90)
 		{
-			if (killEventArrayList.get(i).dier >= 6)
-				for (int j = 0; j < glyphEventArrayList.size(); j++)
-				{
-					if (glyphEventArrayList.get(j).side == 1)
-					{
-						if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 20 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
-						{
-							//System.out.println("Radiant kill after gliff");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killAfterGliffPoints += 120;
-						}
-
-					}
-				}
-			if (killEventArrayList.get(i).dier <= 5)
-				for (int j = 0; j < glyphEventArrayList.size(); j++)
-				{
-					if (glyphEventArrayList.get(j).side == 1)
-					{
-						if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 20 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
-						{
-							//System.out.println("Radiant death after gliff");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killAfterGliffPoints -= 40;
-						}
-
-					}
-				}
+			timePoints = 250;
+		} else if (killEventArrayList.get(0).second > 90 && killEventArrayList.get(0).second < 180)
+		{
+			timePoints = 150;
+		} else if (killEventArrayList.get(0).second >= 180 && killEventArrayList.get(0).second < 300)
+		{
+			timePoints = 120;
+		} else if (killEventArrayList.get(0).second >= 300 && killEventArrayList.get(0).second < 600)
+		{
+			timePoints = 80;
+		} else
+		{
+			timePoints = 0;
 		}
-		for (int i = 0; i < killEventArrayList.size(); i++)
+
+		Integer FBPoints = 0;
+		if (killEventArrayList.get(0).dier >= 6)
 		{
-			//Kill under self towers. Under T1 before 600 sec, Under T2 before 1000 sec
-			////T1
-			if (((killEventArrayList.get(i).x >= 0 && killEventArrayList.get(i).x <= 15 && killEventArrayList.get(i).y >= 35 && killEventArrayList.get(i).y <= 50) || (killEventArrayList.get(i).x >= 36 && killEventArrayList.get(i).x <= 45 && killEventArrayList.get(i).y >= 52 && killEventArrayList.get(i).y <= 60) || (killEventArrayList.get(i).x >= 72 && killEventArrayList.get(i).x <= 84 && killEventArrayList.get(i).y >= 84 && killEventArrayList.get(i).y <= 98)) && killEventArrayList.get(i).second <= 900)
+			FBPoints += 250 + timePoints;
+			if (killEventArrayList.get(1).dier <= 5)
 			{
-				if (killEventArrayList.get(i).dier >= 6)
+				if (killEventArrayList.get(1).second >= killEventArrayList.get(0).second + 30)
 				{
-					//System.out.println("Radiant kill under T1");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower += 150;
-				}
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Radiant death under T1");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower -= 100;
-				}
-			}
-			////T2
-			if (((killEventArrayList.get(i).x >= 4 && killEventArrayList.get(i).x <= 15 && killEventArrayList.get(i).y >= 49 && killEventArrayList.get(i).y <= 65) || (killEventArrayList.get(i).x >= 27 && killEventArrayList.get(i).x <= 34 && killEventArrayList.get(i).y >= 64 && killEventArrayList.get(i).y <= 68) || (killEventArrayList.get(i).x >= 42 && killEventArrayList.get(i).x <= 54 && killEventArrayList.get(i).y >= 85 && killEventArrayList.get(i).y <= 95)) && killEventArrayList.get(i).second <= 1200)
-			{
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Radiant kill under T2");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killUnderSelfTower += 150;
-				}
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Radiant death under T2");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killUnderSelfTower -= 100;
-				}
-			}
-
-
-			//Kill on self ancients
-			if (killEventArrayList.get(i).x >= 30 && killEventArrayList.get(i).x <= 36 && killEventArrayList.get(i).y >= 46 && killEventArrayList.get(i).y <= 52)
-			{
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Radiant kill under ancients");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfAncients += 100;
-				}
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Radiant deaths under ancients");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfAncients -= 100;
-				}
-			}
-			//Kill in forest (EG)
-			if ((killEventArrayList.get(i).x >= 37 && killEventArrayList.get(i).x <= 81 && killEventArrayList.get(i).y <= 84 && killEventArrayList.get(i).y >= 65) && !(killEventArrayList.get(i).x >= 59 && killEventArrayList.get(i).x <= 80 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 64))
-			{
-				if (killEventArrayList.get(i).second <= 1000)
-				{
-					if (killEventArrayList.get(i).dier >= 6)
-					{
-						//System.out.println("Radiant kill in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest += 100;
-					}
-					if (killEventArrayList.get(i).dier <= 5)
-					{
-						//System.out.println("Radiant death in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest -= 100;
-					}
+					FBPoints += 150;
 				} else
 				{
-					if (killEventArrayList.get(i).dier >= 6)
-					{
-						//System.out.println("Radiant kill in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest += 50;
-					}
-					if (killEventArrayList.get(i).dier <= 5)
-					{
-						//System.out.println("Radiant death in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest -= 30;
-					}
+					FBPoints -= 150;
 				}
-			}
-			//HG
-			if (killEventArrayList.get(i).x >= 0 && killEventArrayList.get(i).x <= 29 && killEventArrayList.get(i).y >= 70 && killEventArrayList.get(i).y <= 100)
-			{
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Dire kill under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
+			} else
+				FBPoints += 200;
 
-					killOnSelfHG += 175;
-				}
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Dire death under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfHG -= 75;
-				}
-			}
-		}
-		for (int i = 0; i < towerEventArrayList.size(); i++)
+		} else
 		{
-			if (towerEventArrayList.get(i).tierLevel == 4)
-				continue;
-			if (towerEventArrayList.get(i).whoDestroy.contains("Denied"))
-				denied += 80;
-		}
-
-
-		//System.out.println("Radiant KillInSelfForest:" + killInSelfForest);
-		//System.out.println("Radiant KillAfterGliff:" + killAfterGliffPoints);
-		//System.out.println("Radiant KillOnAncients:" + killOnSelfAncients);
-		//System.out.println("Radiant KillUnderSelfTowers:" + killUnderSelfTower);
-		//System.out.println("Radiant Denied:" + denied);
-		return killInSelfForest + killAfterGliffPoints + killOnSelfAncients + killUnderSelfTower + denied + killOnSelfHG;
-
-	}
-
-	public Integer analizeDireDefence(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
-	{
-		if (match.winRadiant == false)
-			return 9999;
-
-		Integer killAfterGliffPoints = 0;
-		Integer killOnSelfAncients = 0;
-		Integer killInSelfForest = 0;
-		Integer killOnSelfHG = 0;
-		Integer killUnderSelfTower = 0;
-		Integer denied = 0;
-		/**Kills**/
-		////Kills after gliff
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			if (killEventArrayList.get(i).dier <= 5)
-				for (int j = 0; j < glyphEventArrayList.size(); j++)
-				{
-					if (glyphEventArrayList.get(j).side == 2)
-					{
-						if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 20 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
-						{
-							//System.out.println("Dire kill after gliff");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killAfterGliffPoints += 120;
-						}
-					}
-				}
-			if (killEventArrayList.get(i).dier >= 6)
-				for (int j = 0; j < glyphEventArrayList.size(); j++)
-				{
-					if (glyphEventArrayList.get(j).side == 2)
-					{
-						if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 20 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
-						{
-							//System.out.println("Dire death after gliff");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killAfterGliffPoints -= 40;
-						}
-					}
-				}
-		}
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			//Kill under self towers. Under T1 before 600 sec, Under T2 before 1000 sec
-			////T1
-			if (((killEventArrayList.get(i).x >= 17 && killEventArrayList.get(i).x <= 39 && killEventArrayList.get(i).y >= 3 && killEventArrayList.get(i).y <= 14) || (killEventArrayList.get(i).x >= 50 && killEventArrayList.get(i).x <= 61 && killEventArrayList.get(i).y >= 38 && killEventArrayList.get(i).y <= 48) || (killEventArrayList.get(i).x >= 83 && killEventArrayList.get(i).x <= 99 && killEventArrayList.get(i).y >= 43 && killEventArrayList.get(i).y <= 61)) && killEventArrayList.get(i).second <= 900)
+			FBPoints -= timePoints;
+			if (killEventArrayList.get(1).dier >= 6)
 			{
-				if (killEventArrayList.get(i).dier <= 5)
+				if (killEventArrayList.get(1).second <= killEventArrayList.get(0).second + 30)
 				{
-					//System.out.println("Dire kill under T1");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower += 150;
-				}
-				if (killEventArrayList.get(i).dier >= 5)
-				{
-					//System.out.println("Dire death under T1");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower -= 100;
-				}
-			}
-			////T2
-			if (((killEventArrayList.get(i).x >= 46 && killEventArrayList.get(i).x <= 58 && killEventArrayList.get(i).y >= 7 && killEventArrayList.get(i).y <= 16) || (killEventArrayList.get(i).x >= 63 && killEventArrayList.get(i).x <= 72 && killEventArrayList.get(i).y >= 30 && killEventArrayList.get(i).y <= 38) || (killEventArrayList.get(i).x >= 84 && killEventArrayList.get(i).x <= 99 && killEventArrayList.get(i).y >= 36 && killEventArrayList.get(i).y <= 46)) && killEventArrayList.get(i).second <= 1200)
-			{
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Dire kill under T2");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killUnderSelfTower += 150;
-				}
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Dire death under T2");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killUnderSelfTower -= 100;
-				}
-			}
-			//HG
-			if (killEventArrayList.get(i).x >= 67 && killEventArrayList.get(i).x <= 100 && killEventArrayList.get(i).y >= 0 && killEventArrayList.get(i).y <= 34)
-			{
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Dire kill under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfHG += 175;
-				}
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Dire death under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfHG -= 75;
-				}
-			}
-
-			//Kill on self ancients
-			if (killEventArrayList.get(i).x >= 71 && killEventArrayList.get(i).x <= 77 && killEventArrayList.get(i).y >= 52 && killEventArrayList.get(i).y <= 59)
-			{
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Dire kill under ancients");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfAncients += 100;
-				}
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Dire deaths under ancients");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfAncients -= 100;
-				}
-			}
-			//Kill in forest (EG)
-			if ((killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 62 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 16) && !(killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 35 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 29))
-			{
-				if (killEventArrayList.get(i).second < 1000)
-				{
-					if (killEventArrayList.get(i).dier <= 5)
-					{
-						//System.out.println("Dire kill in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest += 100;
-					}
-					if (killEventArrayList.get(i).dier >= 6)
-					{
-						//System.out.println("Dire death in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest -= 100;
-					}
+					FBPoints += 150;
 				} else
 				{
-					if (killEventArrayList.get(i).dier <= 5)
-					{
-						//System.out.println("Dire kill in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest += 50;
-					}
-					if (killEventArrayList.get(i).dier >= 6)
-					{
-						//System.out.println("Dire death in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest -= 30;
-					}
+					FBPoints -= 150;
 				}
-			}
-		}
-		for (int i = 0; i < towerEventArrayList.size(); i++)
-		{
-			if (towerEventArrayList.get(i).tierLevel == 4)
-				continue;
-			if (towerEventArrayList.get(i).whoDestroy.contains("Denied"))
-				denied += 80;
+			} else
+				FBPoints -= 200;
 		}
 
-		//System.out.println("Dire KillInSelfForest:" + killInSelfForest);
-		//System.out.println("Dire KillAfterGliff:" + killAfterGliffPoints);
-		//System.out.println("Dire KillOnAncients:" + killOnSelfAncients);
-		//System.out.println("Dire KillUnderSelfTowers:" + killUnderSelfTower);
-		//System.out.println("Dire KillOnSelfHG:" + killOnSelfHG);
-		//System.out.println("Dire Denied:" + denied);
-		return killInSelfForest + killAfterGliffPoints + killOnSelfAncients + killUnderSelfTower + killOnSelfHG + denied;
+		return FBPoints;
 	}
 
-	public Integer analizeRadiantLining(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	public Integer analizeDireFB(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
 	{
-		Integer lining = 0;
-		Double LHF5MPoints = 0.0;
-		Double LHF510MPoints = 0.0;
-		Double XPMF10MPoints = 0.0;
-		Double KDF10MPoints = 0.0;
+		Integer timePoints = 0;
 
-		Integer KF10M = 0;
-		Integer DF10M = 0;
-		Integer LHF5M = 0;
-		Integer LHF510M = 0;
-		Integer XPMF10M = 0;
-		Integer KDF10M = 0;
-		for (int i = 0; i < killEventArrayList.size(); i++)
+		if (killEventArrayList.get(0).second <= 90)
 		{
-			if (killEventArrayList.get(i).dier >= 6 && killEventArrayList.get(i).second <= 600)
-			{
-				KF10M++;
-			}
-			if (killEventArrayList.get(i).dier <= 5 && killEventArrayList.get(i).second <= 600)
-			{
-				DF10M++;
-			}
-		}
-
-		for (int i = 0; i < 5; i++)
+			timePoints = 250;
+		} else if (killEventArrayList.get(0).second > 90 && killEventArrayList.get(0).second < 180)
 		{
-			LHF5M += team[0].perMinuteLastHits[i];
-			LHF510M += team[0].perMinuteLastHits[i + 5];
-		}
-		for (int i = 0; i < 10; i++)
+			timePoints = 150;
+		} else if (killEventArrayList.get(0).second >= 180 && killEventArrayList.get(0).second < 300)
 		{
-			XPMF10M += team[0].minuteXPM[i];
-		}
-
-		KDF10M = KF10M - DF10M;
-
-		LHF5MPoints = (LHF5M - averageDataFactory.avgLHF5M + 10) * 15;
-		LHF510MPoints = (LHF510M - averageDataFactory.avgLHF510M + 10) * 15;
-		KDF10MPoints = 0.3 * 1000 * KDF10M / 5;
-		XPMF10MPoints = (XPMF10M - averageDataFactory.avgXPMF10M) / 1000 * 50;
-
-		//System.out.println("Radiant LHF5MPoints:" + LHF5MPoints);
-		//System.out.println("Radiant LHF5-10MPoints:" + LHF510MPoints);
-		//System.out.println("Radiant KDF10MPoints:" + KDF10MPoints);
-		//System.out.println("Radiant XPMF10MPoints:" + XPMF10MPoints);
-
-		return (int) (LHF5MPoints + LHF510MPoints + KDF10MPoints + XPMF10MPoints);
-	}
-
-	public Integer analizeDireLining(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
-	{
-		Integer lining = 0;
-		Double LHF5MPoints = 0.0;
-		Double LHF510MPoints = 0.0;
-		Double XPMF10MPoints = 0.0;
-		Double KDF10MPoints = 0.0;
-
-		Integer KF10M = 0;
-		Integer DF10M = 0;
-		Integer LHF5M = 0;
-		Integer LHF510M = 0;
-		Integer XPMF10M = 0;
-		Integer KDF10M = 0;
-		for (int i = 0; i < killEventArrayList.size(); i++)
+			timePoints = 120;
+		} else if (killEventArrayList.get(0).second >= 300 && killEventArrayList.get(0).second < 600)
 		{
-			if (killEventArrayList.get(i).dier <= 5 && killEventArrayList.get(i).second <= 600)
-			{
-				KF10M++;
-			}
-			if (killEventArrayList.get(i).dier >= 6 && killEventArrayList.get(i).second <= 600)
-			{
-				DF10M++;
-			}
-		}
-
-		for (int i = 0; i < 5; i++)
-		{
-			LHF5M += team[1].perMinuteLastHits[i];
-			LHF510M += team[1].perMinuteLastHits[i + 5];
-		}
-		for (int i = 0; i < 10; i++)
-		{
-			XPMF10M += team[1].minuteXPM[i];
-		}
-
-		KDF10M = KF10M - DF10M;
-
-		LHF5MPoints = (LHF5M - averageDataFactory.avgLHF5M + 10) * 15;
-		LHF510MPoints = (LHF510M - averageDataFactory.avgLHF510M + 10) * 15;
-		KDF10MPoints = 0.3 * 1000 * KDF10M / 5;
-		XPMF10MPoints = (XPMF10M - averageDataFactory.avgXPMF10M) / 1000 * 50;
-
-		//System.out.println("Dire LHF5MPoints:" + LHF5MPoints);
-		//System.out.println("Dire LHF5-10MPoints:" + LHF510MPoints);
-		//System.out.println("Dire KDF10MPoints:" + KDF10MPoints);
-		//System.out.println("Dire XPMF10MPoints:" + XPMF10MPoints);
-
-		return (int) (LHF5MPoints + LHF510MPoints + KDF10MPoints + XPMF10MPoints);
-	}
-
-	public Integer analizeRadiantKillAbility(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
-	{
-		Integer killRadiantCounter = 0;
-		Integer killDireCounter = 0;
-		Integer F10KTime = 0;
-		Integer difference = 0;
-
-
-		Double F10KTPoints = 0.0;
-		Integer F10KDifferencePoints = 0;
-
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			if (killDireCounter == 10 || killRadiantCounter == 10)
-				continue;
-			if (killEventArrayList.get(i).dier >= 6)
-				killRadiantCounter++;
-			else
-				killDireCounter++;
-			F10KTime = killEventArrayList.get(i).second;
-		}
-		if (killDireCounter > killRadiantCounter)
-		{
-			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
-			if (F10KTPoints < 0)
-				F10KTPoints = F10KTPoints * 10 / killRadiantCounter;
-			else
-				F10KTPoints = F10KTPoints * killRadiantCounter / 10;
+			timePoints = 80;
 		} else
-			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
-
-
-		difference = killRadiantCounter - killDireCounter;
-		F10KDifferencePoints = difference * 100;
-
-		//System.out.println("Radiant DifferencePoints:" + F10KDifferencePoints);
-		//System.out.println("Radiant TimePoints:" + F10KTPoints);
-
-		return (int) (F10KDifferencePoints + F10KTPoints);
-	}
-
-	public Integer analizeDireKillAbility(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
-	{
-		Integer killRadiantCounter = 0;
-		Integer killDireCounter = 0;
-		Integer F10KTime = 0;
-		Integer difference = 0;
-
-
-		Double F10KTPoints = 0.0;
-		Integer F10KDifferencePoints = 0;
-
-		for (int i = 0; i < killEventArrayList.size(); i++)
 		{
-			if (killDireCounter == 10 || killRadiantCounter == 10)
-				continue;
-			if (killEventArrayList.get(i).dier >= 6)
-				killRadiantCounter++;
-			else
-				killDireCounter++;
-			F10KTime = killEventArrayList.get(i).second;
+			timePoints = 0;
 		}
-		if (killDireCounter < killRadiantCounter)
+
+		Integer FBPoints = 0;
+		if (killEventArrayList.get(0).dier <= 5)
 		{
-			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
-			if (F10KTPoints < 0)
-				F10KTPoints = F10KTPoints * 10 / killDireCounter;
-			else
-				F10KTPoints = F10KTPoints * killDireCounter / 10;
+			FBPoints += 250 + timePoints;
+			if (killEventArrayList.get(1).dier >= 6)
+			{
+				if (killEventArrayList.get(1).second >= killEventArrayList.get(0).second + 30)
+				{
+					FBPoints += 150;
+				} else
+				{
+					FBPoints -= 150;
+				}
+			} else
+				FBPoints += 200;
+
 		} else
-			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
-
-
-		difference = killDireCounter - killRadiantCounter;
-		F10KDifferencePoints = difference * 100;
-
-		//System.out.println("Dire DifferencePoints:" + F10KDifferencePoints);
-		//System.out.println("Dire TimePoints:" + F10KTPoints);
-
-		return (int) (F10KDifferencePoints + F10KTPoints);
-	}
-
-	public Integer analizeRadiantFarming(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
-	{
-		Double LHMPoints = 0.0;
-		Double totalGPMPoints = 0.0;
-		Double carryLHPoints = 0.0;
-		Double miderLHPoints = 0.0;
-
-		Integer carryLH = 0;
-		Integer miderLH = 0;
-		Integer totalLH = 0;
-		for (int i = 0; i < 5; i++)
 		{
-			if (player[i].role == 2)
-				carryLH = player[i].totalLH;
-			if (player[i].role == 1)
-				miderLH = player[i].totalLH;
+			FBPoints -= timePoints;
+			if (killEventArrayList.get(1).dier <= 5)
+			{
+				if (killEventArrayList.get(1).second <= killEventArrayList.get(0).second + 30)
+				{
+					FBPoints += 150;
+				} else
+				{
+					FBPoints -= 150;
+				}
+			} else
+				FBPoints -= 200;
 		}
-
-		totalLH += player[0].totalLH + player[1].totalLH + player[2].totalLH + player[3].totalLH + player[4].totalLH;
-
-		carryLHPoints = (0.35 * 1000 * carryLH / match.matchTime) / averageDataFactory.avgCarryLHM;
-		miderLHPoints = (0.3 * 1000 * miderLH / match.matchTime) / averageDataFactory.avgMiderLHM;
-		totalGPMPoints = 0.15 * 1000 * team[0].totalGPM / averageDataFactory.avgGPM;
-		LHMPoints = (0.2 * 1000 * totalLH / match.matchTime) / averageDataFactory.avgLHM;
-
-		if (carryLHPoints == 0)
-			carryLHPoints = (0.35 * 1000 * averageDataFactory.avgCarryLHM * 0.75) / averageDataFactory.avgCarryLHM;
-		if (miderLHPoints == 0)
-			miderLHPoints = (0.3 * 1000 * averageDataFactory.avgMiderLHM * 0.75) / averageDataFactory.avgMiderLHM;
-
-		//System.out.println("Radiant CarryGPMPoints:" + carryLHPoints);
-		//System.out.println("Radiant MiderGPMPoints:" + miderLHPoints);
-		//System.out.println("Radiant TotalGPMPoints:" + totalGPMPoints);
-		//System.out.println("Radiant LHMPoints:" + LHMPoints);
-
-		return (int) (carryLHPoints + miderLHPoints + totalGPMPoints + LHMPoints);
+		return FBPoints;
 	}
 
-	public Integer analizeDireFarming(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
-	{
-		Double LHMPoints = 0.0;
-		Double totalGPMPoints = 0.0;
-		Double carryLHPoints = 0.0;
-		Double miderLHPoints = 0.0;
-
-		Integer carryLH = 0;
-		Integer miderLH = 0;
-		Integer totalLH = 0;
-		for (int i = 0; i < 5; i++)
-		{
-			if (player[i + 5].role == 2)
-				carryLH = player[i + 5].totalLH;
-			if (player[i + 5].role == 1)
-				miderLH = player[i + 5].totalLH;
-		}
-
-		totalLH += player[5].totalLH + player[6].totalLH + player[7].totalLH + player[8].totalLH + player[9].totalLH;
-
-		carryLHPoints = (0.35 * 1000 * carryLH / match.matchTime) / averageDataFactory.avgCarryLHM;
-		miderLHPoints = (0.3 * 1000 * miderLH / match.matchTime) / averageDataFactory.avgMiderLHM;
-		totalGPMPoints = 0.15 * 1000 * team[1].totalGPM / averageDataFactory.avgGPM;
-		LHMPoints = (0.2 * 1000 * totalLH / match.matchTime) / averageDataFactory.avgLHM;
-
-		if (carryLHPoints == 0)
-			carryLHPoints = (0.35 * 1000 * averageDataFactory.avgCarryLHM * 0.75) / averageDataFactory.avgCarryLHM;
-		if (miderLHPoints == 0)
-			miderLHPoints = (0.3 * 1000 * averageDataFactory.avgMiderLHM * 0.75) / averageDataFactory.avgMiderLHM;
-
-		//System.out.println("Dire CarryGPMPoints:" + carryLHPoints);
-		//System.out.println("Dire MiderGPMPoints:" + miderLHPoints);
-		//System.out.println("Dire TotalGPMPoints:" + totalGPMPoints);
-		//System.out.println("Dire LHMPoints:" + LHMPoints);
-
-		return (int) (carryLHPoints + miderLHPoints + totalGPMPoints + LHMPoints);
-	}
-
-
-	public Integer testRadiantAggression(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException
-	{
-		Double aggression = 0.0;
-		Double GfK = 0.0;
-		Double killPoints = 0.0;
-		Double GFPoints = 0.0;
-
-		//GfK
-		GfK = (0.30 * team[0].goldForKills * 1000 / match.matchTime) / (averageDataFactory.goldForKills / averageDataFactory.goldForKillsCounter);
-		//Smoke
-		//	GFPoints = 400- (200*team[0].goldFed/ averageDataFactory.avgGF);//KillPoints
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			if (killEventArrayList.get(i).x <= 79 && killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 59)
-			{
-				for (int j = 0; j < roshanEventArrayList.size(); j++)
-				{
-					if (roshanEventArrayList.get(j).second >= killEventArrayList.get(i).second - 60 && roshanEventArrayList.get(j).second <= killEventArrayList.get(i).second + 60)
-					{
-						if (killEventArrayList.get(i).dier >= 6)
-						{
-							//System.out.println("Radiant kill in Roshan Pit.");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killPoints += 40;
-						}
-						if (killEventArrayList.get(i).dier <= 5)
-						{
-							//System.out.println("Radiant death in Roshan Pit.");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-							killPoints -= 30;
-						}
-					}
-				}
-			}
-			//Usual kill
-			if (killEventArrayList.get(i).dier >= 6)
-			{
-				killPoints += 20;
-			}
-			//If KillAssist>1
-			if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).dier >= 6)
-			{
-				//System.out.println("Radiant kill with high assists");
-				//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-				killPoints += 15;
-			}
-			//If KillAssist>1
-			if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).killers[3] != 0 && killEventArrayList.get(i).dier >= 6)
-			{
-				//System.out.println("Radiant kill with high assists");
-				//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-				killPoints += 5;
-			}
-			//EG kill in jungle
-			if (killEventArrayList.get(i).dier >= 6 && killEventArrayList.get(i).second <= 900)
-			{
-				if ((killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 62 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 16) && !(killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 35 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 29))
-				{
-					//System.out.println("Radiant Kill in jungle");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-			}
-			//EG kill after T1
-			if (killEventArrayList.get(i).dier >= 6 && killEventArrayList.get(i).second <= 700)
-			{
-				if ((killEventArrayList.get(i).x >= 17 && killEventArrayList.get(i).x <= 45 && killEventArrayList.get(i).y <= 16 && killEventArrayList.get(i).y >= 6))
-				{
-					//System.out.println("Radiant Kill near top tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-				if ((killEventArrayList.get(i).x >= 49 && killEventArrayList.get(i).x <= 60 && killEventArrayList.get(i).y <= 50 && killEventArrayList.get(i).y >= 38))
-				{
-					//System.out.println("Radiant Kill near middle tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-				if ((killEventArrayList.get(i).x >= 81 && killEventArrayList.get(i).x <= 97 && killEventArrayList.get(i).y <= 62 && killEventArrayList.get(i).y >= 45))
-				{
-					//System.out.println("Radiant Kill near bot tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-			}
-			//Kill+tower
-			if (killEventArrayList.get(i).dier >= 6)
-			{
-				for (int j = 0; j < towerEventArrayList.size(); j++)
-				{
-					if (towerEventArrayList.get(j).whoDestroy.equals("Radiant") && towerEventArrayList.get(j).second < killEventArrayList.get(i).second + 50 && towerEventArrayList.get(j).second >= killEventArrayList.get(i).second - 15)
-					{
-
-						//System.out.println("Radiant Kill+tower");
-						//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-						killPoints += 10;
-					}
-				}
-			}
-		}
-		killPoints = killPoints / match.matchTime * 25;
-		System.out.println("Radiant KillPoints:" + killPoints);
-		System.out.println("Radiant GfKPoints:" + GfK);
-		System.out.println("Radiant GFPoints:" + GFPoints);
-		aggression = killPoints + GfK + GFPoints;
-		return aggression.intValue();
-	}
-
-	public Integer testDireAggression(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException
-	{
-		Double aggression = 0.0;
-		Double GfK = 0.0;
-		Double killPoints = 0.0;
-		Double GFPoints = 0.0;
-		//KillPoints
-		//GfK
-		GfK = (0.30 * team[1].goldForKills * 1000 / match.matchTime) / (averageDataFactory.goldForKills / averageDataFactory.goldForKillsCounter);
-		//Smoke
-		//GFPoints =(double) (team[1].goldForKills-team[1].goldFed)/ team[1].goldForKills*200;
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			if (killEventArrayList.get(i).x <= 79 && killEventArrayList.get(i).x >= 62 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 59)
-			{
-				for (int j = 0; j < roshanEventArrayList.size(); j++)
-				{
-					if (roshanEventArrayList.get(j).second >= killEventArrayList.get(i).second - 60 && roshanEventArrayList.get(j).second <= killEventArrayList.get(i).second + 60)
-					{
-						if (killEventArrayList.get(i).dier <= 5)
-						{
-							//System.out.println("Dire kill in Roshan Pit.");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killPoints += 40;
-						}
-						if (killEventArrayList.get(i).dier >= 6)
-						{
-							//System.out.println("Dire death in Roshan Pit.");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-							killPoints -= 30;
-						}
-					}
-				}
-			}
-			//Usual kill
-			if (killEventArrayList.get(i).dier <= 5)
-			{
-				killPoints += 20;
-			}
-			//If KillAssist>1
-			if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).dier <= 5)
-			{
-				//System.out.println("Dire kill with high assists");
-				//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-				killPoints += 15;
-			}
-			//If KillAssist>2
-			if (killEventArrayList.get(i).killers[0] != 0 && killEventArrayList.get(i).killers[1] != 0 && killEventArrayList.get(i).killers[2] != 0 && killEventArrayList.get(i).killers[3] != 0 && killEventArrayList.get(i).dier <= 5)
-			{
-				//System.out.println("Dire kill with very high assists");
-				//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-				killPoints += 5;
-			}
-			//EG kill in jungle
-			if (killEventArrayList.get(i).dier <= 5 && killEventArrayList.get(i).second <= 900)
-			{
-				if ((killEventArrayList.get(i).x >= 37 && killEventArrayList.get(i).x <= 81 && killEventArrayList.get(i).y <= 84 && killEventArrayList.get(i).y >= 65) && !(killEventArrayList.get(i).x >= 59 && killEventArrayList.get(i).x <= 80 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 64))
-				{
-					//System.out.println("Dire Kill in jungle");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-			}
-			//EG kill after T1
-			if (killEventArrayList.get(i).dier <= 5 && killEventArrayList.get(i).second <= 700)
-			{
-				if ((killEventArrayList.get(i).x >= 2 && killEventArrayList.get(i).x <= 18 && killEventArrayList.get(i).y <= 58 && killEventArrayList.get(i).y >= 38))
-				{
-					//System.out.println("Dire Kill near top tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-				if ((killEventArrayList.get(i).x >= 39 && killEventArrayList.get(i).x <= 44 && killEventArrayList.get(i).y <= 62 && killEventArrayList.get(i).y >= 54))
-				{
-					//System.out.println("Dire Kill near middle tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-				if ((killEventArrayList.get(i).x >= 52 && killEventArrayList.get(i).x <= 84 && killEventArrayList.get(i).y <= 99 && killEventArrayList.get(i).y >= 87))
-				{
-					//System.out.println("Dire Kill near bot tower");
-					//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-					killPoints += 35;
-				}
-			}
-			//Kill+tower
-			if (killEventArrayList.get(i).dier <= 5)
-			{
-				for (int j = 0; j < towerEventArrayList.size(); j++)
-				{
-					if (towerEventArrayList.get(j).whoDestroy.equals("Dire") && towerEventArrayList.get(j).second < killEventArrayList.get(i).second + 50 && towerEventArrayList.get(j).second >= killEventArrayList.get(i).second - 15)
-					{
-						//System.out.println("Dire Kill+tower");
-						//System.out.println("X:"+killEventArrayList.get(i).x+" Y:"+killEventArrayList.get(i).y+" Second:"+killEventArrayList.get(i).second);
-						killPoints += 10;
-					}
-				}
-			}
-		}
-		killPoints = killPoints / match.matchTime * 25;
-		System.out.println("Dire KillPoints:" + killPoints);
-		System.out.println("Dire GfKPoints:" + GfK);
-		System.out.println("Dire GFPoints:" + GFPoints);
-		aggression = killPoints + GfK + GFPoints;
-		return aggression.intValue();
-	}
 
 	public Integer testRadiantPushing(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
 	{
@@ -1531,352 +1802,6 @@ public class PrimaryAnaliticsFactory
 		return (int) (killUnderWardPoints + wardsDestroyedPoints + avgLifeTimeOfWardPoints);
 	}
 
-	public Integer testRadiantDefence(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
-	{
-		if (match.winRadiant == true)
-			return 9999;
-
-		Integer killAfterGliffPoints = 0;
-		Integer killOnSelfAncients = 0;
-		Integer killInSelfForest = 0;
-		Integer killOnSelfHG = 0;
-		Integer killUnderSelfTower = 0;
-		Integer denied = 0;
-		/**Kills**/
-		////Kills after gliff
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			if (killEventArrayList.get(i).dier >= 6)
-				for (int j = 0; j < glyphEventArrayList.size(); j++)
-				{
-					if (glyphEventArrayList.get(j).side == 1)
-					{
-						if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 20 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
-						{
-							//System.out.println("Radiant kill after gliff");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killAfterGliffPoints += 120;
-						}
-
-					}
-				}
-			if (killEventArrayList.get(i).dier <= 5)
-				for (int j = 0; j < glyphEventArrayList.size(); j++)
-				{
-					if (glyphEventArrayList.get(j).side == 1)
-					{
-						if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 20 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
-						{
-							//System.out.println("Radiant death after gliff");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killAfterGliffPoints -= 40;
-						}
-
-					}
-				}
-		}
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			//Kill under self towers. Under T1 before 600 sec, Under T2 before 1000 sec
-			////T1
-			if (((killEventArrayList.get(i).x >= 0 && killEventArrayList.get(i).x <= 15 && killEventArrayList.get(i).y >= 35 && killEventArrayList.get(i).y <= 50) || (killEventArrayList.get(i).x >= 36 && killEventArrayList.get(i).x <= 45 && killEventArrayList.get(i).y >= 52 && killEventArrayList.get(i).y <= 60) || (killEventArrayList.get(i).x >= 72 && killEventArrayList.get(i).x <= 84 && killEventArrayList.get(i).y >= 84 && killEventArrayList.get(i).y <= 98)) && killEventArrayList.get(i).second <= 900)
-			{
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Radiant kill under T1");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower += 150;
-				}
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Radiant death under T1");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower -= 100;
-				}
-			}
-			////T2
-			if (((killEventArrayList.get(i).x >= 4 && killEventArrayList.get(i).x <= 15 && killEventArrayList.get(i).y >= 49 && killEventArrayList.get(i).y <= 65) || (killEventArrayList.get(i).x >= 27 && killEventArrayList.get(i).x <= 34 && killEventArrayList.get(i).y >= 64 && killEventArrayList.get(i).y <= 68) || (killEventArrayList.get(i).x >= 42 && killEventArrayList.get(i).x <= 54 && killEventArrayList.get(i).y >= 85 && killEventArrayList.get(i).y <= 95)) && killEventArrayList.get(i).second <= 1200)
-			{
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Radiant kill under T2");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killUnderSelfTower += 150;
-				}
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Radiant death under T2");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killUnderSelfTower -= 100;
-				}
-			}
-
-
-			//Kill on self ancients
-			if (killEventArrayList.get(i).x >= 30 && killEventArrayList.get(i).x <= 36 && killEventArrayList.get(i).y >= 46 && killEventArrayList.get(i).y <= 52)
-			{
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Radiant kill under ancients");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfAncients += 100;
-				}
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Radiant deaths under ancients");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfAncients -= 100;
-				}
-			}
-			//Kill in forest (EG)
-			if ((killEventArrayList.get(i).x >= 37 && killEventArrayList.get(i).x <= 81 && killEventArrayList.get(i).y <= 84 && killEventArrayList.get(i).y >= 65) && !(killEventArrayList.get(i).x >= 59 && killEventArrayList.get(i).x <= 80 && killEventArrayList.get(i).y <= 69 && killEventArrayList.get(i).y >= 64))
-			{
-				if (killEventArrayList.get(i).second <= 1000)
-				{
-					if (killEventArrayList.get(i).dier >= 6)
-					{
-						//System.out.println("Radiant kill in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest += 100;
-					}
-					if (killEventArrayList.get(i).dier <= 5)
-					{
-						//System.out.println("Radiant death in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest -= 100;
-					}
-				} else
-				{
-					if (killEventArrayList.get(i).dier >= 6)
-					{
-						//System.out.println("Radiant kill in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest += 50;
-					}
-					if (killEventArrayList.get(i).dier <= 5)
-					{
-						//System.out.println("Radiant death in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest -= 30;
-					}
-				}
-			}
-			//HG
-			if (killEventArrayList.get(i).x >= 0 && killEventArrayList.get(i).x <= 29 && killEventArrayList.get(i).y >= 70 && killEventArrayList.get(i).y <= 100)
-			{
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Dire kill under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfHG += 200;
-				}
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Dire death under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfHG -= 75;
-				}
-			}
-		}
-		for (int i = 0; i < towerEventArrayList.size(); i++)
-		{
-			if (towerEventArrayList.get(i).tierLevel == 4)
-				continue;
-			if (towerEventArrayList.get(i).whoDestroy.contains("Denied"))
-				denied += 80;
-		}
-
-
-		System.out.println("Radiant KillInSelfForest:" + killInSelfForest);
-		System.out.println("Radiant KillAfterGliff:" + killAfterGliffPoints);
-		System.out.println("Radiant KillOnAncients:" + killOnSelfAncients);
-		System.out.println("Radiant KillUnderSelfTowers:" + killUnderSelfTower);
-		System.out.println("Radiant Denied:" + denied);
-		return killInSelfForest + killAfterGliffPoints + killOnSelfAncients + killUnderSelfTower + denied + killOnSelfHG;
-
-	}
-
-	public Integer testDireDefence(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
-	{
-		if (match.winRadiant == false)
-			return 9999;
-
-		Integer killAfterGliffPoints = 0;
-		Integer killOnSelfAncients = 0;
-		Integer killInSelfForest = 0;
-		Integer killOnSelfHG = 0;
-		Integer killUnderSelfTower = 0;
-		Integer denied = 0;
-		/**Kills**/
-		////Kills after gliff
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			if (killEventArrayList.get(i).dier <= 5)
-				for (int j = 0; j < glyphEventArrayList.size(); j++)
-				{
-					if (glyphEventArrayList.get(j).side == 2)
-					{
-						if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 20 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
-						{
-							//System.out.println("Dire kill after gliff");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killAfterGliffPoints += 120;
-						}
-					}
-				}
-			if (killEventArrayList.get(i).dier >= 6)
-				for (int j = 0; j < glyphEventArrayList.size(); j++)
-				{
-					if (glyphEventArrayList.get(j).side == 2)
-					{
-						if (killEventArrayList.get(i).second <= glyphEventArrayList.get(j).second + 20 && killEventArrayList.get(i).second >= glyphEventArrayList.get(j).second)
-						{
-							//System.out.println("Dire death after gliff");
-							//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-							killAfterGliffPoints -= 40;
-						}
-					}
-				}
-		}
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			//Kill under self towers. Under T1 before 600 sec, Under T2 before 1000 sec
-			////T1
-			if (((killEventArrayList.get(i).x >= 17 && killEventArrayList.get(i).x <= 39 && killEventArrayList.get(i).y >= 3 && killEventArrayList.get(i).y <= 14) || (killEventArrayList.get(i).x >= 50 && killEventArrayList.get(i).x <= 61 && killEventArrayList.get(i).y >= 38 && killEventArrayList.get(i).y <= 48) || (killEventArrayList.get(i).x >= 83 && killEventArrayList.get(i).x <= 99 && killEventArrayList.get(i).y >= 43 && killEventArrayList.get(i).y <= 61)) && killEventArrayList.get(i).second <= 900)
-			{
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Dire kill under T1");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower += 150;
-				}
-				if (killEventArrayList.get(i).dier >= 5)
-				{
-					//System.out.println("Dire death under T1");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-					killUnderSelfTower -= 100;
-				}
-			}
-			////T2
-			if (((killEventArrayList.get(i).x >= 46 && killEventArrayList.get(i).x <= 58 && killEventArrayList.get(i).y >= 7 && killEventArrayList.get(i).y <= 16) || (killEventArrayList.get(i).x >= 63 && killEventArrayList.get(i).x <= 72 && killEventArrayList.get(i).y >= 30 && killEventArrayList.get(i).y <= 38) || (killEventArrayList.get(i).x >= 84 && killEventArrayList.get(i).x <= 99 && killEventArrayList.get(i).y >= 36 && killEventArrayList.get(i).y <= 46)) && killEventArrayList.get(i).second <= 1200)
-			{
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Dire kill under T2");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killUnderSelfTower += 150;
-				}
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Dire death under T2");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killUnderSelfTower -= 100;
-				}
-			}
-			//HG
-			if (killEventArrayList.get(i).x >= 67 && killEventArrayList.get(i).x <= 100 && killEventArrayList.get(i).y >= 0 && killEventArrayList.get(i).y <= 34)
-			{
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Dire kill under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfHG += 200;
-				}
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Dire death under HG");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfHG -= 75;
-				}
-			}
-
-			//Kill on self ancients
-			if (killEventArrayList.get(i).x >= 71 && killEventArrayList.get(i).x <= 77 && killEventArrayList.get(i).y >= 52 && killEventArrayList.get(i).y <= 59)
-			{
-				if (killEventArrayList.get(i).dier <= 5)
-				{
-					//System.out.println("Dire kill under ancients");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfAncients += 100;
-				}
-				if (killEventArrayList.get(i).dier >= 6)
-				{
-					//System.out.println("Dire deaths under ancients");
-					//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-					killOnSelfAncients -= 100;
-				}
-			}
-			//Kill in forest (EG)
-			if ((killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 62 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 16) && !(killEventArrayList.get(i).x >= 21 && killEventArrayList.get(i).x <= 35 && killEventArrayList.get(i).y <= 35 && killEventArrayList.get(i).y >= 29))
-			{
-				if (killEventArrayList.get(i).second < 1000)
-				{
-					if (killEventArrayList.get(i).dier <= 5)
-					{
-						//System.out.println("Dire kill in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest += 100;
-					}
-					if (killEventArrayList.get(i).dier >= 6)
-					{
-						//System.out.println("Dire death in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest -= 100;
-					}
-				} else
-				{
-					if (killEventArrayList.get(i).dier <= 5)
-					{
-						//System.out.println("Dire kill in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest += 50;
-					}
-					if (killEventArrayList.get(i).dier >= 6)
-					{
-						//System.out.println("Dire death in self forest");
-						//System.out.println("X:" + killEventArrayList.get(i).x + " Y:" + killEventArrayList.get(i).y + " Second:" + killEventArrayList.get(i).second);
-
-						killInSelfForest -= 30;
-					}
-				}
-			}
-		}
-		for (int i = 0; i < towerEventArrayList.size(); i++)
-		{
-			if (towerEventArrayList.get(i).tierLevel == 4)
-				continue;
-			if (towerEventArrayList.get(i).whoDestroy.contains("Denied"))
-				denied += 80;
-		}
-
-		System.out.println("Dire KillInSelfForest:" + killInSelfForest);
-		System.out.println("Dire KillAfterGliff:" + killAfterGliffPoints);
-		System.out.println("Dire KillOnAncients:" + killOnSelfAncients);
-		System.out.println("Dire KillUnderSelfTowers:" + killUnderSelfTower);
-		System.out.println("Dire KillOnSelfHG:" + killOnSelfHG);
-		System.out.println("Dire Denied:" + denied);
-		return killInSelfForest + killAfterGliffPoints + killOnSelfAncients + killUnderSelfTower + killOnSelfHG + denied;
-	}
-
 	public Integer testRadiantLining(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
 	{
 		Integer lining = 0;
@@ -1980,7 +1905,7 @@ public class PrimaryAnaliticsFactory
 		return (int) (LHF5MPoints + LHF510MPoints + KDF10MPoints + XPMF10MPoints);
 	}
 
-	public Integer testRadiantKillAbility(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	public Integer testRadiantTenKills(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
 	{
 		Integer killRadiantCounter = 0;
 		Integer killDireCounter = 0;
@@ -2021,7 +1946,7 @@ public class PrimaryAnaliticsFactory
 		return (int) (F10KDifferencePoints + F10KTPoints);
 	}
 
-	public Integer testDireKillAbility(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	public Integer testDireTenKills(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
 	{
 		Integer killRadiantCounter = 0;
 		Integer killDireCounter = 0;
@@ -2126,8 +2051,7 @@ public class PrimaryAnaliticsFactory
 		return (int) (carryLHPoints + miderLHPoints + totalGPMPoints + LHMPoints);
 	}
 
-
-	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer aggression, Integer pushing, Integer wardAbility, Integer defence, Integer lining, Integer killAbility, Integer farming) throws IOException
+	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer killAbility, Integer pushing, Integer wardAbility, Integer lining, Integer TenKills, Integer farming) throws IOException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -2136,8 +2060,10 @@ public class PrimaryAnaliticsFactory
 		teamString += match.matchTime + ";";//[2]
 		teamString += team[0].id + ";";//[3]
 		teamString += (match.winRadiant ? "true" : "false") + ";";//[4]
-		teamString += "0";//[5]
-
+		teamString += "0" + ";";//[5]
+		teamString += team[0].EGPoints + ";";
+		teamString += team[0].MGPoints + ";";
+		teamString += team[0].LGPoints;
 		teamString += "##";
 		/**TeamInfo [1]**/
 		teamString += team[0].kills + ";";
@@ -2158,12 +2084,11 @@ public class PrimaryAnaliticsFactory
 		teamString += player[4].EPP;
 		teamString += "##";
 		/**Parameters [3]**/
-		teamString += aggression + ";";
+		teamString += killAbility + ";";
 		teamString += pushing + ";";
 		teamString += wardAbility + ";";
-		teamString += defence + ";";
 		teamString += lining + ";";
-		teamString += killAbility + ";";
+		teamString += TenKills + ";";
 		teamString += farming;
 		teamString += "##";
 		/**FB Information [4]**/
@@ -2208,7 +2133,7 @@ public class PrimaryAnaliticsFactory
 		System.out.println("Team " + team[0].id + " file was changed.");
 	}
 
-	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer aggression, Integer pushing, Integer wardAbility, Integer defence, Integer lining, Integer killAbility, Integer farming) throws IOException
+	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer killAbility, Integer pushing, Integer wardAbility, Integer lining, Integer TenKills, Integer farming) throws IOException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -2217,8 +2142,10 @@ public class PrimaryAnaliticsFactory
 		teamString += match.matchTime + ";";//[2]
 		teamString += team[1].id + ";";//[3]
 		teamString += (match.winRadiant ? "false" : "true") + ";";
-		teamString += "1";//[4]
-
+		teamString += "1" + ";";//[4]
+		teamString += team[1].EGPoints + ";";
+		teamString += team[1].MGPoints + ";";
+		teamString += team[1].LGPoints;
 		teamString += "##";
 		/**TeamInfo [1]**/
 		teamString += team[1].kills + ";";
@@ -2239,12 +2166,11 @@ public class PrimaryAnaliticsFactory
 		teamString += player[9].EPP;
 		teamString += "##";
 		/**Parameters [3]**/
-		teamString += aggression + ";";
+		teamString += killAbility + ";";
 		teamString += pushing + ";";
 		teamString += wardAbility + ";";
-		teamString += defence + ";";
 		teamString += lining + ";";
-		teamString += killAbility + ";";
+		teamString += TenKills + ";";
 		teamString += farming;
 		teamString += "##";
 		/**FB Information [4]**/
@@ -2289,7 +2215,7 @@ public class PrimaryAnaliticsFactory
 		System.out.println("Team " + team[1].id + " file was changed.");
 	}
 
-	public void writePlayersInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer aggression, Integer pushing, Integer wardAbility, Integer defence, Integer lining, Integer killAbility, Integer farming) throws IOException
+	public void writePlayersInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
 	{
 		for (int i = 0; i < 10; i++)
 		{

@@ -11,6 +11,9 @@ public class AnalizedInfo
 	public Integer kills;
 	public Integer deaths;
 	public Integer assists;
+	public Integer EG;
+	public Integer MG;
+	public Integer LG;
 	public String[] playerId = new String[5];
 	public Integer[] playerEPP = new Integer[5];
 	public Integer aggression;
