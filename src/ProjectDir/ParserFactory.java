@@ -677,7 +677,7 @@ public class ParserFactory
 		team[0].deaths = Integer.parseInt(tempString);
 		for (int i = 0; i < killsPageRadiantHeroLine.length - 1; i++)
 		{
-			killsPageRadiantHeroLine[i] =  killsPageRadiantHeroLine[i].replaceAll("\\!\\@\\#\\$\\%\\^\\&amp;", "Name");
+			killsPageRadiantHeroLine[i] = killsPageRadiantHeroLine[i].replaceAll("\\!\\@\\#\\$\\%\\^\\&amp;", "Name");
 			/**Kills % partisipation**/
 			currentIndex = killsPageRadiantHeroLine[i].indexOf("%");
 			tempIndex = killsPageRadiantHeroLine[i].indexOf("\">", currentIndex - 7);
@@ -718,7 +718,7 @@ public class ParserFactory
 		team[1].deaths = Integer.parseInt(tempString);
 		for (int i = 0; i < killsPageDireHeroLine.length - 1; i++)
 		{
-			killsPageDireHeroLine[i] =  killsPageDireHeroLine[i].replaceAll("\\!\\@\\#\\$\\%\\^\\&amp;", "Name");
+			killsPageDireHeroLine[i] = killsPageDireHeroLine[i].replaceAll("\\!\\@\\#\\$\\%\\^\\&amp;", "Name");
 			/**Kills % partisipation**/
 			currentIndex = killsPageDireHeroLine[i].indexOf("%");
 			tempIndex = killsPageDireHeroLine[i].indexOf("\">", currentIndex - 7);
@@ -2358,20 +2358,6 @@ public class ParserFactory
 		return true;
 	}
 
-	void doTests(Player[] players, Match match, Team[] teams)
-	{
-		System.out.println("Player statisticses:");
-		for (int i = 0; i < players.length; i++)
-		{
-			players[i].showPlayerStatistics();
-			System.out.println("--------------------------------------------------------------");
-		}
-		System.out.println("Team statisticses:");
-		teams[0].showTeamStatistics();
-		System.out.println("--------------------------------------------------------------");
-		teams[1].showTeamStatistics();
-	}
-
 	ArrayList<String> parseMatches(String[] leagueLinks) throws IOException, InterruptedException, ParseException
 	{
 		//TODO: function gets only first page of matches in given league.
@@ -2393,10 +2379,8 @@ public class ParserFactory
 		{
 			System.out.println("Read " + leaguesToParse.get(i) + " league.");
 			docs[i] = parse_html("http://www.dotabuff.com/esports/leagues/" + leaguesToParse.get(i) + "/matches");
-			if (i == 0)
-				fileOperationsFactory.writeToFile("\n" + leaguesToParse.get(i) + ";" + currentDate, "files/LeaguesParsed.txt");
-			else
-				fileOperationsFactory.writeToFile(leaguesToParse.get(i) + ";" + currentDate, "files/LeaguesParsed.txt");
+			//docs[i] = parse_html("http://www.dotabuff.com/esports/leagues/4266/matches?page="+i);
+			fileOperationsFactory.writeToFile(leaguesToParse.get(i) + ";" + currentDate, "files/LeaguesParsed.txt");
 			html = docs[i].toString();
 			html = substringer(html, "<tbody>", "</tbody>");
 			String[] matchInLeague = html.split("</tr>");

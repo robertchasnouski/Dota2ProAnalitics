@@ -19,7 +19,7 @@ public class MainAnaliticsFactory
 	FileControlFactory fileControlFactory = new FileControlFactory();
 	WriterReaderFactory writerReaderFactory = new WriterReaderFactory();
 	StringReader stringReader = new StringReader();
-	FileOperationsFactory fileOperationsFactory=new FileOperationsFactory();
+	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 
 	public void startWork() throws IOException
 	{
@@ -47,7 +47,7 @@ public class MainAnaliticsFactory
 		/**PrimaryAnaliticsFactory and EPPFactory**/
 		String matchesFile = fileControlFactory.readFile("files/Matches.txt");
 		String[] matches = matchesFile.split("\n");
-		for (int i = 0; i < 5/**matches.length**/; i++)
+		for (int i = 0; i < matches.length; i++)
 		{
 			String matchId = matches[i].split(";")[0];
 			if (uniqueInfoFactory.checkIfIdAlreadyAnalized(matchId))
@@ -70,7 +70,7 @@ public class MainAnaliticsFactory
 			primaryAnaliticsFactory.analizeMatch(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 			writerReaderFactory.makeZeros(team, player, match);
 			writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
-			fileOperationsFactory.writeToFile(matchId,"files/MatchesAnalized.txt");
+			fileOperationsFactory.writeToFile(matchId, "files/MatchesAnalized.txt");
 		}
 		/**AverageAnaliticsFactory**/
 		//averageAnaliticsFactory.startAverageAnalitics(teamId);

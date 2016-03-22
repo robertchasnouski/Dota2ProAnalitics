@@ -16,12 +16,13 @@ public class AnalizedInfo
 	public Integer LG;
 	public String[] playerId = new String[5];
 	public Integer[] playerEPP = new Integer[5];
-	public Integer aggression;
+	public Integer killAbility;
 	public Integer pushing;
 	public Integer lining;
 	public Integer vision;
 	public Integer defence;
-	public Integer killAbility;
+	public Integer FB;
+	public Integer tenKills;
 	public Integer farming;
 	public Boolean isFB;
 	public Boolean isF10K;

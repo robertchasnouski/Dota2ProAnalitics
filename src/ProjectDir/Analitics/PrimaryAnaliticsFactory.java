@@ -109,19 +109,17 @@ public class PrimaryAnaliticsFactory
 		/****FB****/
 		Integer radiantFB = analizeRadiantFB(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		Integer direFB = analizeDireFB(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-		System.out.println("Radiant FB:" + radiantFB);
-		System.out.println("Dire FB:" + direFB);
+		//System.out.println("Radiant FB:" + radiantFB);
+		//System.out.println("Dire FB:" + direFB);
 		/**End analizing**/
 		/*** Write info to file **/
 
 		///Write that match was analized
-		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming);
-
-		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming);
-
+		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB);
+		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB);
 		writePlayersInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-		System.out.println("Radiant KillAbility:" + radiantKillAbilityString);
-		System.out.println("Dire KillAbility:" + direKillAbilityString);
+		//System.out.println("Radiant KillAbility:" + radiantKillAbilityString);
+		//System.out.println("Dire KillAbility:" + direKillAbilityString);
 		System.out.println("Match " + match.id + " was analized.");
 	}
 
@@ -1181,16 +1179,38 @@ public class PrimaryAnaliticsFactory
 		Double F10KTPoints = 0.0;
 		Integer F10KDifferencePoints = 0;
 
+		Boolean wasAdditionalKill = false;
+		Boolean additionalKillRadiant = false;
+		Boolean checked = false;
 		for (int i = 0; i < killEventArrayList.size(); i++)
 		{
 			if (killDireCounter == 10 || killRadiantCounter == 10)
-				continue;
-			if (killEventArrayList.get(i).dier >= 6)
-				killRadiantCounter++;
-			else
-				killDireCounter++;
-			F10KTime = killEventArrayList.get(i).second;
+			{
+				if (!checked)
+				{
+					if (killEventArrayList.get(i).second <= killEventArrayList.get(i - 1).second + 20)
+					{
+						if (killEventArrayList.get(i).dier >= 6)
+						{
+							additionalKillRadiant = true;
+
+						}
+						wasAdditionalKill = true;
+					}
+					checked = true;
+				} else
+					continue;
+
+			} else
+			{
+				if (killEventArrayList.get(i).dier >= 6)
+					killRadiantCounter++;
+				else
+					killDireCounter++;
+				F10KTime = killEventArrayList.get(i).second;
+			}
 		}
+
 		if (killDireCounter > killRadiantCounter)
 		{
 			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
@@ -1204,6 +1224,11 @@ public class PrimaryAnaliticsFactory
 
 		difference = killRadiantCounter - killDireCounter;
 		F10KDifferencePoints = difference * 100;
+		if (additionalKillRadiant == false && wasAdditionalKill == true)
+		{
+			F10KDifferencePoints -= 100;
+		} else if (additionalKillRadiant == true && wasAdditionalKill == true)
+			F10KDifferencePoints += 100;
 
 		//System.out.println("Radiant DifferencePoints:" + F10KDifferencePoints);
 		//System.out.println("Radiant TimePoints:" + F10KTPoints);
@@ -1221,16 +1246,35 @@ public class PrimaryAnaliticsFactory
 
 		Double F10KTPoints = 0.0;
 		Integer F10KDifferencePoints = 0;
+		Boolean additionalKillDire = false;
+		Boolean checked = false;
 
+		Boolean wasAdditionalKill = false;
 		for (int i = 0; i < killEventArrayList.size(); i++)
 		{
 			if (killDireCounter == 10 || killRadiantCounter == 10)
-				continue;
-			if (killEventArrayList.get(i).dier >= 6)
-				killRadiantCounter++;
-			else
-				killDireCounter++;
-			F10KTime = killEventArrayList.get(i).second;
+			{
+				if (!checked)
+				{
+					if (killEventArrayList.get(i).second <= killEventArrayList.get(i - 1).second + 20)
+					{
+						wasAdditionalKill = true;
+						if (killEventArrayList.get(i).dier <= 5)
+							additionalKillDire = true;
+
+					}
+					checked = true;
+				} else
+					continue;
+
+			} else
+			{
+				if (killEventArrayList.get(i).dier >= 6)
+					killRadiantCounter++;
+				else
+					killDireCounter++;
+				F10KTime = killEventArrayList.get(i).second;
+			}
 		}
 		if (killDireCounter < killRadiantCounter)
 		{
@@ -1245,6 +1289,11 @@ public class PrimaryAnaliticsFactory
 
 		difference = killDireCounter - killRadiantCounter;
 		F10KDifferencePoints = difference * 100;
+		if (additionalKillDire == false && wasAdditionalKill == true)
+		{
+			F10KDifferencePoints -= 100;
+		} else if (additionalKillDire == true && wasAdditionalKill == true)
+			F10KDifferencePoints += 100;
 
 		//System.out.println("Dire DifferencePoints:" + F10KDifferencePoints);
 		//System.out.println("Dire TimePoints:" + F10KTPoints);
@@ -1518,13 +1567,13 @@ public class PrimaryAnaliticsFactory
 			timePoints = 250;
 		} else if (killEventArrayList.get(0).second > 90 && killEventArrayList.get(0).second < 180)
 		{
-			timePoints = 150;
+			timePoints = 120;
 		} else if (killEventArrayList.get(0).second >= 180 && killEventArrayList.get(0).second < 300)
 		{
-			timePoints = 120;
+			timePoints = 80;
 		} else if (killEventArrayList.get(0).second >= 300 && killEventArrayList.get(0).second < 600)
 		{
-			timePoints = 80;
+			timePoints = 50;
 		} else
 		{
 			timePoints = 0;
@@ -1533,18 +1582,18 @@ public class PrimaryAnaliticsFactory
 		Integer FBPoints = 0;
 		if (killEventArrayList.get(0).dier >= 6)
 		{
-			FBPoints += 250 + timePoints;
+			FBPoints += 100 + timePoints;
 			if (killEventArrayList.get(1).dier <= 5)
 			{
 				if (killEventArrayList.get(1).second >= killEventArrayList.get(0).second + 30)
 				{
-					FBPoints += 150;
+					FBPoints += 0;
 				} else
 				{
-					FBPoints -= 150;
+					FBPoints -= 120;
 				}
 			} else
-				FBPoints += 200;
+				FBPoints += 50;
 
 		} else
 		{
@@ -1556,10 +1605,10 @@ public class PrimaryAnaliticsFactory
 					FBPoints += 150;
 				} else
 				{
-					FBPoints -= 150;
+					FBPoints += 50;
 				}
 			} else
-				FBPoints -= 200;
+				FBPoints -= 50;
 		}
 
 		return FBPoints;
@@ -1574,13 +1623,13 @@ public class PrimaryAnaliticsFactory
 			timePoints = 250;
 		} else if (killEventArrayList.get(0).second > 90 && killEventArrayList.get(0).second < 180)
 		{
-			timePoints = 150;
+			timePoints = 120;
 		} else if (killEventArrayList.get(0).second >= 180 && killEventArrayList.get(0).second < 300)
 		{
-			timePoints = 120;
+			timePoints = 80;
 		} else if (killEventArrayList.get(0).second >= 300 && killEventArrayList.get(0).second < 600)
 		{
-			timePoints = 80;
+			timePoints = 50;
 		} else
 		{
 			timePoints = 0;
@@ -1589,18 +1638,18 @@ public class PrimaryAnaliticsFactory
 		Integer FBPoints = 0;
 		if (killEventArrayList.get(0).dier <= 5)
 		{
-			FBPoints += 250 + timePoints;
+			FBPoints += 100 + timePoints;
 			if (killEventArrayList.get(1).dier >= 6)
 			{
 				if (killEventArrayList.get(1).second >= killEventArrayList.get(0).second + 30)
 				{
-					FBPoints += 150;
+					FBPoints += 0;
 				} else
 				{
-					FBPoints -= 150;
+					FBPoints -= 120;
 				}
 			} else
-				FBPoints += 200;
+				FBPoints += 50;
 
 		} else
 		{
@@ -1612,10 +1661,10 @@ public class PrimaryAnaliticsFactory
 					FBPoints += 150;
 				} else
 				{
-					FBPoints -= 150;
+					FBPoints += 50;
 				}
 			} else
-				FBPoints -= 200;
+				FBPoints -= 50;
 		}
 		return FBPoints;
 	}
@@ -2051,7 +2100,7 @@ public class PrimaryAnaliticsFactory
 		return (int) (carryLHPoints + miderLHPoints + totalGPMPoints + LHMPoints);
 	}
 
-	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer killAbility, Integer pushing, Integer wardAbility, Integer lining, Integer TenKills, Integer farming) throws IOException
+	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer killAbility, Integer pushing, Integer wardAbility, Integer lining, Integer TenKills, Integer farming, Integer FB) throws IOException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -2089,6 +2138,7 @@ public class PrimaryAnaliticsFactory
 		teamString += wardAbility + ";";
 		teamString += lining + ";";
 		teamString += TenKills + ";";
+		teamString += FB + ";";
 		teamString += farming;
 		teamString += "##";
 		/**FB Information [4]**/
@@ -2133,7 +2183,7 @@ public class PrimaryAnaliticsFactory
 		System.out.println("Team " + team[0].id + " file was changed.");
 	}
 
-	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer killAbility, Integer pushing, Integer wardAbility, Integer lining, Integer TenKills, Integer farming) throws IOException
+	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer killAbility, Integer pushing, Integer wardAbility, Integer lining, Integer TenKills, Integer farming, Integer FB) throws IOException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -2171,6 +2221,7 @@ public class PrimaryAnaliticsFactory
 		teamString += wardAbility + ";";
 		teamString += lining + ";";
 		teamString += TenKills + ";";
+		teamString += FB + ";";
 		teamString += farming;
 		teamString += "##";
 		/**FB Information [4]**/
