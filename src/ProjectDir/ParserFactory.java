@@ -117,7 +117,7 @@ public class ParserFactory
 			System.out.println("Parsing failed. Match insignificant");
 			return false;
 		}
-		if (!stringMainPage.contains("Captains Mode") && !stringMainPage.contains("Captains Draft"))
+		if (!stringMainPage.contains("Captains Mode") && !stringMainPage.contains("Captains Draft") && !stringMainPage.contains("All Pick"))
 		{
 			System.out.println("Parsing failed. Not CM or CD.");
 			return false;
@@ -2358,7 +2358,7 @@ public class ParserFactory
 		return true;
 	}
 
-	ArrayList<String> parseMatches(String[] leagueLinks) throws IOException, InterruptedException, ParseException
+	ArrayList<String> parseMatches(ArrayList<String> leagueLinks) throws IOException, InterruptedException, ParseException
 	{
 		//TODO: function gets only first page of matches in given league.
 		SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH");
@@ -2370,7 +2370,7 @@ public class ParserFactory
 
 		/***********Here is parsing date.*********/
 		String currentDate = ft.format(date);
-		Document[] docs = new Document[leagueLinks.length];
+		Document[] docs = new Document[leagueLinks.size()];
 		ArrayList<String> leaguesToParse = new ArrayList<>();
 		ArrayList<String> matchesToParse = new ArrayList<>();
 		leaguesToParse = uniqueInfoFactory.checkIfLeagueParsed(leagueLinks);

@@ -374,6 +374,20 @@ public class RatingFactory
 		return 1000;
 	}
 
+	public Integer getWinTeamIncrementator(Integer winTeamRating,Integer loseTeamRating,Double multiplier)
+	{
+		Double firstMultiplier=(1-(double)Math.abs(winTeamRating-loseTeamRating ) / Math.min(winTeamRating, loseTeamRating));
+		if(winTeamRating>loseTeamRating)
+		{
+
+		}
+		//Double firstIncrement=50*;
+		return 1;
+	}
+	public Integer getLoseTeamIncrementator(Integer loseTeamRating,Integer winTeamRating,Double multiplier)
+	{
+			return 1;
+	}
 	public Integer getIncrementator(Integer team1R, Integer team2R, Double multiplier)
 	{
 		Double firstIncrement = 50 * (1 - (double) Math.abs(team1R - team2R) / Math.min(team1R, team2R));

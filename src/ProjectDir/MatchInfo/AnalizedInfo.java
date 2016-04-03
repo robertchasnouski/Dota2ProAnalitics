@@ -6,6 +6,8 @@ public class AnalizedInfo
 	public String date;
 	public String matchTime;
 	public String teamId;
+	public String teamName;
+	public String leagueName;
 	public Boolean isWin;
 	public Integer side;
 	public Integer kills;
@@ -20,7 +22,6 @@ public class AnalizedInfo
 	public Integer pushing;
 	public Integer lining;
 	public Integer vision;
-	public Integer defence;
 	public Integer FB;
 	public Integer tenKills;
 	public Integer farming;

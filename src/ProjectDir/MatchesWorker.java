@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 //TODO: Phase 1: Make full updatable and workable parse system
@@ -86,7 +87,10 @@ public class MatchesWorker
 	void readNewMatches(boolean parse, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException, ParseException, InterruptedException
 	{
 		String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
-		ArrayList<String> matchesFromLeagues = parserHelper.parseMatches(leagueLinks);
+		ArrayList<String> leagueLinksArray=new ArrayList<String>(Arrays.asList(leagueLinks));
+		leagueLinksArray.add("3960");
+
+		ArrayList<String> matchesFromLeagues = parserHelper.parseMatches(leagueLinksArray);
 		uniqueInfoFactory.needToParseFile(matchesFromLeagues);
 		ArrayList<String> matchesToParse = parserHelper.getParsingMatches();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");

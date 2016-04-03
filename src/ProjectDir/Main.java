@@ -5,9 +5,9 @@ public class Main
 
 	public static void main(String[] args) throws Exception
 	{
-		MatchesWorker worker = new MatchesWorker();
+		MatchesWorker matchesWorker = new MatchesWorker();
 		ReceptionWorker receptionWorker= new ReceptionWorker();
-		worker.start_work();
+		//matchesWorker.start_work();
 		receptionWorker.start_work();
 	}
 

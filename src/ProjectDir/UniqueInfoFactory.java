@@ -38,7 +38,7 @@ public class UniqueInfoFactory
 		return exist;
 	}
 
-	ArrayList<String> checkIfLeagueParsed(String[] getFromSite) throws IOException, ParseException
+	ArrayList<String> checkIfLeagueParsed(ArrayList<String> getFromSite) throws IOException, ParseException
 	{
 		ArrayList<String> needToParse = new ArrayList<>();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH");
@@ -53,12 +53,12 @@ public class UniqueInfoFactory
 		String[] oneLeague = leagueFileString.split("\n");
 
 
-		for (int i = 0; i < getFromSite.length; i++)
+		for (int i = 0; i < getFromSite.size(); i++)
 		{
 			Boolean exist = false;
 			for (int j = 0; j < oneLeague.length; j++)
 			{
-				if (oneLeague[j].contains(getFromSite[i]))
+				if (oneLeague[j].contains(getFromSite.get(i)))
 				{
 					exist = true;
 					String[] leagueParts = oneLeague[j].split(";");
@@ -75,7 +75,7 @@ public class UniqueInfoFactory
 				}
 			}
 			if (exist == false)
-				needToParse.add(getFromSite[i]);
+				needToParse.add(getFromSite.get(i));
 		}
 		String writeLine = "";
 		for (int j = 0; j < oneLeague.length; j++)
