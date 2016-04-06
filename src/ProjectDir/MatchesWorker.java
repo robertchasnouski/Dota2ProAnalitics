@@ -54,6 +54,7 @@ public class MatchesWorker
 		}
 
 		//checkIfTemporaryFileIsClean();
+
 		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		ratingFactory.organizeRating();
 		mainAnaliticsFactory.startWork();

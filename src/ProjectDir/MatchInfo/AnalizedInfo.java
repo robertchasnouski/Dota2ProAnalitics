@@ -22,7 +22,7 @@ public class AnalizedInfo
 	public Integer pushing;
 	public Integer lining;
 	public Integer vision;
-	public Integer FB;
+	public String FB;
 	public Integer tenKills;
 	public Integer farming;
 	public Boolean isFB;

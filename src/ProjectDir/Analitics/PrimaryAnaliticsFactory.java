@@ -1,22 +1,32 @@
 package ProjectDir.Analitics;
 
 import ProjectDir.AverageDataFactory;
+import ProjectDir.DataWorker;
 import ProjectDir.FileOperationsFactory;
 import ProjectDir.MatchInfo.*;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class PrimaryAnaliticsFactory
 {
 	FileControlFactory fileControlFactory = new FileControlFactory();
 	AverageDataFactory averageDataFactory = new AverageDataFactory();
+	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 
-
-	public void analizeMatch(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException
+	public void analizeMatch(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException, ParseException
 	{
+
 		/**Create team file if not exists**/
 		fileControlFactory.createTeamFileIfNotExists(team[0].id);
 		fileControlFactory.createTeamFileIfNotExists(team[1].id);
@@ -43,7 +53,6 @@ public class PrimaryAnaliticsFactory
 			Integer testDirePushing = testDirePushing(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 			System.out.println();
 		}
-
 		/**** Vision****/
 		Integer radiantVision = analizeRadiantVision(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		Integer direVision = analizeDireVision(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
@@ -107,28 +116,33 @@ public class PrimaryAnaliticsFactory
 			System.out.println();
 		}
 		/****FB****/
-		Integer radiantFB = analizeRadiantFB(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-		Integer direFB = analizeDireFB(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		String radiantFB = analizeRadiantFB(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
+		String direFB = analizeDireFB(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		//System.out.println("Radiant FB:" + radiantFB);
 		//System.out.println("Dire FB:" + direFB);
-		if(direFB>800 || direFB< -800 || radiantFB>800 || radiantFB<-800)
-		{
-			System.out.println(match.id);
-			System.out.println("Radiant FB:" + radiantFB);
-			System.out.println("Dire FB:" + direFB);
-		}
+
+		/**FBRatings**/
+		ArrayList<String> radiantFBMarks = new ArrayList<>();
+		ArrayList<String> direFBMarks = new ArrayList<>();
+		Date matchDate = formatter.parse(match.date);
+		String team1Id = team[0].id;
+		String team2Id = team[1].id;
+		radiantFBMarks = getFBMarks(team1Id, matchDate);
+		direFBMarks = getFBMarks(team2Id, matchDate);
+		String radiantRating = getFBRating(radiantFBMarks);
+		String direRating = getFBRating(direFBMarks);
 		/**End analizing**/
 		/*** Write info to file **/
 
 		///Write that match was analized
-		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB);
-		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB);
+		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, direRating);
+		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, radiantRating);
 		writePlayersInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-		//System.out.println("Radiant KillAbility:" + radiantKillAbilityString);
-		//System.out.println("Dire KillAbility:" + direKillAbilityString);
+
 		System.out.println("Match " + match.id + " was analized.");
 	}
 
+	//<editor-fold desc="Parameters">
 	public String analizeRadiantKillAbility(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException
 	{
 		Double EGKillPoints = 0.0;
@@ -1174,138 +1188,6 @@ public class PrimaryAnaliticsFactory
 		return (int) (LHF5MPoints + LHF510MPoints + KDF10MPoints + XPMF10MPoints);
 	}
 
-	public Integer analizeRadiantTenKills(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
-	{
-		Integer killRadiantCounter = 0;
-		Integer killDireCounter = 0;
-		Integer F10KTime = 0;
-		Integer difference = 0;
-
-
-		Double F10KTPoints = 0.0;
-		Integer F10KDifferencePoints = 0;
-
-		Boolean wasAdditionalKill = false;
-		Boolean additionalKillRadiant = false;
-		Boolean checked = false;
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			if (killDireCounter == 10 || killRadiantCounter == 10)
-			{
-				if (!checked)
-				{
-					if (killEventArrayList.get(i).second <= killEventArrayList.get(i - 1).second + 20)
-					{
-						if (killEventArrayList.get(i).dier >= 6)
-						{
-							additionalKillRadiant = true;
-
-						}
-						wasAdditionalKill = true;
-					}
-					checked = true;
-				} else
-					continue;
-
-			} else
-			{
-				if (killEventArrayList.get(i).dier >= 6)
-					killRadiantCounter++;
-				else
-					killDireCounter++;
-				F10KTime = killEventArrayList.get(i).second;
-			}
-		}
-
-		if (killDireCounter > killRadiantCounter)
-		{
-			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
-			if (F10KTPoints < 0)
-				F10KTPoints = F10KTPoints * 10 / killRadiantCounter;
-			else
-				F10KTPoints = F10KTPoints * killRadiantCounter / 10;
-		} else
-			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
-
-
-		difference = killRadiantCounter - killDireCounter;
-		F10KDifferencePoints = difference * 100;
-		if (additionalKillRadiant == false && wasAdditionalKill == true)
-		{
-			F10KDifferencePoints -= 100;
-		} else if (additionalKillRadiant == true && wasAdditionalKill == true)
-			F10KDifferencePoints += 100;
-
-		//System.out.println("Radiant DifferencePoints:" + F10KDifferencePoints);
-		//System.out.println("Radiant TimePoints:" + F10KTPoints);
-
-		return (int) (F10KDifferencePoints + F10KTPoints);
-	}
-
-	public Integer analizeDireTenKills(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
-	{
-		Integer killRadiantCounter = 0;
-		Integer killDireCounter = 0;
-		Integer F10KTime = 0;
-		Integer difference = 0;
-
-
-		Double F10KTPoints = 0.0;
-		Integer F10KDifferencePoints = 0;
-		Boolean additionalKillDire = false;
-		Boolean checked = false;
-
-		Boolean wasAdditionalKill = false;
-		for (int i = 0; i < killEventArrayList.size(); i++)
-		{
-			if (killDireCounter == 10 || killRadiantCounter == 10)
-			{
-				if (!checked)
-				{
-					if (killEventArrayList.get(i).second <= killEventArrayList.get(i - 1).second + 20)
-					{
-						wasAdditionalKill = true;
-						if (killEventArrayList.get(i).dier <= 5)
-							additionalKillDire = true;
-
-					}
-					checked = true;
-				} else
-					continue;
-
-			} else
-			{
-				if (killEventArrayList.get(i).dier >= 6)
-					killRadiantCounter++;
-				else
-					killDireCounter++;
-				F10KTime = killEventArrayList.get(i).second;
-			}
-		}
-		if (killDireCounter < killRadiantCounter)
-		{
-			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
-			if (F10KTPoints < 0)
-				F10KTPoints = F10KTPoints * 10 / killDireCounter;
-			else
-				F10KTPoints = F10KTPoints * killDireCounter / 10;
-		} else
-			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
-
-
-		difference = killDireCounter - killRadiantCounter;
-		F10KDifferencePoints = difference * 100;
-		if (additionalKillDire == false && wasAdditionalKill == true)
-		{
-			F10KDifferencePoints -= 100;
-		} else if (additionalKillDire == true && wasAdditionalKill == true)
-			F10KDifferencePoints += 100;
-
-		//System.out.println("Dire DifferencePoints:" + F10KDifferencePoints);
-		//System.out.println("Dire TimePoints:" + F10KTPoints);
-
-		return (int) (F10KDifferencePoints + F10KTPoints);
-	}
 
 	public Integer analizeRadiantFarming(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
 	{
@@ -1564,117 +1446,284 @@ public class PrimaryAnaliticsFactory
 		return (int) (killUnderWardPoints + wardsDestroyedPoints + avgLifeTimeOfWardPoints);
 	}
 
-	public Integer analizeRadiantFB(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
-	{
-		Integer timePoints = 0;
 
+	//</editor-fold>
+
+	public String analizeRadiantFB(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	{
 		if (killEventArrayList.get(0).second <= 90)
 		{
-			timePoints = 250;
-		} else if (killEventArrayList.get(0).second > 90 && killEventArrayList.get(0).second < 180)
-		{
-			timePoints = 120;
-		} else if (killEventArrayList.get(0).second >= 180 && killEventArrayList.get(0).second < 300)
-		{
-			timePoints = 80;
-		} else if (killEventArrayList.get(0).second >= 300 && killEventArrayList.get(0).second < 600)
-		{
-			timePoints = 50;
-		} else
-		{
-			timePoints = 0;
+			if (killEventArrayList.get(0).dier >= 6 && killEventArrayList.get(1).dier >= 6)
+				return "perfect";
+
+			if (killEventArrayList.get(0).dier <= 5 && killEventArrayList.get(1).dier <= 5)
+				return "horrible";
+
+			if (killEventArrayList.get(0).dier >= 6 && killEventArrayList.get(1).dier <= 5)
+				if (killEventArrayList.get(0).second + 4 >= killEventArrayList.get(1).second)
+					return "good";
+			if (killEventArrayList.get(0).dier <= 5 && killEventArrayList.get(1).dier >= 6)
+				if (killEventArrayList.get(0).second + 4 >= killEventArrayList.get(1).second)
+					return "good";
 		}
+		if (killEventArrayList.get(0).dier >= 6 && killEventArrayList.get(0).second >= 360)
+			return "normal";
+		if (killEventArrayList.get(0).dier <= 5 && killEventArrayList.get(0).second >= 360)
+			return "bad";
 
-		Integer FBPoints = 0;
-		if (killEventArrayList.get(0).dier >= 6)
-		{
-			FBPoints += 100 + timePoints;
-			if (killEventArrayList.get(1).dier <= 5)
+		if (killEventArrayList.get(0).dier >= 6 && killEventArrayList.get(0).second + 4 < killEventArrayList.get(1).second)
+			return "good";
+		if ((killEventArrayList.get(0).dier >= 6 && killEventArrayList.get(1).dier <= 5) || (killEventArrayList.get(0).dier <= 5 && killEventArrayList.get(1).dier >= 6))
+			if (killEventArrayList.get(0).second + 10 >= killEventArrayList.get(1).second)
 			{
-				if (killEventArrayList.get(1).second >= killEventArrayList.get(0).second + 20)
-				{
-					FBPoints += 0;
-				} else
-				{
-					FBPoints -= 120;
-				}
-			} else
-				FBPoints += 50;
+				if (killEventArrayList.get(2).dier >= 6 && killEventArrayList.get(1).second + 5 >= killEventArrayList.get(2).second)
+					return "good";
+				if (killEventArrayList.get(2).dier <= 5 && killEventArrayList.get(1).second + 5 >= killEventArrayList.get(2).second)
+					return "bad";
+				return "normal";
+			}
+		return "bad";
 
-		} else
-		{
-			FBPoints -= timePoints;
-			if (killEventArrayList.get(1).dier >= 6)
-			{
-				if (killEventArrayList.get(1).second <= killEventArrayList.get(0).second + 20)
-				{
-					FBPoints += 150;
-				} else
-				{
-					FBPoints += 50;
-				}
-			} else
-				FBPoints -= 50;
-		}
-
-		return FBPoints;
 	}
 
-	public Integer analizeDireFB(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	public String analizeDireFB(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
 	{
-		Integer timePoints = 0;
-
 		if (killEventArrayList.get(0).second <= 90)
 		{
-			timePoints = 250;
-		} else if (killEventArrayList.get(0).second > 90 && killEventArrayList.get(0).second < 180)
-		{
-			timePoints = 120;
-		} else if (killEventArrayList.get(0).second >= 180 && killEventArrayList.get(0).second < 300)
-		{
-			timePoints = 80;
-		} else if (killEventArrayList.get(0).second >= 300 && killEventArrayList.get(0).second < 600)
-		{
-			timePoints = 50;
-		} else
-		{
-			timePoints = 0;
-		}
+			if (killEventArrayList.get(0).dier >= 6 && killEventArrayList.get(1).dier >= 6)
+				return "horrible";
 
-		Integer FBPoints = 0;
-		if (killEventArrayList.get(0).dier <= 5)
-		{
-			FBPoints += 100 + timePoints;
-			if (killEventArrayList.get(1).dier >= 6)
-			{
-				if (killEventArrayList.get(1).second >= killEventArrayList.get(0).second + 20)
-				{
-					FBPoints += 0;
-				} else
-				{
-					FBPoints -= 120;
-				}
-			} else
-				FBPoints += 50;
+			if (killEventArrayList.get(0).dier <= 5 && killEventArrayList.get(1).dier <= 5)
+				return "perfect";
 
-		} else
-		{
-			FBPoints -= timePoints;
-			if (killEventArrayList.get(1).dier <= 5)
-			{
-				if (killEventArrayList.get(1).second <= killEventArrayList.get(0).second +20)
-				{
-					FBPoints += 150;
-				} else
-				{
-					FBPoints += 50;
-				}
-			} else
-				FBPoints -= 50;
+			if (killEventArrayList.get(0).dier >= 6 && killEventArrayList.get(1).dier <= 5)
+				if (killEventArrayList.get(0).second + 4 >= killEventArrayList.get(1).second)
+					return "good";
+			if (killEventArrayList.get(0).dier <= 5 && killEventArrayList.get(1).dier >= 6)
+				if (killEventArrayList.get(0).second + 4 >= killEventArrayList.get(1).second)
+					return "good";
 		}
-		return FBPoints;
+		if (killEventArrayList.get(0).dier >= 6 && killEventArrayList.get(0).second >= 360)
+			return "bad";
+		if (killEventArrayList.get(0).dier <= 5 && killEventArrayList.get(0).second >= 360)
+			return "normal";
+		if (killEventArrayList.get(0).dier <= 5 && killEventArrayList.get(0).second + 4 < killEventArrayList.get(1).second)
+			return "good";
+		if ((killEventArrayList.get(0).dier >= 6 && killEventArrayList.get(1).dier <= 5) || (killEventArrayList.get(0).dier <= 5 && killEventArrayList.get(1).dier >= 6))
+			if (killEventArrayList.get(0).second + 10 >= killEventArrayList.get(1).second)
+			{
+				if (killEventArrayList.get(2).dier <= 5 && killEventArrayList.get(1).second + 5 >= killEventArrayList.get(2).second)
+					return "good";
+				if (killEventArrayList.get(2).dier >= 6 && killEventArrayList.get(1).second + 5 >= killEventArrayList.get(2).second)
+					return "bad";
+				return "normal";
+			}
+		return "bad";
 	}
 
+	//<editor-fold desc="FB F10K ratings">
+
+	public String getFBRating(ArrayList<String> fbMarks)
+	{
+		Integer badGames = 0;
+		Integer horribleGames = 0;
+		Integer normalGames = 0;
+		Integer goodGames = 0;
+		Integer perfectGames = 0;
+		Integer allGames = 0;
+		if (fbMarks.size() <= 4)
+			return "normal";
+		for (int i = 0; i < fbMarks.size(); i++)
+		{
+			if (fbMarks.get(i).equals("horrible"))
+			{
+				horribleGames++;
+			}
+			if (fbMarks.get(i).equals("bad"))
+			{
+				badGames++;
+			}
+			if (fbMarks.get(i).equals("normal"))
+			{
+				normalGames++;
+			}
+			if (fbMarks.get(i).equals("good"))
+			{
+				goodGames++;
+			}
+			if (fbMarks.get(i).equals("perfect"))
+			{
+				perfectGames++;
+			}
+			allGames++;
+		}
+		Double horribleGamesPercent = (double) horribleGames / allGames * 100;
+		Double badGamesPercent = (double) badGames / allGames * 100;
+		Double normalGamesPercent = (double) normalGames / allGames * 100;
+		Double goodGamesPercent = (double) goodGames / allGames * 100;
+		Double perfectGamesPercent = (double) perfectGames / allGames * 100;
+
+		if (goodGamesPercent + perfectGamesPercent >= 60)
+			return "nice";
+		else if (horribleGamesPercent + badGamesPercent >= 60)
+			return "bad";
+		else return "normal";
+	}
+
+	public ArrayList<String> getFBMarks(String teamId, Date date) throws IOException, ParseException
+	{
+		String teamFile = readFile("files/teams/" + teamId + "/TeamMatches.txt");
+		String[] eachMatch = teamFile.split("\n");
+		ArrayList<String> FBMarks = new ArrayList<>();
+		for (int i = 0; i < eachMatch.length; i++)
+		{
+			if (eachMatch[i].length() <= 40)
+				continue;
+			String matchDate = eachMatch[i].split(";")[1];
+
+			Date thisMatchDate = formatter.parse(matchDate);
+			if (thisMatchDate.compareTo(date) <= 0 && getDifferenceDays(thisMatchDate, date) <= 30)
+			{
+				FBMarks.add(eachMatch[i].split("##")[3].split(";")[5]);
+			}
+		}
+		return FBMarks;
+	}
+	//</editor-fold>
+
+
+	public Integer analizeRadiantTenKills(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	{
+		Integer killRadiantCounter = 0;
+		Integer killDireCounter = 0;
+		Integer F10KTime = 0;
+		Integer difference = 0;
+
+
+		Double F10KTPoints = 0.0;
+		Integer F10KDifferencePoints = 0;
+
+		Boolean wasAdditionalKill = false;
+		Boolean additionalKillRadiant = false;
+		Boolean checked = false;
+		for (int i = 0; i < killEventArrayList.size(); i++)
+		{
+			if (killDireCounter == 10 || killRadiantCounter == 10)
+			{
+				if (!checked)
+				{
+					if (killEventArrayList.get(i).second <= killEventArrayList.get(i - 1).second + 20)
+					{
+						if (killEventArrayList.get(i).dier >= 6)
+						{
+							additionalKillRadiant = true;
+
+						}
+						wasAdditionalKill = true;
+					}
+					checked = true;
+				} else
+					continue;
+
+			} else
+			{
+				if (killEventArrayList.get(i).dier >= 6)
+					killRadiantCounter++;
+				else
+					killDireCounter++;
+				F10KTime = killEventArrayList.get(i).second;
+			}
+		}
+
+		if (killDireCounter > killRadiantCounter)
+		{
+			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
+			if (F10KTPoints < 0)
+				F10KTPoints = F10KTPoints * 10 / killRadiantCounter;
+			else
+				F10KTPoints = F10KTPoints * killRadiantCounter / 10;
+		} else
+			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
+
+
+		difference = killRadiantCounter - killDireCounter;
+		F10KDifferencePoints = difference * 100;
+		if (additionalKillRadiant == false && wasAdditionalKill == true)
+		{
+			F10KDifferencePoints -= 100;
+		} else if (additionalKillRadiant == true && wasAdditionalKill == true)
+			F10KDifferencePoints += 100;
+
+		//System.out.println("Radiant DifferencePoints:" + F10KDifferencePoints);
+		//System.out.println("Radiant TimePoints:" + F10KTPoints);
+
+		return (int) (F10KDifferencePoints + F10KTPoints);
+	}
+
+	public Integer analizeDireTenKills(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	{
+		Integer killRadiantCounter = 0;
+		Integer killDireCounter = 0;
+		Integer F10KTime = 0;
+		Integer difference = 0;
+
+
+		Double F10KTPoints = 0.0;
+		Integer F10KDifferencePoints = 0;
+		Boolean additionalKillDire = false;
+		Boolean checked = false;
+
+		Boolean wasAdditionalKill = false;
+		for (int i = 0; i < killEventArrayList.size(); i++)
+		{
+			if (killDireCounter == 10 || killRadiantCounter == 10)
+			{
+				if (!checked)
+				{
+					if (killEventArrayList.get(i).second <= killEventArrayList.get(i - 1).second + 20)
+					{
+						wasAdditionalKill = true;
+						if (killEventArrayList.get(i).dier <= 5)
+							additionalKillDire = true;
+
+					}
+					checked = true;
+				} else
+					continue;
+
+			} else
+			{
+				if (killEventArrayList.get(i).dier >= 6)
+					killRadiantCounter++;
+				else
+					killDireCounter++;
+				F10KTime = killEventArrayList.get(i).second;
+			}
+		}
+		if (killDireCounter < killRadiantCounter)
+		{
+			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
+			if (F10KTPoints < 0)
+				F10KTPoints = F10KTPoints * 10 / killDireCounter;
+			else
+				F10KTPoints = F10KTPoints * killDireCounter / 10;
+		} else
+			F10KTPoints = 1200 - 600 * F10KTime / averageDataFactory.avgF10KTime;
+
+
+		difference = killDireCounter - killRadiantCounter;
+		F10KDifferencePoints = difference * 100;
+		if (additionalKillDire == false && wasAdditionalKill == true)
+		{
+			F10KDifferencePoints -= 100;
+		} else if (additionalKillDire == true && wasAdditionalKill == true)
+			F10KDifferencePoints += 100;
+
+		//System.out.println("Dire DifferencePoints:" + F10KDifferencePoints);
+		//System.out.println("Dire TimePoints:" + F10KTPoints);
+
+		return (int) (F10KDifferencePoints + F10KTPoints);
+	}
 
 	//<editor-fold desc="Tests">
 	public Integer testRadiantPushing(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
@@ -2108,7 +2157,7 @@ public class PrimaryAnaliticsFactory
 	}
 	//</editor-fold>
 
-	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, Integer radiantTenKills, Integer radiantFarming, Integer radiantFB, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, Integer direTenKills, Integer direFarming, Integer direFB) throws IOException
+	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, Integer radiantTenKills, Integer radiantFarming, String radiantFB, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, Integer direTenKills, Integer direFarming, String direFB, String enemyFBRating) throws IOException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -2179,10 +2228,14 @@ public class PrimaryAnaliticsFactory
 				teamString += "||";
 		}
 		teamString += "##";
-		/**Rating Changes [9]**/
+		/**FBRating [9]**/
+		teamString += enemyFBRating;
+		teamString += "##";
+		/**Rating Changes [10]**/
 		String oldString = fileControlFactory.readFile("files/teams/" + team[0].id + "/TeamMatches.txt");
 		String[] stringInFile = oldString.split("\n");
 		String ratingChanges = "";
+
 		for (int i = 0; i < stringInFile.length; i++)
 		{
 			String matchId = stringInFile[i].split(";")[0];
@@ -2200,7 +2253,7 @@ public class PrimaryAnaliticsFactory
 		System.out.println("Team " + team[0].id + " file was changed.");
 	}
 
-	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, Integer radiantTenKills, Integer radiantFarming, Integer radiantFB, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, Integer direTenKills, Integer direFarming, Integer direFB) throws IOException
+	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, Integer radiantTenKills, Integer radiantFarming, String radiantFB, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, Integer direTenKills, Integer direFarming, String direFB, String enemyFBRating) throws IOException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -2271,7 +2324,10 @@ public class PrimaryAnaliticsFactory
 				teamString += "||";
 		}
 		teamString += "##";
-		/**Rating Changes [9]**/
+		/**FBRating[9]**/
+		teamString += enemyFBRating;
+		teamString += "##";
+		/**Rating Changes [10]**/
 		String oldString = fileControlFactory.readFile("files/teams/" + team[1].id + "/TeamMatches.txt");
 		String[] stringInFile = oldString.split("\n");
 		String ratingChanges = "";
@@ -2321,6 +2377,33 @@ public class PrimaryAnaliticsFactory
 			fileControlFactory.writeToFile(playerString, "files/players/" + player[i].playerId + ".txt");
 
 		}
+	}
+
+	String readFile(String fileName) throws IOException
+	{
+		BufferedReader br = new BufferedReader(new FileReader(fileName));
+		try
+		{
+			StringBuilder sb = new StringBuilder();
+			String line = br.readLine();
+
+			while (line != null)
+			{
+				sb.append(line);
+				sb.append("\n");
+				line = br.readLine();
+			}
+			return sb.toString();
+		} finally
+		{
+			br.close();
+		}
+	}
+
+	public static long getDifferenceDays(Date beforeDate, Date matchDate)
+	{
+		long diff = matchDate.getTime() - beforeDate.getTime();
+		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
 	}
 }
 

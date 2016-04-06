@@ -46,7 +46,8 @@ public class DataWorker
 		String secondName = secondObjects.get(0).teamName;
 
 		/*GeneralInfo**/
-		Integer firstAvgRating = getAverageEnemyRating(firstObjects);
+		Integer firstAvgMonthEnemyRating = getAverageEnemyRating(firstMonthObjects);
+		Integer firstAvgSevenDaysEnemyRating = getAverageEnemyRating(firstSevenDaysObjects);
 		Integer firstAvgMatchTime = getAverageMatchTime(firstObjects);
 		Integer firstMonthGamesPlayed = getMonthGamesPlayed(firstObjects);
 		/**Parameters**/
@@ -64,6 +65,7 @@ public class DataWorker
 		/**FB**/
 		Integer firstFBForm = getFBForm(firstMonthObjects, firstSevenDaysObjects);
 		Integer firstAvgFBPercent = getAverageFBPercent(firstMonthObjects);
+		Integer firstHorribleGameFBPercent=getHorribleGameFBPercent(firstMonthObjects);
 		Integer firstBadGameFBPercent = getBadGameFBPercent(firstMonthObjects);
 		Integer firstNormalGameFBPercent = getNormalGameFBPercent(firstMonthObjects);
 		Integer firstGoodGameFBPercent = getGoodGameFBPercent(firstMonthObjects);
@@ -79,11 +81,12 @@ public class DataWorker
 		/*******************************************/
 
 		/**GeneralInfo**/
-		Integer secondMonthGamesPlayed = getMonthGamesPlayed(secondObjects);
-		Integer secondAvgMatchTime = getAverageMatchTime(secondObjects);
-		Integer secondAvgRating = getAverageEnemyRating(secondObjects);
+		Integer secondMonthGamesPlayed = getMonthGamesPlayed(secondMonthObjects);
+		Integer secondAvgMatchTime = getAverageMatchTime(secondMonthObjects);
+		Integer secondAvgMonthEnemyRating = getAverageEnemyRating(secondMonthObjects);
+		Integer secondAvgSevenDaysEnemyRating = getAverageEnemyRating(secondSevenDaysObjects);
 		/**Parameters**/
-		Integer secondAvgKillAbility = getAverageKillAbility(secondObjects);
+		Integer secondAvgKillAbility = getAverageKillAbility(secondMonthObjects);
 		Integer secondAvgPushing = getAveragePushing(secondObjects);
 		Integer secondAvgLining = getAverageLining(secondObjects);
 		Integer secondAvgVision = getAverageVision(secondObjects);
@@ -97,6 +100,7 @@ public class DataWorker
 		/**FB**/
 		Integer secondFBForm = getFBForm(secondMonthObjects, secondSevenDaysObjects);
 		Integer secondAvgFBPercent = getAverageFBPercent(secondMonthObjects);
+		Integer secondHorribleGameFBPercent=getHorribleGameFBPercent(secondMonthObjects);
 		Integer secondBadGameFBPercent = getBadGameFBPercent(secondMonthObjects);
 		Integer secondNormalGameFBPercent = getNormalGameFBPercent(secondMonthObjects);
 		Integer secondGoodGameFBPercent = getGoodGameFBPercent(secondMonthObjects);
@@ -124,7 +128,11 @@ public class DataWorker
 				{
 					System.out.println("First Name:" + firstName + "\t\t Second Name:" + secondName);
 					System.out.println("First GamesPlayed:" + firstMonthGamesPlayed + "\t\t Second GamesPlayed:" + secondMonthGamesPlayed);
+					System.out.println("First Month EnemyAverageRating:"+firstAvgMonthEnemyRating+"\t\t Second  Month EnemyAverageRating:"+secondAvgMonthEnemyRating);
+					System.out.println("First Seven Days EnemyAverageRating:"+firstAvgSevenDaysEnemyRating+"\t\t Second Seven Days EnemyAverageRating:"+secondAvgSevenDaysEnemyRating);
+
 					System.out.println("---FB---");
+					System.out.println("First HorribleGames Percent:" + firstHorribleGameFBPercent + "\t\tSecond HorribleGames Percent:" + secondHorribleGameFBPercent);
 					System.out.println("First BadGames Percent:" + firstBadGameFBPercent + "\t\tSecond BadGames Percent:" + secondBadGameFBPercent);
 					System.out.println("First NormalGames Percent:" + firstNormalGameFBPercent + "\t\tSecond NormalGames Percent:" + secondNormalGameFBPercent);
 					System.out.println("First GoodGames Percent:" + firstGoodGameFBPercent + "\t\tSecond GoodGames Percent:" + secondGoodGameFBPercent);
@@ -167,7 +175,7 @@ public class DataWorker
 			String F10KInfo = eachMatch[i].split("##")[6];
 			String FRInfo = eachMatch[i].split("##")[7];
 			String killEventsInfo = eachMatch[i].split("##")[8];
-			String ratingChanges = eachMatch[i].split("##")[9];
+			String ratingChanges = eachMatch[i].split("##")[10];
 
 			object.id = matchGeneralInfo.split(";")[0];
 			object.date = matchGeneralInfo.split(";")[1];
@@ -201,7 +209,7 @@ public class DataWorker
 			object.vision = Integer.parseInt(parameters.split(";")[2]);
 			object.lining = Integer.parseInt(parameters.split(";")[3]);
 			object.tenKills = Integer.parseInt(parameters.split(";")[4]);
-			object.FB = Integer.parseInt(parameters.split(";")[5]);
+			object.FB = parameters.split(";")[5];
 			object.farming = Integer.parseInt(parameters.split(";")[6]);
 
 
@@ -237,23 +245,6 @@ public class DataWorker
 
 	//<editor-fold desc="FB and F10K">
 	//<editor-fold desc="FB">
-	public Integer getFBMedian(ArrayList<AnalizedInfo> objects) throws ParseException
-	{
-		ArrayList<Integer> array = new ArrayList<>();
-		for (int i = 0; i < objects.size(); i++)
-		{
-			array.add(objects.get(i).FB);
-		}
-		array = extremumElimination(array);
-		Collections.sort(array);
-
-		Double median = 0.0;
-		if (array.size() % 2 == 0)
-			median = (double) (array.get(array.size() / 2 - 1) + array.get(array.size() / 2)) / 2;
-		else
-			median = (double) array.get(array.size() / 2);
-		return median.intValue();
-	}
 
 	public Integer getAverageFBPercent(ArrayList<AnalizedInfo> objects) throws ParseException
 	{
@@ -271,18 +262,41 @@ public class DataWorker
 
 	public Integer getFBForm(ArrayList<AnalizedInfo> monthObjects, ArrayList<AnalizedInfo> sevenDaysObjects) throws ParseException
 	{
-		Integer monthMedian = 0;
-		Integer sevenDaysMedian = 0;
-		monthMedian = getFBMedian(monthObjects);
 		if (sevenDaysObjects.size() < 4)
 		{
 			return 9999;
 		} else
 		{
-			sevenDaysMedian = getFBMedian(sevenDaysObjects);
-			Double form = (double) sevenDaysMedian / monthMedian * 100 - 100;
-			return form.intValue();
+			Integer horribleGamesMonth = getHorribleGameFBPercent(monthObjects);
+			Integer badGamesMonth = getBadGameFBPercent(monthObjects);
+			Integer normalGamesMonth = getNormalGameFBPercent(monthObjects);
+			Integer goodGamesMonth = getGoodGameFBPercent(monthObjects);
+			Integer perfectGamesMonth = getPerfectGameFBPercent(monthObjects);
+			Integer horribleGamesSevenDays = getHorribleGameFBPercent(sevenDaysObjects);
+			Integer badGamesSevenDays = getBadGameFBPercent(sevenDaysObjects);
+			Integer normalGamesSevenDays = getNormalGameFBPercent(sevenDaysObjects);
+			Integer goodGamesSevenDays = getGoodGameFBPercent(sevenDaysObjects);
+			Integer perfectGamesSevenDays = getPerfectGameFBPercent(sevenDaysObjects);
+			Integer form = perfectGamesSevenDays - perfectGamesMonth + goodGamesSevenDays - goodGamesMonth - normalGamesSevenDays + normalGamesMonth - badGamesSevenDays + normalGamesMonth - horribleGamesSevenDays + horribleGamesMonth;
+			return form;
 		}
+	}
+
+	public Integer getHorribleGameFBPercent(ArrayList<AnalizedInfo> monthObjects)
+	{
+		Integer counter = 0;
+		Integer thisCounter = 0;
+
+		for (int i = 0; i < monthObjects.size(); i++)
+		{
+			if (monthObjects.get(i).FB.equals("horrible"))
+			{
+				thisCounter++;
+			}
+			counter++;
+		}
+		Double percent = (double) thisCounter / counter * 100;
+		return (int) Math.round(percent);
 	}
 
 	public Integer getBadGameFBPercent(ArrayList<AnalizedInfo> monthObjects)
@@ -292,7 +306,7 @@ public class DataWorker
 
 		for (int i = 0; i < monthObjects.size(); i++)
 		{
-			if (monthObjects.get(i).FB >= -400 && monthObjects.get(i).FB <= -100)
+			if (monthObjects.get(i).FB.equals("bad"))
 			{
 				thisCounter++;
 			}
@@ -309,7 +323,7 @@ public class DataWorker
 
 		for (int i = 0; i < monthObjects.size(); i++)
 		{
-			if (monthObjects.get(i).FB > -100 && monthObjects.get(i).FB <= 100)
+			if (monthObjects.get(i).FB.equals("normal"))
 			{
 				thisCounter++;
 			}
@@ -326,7 +340,7 @@ public class DataWorker
 
 		for (int i = 0; i < monthObjects.size(); i++)
 		{
-			if (monthObjects.get(i).FB > 100 && monthObjects.get(i).FB <= 300)
+			if (monthObjects.get(i).FB.equals("good"))
 			{
 				thisCounter++;
 			}
@@ -343,7 +357,7 @@ public class DataWorker
 
 		for (int i = 0; i < monthObjects.size(); i++)
 		{
-			if (monthObjects.get(i).FB > 300 && monthObjects.get(i).FB <= 500)
+			if (monthObjects.get(i).FB.equals("perfect"))
 			{
 				thisCounter++;
 			}
@@ -355,24 +369,6 @@ public class DataWorker
 	//</editor-fold>
 
 	//<editor-fold desc="F10K">
-	public Integer getF10KMedian(ArrayList<AnalizedInfo> objects) throws ParseException
-	{
-		ArrayList<Integer> array = new ArrayList<>();
-		for (int i = 0; i < objects.size(); i++)
-		{
-			array.add(objects.get(i).tenKills);
-		}
-		array = extremumElimination(array);
-		Collections.sort(array);
-
-		Double median = 0.0;
-		if (array.size() % 2 == 0)
-			median = (double) (array.get(array.size() / 2 - 1) + array.get(array.size() / 2)) / 2;
-		else
-			median = (double) array.get(array.size() / 2);
-		return median.intValue();
-	}
-
 	public Integer getAverageF10KPercent(ArrayList<AnalizedInfo> objects) throws ParseException
 	{
 		Integer counter = 0;
@@ -392,17 +388,21 @@ public class DataWorker
 
 	public Integer getF10KForm(ArrayList<AnalizedInfo> monthObjects, ArrayList<AnalizedInfo> sevenDaysObjects) throws ParseException
 	{
-		Integer monthMedian = 0;
-		Integer sevenDaysMedian = 0;
-		monthMedian = getF10KMedian(monthObjects);
 		if (sevenDaysObjects.size() < 4)
 		{
 			return 9999;
 		} else
 		{
-			sevenDaysMedian = getF10KMedian(sevenDaysObjects);
-			Double form = (double) sevenDaysMedian / monthMedian * 100 - 100;
-			return form.intValue();
+			Integer badGamesMonth = getBadGameF10KPercent(monthObjects);
+			Integer normalGamesMonth = getNormalGameF10KPercent(monthObjects);
+			Integer goodGamesMonth = getGoodGameF10KPercent(monthObjects);
+			Integer perfectGamesMonth = getPerfectGameF10KPercent(monthObjects);
+			Integer badGamesSevenDays = getBadGameF10KPercent(sevenDaysObjects);
+			Integer normalGamesSevenDays = getNormalGameF10KPercent(sevenDaysObjects);
+			Integer goodGamesSevenDays = getGoodGameF10KPercent(sevenDaysObjects);
+			Integer perfectGamesSevenDays = getPerfectGameF10KPercent(sevenDaysObjects);
+			Integer form = perfectGamesSevenDays - perfectGamesMonth + goodGamesSevenDays - goodGamesMonth - normalGamesSevenDays + normalGamesMonth - badGamesSevenDays + normalGamesMonth;
+			return form;
 		}
 	}
 
@@ -605,16 +605,23 @@ public class DataWorker
 	{
 		Integer counter = 0;
 		Double points = 0.0;
+		ArrayList<Integer> ratingArray=new ArrayList<>();
+		if(objects.size()<4)
+			return 9999;
 		for (int i = 0; i < objects.size(); i++)
 		{
-			if (getDifferenceDays(formatter.parse(objects.get(i).date)) <= 15)
-			{
-				points += objects.get(i).enemyRating;
-				counter++;
-			}
+				ratingArray.add(objects.get(i).enemyRating);
 		}
-		Double points2 = points / counter;
-		return points2.intValue();
+		Collections.sort(ratingArray);
+		if(ratingArray.size()%2==0)
+		{
+			Double value=(double)(ratingArray.get(ratingArray.size()/2-1)+ratingArray.get(ratingArray.size()/2))/2;
+			return value.intValue();
+		}
+		else
+		{
+			return ratingArray.get(ratingArray.size()/2);
+		}
 	}
 
 	public Integer getHalfMonthGamesPlayed(ArrayList<AnalizedInfo> objects) throws ParseException
@@ -785,7 +792,7 @@ public class DataWorker
 				newArray.add(array.get(i));
 			}
 		}
-			return newArray;
+		return newArray;
 
 	}
 

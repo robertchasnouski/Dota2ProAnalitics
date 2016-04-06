@@ -41,117 +41,150 @@ public class RatingFactory
 				String team2totalGold = team2Info.split(";")[20];
 				String matchHardness = calculateMatchHardness(team1Kills, team2Kills, team1totalGold, team2totalGold, matchTime);
 				String ratingDifference = calculateRatingDifference(team1Rating, team2Rating);
-				Double multiplier = 1.0;
+				Double winMultiplier = 1.0;
+				Double loseMultiplier=1.0;
 				Integer incrementator = 0;
+				Integer decrementator=0;
 				//<editor-fold desc="Calculation">
 				if (firstTeamWin)
 				{
 					if (ratingDifference.equals("T1BD"))
 					{
-
 						if (matchHardness.equals("MH"))
 						{
-							multiplier = 0.5;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 0.7;
+							loseMultiplier=0.7;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("H"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("L"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("ML"))
 						{
-							multiplier = 1.1;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.05;
+							loseMultiplier=1.05;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 					} else if (ratingDifference.equals("T1SD"))
 					{
 
 						if (matchHardness.equals("MH"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("H"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("L"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("ML"))
 						{
-							multiplier = 1.3;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.1;
+							loseMultiplier= 1.1;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 					} else if (ratingDifference.equals("T2SD"))
 					{
 
 						if (matchHardness.equals("MH"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("H"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("L"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("ML"))
 						{
-							multiplier = 1.3;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.2;
+							loseMultiplier=1.2;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 					} else if (ratingDifference.equals("T2BD"))
 					{
 						if (matchHardness.equals("MH"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.3;
+							loseMultiplier=1.3;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("H"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("L"))
 						{
-							multiplier = 1.3;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("ML"))
 						{
-							multiplier = 1.4;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team1Id, team2Id, incrementator, incrementator);
+							winMultiplier = 1.4;
+							loseMultiplier=1.4;
+							incrementator=getWinTeamIncrementator(team1Rating,team2Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team2Rating, team1Rating, winMultiplier);
+							updateTeamRatings(team1Id, team2Id, incrementator, decrementator);
 						}
 					}
 				} else
@@ -160,105 +193,137 @@ public class RatingFactory
 					{
 						if (matchHardness.equals("MH"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.3;
+							loseMultiplier=1.3;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("H"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("L"))
 						{
-							multiplier = 1.3;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("ML"))
 						{
-							multiplier = 1.4;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.4;
+							loseMultiplier=1.4;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 					} else if (ratingDifference.equals("T1SD"))
 					{
 						if (matchHardness.equals("MH"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("H"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("L"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("ML"))
 						{
-							multiplier = 1.3;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
-						}
-					} else if (ratingDifference.equals("T2BD"))
-					{
-						if (matchHardness.equals("MH"))
-						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
-						}
-						if (matchHardness.equals("H"))
-						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
-						}
-						if (matchHardness.equals("L"))
-						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
-						}
-						if (matchHardness.equals("ML"))
-						{
-							multiplier = 1.25;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.2;
+							loseMultiplier=1.2;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 					} else if (ratingDifference.equals("T2SD"))
 					{
 						if (matchHardness.equals("MH"))
 						{
-							multiplier = 0.5;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("H"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("L"))
 						{
-							multiplier = 1.0;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 						if (matchHardness.equals("ML"))
 						{
-							multiplier = 1.2;
-							incrementator = getIncrementator(team1Rating, team2Rating, multiplier);
-							updateTeamRatings(team2Id, team1Id, incrementator, incrementator);
+							winMultiplier = 1.1;
+							loseMultiplier=1.1;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
+						}
+					} else if (ratingDifference.equals("T2BD"))
+					{
+						if (matchHardness.equals("MH"))
+						{
+							winMultiplier = 0.7;
+							loseMultiplier=0.7;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
+						}
+						if (matchHardness.equals("H"))
+						{
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
+						}
+						if (matchHardness.equals("L"))
+						{
+							winMultiplier = 1.0;
+							loseMultiplier=1.0;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
+						}
+						if (matchHardness.equals("ML"))
+						{
+							winMultiplier = 1.05;
+							loseMultiplier=1.05;
+							incrementator=getWinTeamIncrementator(team2Rating,team1Rating,winMultiplier);
+							decrementator=getLoseTeamIncrementator(team1Rating, team2Rating, winMultiplier);
+							updateTeamRatings(team2Id, team1Id, incrementator, decrementator);
 						}
 					}
 				}
@@ -269,7 +334,7 @@ public class RatingFactory
 				fileOperationsFactory.writeToFile(matchId+";"+team1Rating+";"+team2Rating+";"+incrementator,"files/teams/"+team1Id+"/TeamMatches.txt");
 				fileOperationsFactory.writeToFile(matchId+";"+team2Rating+";"+team1Rating+";"+incrementator,"files/teams/"+team2Id+"/TeamMatches.txt");
 				fileOperationsFactory.writeToFile(matchId, "files/MatchesRated.txt");
-				System.out.println("Match "+matchId+" was rated with incrementator:"+incrementator+". Match HardNess:"+matchHardness);
+				System.out.println("Match "+matchId+" was rated with incrementator:"+incrementator+" and decrementator:"+decrementator+". Match HardNess:"+matchHardness);
 			}
 		}
 	}
@@ -376,26 +441,52 @@ public class RatingFactory
 
 	public Integer getWinTeamIncrementator(Integer winTeamRating,Integer loseTeamRating,Double multiplier)
 	{
-		Double firstMultiplier=(1-(double)Math.abs(winTeamRating-loseTeamRating ) / Math.min(winTeamRating, loseTeamRating));
+		Double firstMultiplier=0.0;
+		Double incrementator=0.0;
+
 		if(winTeamRating>loseTeamRating)
 		{
-
+			firstMultiplier=(1-(double)Math.abs(winTeamRating-loseTeamRating ) / Math.min(winTeamRating, loseTeamRating));
+			incrementator=50*firstMultiplier;
 		}
-		//Double firstIncrement=50*;
-		return 1;
+		else
+		{
+			firstMultiplier=(1+(double)Math.abs(winTeamRating-loseTeamRating ) / Math.min(winTeamRating, loseTeamRating));
+			incrementator=50*firstMultiplier;
+		}
+		if(incrementator<20)
+			incrementator=20.0;
+		if(incrementator>100)
+			incrementator=100.0;
+
+		incrementator=incrementator*multiplier;
+
+		return incrementator.intValue();
 	}
+
 	public Integer getLoseTeamIncrementator(Integer loseTeamRating,Integer winTeamRating,Double multiplier)
 	{
-			return 1;
-	}
-	public Integer getIncrementator(Integer team1R, Integer team2R, Double multiplier)
-	{
-		Double firstIncrement = 50 * (1 - (double) Math.abs(team1R - team2R) / Math.min(team1R, team2R));
-		if (firstIncrement < 20)
-			firstIncrement = 20.0;
-		Double secondIncrement = firstIncrement * multiplier;
+		Double firstMultiplier=0.0;
+		Double incrementator=0.0;
 
-		return secondIncrement.intValue();
+		if(winTeamRating>loseTeamRating)
+		{
+			firstMultiplier=(1-(double)Math.abs(winTeamRating-loseTeamRating ) / Math.min(winTeamRating, loseTeamRating));
+			incrementator=50*firstMultiplier;
+		}
+		else
+		{
+			firstMultiplier=(1+(double)Math.abs(winTeamRating-loseTeamRating ) / Math.min(winTeamRating, loseTeamRating));
+			incrementator=50*firstMultiplier;
+		}
+		if(incrementator<20)
+			incrementator=20.0;
+		if(incrementator>100)
+			incrementator=100.0;
+
+		incrementator=incrementator*multiplier;
+
+		return incrementator.intValue();
 	}
 
 	public void updateTeamRatings(String teamWinId, String teamLostId, Integer increment, Integer decrement) throws IOException

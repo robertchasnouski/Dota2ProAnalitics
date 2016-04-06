@@ -4,6 +4,7 @@ import ProjectDir.Analitics.*;
 import ProjectDir.MatchInfo.*;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class MainAnaliticsFactory
@@ -21,7 +22,7 @@ public class MainAnaliticsFactory
 	StringReader stringReader = new StringReader();
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 
-	public void startWork() throws IOException
+	public void startWork() throws IOException, ParseException
 	{
 		ArrayList<KillEvent> killEventArrayList = new ArrayList<KillEvent>();
 		ArrayList<BuyBackEvent> buyBackEventArrayList = new ArrayList<BuyBackEvent>();
