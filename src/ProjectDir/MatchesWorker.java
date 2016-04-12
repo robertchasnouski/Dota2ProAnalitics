@@ -11,13 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
-//TODO: Phase 1: Make full updatable and workable parse system
-////TODO: Check error matches and check if they are in parsed matches
-////TODO: Why dublicates appear?
-////TODO: MatchDataBase -> NeedToParse -> MatchesParsed (Later)
-//TODO: Phase 2: Prototype analizing
-////TODO: GameMode can be also AP because its reprick and regame
-//TODO: Phase 3: Advanced analizing
 
 public class MatchesWorker
 {

@@ -7,7 +7,7 @@ public class Main
 	{
 		MatchesWorker matchesWorker = new MatchesWorker();
 		ReceptionWorker receptionWorker= new ReceptionWorker();
-		matchesWorker.start_work();
+		//matchesWorker.start_work();
 		receptionWorker.start_work();
 	}
 

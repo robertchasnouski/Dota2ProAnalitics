@@ -684,6 +684,8 @@ public class ParserFactory
 			currentIndex = killsPageRadiantHeroLine[i].indexOf("</td>", tempIndex);
 			tempString = killsPageRadiantHeroLine[i].substring(tempIndex, currentIndex - 1);
 			tempString = tempString.replaceAll("\">", "");
+			if(tempString.length()>10)
+				tempString="100";
 			player[i].partisipation = Integer.parseInt(tempString);
 		}
 		//</editor-fold>
@@ -725,6 +727,11 @@ public class ParserFactory
 			currentIndex = killsPageDireHeroLine[i].indexOf("</td>", tempIndex);
 			tempString = killsPageDireHeroLine[i].substring(tempIndex, currentIndex - 1);
 			tempString = tempString.replaceAll("\">", "");
+			if (tempString.length() >= 10)
+			{
+				System.out.println("error parti");
+				tempString = "100";
+			}
 			player[i + 5].partisipation = Integer.parseInt(tempString);
 		}
 		//</editor-fold>
