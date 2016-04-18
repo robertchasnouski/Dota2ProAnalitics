@@ -1679,7 +1679,7 @@ public class PrimaryAnaliticsFactory
 			String matchDate = eachMatch[i].split(";")[1];
 
 			Date thisMatchDate = formatter.parse(matchDate);
-			if (thisMatchDate.compareTo(date) <= 0 && getDifferenceDays(thisMatchDate, date) <= 30)
+			if (thisMatchDate.compareTo(date) <= 0 && getDifferenceDays(thisMatchDate, date) <= 20)
 			{
 				FBMarks.add(eachMatch[i].split("##")[3].split(";")[5]);
 			}
@@ -1746,7 +1746,7 @@ public class PrimaryAnaliticsFactory
 			String matchDate = eachMatch[i].split(";")[1];
 
 			Date thisMatchDate = formatter.parse(matchDate);
-			if (thisMatchDate.compareTo(date) <= 0 && getDifferenceDays(thisMatchDate, date) <= 30)
+			if (thisMatchDate.compareTo(date) <= 0 && getDifferenceDays(thisMatchDate, date) <= 20)
 			{
 				F10KMarks.add(eachMatch[i].split("##")[3].split(";")[4]);
 			}
@@ -2200,7 +2200,8 @@ public class PrimaryAnaliticsFactory
 		teamString += "0" + ";";//[5]
 		teamString += team[0].EGPoints + ";";
 		teamString += team[0].MGPoints + ";";
-		teamString += team[0].LGPoints;
+		teamString += team[0].LGPoints+";";
+		teamString += team[1].name;
 		teamString += "##";
 		/**TeamInfo [1]**/
 		teamString += team[0].kills + ";";
@@ -2298,7 +2299,8 @@ public class PrimaryAnaliticsFactory
 		teamString += "1" + ";";//[4]
 		teamString += team[1].EGPoints + ";";
 		teamString += team[1].MGPoints + ";";
-		teamString += team[1].LGPoints;
+		teamString += team[1].LGPoints+";";
+		teamString += team[0].name;
 		teamString += "##";
 		/**TeamInfo [1]**/
 		teamString += team[1].kills + ";";

@@ -5,8 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/MatchInfo/AnalizedInfo.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/MatchInfo/AnalizedInfo.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/DataWorker.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/DataWorker.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Main.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/MatchesWorker.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/MatchesWorker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/ParserFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/ParserFactory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/PrimaryAnaliticsFactory.class" afterPath="$PROJECT_DIR$/out/production/Dota2ProAnalitics_0.0/ProjectDir/Analitics/PrimaryAnaliticsFactory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/100028335.txt" afterPath="$PROJECT_DIR$/files/players/100028335.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/100058342.txt" afterPath="$PROJECT_DIR$/files/players/100058342.txt" />
@@ -35,6 +33,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101191101.txt" afterPath="$PROJECT_DIR$/files/players/101191101.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101208242.txt" afterPath="$PROJECT_DIR$/files/players/101208242.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101240880.txt" afterPath="$PROJECT_DIR$/files/players/101240880.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101356886.txt" afterPath="$PROJECT_DIR$/files/players/101356886.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101375717.txt" afterPath="$PROJECT_DIR$/files/players/101375717.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101450083.txt" afterPath="$PROJECT_DIR$/files/players/101450083.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101460882.txt" afterPath="$PROJECT_DIR$/files/players/101460882.txt" />
@@ -46,6 +45,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101609459.txt" afterPath="$PROJECT_DIR$/files/players/101609459.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101695162.txt" afterPath="$PROJECT_DIR$/files/players/101695162.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101779337.txt" afterPath="$PROJECT_DIR$/files/players/101779337.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101897410.txt" afterPath="$PROJECT_DIR$/files/players/101897410.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101908305.txt" afterPath="$PROJECT_DIR$/files/players/101908305.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/101968048.txt" afterPath="$PROJECT_DIR$/files/players/101968048.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/102020930.txt" afterPath="$PROJECT_DIR$/files/players/102020930.txt" />
@@ -76,6 +76,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/103228650.txt" afterPath="$PROJECT_DIR$/files/players/103228650.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/103245044.txt" afterPath="$PROJECT_DIR$/files/players/103245044.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/103358602.txt" afterPath="$PROJECT_DIR$/files/players/103358602.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/103429340.txt" afterPath="$PROJECT_DIR$/files/players/103429340.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/103578570.txt" afterPath="$PROJECT_DIR$/files/players/103578570.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/10366616.txt" afterPath="$PROJECT_DIR$/files/players/10366616.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/103735745.txt" afterPath="$PROJECT_DIR$/files/players/103735745.txt" />
@@ -100,6 +101,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/104968334.txt" afterPath="$PROJECT_DIR$/files/players/104968334.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/104979079.txt" afterPath="$PROJECT_DIR$/files/players/104979079.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/105001471.txt" afterPath="$PROJECT_DIR$/files/players/105001471.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/105045291.txt" afterPath="$PROJECT_DIR$/files/players/105045291.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/105178768.txt" afterPath="$PROJECT_DIR$/files/players/105178768.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/105197654.txt" afterPath="$PROJECT_DIR$/files/players/105197654.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/105248644.txt" afterPath="$PROJECT_DIR$/files/players/105248644.txt" />
@@ -162,6 +164,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/109883841.txt" afterPath="$PROJECT_DIR$/files/players/109883841.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/110025307.txt" afterPath="$PROJECT_DIR$/files/players/110025307.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/110090274.txt" afterPath="$PROJECT_DIR$/files/players/110090274.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/110213369.txt" afterPath="$PROJECT_DIR$/files/players/110213369.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/110236708.txt" afterPath="$PROJECT_DIR$/files/players/110236708.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/110397360.txt" afterPath="$PROJECT_DIR$/files/players/110397360.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/110427852.txt" afterPath="$PROJECT_DIR$/files/players/110427852.txt" />
@@ -183,6 +186,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/111291593.txt" afterPath="$PROJECT_DIR$/files/players/111291593.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/111372926.txt" afterPath="$PROJECT_DIR$/files/players/111372926.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/111392103.txt" afterPath="$PROJECT_DIR$/files/players/111392103.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/111458290.txt" afterPath="$PROJECT_DIR$/files/players/111458290.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/111503721.txt" afterPath="$PROJECT_DIR$/files/players/111503721.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/111555756.txt" afterPath="$PROJECT_DIR$/files/players/111555756.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/111568542.txt" afterPath="$PROJECT_DIR$/files/players/111568542.txt" />
@@ -202,10 +206,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113108194.txt" afterPath="$PROJECT_DIR$/files/players/113108194.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113175114.txt" afterPath="$PROJECT_DIR$/files/players/113175114.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113272381.txt" afterPath="$PROJECT_DIR$/files/players/113272381.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113309885.txt" afterPath="$PROJECT_DIR$/files/players/113309885.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113316122.txt" afterPath="$PROJECT_DIR$/files/players/113316122.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113331514.txt" afterPath="$PROJECT_DIR$/files/players/113331514.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113372833.txt" afterPath="$PROJECT_DIR$/files/players/113372833.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113457795.txt" afterPath="$PROJECT_DIR$/files/players/113457795.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113465150.txt" afterPath="$PROJECT_DIR$/files/players/113465150.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113635276.txt" afterPath="$PROJECT_DIR$/files/players/113635276.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113705693.txt" afterPath="$PROJECT_DIR$/files/players/113705693.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113735534.txt" afterPath="$PROJECT_DIR$/files/players/113735534.txt" />
@@ -214,7 +220,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113800923.txt" afterPath="$PROJECT_DIR$/files/players/113800923.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113825167.txt" afterPath="$PROJECT_DIR$/files/players/113825167.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113874152.txt" afterPath="$PROJECT_DIR$/files/players/113874152.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113923026.txt" afterPath="$PROJECT_DIR$/files/players/113923026.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113938016.txt" afterPath="$PROJECT_DIR$/files/players/113938016.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113973873.txt" afterPath="$PROJECT_DIR$/files/players/113973873.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/113995822.txt" afterPath="$PROJECT_DIR$/files/players/113995822.txt" />
@@ -228,6 +233,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/114672220.txt" afterPath="$PROJECT_DIR$/files/players/114672220.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/11473065.txt" afterPath="$PROJECT_DIR$/files/players/11473065.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/114809480.txt" afterPath="$PROJECT_DIR$/files/players/114809480.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/114817642.txt" afterPath="$PROJECT_DIR$/files/players/114817642.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/114980990.txt" afterPath="$PROJECT_DIR$/files/players/114980990.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/115102590.txt" afterPath="$PROJECT_DIR$/files/players/115102590.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/115141430.txt" afterPath="$PROJECT_DIR$/files/players/115141430.txt" />
@@ -306,6 +312,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/120374476.txt" afterPath="$PROJECT_DIR$/files/players/120374476.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/120569619.txt" afterPath="$PROJECT_DIR$/files/players/120569619.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/120801441.txt" afterPath="$PROJECT_DIR$/files/players/120801441.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/120901780.txt" afterPath="$PROJECT_DIR$/files/players/120901780.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/121052479.txt" afterPath="$PROJECT_DIR$/files/players/121052479.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/121113253.txt" afterPath="$PROJECT_DIR$/files/players/121113253.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/121182539.txt" afterPath="$PROJECT_DIR$/files/players/121182539.txt" />
@@ -351,6 +358,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/124831899.txt" afterPath="$PROJECT_DIR$/files/players/124831899.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/125191873.txt" afterPath="$PROJECT_DIR$/files/players/125191873.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/125265041.txt" afterPath="$PROJECT_DIR$/files/players/125265041.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/125448329.txt" afterPath="$PROJECT_DIR$/files/players/125448329.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/125576983.txt" afterPath="$PROJECT_DIR$/files/players/125576983.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/125581247.txt" afterPath="$PROJECT_DIR$/files/players/125581247.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/125801956.txt" afterPath="$PROJECT_DIR$/files/players/125801956.txt" />
@@ -358,7 +366,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/125995177.txt" afterPath="$PROJECT_DIR$/files/players/125995177.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/126207717.txt" afterPath="$PROJECT_DIR$/files/players/126207717.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/126309285.txt" afterPath="$PROJECT_DIR$/files/players/126309285.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/126359982.txt" afterPath="$PROJECT_DIR$/files/players/126359982.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/126417273.txt" afterPath="$PROJECT_DIR$/files/players/126417273.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/126452507.txt" afterPath="$PROJECT_DIR$/files/players/126452507.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/126884698.txt" afterPath="$PROJECT_DIR$/files/players/126884698.txt" />
@@ -434,6 +441,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/136624722.txt" afterPath="$PROJECT_DIR$/files/players/136624722.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/136636129.txt" afterPath="$PROJECT_DIR$/files/players/136636129.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/136768427.txt" afterPath="$PROJECT_DIR$/files/players/136768427.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/136938490.txt" afterPath="$PROJECT_DIR$/files/players/136938490.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/137193239.txt" afterPath="$PROJECT_DIR$/files/players/137193239.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/137273293.txt" afterPath="$PROJECT_DIR$/files/players/137273293.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/137496334.txt" afterPath="$PROJECT_DIR$/files/players/137496334.txt" />
@@ -477,17 +485,20 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/146379733.txt" afterPath="$PROJECT_DIR$/files/players/146379733.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/146485028.txt" afterPath="$PROJECT_DIR$/files/players/146485028.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/146897572.txt" afterPath="$PROJECT_DIR$/files/players/146897572.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/147344773.txt" afterPath="$PROJECT_DIR$/files/players/147344773.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/147975188.txt" afterPath="$PROJECT_DIR$/files/players/147975188.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/148092534.txt" afterPath="$PROJECT_DIR$/files/players/148092534.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/148093411.txt" afterPath="$PROJECT_DIR$/files/players/148093411.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/148215639.txt" afterPath="$PROJECT_DIR$/files/players/148215639.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/148539787.txt" afterPath="$PROJECT_DIR$/files/players/148539787.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/148649027.txt" afterPath="$PROJECT_DIR$/files/players/148649027.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/148847275.txt" afterPath="$PROJECT_DIR$/files/players/148847275.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/149008268.txt" afterPath="$PROJECT_DIR$/files/players/149008268.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/149190183.txt" afterPath="$PROJECT_DIR$/files/players/149190183.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/149486894.txt" afterPath="$PROJECT_DIR$/files/players/149486894.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/150010859.txt" afterPath="$PROJECT_DIR$/files/players/150010859.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/150124573.txt" afterPath="$PROJECT_DIR$/files/players/150124573.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/150197164.txt" afterPath="$PROJECT_DIR$/files/players/150197164.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/150274723.txt" afterPath="$PROJECT_DIR$/files/players/150274723.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/150419909.txt" afterPath="$PROJECT_DIR$/files/players/150419909.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/150759007.txt" afterPath="$PROJECT_DIR$/files/players/150759007.txt" />
@@ -496,18 +507,22 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/151591563.txt" afterPath="$PROJECT_DIR$/files/players/151591563.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/151628303.txt" afterPath="$PROJECT_DIR$/files/players/151628303.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/151717190.txt" afterPath="$PROJECT_DIR$/files/players/151717190.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/151857531.txt" afterPath="$PROJECT_DIR$/files/players/151857531.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/152545459.txt" afterPath="$PROJECT_DIR$/files/players/152545459.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/153042379.txt" afterPath="$PROJECT_DIR$/files/players/153042379.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/153344832.txt" afterPath="$PROJECT_DIR$/files/players/153344832.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/153349647.txt" afterPath="$PROJECT_DIR$/files/players/153349647.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/153404035.txt" afterPath="$PROJECT_DIR$/files/players/153404035.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/153749549.txt" afterPath="$PROJECT_DIR$/files/players/153749549.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/153836240.txt" afterPath="$PROJECT_DIR$/files/players/153836240.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/153946438.txt" afterPath="$PROJECT_DIR$/files/players/153946438.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/154715080.txt" afterPath="$PROJECT_DIR$/files/players/154715080.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/154839478.txt" afterPath="$PROJECT_DIR$/files/players/154839478.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/155159499.txt" afterPath="$PROJECT_DIR$/files/players/155159499.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/155332459.txt" afterPath="$PROJECT_DIR$/files/players/155332459.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/155494381.txt" afterPath="$PROJECT_DIR$/files/players/155494381.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/155754880.txt" afterPath="$PROJECT_DIR$/files/players/155754880.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/156029808.txt" afterPath="$PROJECT_DIR$/files/players/156029808.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/156339857.txt" afterPath="$PROJECT_DIR$/files/players/156339857.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/156748331.txt" afterPath="$PROJECT_DIR$/files/players/156748331.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/156790948.txt" afterPath="$PROJECT_DIR$/files/players/156790948.txt" />
@@ -539,7 +554,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/164105832.txt" afterPath="$PROJECT_DIR$/files/players/164105832.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/164244344.txt" afterPath="$PROJECT_DIR$/files/players/164244344.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/164532005.txt" afterPath="$PROJECT_DIR$/files/players/164532005.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/165838489.txt" afterPath="$PROJECT_DIR$/files/players/165838489.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/166924523.txt" afterPath="$PROJECT_DIR$/files/players/166924523.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/167134760.txt" afterPath="$PROJECT_DIR$/files/players/167134760.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/167314004.txt" afterPath="$PROJECT_DIR$/files/players/167314004.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/167491780.txt" afterPath="$PROJECT_DIR$/files/players/167491780.txt" />
@@ -547,6 +562,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/168028715.txt" afterPath="$PROJECT_DIR$/files/players/168028715.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/168059543.txt" afterPath="$PROJECT_DIR$/files/players/168059543.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/168433942.txt" afterPath="$PROJECT_DIR$/files/players/168433942.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/168532604.txt" afterPath="$PROJECT_DIR$/files/players/168532604.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/16861849.txt" afterPath="$PROJECT_DIR$/files/players/16861849.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/168938444.txt" afterPath="$PROJECT_DIR$/files/players/168938444.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/169025618.txt" afterPath="$PROJECT_DIR$/files/players/169025618.txt" />
@@ -555,11 +571,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/169415258.txt" afterPath="$PROJECT_DIR$/files/players/169415258.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/169447297.txt" afterPath="$PROJECT_DIR$/files/players/169447297.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/170062542.txt" afterPath="$PROJECT_DIR$/files/players/170062542.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/170532209.txt" afterPath="$PROJECT_DIR$/files/players/170532209.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/170580868.txt" afterPath="$PROJECT_DIR$/files/players/170580868.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/170618788.txt" afterPath="$PROJECT_DIR$/files/players/170618788.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/171040390.txt" afterPath="$PROJECT_DIR$/files/players/171040390.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/171088490.txt" afterPath="$PROJECT_DIR$/files/players/171088490.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/171281472.txt" afterPath="$PROJECT_DIR$/files/players/171281472.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/171775246.txt" afterPath="$PROJECT_DIR$/files/players/171775246.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/172158907.txt" afterPath="$PROJECT_DIR$/files/players/172158907.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/172195200.txt" afterPath="$PROJECT_DIR$/files/players/172195200.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/172342282.txt" afterPath="$PROJECT_DIR$/files/players/172342282.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/172414207.txt" afterPath="$PROJECT_DIR$/files/players/172414207.txt" />
@@ -584,6 +602,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/175705739.txt" afterPath="$PROJECT_DIR$/files/players/175705739.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/175978614.txt" afterPath="$PROJECT_DIR$/files/players/175978614.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/176184718.txt" afterPath="$PROJECT_DIR$/files/players/176184718.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/176280746.txt" afterPath="$PROJECT_DIR$/files/players/176280746.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/176655214.txt" afterPath="$PROJECT_DIR$/files/players/176655214.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/176988393.txt" afterPath="$PROJECT_DIR$/files/players/176988393.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/176996872.txt" afterPath="$PROJECT_DIR$/files/players/176996872.txt" />
@@ -597,6 +616,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/178032556.txt" afterPath="$PROJECT_DIR$/files/players/178032556.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/178190271.txt" afterPath="$PROJECT_DIR$/files/players/178190271.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/178555181.txt" afterPath="$PROJECT_DIR$/files/players/178555181.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/178713508.txt" afterPath="$PROJECT_DIR$/files/players/178713508.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/178771086.txt" afterPath="$PROJECT_DIR$/files/players/178771086.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/178812359.txt" afterPath="$PROJECT_DIR$/files/players/178812359.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/178891707.txt" afterPath="$PROJECT_DIR$/files/players/178891707.txt" />
@@ -608,6 +628,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/180836382.txt" afterPath="$PROJECT_DIR$/files/players/180836382.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/181258732.txt" afterPath="$PROJECT_DIR$/files/players/181258732.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/181532808.txt" afterPath="$PROJECT_DIR$/files/players/181532808.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/181713590.txt" afterPath="$PROJECT_DIR$/files/players/181713590.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/18180970.txt" afterPath="$PROJECT_DIR$/files/players/18180970.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/181894940.txt" afterPath="$PROJECT_DIR$/files/players/181894940.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/182325064.txt" afterPath="$PROJECT_DIR$/files/players/182325064.txt" />
@@ -620,6 +641,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/183476874.txt" afterPath="$PROJECT_DIR$/files/players/183476874.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/183491617.txt" afterPath="$PROJECT_DIR$/files/players/183491617.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/184090105.txt" afterPath="$PROJECT_DIR$/files/players/184090105.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/184123253.txt" afterPath="$PROJECT_DIR$/files/players/184123253.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/184123262.txt" afterPath="$PROJECT_DIR$/files/players/184123262.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/184152609.txt" afterPath="$PROJECT_DIR$/files/players/184152609.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/184324510.txt" afterPath="$PROJECT_DIR$/files/players/184324510.txt" />
@@ -627,6 +649,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/184663436.txt" afterPath="$PROJECT_DIR$/files/players/184663436.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/184805226.txt" afterPath="$PROJECT_DIR$/files/players/184805226.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/184950344.txt" afterPath="$PROJECT_DIR$/files/players/184950344.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/185945772.txt" afterPath="$PROJECT_DIR$/files/players/185945772.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/186419935.txt" afterPath="$PROJECT_DIR$/files/players/186419935.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/186495116.txt" afterPath="$PROJECT_DIR$/files/players/186495116.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/186604904.txt" afterPath="$PROJECT_DIR$/files/players/186604904.txt" />
@@ -678,6 +701,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/196228187.txt" afterPath="$PROJECT_DIR$/files/players/196228187.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/196399018.txt" afterPath="$PROJECT_DIR$/files/players/196399018.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/196490133.txt" afterPath="$PROJECT_DIR$/files/players/196490133.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/196628643.txt" afterPath="$PROJECT_DIR$/files/players/196628643.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/19672354.txt" afterPath="$PROJECT_DIR$/files/players/19672354.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/196861842.txt" afterPath="$PROJECT_DIR$/files/players/196861842.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/196865976.txt" afterPath="$PROJECT_DIR$/files/players/196865976.txt" />
@@ -693,9 +717,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/199448722.txt" afterPath="$PROJECT_DIR$/files/players/199448722.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/199496809.txt" afterPath="$PROJECT_DIR$/files/players/199496809.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/199548117.txt" afterPath="$PROJECT_DIR$/files/players/199548117.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/199858921.txt" afterPath="$PROJECT_DIR$/files/players/199858921.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/201678919.txt" afterPath="$PROJECT_DIR$/files/players/201678919.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/201741490.txt" afterPath="$PROJECT_DIR$/files/players/201741490.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/202253963.txt" afterPath="$PROJECT_DIR$/files/players/202253963.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/202691419.txt" afterPath="$PROJECT_DIR$/files/players/202691419.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/202696409.txt" afterPath="$PROJECT_DIR$/files/players/202696409.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/203178059.txt" afterPath="$PROJECT_DIR$/files/players/203178059.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/20321748.txt" afterPath="$PROJECT_DIR$/files/players/20321748.txt" />
@@ -717,6 +743,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/208407289.txt" afterPath="$PROJECT_DIR$/files/players/208407289.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/208707657.txt" afterPath="$PROJECT_DIR$/files/players/208707657.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/208796906.txt" afterPath="$PROJECT_DIR$/files/players/208796906.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/208893646.txt" afterPath="$PROJECT_DIR$/files/players/208893646.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/209563909.txt" afterPath="$PROJECT_DIR$/files/players/209563909.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/209678478.txt" afterPath="$PROJECT_DIR$/files/players/209678478.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/210301073.txt" afterPath="$PROJECT_DIR$/files/players/210301073.txt" />
@@ -729,6 +756,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/214150763.txt" afterPath="$PROJECT_DIR$/files/players/214150763.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/214178702.txt" afterPath="$PROJECT_DIR$/files/players/214178702.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/214535081.txt" afterPath="$PROJECT_DIR$/files/players/214535081.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/214697365.txt" afterPath="$PROJECT_DIR$/files/players/214697365.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/215447007.txt" afterPath="$PROJECT_DIR$/files/players/215447007.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/215457595.txt" afterPath="$PROJECT_DIR$/files/players/215457595.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/215491438.txt" afterPath="$PROJECT_DIR$/files/players/215491438.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/215537837.txt" afterPath="$PROJECT_DIR$/files/players/215537837.txt" />
@@ -738,6 +767,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/217239554.txt" afterPath="$PROJECT_DIR$/files/players/217239554.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/217906387.txt" afterPath="$PROJECT_DIR$/files/players/217906387.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/218757018.txt" afterPath="$PROJECT_DIR$/files/players/218757018.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/21890640.txt" afterPath="$PROJECT_DIR$/files/players/21890640.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/218915338.txt" afterPath="$PROJECT_DIR$/files/players/218915338.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/219025659.txt" afterPath="$PROJECT_DIR$/files/players/219025659.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/219600931.txt" afterPath="$PROJECT_DIR$/files/players/219600931.txt" />
@@ -746,6 +776,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/222975509.txt" afterPath="$PROJECT_DIR$/files/players/222975509.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/224477505.txt" afterPath="$PROJECT_DIR$/files/players/224477505.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/225239605.txt" afterPath="$PROJECT_DIR$/files/players/225239605.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/225582809.txt" afterPath="$PROJECT_DIR$/files/players/225582809.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/225605422.txt" afterPath="$PROJECT_DIR$/files/players/225605422.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/226233041.txt" afterPath="$PROJECT_DIR$/files/players/226233041.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/226843214.txt" afterPath="$PROJECT_DIR$/files/players/226843214.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/228018005.txt" afterPath="$PROJECT_DIR$/files/players/228018005.txt" />
@@ -754,6 +786,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/229984497.txt" afterPath="$PROJECT_DIR$/files/players/229984497.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/230617400.txt" afterPath="$PROJECT_DIR$/files/players/230617400.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/233220325.txt" afterPath="$PROJECT_DIR$/files/players/233220325.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/234385549.txt" afterPath="$PROJECT_DIR$/files/players/234385549.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/234699894.txt" afterPath="$PROJECT_DIR$/files/players/234699894.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/234765519.txt" afterPath="$PROJECT_DIR$/files/players/234765519.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/235757542.txt" afterPath="$PROJECT_DIR$/files/players/235757542.txt" />
@@ -801,6 +834,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/257871203.txt" afterPath="$PROJECT_DIR$/files/players/257871203.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/257927571.txt" afterPath="$PROJECT_DIR$/files/players/257927571.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/258294351.txt" afterPath="$PROJECT_DIR$/files/players/258294351.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/258463921.txt" afterPath="$PROJECT_DIR$/files/players/258463921.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/25907144.txt" afterPath="$PROJECT_DIR$/files/players/25907144.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/259131569.txt" afterPath="$PROJECT_DIR$/files/players/259131569.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/259893255.txt" afterPath="$PROJECT_DIR$/files/players/259893255.txt" />
@@ -815,7 +849,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/26682464.txt" afterPath="$PROJECT_DIR$/files/players/26682464.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/26771994.txt" afterPath="$PROJECT_DIR$/files/players/26771994.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/268269592.txt" afterPath="$PROJECT_DIR$/files/players/268269592.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/270699196.txt" afterPath="$PROJECT_DIR$/files/players/270699196.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/27178898.txt" afterPath="$PROJECT_DIR$/files/players/27178898.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/274970020.txt" afterPath="$PROJECT_DIR$/files/players/274970020.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/278082958.txt" afterPath="$PROJECT_DIR$/files/players/278082958.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/279522356.txt" afterPath="$PROJECT_DIR$/files/players/279522356.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/279639956.txt" afterPath="$PROJECT_DIR$/files/players/279639956.txt" />
@@ -883,8 +919,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/31848255.txt" afterPath="$PROJECT_DIR$/files/players/31848255.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/318514166.txt" afterPath="$PROJECT_DIR$/files/players/318514166.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/319458478.txt" afterPath="$PROJECT_DIR$/files/players/319458478.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/319506803.txt" afterPath="$PROJECT_DIR$/files/players/319506803.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/319935099.txt" afterPath="$PROJECT_DIR$/files/players/319935099.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/320753253.txt" afterPath="$PROJECT_DIR$/files/players/320753253.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/320777003.txt" afterPath="$PROJECT_DIR$/files/players/320777003.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/321042141.txt" afterPath="$PROJECT_DIR$/files/players/321042141.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/321143429.txt" afterPath="$PROJECT_DIR$/files/players/321143429.txt" />
@@ -898,11 +934,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/328077856.txt" afterPath="$PROJECT_DIR$/files/players/328077856.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/32936165.txt" afterPath="$PROJECT_DIR$/files/players/32936165.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/330624734.txt" afterPath="$PROJECT_DIR$/files/players/330624734.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/330970061.txt" afterPath="$PROJECT_DIR$/files/players/330970061.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/331184553.txt" afterPath="$PROJECT_DIR$/files/players/331184553.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/332233635.txt" afterPath="$PROJECT_DIR$/files/players/332233635.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/33256138.txt" afterPath="$PROJECT_DIR$/files/players/33256138.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/332677954.txt" afterPath="$PROJECT_DIR$/files/players/332677954.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/332907439.txt" afterPath="$PROJECT_DIR$/files/players/332907439.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/333079245.txt" afterPath="$PROJECT_DIR$/files/players/333079245.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/334699700.txt" afterPath="$PROJECT_DIR$/files/players/334699700.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/34050628.txt" afterPath="$PROJECT_DIR$/files/players/34050628.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/34322358.txt" afterPath="$PROJECT_DIR$/files/players/34322358.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/34505203.txt" afterPath="$PROJECT_DIR$/files/players/34505203.txt" />
@@ -1021,13 +1060,16 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/77146352.txt" afterPath="$PROJECT_DIR$/files/players/77146352.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/78651939.txt" afterPath="$PROJECT_DIR$/files/players/78651939.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/78849905.txt" afterPath="$PROJECT_DIR$/files/players/78849905.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/78891550.txt" afterPath="$PROJECT_DIR$/files/players/78891550.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/78988296.txt" afterPath="$PROJECT_DIR$/files/players/78988296.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/7910302.txt" afterPath="$PROJECT_DIR$/files/players/7910302.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/80466386.txt" afterPath="$PROJECT_DIR$/files/players/80466386.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/80929738.txt" afterPath="$PROJECT_DIR$/files/players/80929738.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/81183349.txt" afterPath="$PROJECT_DIR$/files/players/81183349.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/81852496.txt" afterPath="$PROJECT_DIR$/files/players/81852496.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/82051518.txt" afterPath="$PROJECT_DIR$/files/players/82051518.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/82059860.txt" afterPath="$PROJECT_DIR$/files/players/82059860.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/82229931.txt" afterPath="$PROJECT_DIR$/files/players/82229931.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/82262664.txt" afterPath="$PROJECT_DIR$/files/players/82262664.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/82305765.txt" afterPath="$PROJECT_DIR$/files/players/82305765.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/82327674.txt" afterPath="$PROJECT_DIR$/files/players/82327674.txt" />
@@ -1036,6 +1078,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/8363146.txt" afterPath="$PROJECT_DIR$/files/players/8363146.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/83867257.txt" afterPath="$PROJECT_DIR$/files/players/83867257.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/84429681.txt" afterPath="$PROJECT_DIR$/files/players/84429681.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/84467606.txt" afterPath="$PROJECT_DIR$/files/players/84467606.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/84772440.txt" afterPath="$PROJECT_DIR$/files/players/84772440.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/84853828.txt" afterPath="$PROJECT_DIR$/files/players/84853828.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/85008179.txt" afterPath="$PROJECT_DIR$/files/players/85008179.txt" />
@@ -1050,6 +1093,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86576108.txt" afterPath="$PROJECT_DIR$/files/players/86576108.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86664345.txt" afterPath="$PROJECT_DIR$/files/players/86664345.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86677637.txt" afterPath="$PROJECT_DIR$/files/players/86677637.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86691431.txt" afterPath="$PROJECT_DIR$/files/players/86691431.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86698277.txt" afterPath="$PROJECT_DIR$/files/players/86698277.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86700461.txt" afterPath="$PROJECT_DIR$/files/players/86700461.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86715129.txt" afterPath="$PROJECT_DIR$/files/players/86715129.txt" />
@@ -1072,6 +1116,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86747351.txt" afterPath="$PROJECT_DIR$/files/players/86747351.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86750028.txt" afterPath="$PROJECT_DIR$/files/players/86750028.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86750050.txt" afterPath="$PROJECT_DIR$/files/players/86750050.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86750146.txt" afterPath="$PROJECT_DIR$/files/players/86750146.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86750262.txt" afterPath="$PROJECT_DIR$/files/players/86750262.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86751819.txt" afterPath="$PROJECT_DIR$/files/players/86751819.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86754274.txt" afterPath="$PROJECT_DIR$/files/players/86754274.txt" />
@@ -1093,24 +1138,27 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86799300.txt" afterPath="$PROJECT_DIR$/files/players/86799300.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86802844.txt" afterPath="$PROJECT_DIR$/files/players/86802844.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86811043.txt" afterPath="$PROJECT_DIR$/files/players/86811043.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86817707.txt" afterPath="$PROJECT_DIR$/files/players/86817707.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86822085.txt" afterPath="$PROJECT_DIR$/files/players/86822085.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86826141.txt" afterPath="$PROJECT_DIR$/files/players/86826141.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86840554.txt" afterPath="$PROJECT_DIR$/files/players/86840554.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86843270.txt" afterPath="$PROJECT_DIR$/files/players/86843270.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86850020.txt" afterPath="$PROJECT_DIR$/files/players/86850020.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86861614.txt" afterPath="$PROJECT_DIR$/files/players/86861614.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86870856.txt" afterPath="$PROJECT_DIR$/files/players/86870856.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86874930.txt" afterPath="$PROJECT_DIR$/files/players/86874930.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86896635.txt" afterPath="$PROJECT_DIR$/files/players/86896635.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86908718.txt" afterPath="$PROJECT_DIR$/files/players/86908718.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86912142.txt" afterPath="$PROJECT_DIR$/files/players/86912142.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86918453.txt" afterPath="$PROJECT_DIR$/files/players/86918453.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86930446.txt" afterPath="$PROJECT_DIR$/files/players/86930446.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86937884.txt" afterPath="$PROJECT_DIR$/files/players/86937884.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86940305.txt" afterPath="$PROJECT_DIR$/files/players/86940305.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86953414.txt" afterPath="$PROJECT_DIR$/files/players/86953414.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86975889.txt" afterPath="$PROJECT_DIR$/files/players/86975889.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86976410.txt" afterPath="$PROJECT_DIR$/files/players/86976410.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/86992358.txt" afterPath="$PROJECT_DIR$/files/players/86992358.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/87012746.txt" afterPath="$PROJECT_DIR$/files/players/87012746.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/87042123.txt" afterPath="$PROJECT_DIR$/files/players/87042123.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/87055610.txt" afterPath="$PROJECT_DIR$/files/players/87055610.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/87095102.txt" afterPath="$PROJECT_DIR$/files/players/87095102.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/8712306.txt" afterPath="$PROJECT_DIR$/files/players/8712306.txt" />
@@ -1140,8 +1188,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/88585077.txt" afterPath="$PROJECT_DIR$/files/players/88585077.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/88655279.txt" afterPath="$PROJECT_DIR$/files/players/88655279.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/88719902.txt" afterPath="$PROJECT_DIR$/files/players/88719902.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/88826062.txt" afterPath="$PROJECT_DIR$/files/players/88826062.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/88933594.txt" afterPath="$PROJECT_DIR$/files/players/88933594.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/88969389.txt" afterPath="$PROJECT_DIR$/files/players/88969389.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/89001276.txt" afterPath="$PROJECT_DIR$/files/players/89001276.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/89117038.txt" afterPath="$PROJECT_DIR$/files/players/89117038.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/89137399.txt" afterPath="$PROJECT_DIR$/files/players/89137399.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/89157606.txt" afterPath="$PROJECT_DIR$/files/players/89157606.txt" />
@@ -1160,6 +1210,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/89550641.txt" afterPath="$PROJECT_DIR$/files/players/89550641.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/89558833.txt" afterPath="$PROJECT_DIR$/files/players/89558833.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/89598554.txt" afterPath="$PROJECT_DIR$/files/players/89598554.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/89603649.txt" afterPath="$PROJECT_DIR$/files/players/89603649.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/89625472.txt" afterPath="$PROJECT_DIR$/files/players/89625472.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/89860996.txt" afterPath="$PROJECT_DIR$/files/players/89860996.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/89871557.txt" afterPath="$PROJECT_DIR$/files/players/89871557.txt" />
@@ -1203,6 +1254,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/91971075.txt" afterPath="$PROJECT_DIR$/files/players/91971075.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/91981924.txt" afterPath="$PROJECT_DIR$/files/players/91981924.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/91982026.txt" afterPath="$PROJECT_DIR$/files/players/91982026.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/92086472.txt" afterPath="$PROJECT_DIR$/files/players/92086472.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/92127891.txt" afterPath="$PROJECT_DIR$/files/players/92127891.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/92145869.txt" afterPath="$PROJECT_DIR$/files/players/92145869.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/92146131.txt" afterPath="$PROJECT_DIR$/files/players/92146131.txt" />
@@ -1217,6 +1269,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/92706637.txt" afterPath="$PROJECT_DIR$/files/players/92706637.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/92847434.txt" afterPath="$PROJECT_DIR$/files/players/92847434.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/92855627.txt" afterPath="$PROJECT_DIR$/files/players/92855627.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/92897724.txt" afterPath="$PROJECT_DIR$/files/players/92897724.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/92898197.txt" afterPath="$PROJECT_DIR$/files/players/92898197.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/92949094.txt" afterPath="$PROJECT_DIR$/files/players/92949094.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/92968238.txt" afterPath="$PROJECT_DIR$/files/players/92968238.txt" />
@@ -1282,17 +1335,20 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/99881834.txt" afterPath="$PROJECT_DIR$/files/players/99881834.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/players/99973238.txt" afterPath="$PROJECT_DIR$/files/players/99973238.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/MatchInfo/AnalizedInfo.java" afterPath="$PROJECT_DIR$/src/ProjectDir/MatchInfo/AnalizedInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/BrokenMatches.txt" afterPath="$PROJECT_DIR$/Backup/BrokenMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/BrokenMatches.txt" afterPath="$PROJECT_DIR$/files/BrokenMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/DataWorker.java" afterPath="$PROJECT_DIR$/src/ProjectDir/DataWorker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/LeaguesParsed.txt" afterPath="$PROJECT_DIR$/files/LeaguesParsed.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/Main.java" afterPath="$PROJECT_DIR$/src/ProjectDir/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/Matches.txt" afterPath="$PROJECT_DIR$/Backup/Matches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/Matches.txt" afterPath="$PROJECT_DIR$/files/Matches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/MatchesAnalized.txt" afterPath="$PROJECT_DIR$/Backup/MatchesAnalized.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/MatchesAnalized.txt" afterPath="$PROJECT_DIR$/files/MatchesAnalized.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/MatchesParsed.txt" afterPath="$PROJECT_DIR$/Backup/MatchesParsed.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/MatchesParsed.txt" afterPath="$PROJECT_DIR$/files/MatchesParsed.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/MatchesRated.txt" afterPath="$PROJECT_DIR$/Backup/MatchesRated.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/MatchesRated.txt" afterPath="$PROJECT_DIR$/files/MatchesRated.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/MatchesWorker.java" afterPath="$PROJECT_DIR$/src/ProjectDir/MatchesWorker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/NeedToParse.txt" afterPath="$PROJECT_DIR$/files/NeedToParse.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/ParserFactory.java" afterPath="$PROJECT_DIR$/src/ProjectDir/ParserFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java" afterPath="$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1105664/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1105664/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/111474/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/111474/TeamMatches.txt" />
@@ -1321,6 +1377,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1882754/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1882754/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1883502/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1883502/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1884355/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1884355/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1897741/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1897741/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1914023/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1914023/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1925517/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1925517/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/1927365/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/1927365/TeamMatches.txt" />
@@ -1342,6 +1399,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2130812/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2130812/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2163/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2163/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2168675/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2168675/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2196975/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2196975/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2201839/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2201839/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2208748/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2208748/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2217083/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2217083/TeamMatches.txt" />
@@ -1362,6 +1420,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/24/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/24/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2406769/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2406769/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2413217/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2413217/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2413318/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2413318/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2414095/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2414095/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2414475/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2414475/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2428289/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2428289/TeamMatches.txt" />
@@ -1399,6 +1458,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2566305/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2566305/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2568195/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2568195/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2568520/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2568520/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2571686/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2571686/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2574116/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2574116/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2578382/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2578382/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2579635/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2579635/TeamMatches.txt" />
@@ -1472,6 +1532,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2730057/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2730057/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2736123/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2736123/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2738555/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2738555/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2738689/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2738689/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2740736/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2740736/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2740806/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2740806/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2742158/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2742158/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2742611/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2742611/TeamMatches.txt" />
@@ -1483,6 +1545,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2759242/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2759242/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2762342/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2762342/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2762745/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2762745/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2766661/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2766661/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2766965/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2766965/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2767412/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2767412/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2767585/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2767585/TeamMatches.txt" />
@@ -1496,6 +1559,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2781126/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2781126/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2783913/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2783913/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2784828/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2784828/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2787759/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2787759/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2787936/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2787936/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2788336/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2788336/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2789395/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2789395/TeamMatches.txt" />
@@ -1508,6 +1572,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2794503/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2794503/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2802668/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2802668/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2803799/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2803799/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/2808768/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/2808768/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/296530/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/296530/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/3/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/3/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/32150/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/32150/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/350190/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/350190/TeamMatches.txt" />
@@ -1522,6 +1588,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/59/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/59/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/67/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/67/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/692683/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/692683/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/714435/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/714435/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/726228/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/726228/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/741911/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/741911/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/758797/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/758797/TeamMatches.txt" />
@@ -1531,6 +1598,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/827550/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/827550/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/98301/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/98301/TeamMatches.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/teams/9896/TeamMatches.txt" afterPath="$PROJECT_DIR$/files/teams/9896/TeamMatches.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backup/TeamRatings.txt" afterPath="$PROJECT_DIR$/Backup/TeamRatings.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/TeamRatings.txt" afterPath="$PROJECT_DIR$/files/TeamRatings.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -1559,31 +1627,36 @@
         <entry file="file://$PROJECT_DIR$/src/ProjectDir/DataWorker.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="990" column="0" selection-start-line="990" selection-start-column="0" selection-end-line="990" selection-end-column="0" />
+              <caret line="236" column="43" selection-start-line="236" selection-start-column="43" selection-end-line="236" selection-end-column="43" />
               <folding>
+                <element signature="e#8131#8158#0" expanded="true" />
                 <element signature="method#fillObject#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#showMatchInfo#0;class#DataWorker#0" expanded="false" />
+                <element signature="n#!!doc;n#getMedianFromArray#0;n#DataWorker#0" expanded="true" />
                 <element signature="method#getAverageEnemyFBRating#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getAverageFBPercent#0;class#DataWorker#0" expanded="false" />
-                <element signature="method#getFBForm#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getHorribleGameFBPercent#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getBadGameFBPercent#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getNormalGameFBPercent#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getGoodGameFBPercent#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getPerfectGameFBPercent#0;class#DataWorker#0" expanded="false" />
+                <element signature="e#34328#34355#0" expanded="true" />
+                <element signature="method#getMedianF10KTime#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getAverageEnemyF10KRating#0;class#DataWorker#0" expanded="false" />
-                <element signature="method#getAverageF10KPercent#0;class#DataWorker#0" expanded="false" />
-                <element signature="method#getF10KForm#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getHorribleGameF10KPercent#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getBadGameF10KPercent#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getNormalGameF10KPercent#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getGoodGameF10KPercent#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getPerfectGameF10KPercent#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getAverageVision#0;class#DataWorker#0" expanded="false" />
+                <element signature="method#getAverageEnemyRating#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getHalfMonthGamesPlayed#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getMonthGamesPlayed#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getAverageMatchTime#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#getAverageEPPs#0;class#DataWorker#0" expanded="false" />
+                <element signature="method#getAvgValueFromArray#0;class#DataWorker#0" expanded="false" />
+                <element signature="method#getDifferenceDays#0;class#DataWorker#0" expanded="false" />
+                <element signature="method#getTeamNameById#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#separateEnemyF10KNiceGames#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#separateEnemyF10KNormalGames#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#separateEnemyF10KBadGames#0;class#DataWorker#0" expanded="false" />
@@ -1591,79 +1664,21 @@
                 <element signature="method#separateEnemyFBNormalGames#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#separateEnemyFBBadGames#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#separateLastThreeGames#0;class#DataWorker#0" expanded="false" />
+                <element signature="method#separateLastSevenGames#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#separateLastFiveGames#0;class#DataWorker#0" expanded="false" />
-                <element signature="method#separateFiveDaysObjects#0;class#DataWorker#0" expanded="false" />
+                <element signature="method#separateSevenDaysObjects#0;class#DataWorker#0" expanded="false" />
                 <element signature="method#separateMonthObjects#0;class#DataWorker#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParserFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectDir/ParserFactory.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ProjectDir/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="689" column="9" selection-start-line="689" selection-start-column="9" selection-end-line="689" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#4684#4716#0" expanded="false" />
-                <element signature="e#5286#5316#0" expanded="false" />
-                <element signature="e#5824#5863#0" expanded="false" />
-                <element signature="e#7219#7260#0" expanded="false" />
-                <element signature="e#7444#7489#0" expanded="false" />
-                <element signature="e#8916#8956#0" expanded="false" />
-                <element signature="e#10611#10650#0" expanded="false" />
-                <element signature="e#12021#12061#0" expanded="false" />
-                <element signature="e#12245#12286#0" expanded="false" />
-                <element signature="e#13681#13719#0" expanded="false" />
-                <element signature="e#14146#14187#0" expanded="false" />
-                <element signature="e#14569#14610#0" expanded="false" />
-                <element signature="e#15001#15041#0" expanded="false" />
-                <element signature="e#17192#17224#0" expanded="false" />
-                <element signature="e#17690#17811#0" expanded="false" />
-                <element signature="e#17814#17857#0" expanded="false" />
-                <element signature="e#22513#22553#0" expanded="false" />
-                <element signature="e#29191#29218#0" expanded="false" />
-                <element signature="e#31451#31531#0" expanded="false" />
-                <element signature="e#31534#31575#0" expanded="false" />
-                <element signature="e#33669#33707#0" expanded="false" />
-                <element signature="e#35728#35758#0" expanded="false" />
-                <element signature="e#36378#36417#0" expanded="false" />
-                <element signature="e#41402#41432#0" expanded="false" />
-                <element signature="e#43846#43952#0" expanded="false" />
-                <element signature="e#43955#43995#0" expanded="false" />
-                <element signature="e#47840#47877#0" expanded="false" />
-                <element signature="e#51741#51843#0" expanded="false" />
-                <element signature="e#54205#54307#0" expanded="false" />
-                <element signature="e#54310#54354#0" expanded="false" />
-                <element signature="e#57693#57734#0" expanded="false" />
-                <element signature="e#61052#61216#0" expanded="false" />
-                <element signature="e#61219#61258#0" expanded="false" />
-                <element signature="e#62323#62359#0" expanded="false" />
-                <element signature="e#63455#63664#0" expanded="false" />
-                <element signature="e#63667#63708#0" expanded="false" />
-                <element signature="e#66573#66611#0" expanded="false" />
-                <element signature="e#69539#69596#0" expanded="false" />
-                <element signature="e#69599#69636#0" expanded="false" />
-                <element signature="e#77215#77249#0" expanded="false" />
-                <element signature="e#84740#84790#0" expanded="false" />
-                <element signature="e#85506#85573#0" expanded="false" />
-                <element signature="e#85576#85617#0" expanded="false" />
-                <element signature="e#86480#86518#0" expanded="false" />
-                <element signature="e#87398#87438#0" expanded="false" />
-                <element signature="e#87441#87470#0" expanded="false" />
-                <element signature="e#88167#88196#0" expanded="false" />
-                <element signature="e#89910#89949#0" expanded="false" />
-                <element signature="e#92524#92555#0" expanded="false" />
-                <element signature="e#93431#93472#0" expanded="false" />
-                <element signature="e#94196#94231#0" expanded="false" />
-                <element signature="e#94402#94436#0" expanded="false" />
-                <element signature="e#94673#94708#0" expanded="false" />
-                <element signature="e#97663#97697#0" expanded="false" />
-                <element signature="e#100176#100215#0" expanded="false" />
-                <element signature="e#105604#105605#0" expanded="false" />
-                <element signature="e#105642#105643#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="1.0625">
+              <caret line="7" column="35" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1672,42 +1687,18 @@
         <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchesWorker.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding>
-                <element signature="method#tooManyRequestsChecker#0;class#MatchesWorker#0" expanded="false" />
-                <element signature="method#checkIfTemporaryFileIsClean#0;class#MatchesWorker#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectDir/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+              <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrimaryAnaliticsFactory.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java">
+      <file leaf-file-name="ParserFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ProjectDir/ParserFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56398106">
-              <caret line="1560" column="30" selection-start-line="1560" selection-start-column="30" selection-end-line="1560" selection-end-column="30" />
-              <folding>
-                <element signature="method#analizeDireTenKills#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-                <element signature="n#!!doc;n#getFBRating#0;n#PrimaryAnaliticsFactory#0" expanded="true" />
-                <element signature="method#getFBRating#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-                <element signature="method#getFBMarks#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-                <element signature="method#getF10KRating#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-                <element signature="method#getF10KMarks#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-                <element signature="method#writeRadiantInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-                <element signature="method#writeDireInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-                <element signature="method#writePlayersInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-                <element signature="method#readFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2387" column="0" selection-start-line="2387" selection-start-column="0" selection-end-line="2387" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1777,12 +1768,12 @@
         <option value="$PROJECT_DIR$/src/ProjectDir/ReceptionWorker.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/RatingFactory.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/MainAnaliticsFactory.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/MatchInfo/AnalizedInfo.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/ParserFactory.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/MatchesWorker.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/DataWorker.java" />
-        <option value="$PROJECT_DIR$/src/ProjectDir/Main.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/MatchInfo/AnalizedInfo.java" />
         <option value="$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/Main.java" />
+        <option value="$PROJECT_DIR$/src/ProjectDir/DataWorker.java" />
       </list>
     </option>
   </component>
@@ -1848,6 +1839,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1866,73 +1859,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dota2ProAnalitics_0.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dota2ProAnalitics_0.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectDir" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dota2ProAnalitics_0.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dota2ProAnalitics_0.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectDir" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MatchInfo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dota2ProAnalitics_0.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dota2ProAnalitics_0.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectDir" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Analitics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2358,12 +2287,28 @@
       <workItem from="1460370713172" duration="3295000" />
       <workItem from="1460388994471" duration="386000" />
       <workItem from="1460389546478" duration="798000" />
-      <workItem from="1460440462167" duration="910000" />
+      <workItem from="1460440462167" duration="4353000" />
+      <workItem from="1460454169659" duration="2973000" />
+      <workItem from="1460494129340" duration="5660000" />
+      <workItem from="1460555846098" duration="456000" />
+      <workItem from="1460612442036" duration="2992000" />
+      <workItem from="1460621394153" duration="1486000" />
+      <workItem from="1460670016410" duration="146000" />
+      <workItem from="1460708161477" duration="3005000" />
+      <workItem from="1460728248239" duration="1613000" />
+      <workItem from="1460756232738" duration="710000" />
+      <workItem from="1460792519745" duration="675000" />
+      <workItem from="1460797336290" duration="1117000" />
+      <workItem from="1460799268373" duration="591000" />
+      <workItem from="1460801698679" duration="3784000" />
+      <workItem from="1460885659609" duration="3583000" />
+      <workItem from="1460908326760" duration="60000" />
+      <workItem from="1460972492166" duration="124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1119616000" />
+    <option name="totallyTimeSpent" value="1152034000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2376,27 +2321,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.4697428" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.74886537" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23339012" sideWeight="0.23216996" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39249146" sideWeight="0.27760968" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0113464445" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.049488056" sideWeight="0.47881997" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.96245736" sideWeight="0.7678301" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3890785" sideWeight="0.8290469" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.7610921" sideWeight="0.7223903" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29471892" sideWeight="0.8245083" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21104388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20347957" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2118003" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.74886537" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2407,27 +2352,27 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.4697428" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33105803" sideWeight="0.7624811" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.74886537" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7883959" sideWeight="0.1172466" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39249146" sideWeight="0.27760968" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0113464445" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.49092284" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24744028" sideWeight="0.88275343" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51194537" sideWeight="0.838438" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.049488056" sideWeight="0.47881997" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39249146" sideWeight="0.7223903" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29471892" sideWeight="0.8245083" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1785174" sideWeight="0.49317408" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21104388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32807016" sideWeight="0.49092284" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17473525" sideWeight="0.5068259" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2118003" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2443,7 +2388,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="179" />
+      <option name="time" value="182" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2627,27 +2572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/BuyBackEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/AverageAnaliticsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/HeatMapAnaliticsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/Team.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2662,24 +2586,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/GameStageAnalitics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3516949">
-          <caret line="186" column="10" selection-start-line="186" selection-start-column="10" selection-end-line="186" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/TowerEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22284645">
           <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/EPPAnaliticsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5684524">
-          <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -2690,31 +2600,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/FileControlFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7093276">
-          <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65753424">
           <caret line="58" column="7" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/WriterReaderFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="47" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/RatingFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="336" column="74" selection-start-line="336" selection-start-column="74" selection-end-line="336" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -2732,31 +2621,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/UniqueInfoFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/ReceptionWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5044248">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/lang/NumberFormatException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.58536583">
           <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/AnalizedInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5067751">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -2767,73 +2635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/ParserFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="689" column="9" selection-start-line="689" selection-start-column="9" selection-end-line="689" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4684#4716#0" expanded="false" />
-            <element signature="e#5286#5316#0" expanded="false" />
-            <element signature="e#5824#5863#0" expanded="false" />
-            <element signature="e#7219#7260#0" expanded="false" />
-            <element signature="e#7444#7489#0" expanded="false" />
-            <element signature="e#8916#8956#0" expanded="false" />
-            <element signature="e#10611#10650#0" expanded="false" />
-            <element signature="e#12021#12061#0" expanded="false" />
-            <element signature="e#12245#12286#0" expanded="false" />
-            <element signature="e#13681#13719#0" expanded="false" />
-            <element signature="e#14146#14187#0" expanded="false" />
-            <element signature="e#14569#14610#0" expanded="false" />
-            <element signature="e#15001#15041#0" expanded="false" />
-            <element signature="e#17192#17224#0" expanded="false" />
-            <element signature="e#17690#17811#0" expanded="false" />
-            <element signature="e#17814#17857#0" expanded="false" />
-            <element signature="e#22513#22553#0" expanded="false" />
-            <element signature="e#29191#29218#0" expanded="false" />
-            <element signature="e#31451#31531#0" expanded="false" />
-            <element signature="e#31534#31575#0" expanded="false" />
-            <element signature="e#33669#33707#0" expanded="false" />
-            <element signature="e#35728#35758#0" expanded="false" />
-            <element signature="e#36378#36417#0" expanded="false" />
-            <element signature="e#41402#41432#0" expanded="false" />
-            <element signature="e#43846#43952#0" expanded="false" />
-            <element signature="e#43955#43995#0" expanded="false" />
-            <element signature="e#47840#47877#0" expanded="false" />
-            <element signature="e#51741#51843#0" expanded="false" />
-            <element signature="e#54205#54307#0" expanded="false" />
-            <element signature="e#54310#54354#0" expanded="false" />
-            <element signature="e#57693#57734#0" expanded="false" />
-            <element signature="e#61052#61216#0" expanded="false" />
-            <element signature="e#61219#61258#0" expanded="false" />
-            <element signature="e#62323#62359#0" expanded="false" />
-            <element signature="e#63455#63664#0" expanded="false" />
-            <element signature="e#63667#63708#0" expanded="false" />
-            <element signature="e#66573#66611#0" expanded="false" />
-            <element signature="e#69539#69596#0" expanded="false" />
-            <element signature="e#69599#69636#0" expanded="false" />
-            <element signature="e#77215#77249#0" expanded="false" />
-            <element signature="e#84740#84790#0" expanded="false" />
-            <element signature="e#85506#85573#0" expanded="false" />
-            <element signature="e#85576#85617#0" expanded="false" />
-            <element signature="e#86480#86518#0" expanded="false" />
-            <element signature="e#87398#87438#0" expanded="false" />
-            <element signature="e#87441#87470#0" expanded="false" />
-            <element signature="e#88167#88196#0" expanded="false" />
-            <element signature="e#89910#89949#0" expanded="false" />
-            <element signature="e#92524#92555#0" expanded="false" />
-            <element signature="e#93431#93472#0" expanded="false" />
-            <element signature="e#94196#94231#0" expanded="false" />
-            <element signature="e#94402#94436#0" expanded="false" />
-            <element signature="e#94673#94708#0" expanded="false" />
-            <element signature="e#97663#97697#0" expanded="false" />
-            <element signature="e#100176#100215#0" expanded="false" />
-            <element signature="e#105604#105605#0" expanded="false" />
-            <element signature="e#105642#105643#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/Scanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
@@ -2841,34 +2642,139 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/AnalizedInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/RatingFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="336" column="74" selection-start-line="336" selection-start-column="74" selection-end-line="336" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/UniqueInfoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/ReceptionWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/HeatMapAnaliticsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/FileControlFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/AverageAnaliticsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchInfo/BuyBackEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20481928">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/EPPAnaliticsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1710843">
+          <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/GameStageAnalitics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9253012">
+          <caret line="186" column="10" selection-start-line="186" selection-start-column="10" selection-end-line="186" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/WriterReaderFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.518072">
+          <caret line="43" column="47" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1670" column="0" selection-start-line="1670" selection-start-column="0" selection-end-line="1670" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/ParserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2387" column="0" selection-start-line="2387" selection-start-column="0" selection-end-line="2387" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchesWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectDir/DataWorker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="990" column="0" selection-start-line="990" selection-start-column="0" selection-end-line="990" selection-end-column="0" />
+          <caret line="236" column="43" selection-start-line="236" selection-start-column="43" selection-end-line="236" selection-end-column="43" />
           <folding>
+            <element signature="e#8131#8158#0" expanded="true" />
             <element signature="method#fillObject#0;class#DataWorker#0" expanded="false" />
             <element signature="method#showMatchInfo#0;class#DataWorker#0" expanded="false" />
+            <element signature="n#!!doc;n#getMedianFromArray#0;n#DataWorker#0" expanded="true" />
             <element signature="method#getAverageEnemyFBRating#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getAverageFBPercent#0;class#DataWorker#0" expanded="false" />
-            <element signature="method#getFBForm#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getHorribleGameFBPercent#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getBadGameFBPercent#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getNormalGameFBPercent#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getGoodGameFBPercent#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getPerfectGameFBPercent#0;class#DataWorker#0" expanded="false" />
+            <element signature="e#34328#34355#0" expanded="true" />
+            <element signature="method#getMedianF10KTime#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getAverageEnemyF10KRating#0;class#DataWorker#0" expanded="false" />
-            <element signature="method#getAverageF10KPercent#0;class#DataWorker#0" expanded="false" />
-            <element signature="method#getF10KForm#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getHorribleGameF10KPercent#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getBadGameF10KPercent#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getNormalGameF10KPercent#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getGoodGameF10KPercent#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getPerfectGameF10KPercent#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getAverageVision#0;class#DataWorker#0" expanded="false" />
+            <element signature="method#getAverageEnemyRating#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getHalfMonthGamesPlayed#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getMonthGamesPlayed#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getAverageMatchTime#0;class#DataWorker#0" expanded="false" />
             <element signature="method#getAverageEPPs#0;class#DataWorker#0" expanded="false" />
+            <element signature="method#getAvgValueFromArray#0;class#DataWorker#0" expanded="false" />
+            <element signature="method#getDifferenceDays#0;class#DataWorker#0" expanded="false" />
+            <element signature="method#getTeamNameById#0;class#DataWorker#0" expanded="false" />
             <element signature="method#separateEnemyF10KNiceGames#0;class#DataWorker#0" expanded="false" />
             <element signature="method#separateEnemyF10KNormalGames#0;class#DataWorker#0" expanded="false" />
             <element signature="method#separateEnemyF10KBadGames#0;class#DataWorker#0" expanded="false" />
@@ -2876,48 +2782,19 @@
             <element signature="method#separateEnemyFBNormalGames#0;class#DataWorker#0" expanded="false" />
             <element signature="method#separateEnemyFBBadGames#0;class#DataWorker#0" expanded="false" />
             <element signature="method#separateLastThreeGames#0;class#DataWorker#0" expanded="false" />
+            <element signature="method#separateLastSevenGames#0;class#DataWorker#0" expanded="false" />
             <element signature="method#separateLastFiveGames#0;class#DataWorker#0" expanded="false" />
-            <element signature="method#separateFiveDaysObjects#0;class#DataWorker#0" expanded="false" />
+            <element signature="method#separateSevenDaysObjects#0;class#DataWorker#0" expanded="false" />
             <element signature="method#separateMonthObjects#0;class#DataWorker#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/MatchesWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding>
-            <element signature="method#tooManyRequestsChecker#0;class#MatchesWorker#0" expanded="false" />
-            <element signature="method#checkIfTemporaryFileIsClean#0;class#MatchesWorker#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectDir/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        <state vertical-scroll-proportion="1.0625">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="35" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectDir/Analitics/PrimaryAnaliticsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56398106">
-          <caret line="1560" column="30" selection-start-line="1560" selection-start-column="30" selection-end-line="1560" selection-end-column="30" />
-          <folding>
-            <element signature="method#analizeDireTenKills#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-            <element signature="n#!!doc;n#getFBRating#0;n#PrimaryAnaliticsFactory#0" expanded="true" />
-            <element signature="method#getFBRating#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-            <element signature="method#getFBMarks#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-            <element signature="method#getF10KRating#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-            <element signature="method#getF10KMarks#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-            <element signature="method#writeRadiantInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-            <element signature="method#writeDireInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-            <element signature="method#writePlayersInfoToFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-            <element signature="method#readFile#0;class#PrimaryAnaliticsFactory#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

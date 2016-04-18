@@ -1,36 +1,36 @@
 4;EHOME;1353
 726228;Vici Gaming;679
-2163;Team Liquid;1554
-2512249;Digital Chaos;1225
-1883502;Virtus.pro;1069
+2163;Team Liquid;1673
+2512249;Digital Chaos;1257
+1883502;Virtus.pro;1138
 1838315;Team Secret;1456
 1520578;CDEC Gaming;916
-15;LGD-GAMING;1110
+15;LGD-GAMING;1181
 2512130;G O L D E N B O Y S;895
-2586976;OG Dota2;1255
-46;Team Empire;1076
+2586976;OG Dota2;1325
+46;Team Empire;1228
 2276247;Mamas-Boys;1077
-3;compLexity Gaming;1423
-55;_PowerRangers;1202
+3;compLexity Gaming;1371
+55;_PowerRangers;1131
 787967;xDoto Blue;1103
 1925517;GG Force CyberPro;897
 758797;MONKEY FREEDOM FIGHTERS;941
-2006913;Vega Squadron;1067
-111474;Alliance;1399
+2006913;Vega Squadron;1069
+111474;Alliance;1284
 2564292;Aztek Gaming COL;906
 2042882;Groovy.Gaming.co;949
 2384932;Team OvP.;1189
-2246141;Team Alternate Attax;1332
+2246141;Team Alternate Attax;1188
 2574116;Disney.420;956
 39;Evil Geniuses;1524
 1836806;the wings gaming;1163
-2108395;TNC Pro Team;1455
+2108395;TNC Pro Team;1435
 1276923;Leviathan';744
 2645562;PRIESG2A.com;983
-2538753;TORNADO ROX;1096
-2640099;Shazam~;1375
+2538753;TORNADO ROX;1063
+2640099;Shazam~;1420
 1884355;Void Boys;918
-2527544;T Show;972
+2527544;T Show;904
 2428289;Elite Wolves - UNIT;1426
 2535378;Team FanTuan;806
 2640025;iG.Vitality;1150
@@ -39,33 +39,33 @@
 2310555;DrinkingBoys;947
 2678018;LondoNVY;950
 2674713;San German Rejects;945
-2634364;EnemyGG;869
+2634364;EnemyGG;916
 2622695;LUCCINI GAMING $$;1045
 2130380;Miracle Minds;950
 2634068;Vegetables Esports Club;1050
 543897;Mineski.Sports5;1016
 2681566;Taring^MY;760
-2521210;Extremist Dota 2;767
+2521210;Extremist Dota 2;775
 1375614;Newbee;1543
 1846548;HellRaisers`;814
-2581813;Execration;885
-1148284;MVP Phoenix;1460
+2581813;Execration;877
+1148284;MVP Phoenix;1273
 2643401;CDEC.Avengers;1082
-2621843;Team. Spirit;1264
+2621843;Team. Spirit;1265
 2537636;Elements Pro Gaming;682
 20;TongFu;1396
 1966890;London Conspiracy Dota2;673
-2662139;Mineski-X;785
-24;Signature.Dota2;1200
-36;Natus Vincere;1116
-350190;Fnatic;1921
+2662139;Mineski-X;883
+24;Signature.Dota2;1227
+36;Natus Vincere;1337
+350190;Fnatic;1991
 5;Invictus Gaming;970
 2568195;Team Freedom Dota 2;842
 254140;First Departure;878
 2244697;Team Archon;968
-1633432;Not Today !;1476
+1633432;Not Today !;1526
 2642725;power of friendship !!;1002
-2642171;Team AD FINEM;1302
+2642171;Team AD FINEM;1255
 1804536;STARK.gg;950
 1914023;AntiRoshan;945
 1947435;TEAM SLC;1055
@@ -79,7 +79,7 @@
 2719262;Jayce.N.G;1050
 2545465;Come On Rude Boys;1097
 2535294;Noo Logic Gaming;867
-2578382;Yellow Submarine !;769
+2578382;Yellow Submarine !;791
 2568520;TANGO GAMES;936
 55316;devedeset i devet posto;779
 1725846;Y O $ E N;950
@@ -114,7 +114,7 @@
 2633111;Barrack Gaming;996
 2486784;BnB Empires;950
 1937628;Boreal eSports;950
-2701329;Team Freedom Dota 2;1018
+2701329;Team Freedom Dota 2;1059
 2687650;Monster Pc Gaming;807
 2289950;Balrogs e-Sport;806
 2341834;ABRAXAS.;950
@@ -123,8 +123,8 @@
 2531618;Enso;1154
 2644229;Elements One;940
 1869482;Wombat-Gaming;901
-2552670;.Prodota Gaming.;1172
-2699723;NoLifer5-;1245
+2552670;.Prodota Gaming.;1074
+2699723;NoLifer5-;1187
 2099436;Team Redemption`;937
 2686160;Time Limit Draft;870
 2722619;Colossus Gaming . xdxd;981
@@ -142,7 +142,7 @@
 2716225;R3B3LLI0N;949
 2730057;OOGWAY;869
 2702129;SIBERIAN-VALENKI;907
-67;paiN Gaming;1010
+67;paiN Gaming;960
 2672298;Infamous -_^;988
 2673264;CCOM Sin Talento;953
 2217083;SIN TALENTO COMM;955
@@ -150,7 +150,7 @@
 1557544;Kawaii Desu NEE;823
 2715234;2KILLGAMING;1099
 795543;Arcanys Gaming;1092
-2659468;WarriorsGaming.Unity;1043
+2659468;WarriorsGaming.Unity;1088
 2413217;SG Rejects;1010
 2452860;eKeepo;956
 2676492;VirusNirvana;910
@@ -159,11 +159,11 @@
 2100450;BANGKOK.DYNAMO;929
 32150;Gseven;946
 2201839;MVP HOT6;782
-59;Kaipi;1061
-2533075;Danish Bears;1076
+59;Kaipi;981
+2533075;Danish Bears;1040
 2762342;Samurai Champlo0 2.0;910
 2473612;Varro.ROGnet;906
-2398232;Acion Arena Pro Team;1096
+2398232;Acion Arena Pro Team;1032
 2687313;Skyville!;897
 2689801;_Nas Ne Dogonyat;982
 2767412;G3nerationX.;897
@@ -173,13 +173,13 @@
 1927365;s1-Lykos;924
 2723475;LEVEL21;897
 2688106;Newbie y;948
-2756149;PRIES_;790
+2756149;PRIES_;810
 2645173;Young&ampWild;949
 2330985;Insane Buster;788
 2538621;FTD club a;824
 2754362;Newg s;951
 1215997;Dragonus Gaming Int;948
-2777247;Vici_Gaming Reborn;1473
+2777247;Vici_Gaming Reborn;1497
 2767585;gossip girls );925
 2644737;Next-Gen VietNam;1035
 2738555;Beyond_Infinity;1065
@@ -190,21 +190,21 @@
 9896;Can't Say Wips;840
 2524644;ThundeRobot Gaming;692
 2208748;Team duobao;719
-2783913;No Diggity!;1390
+2783913;No Diggity!;1454
 2414095;Avalon_Club;927
 1960029;Energy Pacemaker gaming;689
 2787936;Gabe's Burgers;1056
 1254852;Drojlb_Team;940
 2619801;Hex Gaming.;945
-2762745;BrooDMotherS;993
+2762745;BrooDMotherS;916
 2579635;Goomba Gaming;1100
-2217730;The Animal Kingdom!!;927
+2217730;The Animal Kingdom!!;891
 692683;S E F;951
 2689600;DOGMA.GAMING;1060
 2773271;Anima Strong;940
 2668269;Chew Toy;953
 2784828;Avengers!1!;895
-98301;Power Gaming;906
+98301;Power Gaming;913
 2766965;my.Revenge.MGL;1094
 2619238;TeamFake;950
 2769810;Politeknik Dota Squad;988
@@ -213,7 +213,7 @@
 2794503;OnaniKeyKey;953
 2775235;SURYA BAHTERA SEJATI;950
 2130812;Owl Sight;1207
-2789717;Polarity Dota 2;916
+2789717;Polarity Dota 2;1088
 1882754;Forever Alone FC;1118
 2794421;NutriSary;1003
 2781126;Hype .Gaming;995
@@ -228,21 +228,42 @@
 2740806;HaweDay;952
 1944906;The Invincible Sword Of God;1065
 1983234;Team Braveheart;948
-2790766;!Rebels!;1090
-2788336;4Vikings+Dane;931
+2790766;!Rebels!;1227
+2788336;4Vikings+Dane;889
 2802668;Komanda+;906
-2789395;Orange.Taring;916
+2789395;Orange.Taring;981
 2434150;Chile Campeon de America;937
-2790773;Team Defiance Dota 2;971
+2790773;Team Defiance Dota 2;908
 2803799;Topovoe Nazvanie;885
-2413318;E-lab;967
+2413318;E-lab;906
 714435;Redhero;880
 2738689;Da Teletubbies;921
-2766661;Xenim;917
+2766661;Xenim;872
 2740736;Team Mugsy;959
 2571686;Ketan Gaming;1050
 2196975;Decoros Fatale;950
-1897741;Revolution E-Sport Gaming;1050
-296530;Dark Seiya Gaming;950
 2808768;Salty people;1050
-2787759;Shot eSports;950
+2787759;Shot eSports;1016
+1897741;Revolution E-Sport Gaming;984
+296530;Dark Seiya Gaming;950
+2791586;EverNovaS;991
+2754902;JEJAKA JASIN;950
+434392;FREN MA;1050
+2212265;Glamorous.GizMo;926
+2429026;MeowMeow&lt3;1060
+2635296;YapChokPhang;940
+2815625;&gtTeamNice;1000
+2814794;GTI Cosplayy;1000
+1563193;DT acah-acah;950
+2579274;Nottingham University;1050
+2098304;SpeedFinger Gaming;924
+2783891;UtarMyCho1ce;945
+2757962;Bracer King;1055
+2811514;APU.Team Incomparable.;1050
+2814383;SENPAISAN;950
+2614600;Knights Spirit;945
+2757494;iNvaders!;1055
+1605558;Team Panglima;935
+2043173;Las Perras de Darkz :);1050
+1249794;Latin Hope;903
+2100741;START GAME - LAN CENTER;1047

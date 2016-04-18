@@ -7,6 +7,7 @@ public class AnalizedInfo
 	public String matchTime;
 	public String teamId;
 	public String teamName;
+	public String enemyTeamName;
 	public String leagueName;
 	public Boolean isWin;
 	public Integer side;
