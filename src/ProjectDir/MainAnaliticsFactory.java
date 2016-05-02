@@ -11,7 +11,7 @@ public class MainAnaliticsFactory
 {
 	AverageAnaliticsFactory averageAnaliticsFactory = new AverageAnaliticsFactory();
 	PrimaryAnaliticsFactory primaryAnaliticsFactory = new PrimaryAnaliticsFactory();
-	HeatMapAnaliticsFactory heatMapAnaliticsFactory = new HeatMapAnaliticsFactory();
+
 	EPPAnaliticsFactory eppAnaliticsFactory = new EPPAnaliticsFactory();
 	GameStageAnalitics gameStageAnalitics = new GameStageAnalitics();
 
@@ -69,12 +69,13 @@ public class MainAnaliticsFactory
 			}
 			System.out.println();*/
 			primaryAnaliticsFactory.analizeMatch(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+
 			writerReaderFactory.makeZeros(team, player, match);
 			writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 			fileOperationsFactory.writeToFile(matchId, "files/MatchesAnalized.txt");
 		}
 		/**AverageAnaliticsFactory**/
 		//averageAnaliticsFactory.startAverageAnalitics(teamId);
-		//heatMapAnaliticsFactory.buildHeatMap("1883502");
+
 	}
 }

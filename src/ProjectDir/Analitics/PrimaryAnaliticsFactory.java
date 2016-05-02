@@ -1660,11 +1660,14 @@ public class PrimaryAnaliticsFactory
 		Double goodGamesPercent = (double) goodGames / allGames * 100;
 		Double perfectGamesPercent = (double) perfectGames / allGames * 100;
 
-		if (goodGamesPercent + perfectGamesPercent >= 50)
+		if (goodGamesPercent + perfectGamesPercent >= 60 && badGamesPercent + horribleGamesPercent <= 30)
+			return "perfect";
+		else if (goodGamesPercent + perfectGamesPercent >= 50 && badGamesPercent + horribleGamesPercent <= 35)
 			return "nice";
-		else if (horribleGamesPercent + badGamesPercent >= 45)
+		else if (badGamesPercent + horribleGamesPercent >= 50)
 			return "bad";
-		else return "normal";
+		else
+			return "normal";
 	}
 
 	public ArrayList<String> getFBMarks(String teamId, Date date) throws IOException, ParseException
@@ -1727,11 +1730,14 @@ public class PrimaryAnaliticsFactory
 		Double goodGamesPercent = (double) goodGames / allGames * 100;
 		Double perfectGamesPercent = (double) perfectGames / allGames * 100;
 
-		if (goodGamesPercent + perfectGamesPercent >= 50)
+		if (goodGamesPercent + perfectGamesPercent >= 60 && badGamesPercent + horribleGamesPercent <= 30)
+			return "perfect";
+		else if (goodGamesPercent + perfectGamesPercent >= 50 && badGamesPercent + horribleGamesPercent <= 35)
 			return "nice";
-		else if (horribleGamesPercent + badGamesPercent >= 45)
+		else if (badGamesPercent + horribleGamesPercent >= 50)
 			return "bad";
-		else return "normal";
+		else
+			return "normal";
 	}
 
 	public ArrayList<String> getF10KMarks(String teamId, Date date) throws IOException, ParseException
@@ -2200,7 +2206,7 @@ public class PrimaryAnaliticsFactory
 		teamString += "0" + ";";//[5]
 		teamString += team[0].EGPoints + ";";
 		teamString += team[0].MGPoints + ";";
-		teamString += team[0].LGPoints+";";
+		teamString += team[0].LGPoints + ";";
 		teamString += team[1].name;
 		teamString += "##";
 		/**TeamInfo [1]**/
@@ -2299,7 +2305,7 @@ public class PrimaryAnaliticsFactory
 		teamString += "1" + ";";//[4]
 		teamString += team[1].EGPoints + ";";
 		teamString += team[1].MGPoints + ";";
-		teamString += team[1].LGPoints+";";
+		teamString += team[1].LGPoints + ";";
 		teamString += team[0].name;
 		teamString += "##";
 		/**TeamInfo [1]**/

@@ -2,7 +2,6 @@ package ProjectDir;
 
 public class Main
 {
-
 	public static void main(String[] args) throws Exception
 	{
 		MatchesWorker matchesWorker = new MatchesWorker();
@@ -10,6 +9,5 @@ public class Main
 		matchesWorker.start_work();
 		receptionWorker.start_work();
 	}
-
 }
 

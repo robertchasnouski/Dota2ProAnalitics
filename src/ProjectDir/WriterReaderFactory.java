@@ -501,9 +501,10 @@ public class WriterReaderFactory
 					writeToFile(Integer.toString(players[i].minuteXPM[j]), true);
 				else
 					writeToFile(Integer.toString(players[i].minuteXPM[j]), false);
-				if (players[i].minuteXPM[j] < -100 || players[i].minuteXPM[j] > 6000)
+				if (players[i].minuteXPM[j] < -100 || players[i].minuteXPM[j] > 8000)
 				{
 					error = true;
+					System.out.println("Problem with:"+players[i].hero+" XPM:" +players[i].minuteXPM[j]);
 					System.out.println("MinuteXPM error");
 				}
 			}
