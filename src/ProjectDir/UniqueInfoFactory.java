@@ -65,7 +65,7 @@ public class UniqueInfoFactory
 					d2 = format.parse(leagueParts[1]);
 					long diff = d1.getTime() - d2.getTime();
 					long diffHours = diff / (60 * 60 * 1000);
-					if (diffHours > 6)
+					if (diffHours > 12)
 					{
 						needToParse.add(leagueParts[0]);
 						leagueParts[1] = currentDate;

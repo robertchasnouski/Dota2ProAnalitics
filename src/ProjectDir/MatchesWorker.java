@@ -82,7 +82,7 @@ public class MatchesWorker
 	{
 		String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
 		ArrayList<String> leagueLinksArray=new ArrayList<String>(Arrays.asList(leagueLinks));
-		leagueLinksArray.add("3960");
+		leagueLinksArray.remove("4649");
 
 		ArrayList<String> matchesFromLeagues = parserHelper.parseMatches(leagueLinksArray);
 		uniqueInfoFactory.needToParseFile(matchesFromLeagues);
@@ -91,12 +91,13 @@ public class MatchesWorker
 
 		String[] tempArray = fileOperationsFactory.readFile("files/Matches.txt").split("\n");
 		String lastMatchDateString = tempArray[tempArray.length - 1].split(";")[1];
-		Date lastMatchDate = formatter.parse(lastMatchDateString);
+		Date lastMatchDate = formatter.parse("2016-04-01"/**lastMatchDateString**/);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		date.setTime(lastMatchDate.getTime() - 24 * 60 * 60 * 1000);
 
-		//parserHelper.parseMatchById(lastMatchDate, "2095305164", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList,roshanEventArrayList);
+//		parserHelper.parseMatchById(lastMatchDate, "2095305164", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList,roshanEventArrayList);
+
 		//if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList,roshanEventArrayList))
 		//	fileOperationsFactory.writeToFile("1932536887", "files/MatchesParsed.txt");
 
@@ -121,8 +122,9 @@ public class MatchesWorker
 				}
 			}
 		uniqueInfoFactory.removeFirstEnter("files/TemporaryMatches.txt");
+
 		uniqueInfoFactory.makeMatchesFileClean("files/TemporaryMatches.txt");
-		//uniqueInfoFactory.makeMatchesFileClean("files/Matches.txt");
+
 		String newMatchesFile = fileOperationsFactory.readFile("files/TemporaryMatches.txt");
 
 		if (!newMatchesFile.equals("\n"))
@@ -132,6 +134,7 @@ public class MatchesWorker
 			fileOperationsFactory.cleanAndWriteToFile("", "files/TemporaryMatches.txt");
 			fileOperationsFactory.cleanAndWriteToFile(allMatchesfile, "files/Matches.txt");
 		}
+		//uniqueInfoFactory.makeMatchesFileClean("files/Matches.txt");
 	}
 }
 

@@ -120,7 +120,7 @@ public class WriterReaderFactory
 			if (teams[i].totalGPM < 50 || teams[i].totalGPM > 12000)
 			{
 				error = true;
-				System.out.println("TotalGPM error");
+				System.out.println("TotalGPM team error");
 			}
 			writeToFile(Integer.toString(teams[i].totalXPM), true);
 			if (teams[i].totalXPM < 0 || teams[i].totalXPM > 10000)
@@ -300,10 +300,7 @@ public class WriterReaderFactory
 
 		writeToFile("##", false);
 		//Player
-		for (
-				int i = 0;
-				i < 10; i++)
-
+		for (int i = 0; i < 10; i++)
 		{
 			writeToFile(players[i].playerId, true);
 			writeToFile(players[i].hero, true);
@@ -355,7 +352,7 @@ public class WriterReaderFactory
 			if (players[i].totalGPM < 50 || players[i].totalGPM > 10000)
 			{
 				error = true;
-				System.out.println("TotalGPM error");
+				System.out.println("TotalGPM player error");
 			}
 			writeToFile(Integer.toString(players[i].totalXPM), true);
 			if (players[i].totalXPM < 0 || players[i].totalXPM > 10000)
@@ -501,10 +498,10 @@ public class WriterReaderFactory
 					writeToFile(Integer.toString(players[i].minuteXPM[j]), true);
 				else
 					writeToFile(Integer.toString(players[i].minuteXPM[j]), false);
-				if (players[i].minuteXPM[j] < -100 || players[i].minuteXPM[j] > 8000)
+				if (players[i].minuteXPM[j] < -100 || players[i].minuteXPM[j] > 10000)
 				{
 					error = true;
-					System.out.println("Problem with:"+players[i].hero+" XPM:" +players[i].minuteXPM[j]);
+					System.out.println("Problem with:" + players[i].hero + " XPM:" + players[i].minuteXPM[j]);
 					System.out.println("MinuteXPM error");
 				}
 			}
@@ -649,7 +646,7 @@ public class WriterReaderFactory
 			if (glyphEvent.get(i).second < -90 || glyphEvent.get(i).second > (match.matchTime + 2) * 60)
 			{
 				error = true;
-				System.out.println("Ward X error");
+				System.out.println("Glyph second error");
 			}
 			if (i != glyphEvent.size() - 1)
 				writeToFile("**", false);

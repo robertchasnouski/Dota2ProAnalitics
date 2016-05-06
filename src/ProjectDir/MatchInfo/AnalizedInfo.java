@@ -36,4 +36,5 @@ public class AnalizedInfo
 	public Integer F10KTime;
 	public Integer mineRating;
 	public Integer enemyRating;
+	public String matchHardness;
 }

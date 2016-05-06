@@ -129,12 +129,14 @@ public class PrimaryAnaliticsFactory
 		direF10KMarks = getF10KMarks(team2Id, matchDate);
 		String radiantF10KRating = getF10KRating(radiantF10KMarks);
 		String direF10KRating = getF10KRating(direF10KMarks);
+		/**MatchHardness**/
+		String matchHardness=calculateMatchHardness(team[0].kills+"",team[1].kills+"",team[0].totalGold+"",team[1].totalGold+"",match.matchTime+"");
 		/**End analizing**/
 		/*** Write info to file **/
 
 		///Write that match was analized
-		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, direFBRating, direF10KRating);
-		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, radiantFBRating, radiantF10KRating);
+		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, direFBRating, direF10KRating, matchHardness);
+		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, radiantFBRating, radiantF10KRating,matchHardness);
 		writePlayersInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 
 		System.out.println("Match " + match.id + " was analized.");
@@ -2194,7 +2196,7 @@ public class PrimaryAnaliticsFactory
 	}
 	//</editor-fold>
 
-	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, String enemyFBRating, String enemyF10KRating) throws IOException
+	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, String enemyFBRating, String enemyF10KRating, String matchHardness) throws IOException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -2269,9 +2271,13 @@ public class PrimaryAnaliticsFactory
 		/**FBRating [9]**/
 		teamString += enemyFBRating;
 		teamString += "##";
+		/**F10KRating [10]**/
 		teamString += enemyF10KRating;
 		teamString += "##";
-		/**Rating Changes [10]**/
+		/**MatchHardness [11]**/
+		teamString += matchHardness;
+		teamString += "##";
+		/**Rating Changes [12]**/
 		String oldString = fileControlFactory.readFile("files/teams/" + team[0].id + "/TeamMatches.txt");
 		String[] stringInFile = oldString.split("\n");
 		String ratingChanges = "";
@@ -2293,7 +2299,7 @@ public class PrimaryAnaliticsFactory
 		System.out.println("Team " + team[0].id + " file was changed.");
 	}
 
-	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, String enemyFBRating, String enemyF10KRating) throws IOException
+	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, String enemyFBRating, String enemyF10KRating,String matchHardness) throws IOException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -2369,6 +2375,8 @@ public class PrimaryAnaliticsFactory
 		teamString += enemyFBRating;
 		teamString += "##";
 		teamString += enemyF10KRating;
+		teamString += "##";
+		teamString += matchHardness;
 		teamString += "##";
 		/**Rating Changes [11]**/
 		String oldString = fileControlFactory.readFile("files/teams/" + team[1].id + "/TeamMatches.txt");
@@ -2447,6 +2455,56 @@ public class PrimaryAnaliticsFactory
 	{
 		long diff = matchDate.getTime() - beforeDate.getTime();
 		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+	}
+
+	public String calculateMatchHardness(String team1Kills, String team2Kills, String team1totalGold, String team2totalGold, String duration)
+	{
+		Double t1K = Double.parseDouble(team1Kills);
+		Double t2K = Double.parseDouble(team2Kills);
+		Double t1G = Double.parseDouble(team1totalGold);
+		Double t2G = Double.parseDouble(team2totalGold);
+		Integer matchDuration = Integer.parseInt(duration);
+
+		int durationHardness;
+		int killsHardness;
+		int goldHardness;
+
+		if ((Math.max(t1K, t2K) / Math.min(t1K, t2K)) >= 2)
+			killsHardness = 0;
+		else if ((Math.max(t1K, t2K) / Math.min(t1K, t2K)) >= 1.6 && (Math.max(t1K, t2K) / Math.min(t1K, t2K)) < 2)
+			killsHardness = 33;
+		else if ((Math.max(t1K, t2K) / Math.min(t1K, t2K)) >= 1.3 && (Math.max(t1K, t2K) / Math.min(t1K, t2K)) < 1.6)
+			killsHardness = 66;
+		else killsHardness = 100;
+
+
+		if ((Math.max(t1G, t2G) / Math.min(t1G, t2G)) >= 1.45)
+			goldHardness = 0;
+		else if ((Math.max(t1G, t2G) / Math.min(t1G, t2G)) >= 1.28 && (Math.max(t1G, t2G) / Math.min(t1G, t2G)) < 1.45)
+			goldHardness = 33;
+		else if ((Math.max(t1G, t2G) / Math.min(t1G, t2G)) > 1.11 && (Math.max(t1G, t2G) / Math.min(t1G, t2G)) < 1.28)
+			goldHardness = 66;
+		else goldHardness = 100;
+
+		if (matchDuration >= 50)
+			durationHardness = 100;
+		else if (matchDuration > 36 && matchDuration < 50)
+			durationHardness = 66;
+		else if (matchDuration <= 36 && matchDuration > 25)
+			durationHardness = 33;
+		else durationHardness = 0;
+
+		float matchHardness = (durationHardness + goldHardness + killsHardness) / 3;
+
+
+		if (matchHardness >= 80)
+			return "MH";
+		else if (matchHardness < 80 && matchHardness >= 50)
+			return "H";
+		else if (matchHardness < 50 && matchHardness >= 20)
+			return "L";
+		else
+			return "ML";
 	}
 }
 
