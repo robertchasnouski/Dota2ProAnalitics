@@ -6,6 +6,7 @@ public class AnalizedInfo
 	public String date;
 	public String matchTime;
 	public String teamId;
+	public String enemyTeamId;
 	public String teamName;
 	public String enemyTeamName;
 	public String leagueName;

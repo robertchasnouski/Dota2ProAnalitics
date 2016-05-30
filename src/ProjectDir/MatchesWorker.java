@@ -47,20 +47,20 @@ public class MatchesWorker
 		}
 
 		//checkIfTemporaryFileIsClean();
-
-		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+		//readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		ratingFactory.organizeRating();
 		mainAnaliticsFactory.startWork();
 		System.out.println("/-Boss, all work is done.");
 	}
 
-	void tooManyRequestsChecker() throws InterruptedException
+	void tooManyRequestsChecker(Boolean parsed) throws InterruptedException
 	{
-		alreadyParsedMatches++;
+		if (parsed)
+			alreadyParsedMatches++;
 		if (alreadyParsedMatches == 20)
 		{
 			System.out.println("Okay. Let's have a rest for a while.");
-			Thread.sleep(500000);
+			Thread.sleep(240000);
 			alreadyParsedMatches = 0;
 		}
 	}
@@ -81,9 +81,8 @@ public class MatchesWorker
 	void readNewMatches(boolean parse, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException, ParseException, InterruptedException
 	{
 		String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
-		ArrayList<String> leagueLinksArray=new ArrayList<String>(Arrays.asList(leagueLinks));
+		ArrayList<String> leagueLinksArray = new ArrayList<String>(Arrays.asList(leagueLinks));
 		leagueLinksArray.remove("4649");
-
 		ArrayList<String> matchesFromLeagues = parserHelper.parseMatches(leagueLinksArray);
 		uniqueInfoFactory.needToParseFile(matchesFromLeagues);
 		ArrayList<String> matchesToParse = parserHelper.getParsingMatches();
@@ -91,7 +90,7 @@ public class MatchesWorker
 
 		String[] tempArray = fileOperationsFactory.readFile("files/Matches.txt").split("\n");
 		String lastMatchDateString = tempArray[tempArray.length - 1].split(";")[1];
-		Date lastMatchDate = formatter.parse("2016-04-01"/**lastMatchDateString**/);
+		Date lastMatchDate = formatter.parse(lastMatchDateString);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		date.setTime(lastMatchDate.getTime() - 24 * 60 * 60 * 1000);
@@ -112,13 +111,16 @@ public class MatchesWorker
 							fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/MatchesParsed.txt");
 						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 						writerReaderFactory.makeZeros(team, player, match);
+						tooManyRequestsChecker(true);
+
 					} else
 					{
+						tooManyRequestsChecker(false);
 						fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/BrokenMatches.txt");
 						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 						writerReaderFactory.makeZeros(team, player, match);
 					}
-					tooManyRequestsChecker();
+
 				}
 			}
 		uniqueInfoFactory.removeFirstEnter("files/TemporaryMatches.txt");
@@ -135,6 +137,7 @@ public class MatchesWorker
 			fileOperationsFactory.cleanAndWriteToFile(allMatchesfile, "files/Matches.txt");
 		}
 		//uniqueInfoFactory.makeMatchesFileClean("files/Matches.txt");
+
 	}
 }
 

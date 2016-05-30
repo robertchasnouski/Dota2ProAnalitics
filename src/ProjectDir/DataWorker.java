@@ -26,8 +26,8 @@ public class DataWorker
 
 	public void analizeFutureMatch(String team1Id, String team2Id) throws IOException, ParseException
 	{
-		heatMapAnaliticsFactory.buildHeatMap(team1Id);
-		heatMapAnaliticsFactory.buildHeatMap(team2Id);
+//		heatMapAnaliticsFactory.buildHeatMap(team1Id);
+//		heatMapAnaliticsFactory.buildHeatMap(team2Id);
 		System.out.println("/----------------Jack--------------------/");
 		System.out.println("/-Yo-yo-yo.");
 		String team1Matches = fileOperationsFactory.readFile("files/teams/" + team1Id + "/TeamMatches.txt");
@@ -50,8 +50,10 @@ public class DataWorker
 		ArrayList<AnalizedInfo> secondMonthObjects = separateMonthObjects(secondObjects);
 		ArrayList<AnalizedInfo> secondTenDaysObjects = separateTenDaysObjects(secondObjects);
 		ArrayList<AnalizedInfo> secondLastFiveGames = separateLastFiveGames(secondObjects);
-		ArrayList<AnalizedInfo> firstLastTenGames=separateLastTenGames(firstObjects);
-		ArrayList<AnalizedInfo> secondLastTenGames=separateLastTenGames(secondObjects);
+		ArrayList<AnalizedInfo> firstLastTenGames = separateLastTenGames(firstObjects);
+		ArrayList<AnalizedInfo> firstLastTenOrLessGames = separateLastTenOrLessGames(firstObjects);
+		ArrayList<AnalizedInfo> secondLastTenOrLessGames = separateLastTenOrLessGames(secondObjects);
+		ArrayList<AnalizedInfo> secondLastTenGames = separateLastTenGames(secondObjects);
 
 		ArrayList<AnalizedInfo> firstFBBadGames = separateEnemyFBBadGames(firstMonthObjects);
 		ArrayList<AnalizedInfo> firstFBNormalGames = separateEnemyFBNormalGames(firstMonthObjects);
@@ -71,6 +73,7 @@ public class DataWorker
 		ArrayList<AnalizedInfo> lastThreeFirstObjects = separateLastThreeGames(firstObjects);
 		ArrayList<AnalizedInfo> lastTenSecondObjects = separateLastTenGames(secondObjects);
 		ArrayList<AnalizedInfo> lastThreeSecondObjects = separateLastThreeGames(secondObjects);
+		ArrayList<AnalizedInfo> matchesHistory = getMeetingsMatches(firstMonthObjects, secondMonthObjects);
 		//</editor-fold>
 
 		String firstName = firstObjects.get(0).teamName;
@@ -211,33 +214,28 @@ public class DataWorker
 		Integer secondPercentWhenFBWasGet = getPercentWhenFBWasGet(secondMonthObjects);
 		/**************************************************/
 		//</editor-fold>
-
 		//<editor-fold desc="Parameters">
-
-		/*Integer firstStreak=getCurrentStreak(firstMonthObjects);
-		Integer secondStreak=getCurrentStreak(secondMonthObjects);
-		Integer firstDiff=getLastTenMatchesDiff(firstLastTenGames);
-		Integer secondDiff=getLastTenMatchesDiff(secondLastTenGames);
-		Integer firstFarming=getMediumFarming(firstMonthObjects);
-		Integer secondFarming=getMediumFarming(secondMonthObjects);
-		Integer firstPushing=getMediumPushing(firstMonthObjects);
-		Integer secondPushing=getMediumPushing(secondMonthObjects);
-		Integer firstLining=getMediumLining(firstMonthObjects);
-		Integer secondLining=getMediumLining(secondMonthObjects);
-		Integer firstVision=getMediumVision(firstMonthObjects);
-		Integer secondVision=getMediumVision(secondMonthObjects);
-		Integer firstGreatEnemyPercent=getPercentGreatEnemy(firstMonthObjects);
-		Integer secondGreatEnemyPercent=getPercentGreatEnemy(secondObjects);
-		Integer firstGoodEnemyPercent=getPercentGoodEnemy(firstMonthObjects);
-		Integer secondGoodEnemyPercent=getPercentGoodEnemy(secondObjects);
-		Integer firstNormalEnemyPercent=getPercentNormalEnemy(firstMonthObjects);
-		Integer secondNormalEnemyPercent=getPercentNormalEnemy(secondObjects);
-		Integer firstBadEnemyPercent=getPercentBadEnemy(firstMonthObjects);
-		Integer secondBadEnemyPercent=getPercentBadEnemy(secondObjects);*/
-
+		Integer firstStreak = getCurrentStreak(firstLastTenGames);
+		Integer secondStreak = getCurrentStreak(secondLastTenGames);
+		Integer firstDiff = getLastTenMatchesDiff(firstLastTenGames);
+		Integer secondDiff = getLastTenMatchesDiff(secondLastTenGames);
+		Integer firstFarming = getMediumFarming(firstMonthObjects);
+		Integer secondFarming = getMediumFarming(secondMonthObjects);
+		Integer firstPushing = getMediumPushing(firstMonthObjects);
+		Integer secondPushing = getMediumPushing(secondMonthObjects);
+		Integer firstLining = getMediumLining(firstMonthObjects);
+		Integer secondLining = getMediumLining(secondMonthObjects);
+		Integer firstVision = getMediumVision(firstMonthObjects);
+		Integer secondVision = getMediumVision(secondMonthObjects);
+		Integer firstGreatEnemyPercent = getPercentGreatEnemy(firstMonthObjects);
+		Integer secondGreatEnemyPercent = getPercentGreatEnemy(secondObjects);
+		Integer firstGoodEnemyPercent = getPercentGoodEnemy(firstMonthObjects);
+		Integer secondGoodEnemyPercent = getPercentGoodEnemy(secondObjects);
+		Integer firstNormalEnemyPercent = getPercentNormalEnemy(firstMonthObjects);
+		Integer secondNormalEnemyPercent = getPercentNormalEnemy(secondObjects);
+		Integer firstBadEnemyPercent = getPercentBadEnemy(firstMonthObjects);
+		Integer secondBadEnemyPercent = getPercentBadEnemy(secondObjects);
 		//</editor-fold>
-
-
 		//<editor-fold desc="Filling InfoObject">
 
 		InfoObject infoFBObject = new InfoObject();
@@ -269,8 +267,8 @@ public class DataWorker
 		infoFBObject.team2MedianTime = secondFBMedianTime;
 		infoFBObject.team1Form = firstFBForm;
 		infoFBObject.team2Form = secondFBForm;
-		infoFBObject.team1PercentIfFB=0;
-		infoFBObject.team2PercentIfFB=0;
+		infoFBObject.team1PercentIfFB = 0;
+		infoFBObject.team2PercentIfFB = 0;
 
 		InfoObject infoF10KObject = new InfoObject();
 		infoF10KObject.team1HorribleGamesPercent = firstHorribleGameF10KPercent;
@@ -301,8 +299,8 @@ public class DataWorker
 		infoF10KObject.team2MedianTime = secondF10KMedianTime;
 		infoF10KObject.team1Form = firstF10KForm;
 		infoF10KObject.team2Form = secondF10KForm;
-		infoF10KObject.team1PercentIfFB=firstPercentWhenFBWasGet;
-		infoF10KObject.team2PercentIfFB=secondPercentWhenFBWasGet;
+		infoF10KObject.team1PercentIfFB = firstPercentWhenFBWasGet;
+		infoF10KObject.team2PercentIfFB = secondPercentWhenFBWasGet;
 		//</editor-fold>
 
 		Integer choice = 0;
@@ -316,6 +314,7 @@ public class DataWorker
 			choice = s.nextInt();
 			switch (choice)
 			{
+				//<editor-fold desc="FB CASE">
 				case 1:
 				{
 					new Window("FB", infoFBObject);
@@ -326,7 +325,8 @@ public class DataWorker
 						System.out.println("/--1: NiceEnemy Statistics.");
 						System.out.println("/--2: NormalEnemy Statistics.");
 						System.out.println("/--3: BadEnemy Statistics.");
-						System.out.println("/--4: Last 5 Matches.");
+						System.out.println("/--4: Last 10 Matches.");
+						System.out.println("/--5: Last 10 Days Matches.");
 						System.out.println("/--9: Back.");
 						secondChoice = s.nextInt();
 						switch (secondChoice)
@@ -366,24 +366,42 @@ public class DataWorker
 							}
 							case 4:
 							{
-								System.out.println("---" + firstName + " Team Last 5 Games---");
-								for (int i = 0; i < firstLastFiveGames.size(); i++)
+								System.out.println("---" + firstName + " Team Last 10 Games---");
+								for (int i = 0; i < firstLastTenOrLessGames.size(); i++)
 								{
-									System.out.println(firstLastFiveGames.get(i).date + ";" + firstLastFiveGames.get(i).enemyTeamName + ";" + firstLastFiveGames.get(i).enemyFBRating + ";" + firstLastFiveGames.get(i).enemyF10KRating + ";" + firstLastFiveGames.get(i).isFB + ";" + firstLastFiveGames.get(i).isF10K + ";" + firstLastFiveGames.get(i).FB + ";" + firstLastFiveGames.get(i).tenKills);
+									System.out.println(firstLastTenOrLessGames.get(i).date + ";" + firstLastTenOrLessGames.get(i).enemyTeamName + ";" + firstLastTenOrLessGames.get(i).enemyFBRating + ";" + firstLastTenOrLessGames.get(i).isFB + ";" + firstLastTenOrLessGames.get(i).FB + ".");
 								}
-								System.out.println("---" + secondName + " Team Last 5 Games---");
-								for (int i = 0; i < secondLastFiveGames.size(); i++)
+								System.out.println("---" + secondName + " Team Last 10 Games---");
+								for (int i = 0; i < secondLastTenOrLessGames.size(); i++)
 								{
-									System.out.println(secondLastFiveGames.get(i).date + ";" + secondLastFiveGames.get(i).enemyTeamName + ";" + secondLastFiveGames.get(i).enemyFBRating + ";" + secondLastFiveGames.get(i).enemyF10KRating + ";" + secondLastFiveGames.get(i).isFB + ";" + secondLastFiveGames.get(i).isF10K + ";" + secondLastFiveGames.get(i).FB + ";" + secondLastFiveGames.get(i).tenKills);
+									System.out.println(secondLastTenOrLessGames.get(i).date + ";" + secondLastTenOrLessGames.get(i).enemyTeamName + ";" + secondLastTenOrLessGames.get(i).enemyFBRating + ";" + secondLastTenOrLessGames.get(i).isFB + ";" + secondLastTenOrLessGames.get(i).FB + ".");
 								}
 								break;
 							}
-
+							case 5:
+							{
+								System.out.println("---" + firstName + " Team Last 10 days Matches---");
+								for (int i = 0; i < firstTenDaysObjects.size(); i++)
+								{
+									System.out.println(firstTenDaysObjects.get(i).date + ";" + firstTenDaysObjects.get(i).enemyTeamName + ";" + firstTenDaysObjects.get(i).enemyFBRating + ";" + firstTenDaysObjects.get(i).isFB + ";" + firstTenDaysObjects.get(i).FB + ".");
+								}
+								System.out.println("---" + secondName + " Team Last 10 days Matches---");
+								for (int i = 0; i < secondTenDaysObjects.size(); i++)
+								{
+									System.out.println(secondTenDaysObjects.get(i).date + ";" + secondTenDaysObjects.get(i).enemyTeamName + ";" + secondTenDaysObjects.get(i).enemyFBRating + ";" + secondTenDaysObjects.get(i).isFB + ";" + secondTenDaysObjects.get(i).FB + ".");
+								}
+								System.out.println("--- Meetings History:");
+								for (int i = 0; i < matchesHistory.size(); i++)
+								{
+									System.out.println(i + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).isFB + ";" + matchesHistory.get(i).FB);
+								}
+							}
 						}
 					}
 					break;
 				}
-
+				//</editor-fold>
+				//<editor-fold desc="F10K CASE">
 				case 2:
 				{
 					new Window("F10K", infoF10KObject);
@@ -394,7 +412,8 @@ public class DataWorker
 						System.out.println("/--1: NiceEnemy Statistics.");
 						System.out.println("/--2: NormalEnemy Statistics.");
 						System.out.println("/--3: BadEnemy Statistics.");
-						System.out.println("/--4: Last 5 Matches.");
+						System.out.println("/--4: Last 10 Matches.");
+						System.out.println("/--5: Last 10 Days Matches.");
 						System.out.println("/--9: Back.");
 						secondChoice = s.nextInt();
 						switch (secondChoice)
@@ -434,23 +453,42 @@ public class DataWorker
 							}
 							case 4:
 							{
-								System.out.println("---" + firstName + " Team Last 5 Games---");
-								for (int i = 0; i < firstLastFiveGames.size(); i++)
+								System.out.println("---" + firstName + " Team Last 10 Games---");
+								for (int i = 0; i < firstLastTenOrLessGames.size(); i++)
 								{
-									System.out.println(firstLastFiveGames.get(i).date + ";" + firstLastFiveGames.get(i).enemyTeamName + ";" + firstLastFiveGames.get(i).enemyFBRating + ";" + firstLastFiveGames.get(i).enemyF10KRating + ";" + firstLastFiveGames.get(i).isFB + ";" + firstLastFiveGames.get(i).isF10K + ";" + firstLastFiveGames.get(i).FB + ";" + firstLastFiveGames.get(i).tenKills);
+									System.out.println(firstLastTenOrLessGames.get(i).date + ";" + firstLastTenOrLessGames.get(i).enemyTeamName + ";" + firstLastTenOrLessGames.get(i).enemyF10KRating + ";" + firstLastTenOrLessGames.get(i).isF10K + ";" + firstLastTenOrLessGames.get(i).tenKills);
 								}
-								System.out.println("---" + secondName + " Team Last 5 Games---");
-								for (int i = 0; i < secondLastFiveGames.size(); i++)
+								System.out.println("---" + secondName + " Team Last 10 Games---");
+								for (int i = 0; i < secondLastTenOrLessGames.size(); i++)
 								{
-									System.out.println(secondLastFiveGames.get(i).date + ";" + secondLastFiveGames.get(i).enemyTeamName + ";" + secondLastFiveGames.get(i).enemyFBRating + ";" + secondLastFiveGames.get(i).enemyF10KRating + ";" + secondLastFiveGames.get(i).isFB + ";" + secondLastFiveGames.get(i).isF10K + ";" + secondLastFiveGames.get(i).FB + ";" + secondLastFiveGames.get(i).tenKills);
+									System.out.println(secondLastTenOrLessGames.get(i).date + ";" + secondLastTenOrLessGames.get(i).enemyTeamName + ";" + secondLastTenOrLessGames.get(i).enemyF10KRating + ";" + secondLastTenOrLessGames.get(i).isF10K + ";" + secondLastTenOrLessGames.get(i).tenKills);
 								}
 								break;
 							}
-
+							case 5:
+							{
+								System.out.println("---" + firstName + " Team Last 10 days Matches---");
+								for (int i = 0; i < firstTenDaysObjects.size(); i++)
+								{
+									System.out.println(firstTenDaysObjects.get(i).date + ";" + firstTenDaysObjects.get(i).enemyTeamName + ";" + firstTenDaysObjects.get(i).enemyF10KRating + ";" + firstTenDaysObjects.get(i).isF10K + ";" + firstTenDaysObjects.get(i).tenKills);
+								}
+								System.out.println("---" + secondName + " Team Last 10 days Matches---");
+								for (int i = 0; i < secondTenDaysObjects.size(); i++)
+								{
+									System.out.println(secondTenDaysObjects.get(i).date + ";" + secondTenDaysObjects.get(i).enemyTeamName + ";" + secondTenDaysObjects.get(i).enemyF10KRating + ";" + secondTenDaysObjects.get(i).isF10K + ";" + secondTenDaysObjects.get(i).tenKills);
+								}
+								System.out.println("--- Meetings History:");
+								for (int i = 0; i < matchesHistory.size(); i++)
+								{
+									System.out.println(i + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).isF10K + ";" + matchesHistory.get(i).tenKills);
+								}
+							}
 						}
 					}
 					break;
 				}
+				//</editor-fold>
+				//<editor-fold desc="WIN CASE">
 				case 3:
 				{
 					Integer secondChoice = 0;
@@ -460,59 +498,83 @@ public class DataWorker
 						System.out.println("/--1: Global statistics.");
 						System.out.println("/--2: Parameters.");
 						System.out.println("/--3: Enemy's Statistics.");
-						System.out.println("/--4: Last 5 Matches.");
+						System.out.println("/--4: Last 10 Matches.");
+						System.out.println("/--5: Last 10 days Matches.");
+						System.out.println("/--6: Meetings History.");
 						System.out.println("/--9: Back.");
 						secondChoice = s.nextInt();
 						switch (secondChoice)
 						{
-							/*case 1:
+							case 1:
 							{
 								System.out.println("---Global Statistics---");
-								System.out.println("TeamName. First:"+firstName+"\tSecond:"+secondName);
-								System.out.println("Month Games Played. First:"+firstMonthGamesPlayed+"\tSecond:");
-								System.out.println("AvgEnemyRating. First:"+firstAvgMonthEnemyRating+"\tSecond:"+secondAvgMonthEnemyRating);
-								System.out.println("Streak. First"+firstStreak+"\tSecond:"+secondStreak);
-								System.out.println("Difference. First:"+firstDiff+"\tSecond:"+secondDiff);
+								System.out.println("TeamName. First:" + firstName + "\tSecond:" + secondName);
+								System.out.println("Month Games Played. First:" + firstMonthGamesPlayed + "\tSecond:" + secondMonthGamesPlayed);
+								System.out.println("AvgEnemyRating. First:" + firstAvgMonthEnemyRating + "\tSecond:" + secondAvgMonthEnemyRating);
+								System.out.println("Streak. First:" + firstStreak + "\tSecond:" + secondStreak);
+								System.out.println("Difference. First:" + firstDiff + "\tSecond:" + secondDiff);
 								break;
 							}
 							case 2:
 							{
 								System.out.println("---Parameters---");
-								System.out.println("Farming. First:"+firstFarming+"\tSecond:"+secondFarming);
-								System.out.println("Vision. First:"+firstVision+"\tSecond:"+secondVision);
-								System.out.println("Pushing. First:"+firstPushing+"\tSecond:"+secondPushing);
-								System.out.println("Lining. First:"+firstLining+"\tSecond:"+secondLining);
+								System.out.println("Farming. First:" + firstFarming + "\tSecond:" + secondFarming);
+								System.out.println("Vision. First:" + firstVision + "\tSecond:" + secondVision);
+								System.out.println("Pushing. First:" + firstPushing + "\tSecond:" + secondPushing);
+								System.out.println("Lining. First:" + firstLining + "\tSecond:" + secondLining);
 								break;
 							}
 							case 3:
 							{
-								System.out.println("---Enemy Statistic's---");
-
+								System.out.println("---Enemy's Statistic's---");
+								System.out.println("Great Enemy. First:" + firstGreatEnemyPercent + "\tSecond:" + secondGreatEnemyPercent);
+								System.out.println("Good Enemy. First:" + firstGoodEnemyPercent + "\tSecond:" + secondGoodEnemyPercent);
+								System.out.println("Normal Enemy. First:" + firstNormalEnemyPercent + "\tSecond:" + secondNormalEnemyPercent);
+								System.out.println("Bad Enemy. First:" + firstBadEnemyPercent + "\tSecond:" + secondBadEnemyPercent);
 								break;
 							}
 							case 4:
 							{
-								System.out.println("---" + firstName + " Team Last 5 Games---");
-								for (int i = 0; i < firstLastFiveGames.size(); i++)
+								System.out.println("---" + firstName + " Team Last 10 Games---");
+								for (int i = 0; i < firstLastTenOrLessGames.size(); i++)
 								{
-									System.out.println(firstLastFiveGames.get(i).date + ";" + firstLastFiveGames.get(i).enemyTeamName + ";" + firstLastFiveGames.get(i).enemyRating+ ";" + firstLastFiveGames.get(i).matchTime + ";" + firstLastFiveGames.get(i).isWin + ";" + firstLastFiveGames.get(i).matchHardness);
+									System.out.println(firstLastTenOrLessGames.get(i).date + ";" + firstLastTenOrLessGames.get(i).enemyTeamName + ";" + firstLastTenOrLessGames.get(i).enemyRating + ";" + firstLastTenOrLessGames.get(i).matchTime + ";" + firstLastTenOrLessGames.get(i).isWin + ";" + firstLastTenOrLessGames.get(i).matchHardness + ";" + firstLastTenOrLessGames.get(i).EG + ";" + firstLastTenOrLessGames.get(i).MG + ";" + firstLastTenOrLessGames.get(i).LG);
 								}
-								System.out.println("---" + secondName + " Team Last 5 Games---");
-								for (int i = 0; i < secondLastFiveGames.size(); i++)
+								System.out.println("---" + secondName + " Team Last 10 Games---");
+								for (int i = 0; i < secondLastTenOrLessGames.size(); i++)
 								{
-									System.out.println(secondLastFiveGames.get(i).date + ";" + secondLastFiveGames.get(i).enemyTeamName + ";" + secondLastFiveGames.get(i).enemyRating + ";" + secondLastFiveGames.get(i).matchTime + ";" + secondLastFiveGames.get(i).isWin + ";" + secondLastFiveGames.get(i).matchHardness);
+									System.out.println(secondLastTenOrLessGames.get(i).date + ";" + secondLastTenOrLessGames.get(i).enemyTeamName + ";" + secondLastTenOrLessGames.get(i).enemyRating + ";" + secondLastTenOrLessGames.get(i).matchTime + ";" + secondLastTenOrLessGames.get(i).isWin + ";" + secondLastTenOrLessGames.get(i).matchHardness + ";" + secondLastTenOrLessGames.get(i).EG + ";" + secondLastTenOrLessGames.get(i).MG + ";" + secondLastTenOrLessGames.get(i).LG);
 								}
 								break;
-							}*/
+							}
+							case 5:
+							{
+								System.out.println("---" + firstName + " Team Last 10 days Matches---");
+								for (int i = 0; i < firstTenDaysObjects.size(); i++)
+								{
+									System.out.println(firstTenDaysObjects.get(i).date + ";" + firstTenDaysObjects.get(i).enemyTeamName + ";" + firstTenDaysObjects.get(i).enemyRating + ";" + firstTenDaysObjects.get(i).matchTime + ";" + firstTenDaysObjects.get(i).isWin + ";" + firstTenDaysObjects.get(i).matchHardness + ";" + firstTenDaysObjects.get(i).EG + ";" + firstTenDaysObjects.get(i).MG + ";" + firstTenDaysObjects.get(i).LG);
+								}
+								System.out.println("---" + secondName + " Team Last 10 days Matches---");
+								for (int i = 0; i < secondTenDaysObjects.size(); i++)
+								{
+									System.out.println(secondTenDaysObjects.get(i).date + ";" + secondTenDaysObjects.get(i).enemyTeamName + ";" + secondTenDaysObjects.get(i).enemyRating + ";" + secondTenDaysObjects.get(i).matchTime + ";" + secondTenDaysObjects.get(i).isWin + ";" + secondTenDaysObjects.get(i).matchHardness + ";" + secondTenDaysObjects.get(i).EG + ";" + secondTenDaysObjects.get(i).MG + ";" + secondTenDaysObjects.get(i).LG);
+								}
+								System.out.println("---Meetings History---");
+								for (int i = 0; i < matchesHistory.size(); i++)
+								{
+									System.out.println(i + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).matchTime + ";" + matchesHistory.get(i).isWin + ";" + matchesHistory.get(i).matchHardness + ";" + matchesHistory.get(i).EG + ";" + matchesHistory.get(i).MG + ";" + matchesHistory.get(i).LG);
+								}
+							}
+
 						}
 					}
 					break;
 				}
+				//</editor-fold>
 				default:
 					break;
 			}
 		}
-
 	}
 
 	public void fillObject(ArrayList<AnalizedInfo> objects, String allMatches) throws IOException
@@ -533,7 +595,7 @@ public class DataWorker
 			String killEventsInfo = eachMatch[i].split("##")[8];
 			String enemyFBRating = eachMatch[i].split("##")[9];
 			String enemyF10KRating = eachMatch[i].split("##")[10];
-			String matchHardness= eachMatch[i].split("##")[11];
+			String matchHardness = eachMatch[i].split("##")[11];
 			String ratingChanges = eachMatch[i].split("##")[12];
 
 			object.id = matchGeneralInfo.split(";")[0];
@@ -547,6 +609,7 @@ public class DataWorker
 			object.MG = Integer.parseInt(matchGeneralInfo.split(";")[7]);
 			object.LG = Integer.parseInt(matchGeneralInfo.split(";")[8]);
 			object.enemyTeamName = matchGeneralInfo.split(";")[9];
+			object.enemyTeamId = matchGeneralInfo.split(";")[10];
 
 			object.kills = Integer.parseInt(KDA.split(";")[0]);
 			object.deaths = Integer.parseInt(KDA.split(";")[1]);
@@ -669,6 +732,7 @@ public class DataWorker
 
 	public Integer getFBForm(ArrayList<AnalizedInfo> monthObjects, ArrayList<AnalizedInfo> TenDaysObjects) throws ParseException
 	{
+
 		if (TenDaysObjects.size() < 4)
 		{
 			return 9999;
@@ -684,7 +748,7 @@ public class DataWorker
 			Integer normalGamesTenDays = getNormalGameFBPercent(TenDaysObjects);
 			Integer goodGamesTenDays = getGoodGameFBPercent(TenDaysObjects);
 			Integer perfectGamesTenDays = getPerfectGameFBPercent(TenDaysObjects);
-			Integer form = perfectGamesTenDays - perfectGamesMonth + goodGamesTenDays - goodGamesMonth;
+			Integer form = perfectGamesTenDays * 5 + 4 * goodGamesTenDays + 3 * normalGamesTenDays + 2 * badGamesTenDays + 1 * horribleGamesTenDays - 5 * perfectGamesMonth - 4 * goodGamesMonth - 3 * normalGamesMonth - 2 * badGamesMonth - 1 * horribleGamesMonth;
 			return form;
 		}
 	}
@@ -863,7 +927,7 @@ public class DataWorker
 			Integer normalGamesTenDays = getNormalGameF10KPercent(TenDaysObjects);
 			Integer goodGamesTenDays = getGoodGameF10KPercent(TenDaysObjects);
 			Integer perfectGamesTenDays = getPerfectGameF10KPercent(TenDaysObjects);
-			Integer form = perfectGamesTenDays - perfectGamesMonth + goodGamesTenDays - goodGamesMonth;
+			Integer form = 5 * perfectGamesTenDays + 4 * goodGamesTenDays + 3 * normalGamesTenDays + 2 * badGamesTenDays + horribleGamesTenDays - 5 * perfectGamesMonth - 4 * goodGamesMonth - 3 * normalGamesMonth - 2 * badGamesMonth - horribleGamesMonth;
 			return form;
 		}
 	}
@@ -953,6 +1017,183 @@ public class DataWorker
 		return (int) Math.round(percent);
 	}
 	//</editor-fold>
+	//</editor-fold>
+
+	//<editor-fold desc="WinData">
+	public Integer getCurrentStreak(ArrayList<AnalizedInfo> objects)
+	{
+		Integer streak = 0;
+		Boolean firstWin = false;
+		Boolean firstLose = false;
+		Boolean checked = false;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			if (objects.get(i).isWin && !checked)
+			{
+				firstWin = true;
+				checked = true;
+			}
+			if (!objects.get(i).isWin && !checked)
+			{
+				firstLose = true;
+				checked = true;
+			}
+			if (firstWin && checked)
+			{
+				if (objects.get(i).isWin)
+					streak++;
+				else
+					return streak;
+			}
+			if (firstLose && checked)
+			{
+				if (objects.get(i).isWin == false)
+					streak--;
+				else
+					return streak;
+			}
+		}
+		return streak;
+	}
+
+	public Integer getLastTenMatchesDiff(ArrayList<AnalizedInfo> lastTenMatches)
+	{
+		if (lastTenMatches.size() != 10)
+			return 0;
+		Integer diff = 0;
+		for (int i = 0; i < lastTenMatches.size(); i++)
+		{
+			if (lastTenMatches.get(i).isWin == true)
+				diff++;
+			else
+				diff--;
+		}
+		return diff;
+	}
+
+	public Integer getMediumFarming(ArrayList<AnalizedInfo> objects)
+	{
+		ArrayList<Integer> array = new ArrayList<>();
+		Integer median = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			array.add(objects.get(i).farming);
+		}
+		median = getMedianFromArray(array);
+		return median;
+	}
+
+	public Integer getMediumPushing(ArrayList<AnalizedInfo> objects)
+	{
+		ArrayList<Integer> array = new ArrayList<>();
+		Integer median = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			array.add(objects.get(i).pushing);
+		}
+		median = getMedianFromArray(array);
+		return median;
+	}
+
+	public Integer getMediumLining(ArrayList<AnalizedInfo> objects)
+	{
+		ArrayList<Integer> array = new ArrayList<>();
+		Integer median = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			array.add(objects.get(i).lining);
+		}
+		median = getMedianFromArray(array);
+		return median;
+	}
+
+	public Integer getMediumVision(ArrayList<AnalizedInfo> objects)
+	{
+		ArrayList<Integer> array = new ArrayList<>();
+		Integer median = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			array.add(objects.get(i).vision);
+		}
+		median = getMedianFromArray(array);
+		return median;
+	}
+
+	public Integer getPercentGreatEnemy(ArrayList<AnalizedInfo> objects)
+	{
+		Integer allGames = 0;
+		Integer winGames = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			if (objects.get(i).enemyRating >= 1500)
+			{
+				allGames++;
+				if (objects.get(i).isWin)
+					winGames++;
+			}
+		}
+		if (allGames != 0)
+			return winGames / allGames * 100;
+		else
+			return 9999;
+	}
+
+	public Integer getPercentGoodEnemy(ArrayList<AnalizedInfo> objects)
+	{
+		Integer allGames = 0;
+		Integer winGames = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			if (objects.get(i).enemyRating >= 1250 && objects.get(i).enemyRating < 1500)
+			{
+				allGames++;
+				if (objects.get(i).isWin)
+					winGames++;
+			}
+		}
+		if (allGames != 0)
+			return winGames / allGames * 100;
+		else
+			return 9999;
+	}
+
+	public Integer getPercentNormalEnemy(ArrayList<AnalizedInfo> objects)
+	{
+		Integer allGames = 0;
+		Integer winGames = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			if (objects.get(i).enemyRating >= 1000 && objects.get(i).enemyRating < 1250)
+			{
+				allGames++;
+				if (objects.get(i).isWin)
+					winGames++;
+			}
+		}
+		if (allGames != 0)
+			return winGames / allGames * 100;
+		else
+			return 9999;
+	}
+
+	public Integer getPercentBadEnemy(ArrayList<AnalizedInfo> objects)
+	{
+		Integer allGames = 0;
+		Integer winGames = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			if (objects.get(i).enemyRating < 1000)
+			{
+				allGames++;
+				if (objects.get(i).isWin)
+					winGames++;
+			}
+		}
+		if (allGames != 0)
+			return winGames / allGames * 100;
+		else
+			return 9999;
+	}
 	//</editor-fold>
 
 	//<editor-fold desc="GeneralInfo">
@@ -1223,6 +1464,25 @@ public class DataWorker
 		return newArray;
 	}
 
+	public ArrayList<AnalizedInfo> separateLastTenOrLessGames(ArrayList<AnalizedInfo> array)
+	{
+		ArrayList<AnalizedInfo> newArray = new ArrayList<>();
+		if (array.size() >= 10)
+		{
+			for (int i = array.size() - 1; i > array.size() - 11; i--)
+			{
+				newArray.add(array.get(i));
+			}
+		} else
+		{
+			for (int i = array.size() - 1; i > array.size() - (array.size() + 1); i--)
+			{
+				newArray.add(array.get(i));
+			}
+		}
+		return newArray;
+	}
+
 	public ArrayList<AnalizedInfo> separateLastFiveGames(ArrayList<AnalizedInfo> array)
 	{
 		ArrayList<AnalizedInfo> newArray = new ArrayList<>();
@@ -1259,174 +1519,19 @@ public class DataWorker
 		}
 		return newArray;
 	}
-	//</editor-fold>
 
-	//<editor-fold desc="WinData">
-
-	public Integer getCurrentStreak(ArrayList<AnalizedInfo> objects)
+	public ArrayList<AnalizedInfo> getMeetingsMatches(ArrayList<AnalizedInfo> firstArray, ArrayList<AnalizedInfo> secondArray)
 	{
-		Integer streak = 0;
-		Boolean firstWin = false;
-		Boolean firstLose = false;
-		Boolean checked = false;
-		for (int i = 0; i < objects.size(); i++)
+		String team1Id = firstArray.get(0).teamId;
+		String team2Id = secondArray.get(0).teamId;
+		ArrayList<AnalizedInfo> newArray = new ArrayList<>();
+		for (int i = 0; i < firstArray.size(); i++)
 		{
-			if (objects.get(i).isWin == true && checked == false)
-			{
-				streak++;
-				firstWin = true;
-				checked = true;
-			}
-			if (objects.get(i).isWin == false && checked == false)
-			{
-				streak--;
-				firstLose = true;
-				checked = true;
-			}
-			if (firstWin)
-			{
-				if (objects.get(i).isWin == true)
-					streak++;
-				else
-					return streak;
-			} else
-			{
-				if (objects.get(i).isWin == false)
-					streak--;
-				else
-					return streak;
-			}
+			if (firstArray.get(i).enemyTeamId.equals(team2Id))
+				newArray.add(firstArray.get(i));
 		}
-		return streak;
+		return newArray;
 	}
-
-	public Integer getLastTenMatchesDiff(ArrayList<AnalizedInfo> lastTenMatches)
-	{
-		if(lastTenMatches.size()!=10)
-			return 0;
-		Integer diff = 0;
-		for (int i = 0; i < lastTenMatches.size(); i++)
-		{
-			if (lastTenMatches.get(i).isWin == true)
-				diff++;
-			else
-				diff--;
-		}
-		return diff;
-	}
-
-	public Integer getMediumFarming(ArrayList<AnalizedInfo> objects)
-	{
-		ArrayList<Integer> array = new ArrayList<>();
-		Integer median = 0;
-		for (int i = 0; i < objects.size(); i++)
-		{
-			array.add(objects.get(i).farming);
-		}
-		median = getMedianFromArray(array);
-		return median;
-	}
-
-	public Integer getMediumPushing(ArrayList<AnalizedInfo> objects)
-	{
-		ArrayList<Integer> array = new ArrayList<>();
-		Integer median = 0;
-		for (int i = 0; i < objects.size(); i++)
-		{
-			array.add(objects.get(i).pushing);
-		}
-		median = getMedianFromArray(array);
-		return median;
-	}
-
-	public Integer getMediumLining(ArrayList<AnalizedInfo> objects)
-	{
-		ArrayList<Integer> array = new ArrayList<>();
-		Integer median = 0;
-		for (int i = 0; i < objects.size(); i++)
-		{
-			array.add(objects.get(i).lining);
-		}
-		median = getMedianFromArray(array);
-		return median;
-	}
-
-	public Integer getMediumVision(ArrayList<AnalizedInfo> objects)
-	{
-		ArrayList<Integer> array = new ArrayList<>();
-		Integer median = 0;
-		for (int i = 0; i < objects.size(); i++)
-		{
-			array.add(objects.get(i).vision);
-		}
-		median = getMedianFromArray(array);
-		return median;
-	}
-
-	public Integer getPercentGreatEnemy(ArrayList<AnalizedInfo> objects)
-	{
-		Integer allGames = 0;
-		Integer winGames = 0;
-		for (int i = 0; i < objects.size(); i++)
-		{
-			if (objects.get(i).enemyRating >= 1500)
-			{
-				allGames++;
-				if(objects.get(i).isWin)
-					winGames++;
-			}
-		}
-		return winGames/allGames*100;
-	}
-
-	 public Integer getPercentGoodEnemy(ArrayList<AnalizedInfo> objects)
-	{
-		Integer allGames = 0;
-		Integer winGames = 0;
-		for (int i = 0; i < objects.size(); i++)
-		{
-			if (objects.get(i).enemyRating >= 1250 && objects.get(i).enemyRating < 1500 )
-			{
-				allGames++;
-				if(objects.get(i).isWin)
-					winGames++;
-			}
-		}
-		return winGames/allGames*100;
-	}
-
-	public Integer getPercentNormalEnemy(ArrayList<AnalizedInfo> objects)
-	{
-		Integer allGames = 0;
-		Integer winGames = 0;
-		for (int i = 0; i < objects.size(); i++)
-		{
-			if (objects.get(i).enemyRating >= 1000 && objects.get(i).enemyRating < 1250)
-			{
-				allGames++;
-				if(objects.get(i).isWin)
-					winGames++;
-			}
-		}
-		return winGames/allGames*100;
-	}
-
-	public Integer getPercentBadEnemy(ArrayList<AnalizedInfo> objects)
-	{
-		Integer allGames = 0;
-		Integer winGames = 0;
-		for (int i = 0; i < objects.size(); i++)
-		{
-			if (objects.get(i).enemyRating < 1000)
-			{
-				allGames++;
-				if(objects.get(i).isWin)
-					winGames++;
-			}
-		}
-		return winGames/allGames*100;
-	}
-
 	//</editor-fold>
 }
 
@@ -1480,8 +1585,8 @@ class Window extends JFrame
 	GSegment team2MedianTime = new GSegment();
 	GSegment team1Form = new GSegment();
 	GSegment team2Form = new GSegment();
-	GSegment team1PercentIfFB=new GSegment();
-	GSegment team2PercentIfFB=new GSegment();
+	GSegment team1PercentIfFB = new GSegment();
+	GSegment team2PercentIfFB = new GSegment();
 
 	public Window(String what, InfoObject obj)
 	{
@@ -1557,8 +1662,8 @@ class Window extends JFrame
 		team2AvgSkillEnemyRatingTen.addText(new GText("AvgSkillTenDays:" + obj.team2AvgSkillEnemyRatingTen, GPosition.MIDDLE));
 		team1MedianTime.addText(new GText("MedianTime:" + obj.team1MedianTime, GPosition.MIDDLE));
 		team2MedianTime.addText(new GText("MedianTime:" + obj.team2MedianTime, GPosition.MIDDLE));
-		team1Form.addText(new GText("Form:" + obj.team1Form + "%", GPosition.MIDDLE));
-		team2Form.addText(new GText("Form:" + obj.team2Form + "%", GPosition.MIDDLE));
+		team1Form.addText(new GText("Form:" + obj.team1Form + " points", GPosition.MIDDLE));
+		team2Form.addText(new GText("Form:" + obj.team2Form + " points", GPosition.MIDDLE));
 		team1PercentIfFB.addText(new GText("Percent If FB:" + obj.team1PercentIfFB + "%", GPosition.MIDDLE));
 		team2PercentIfFB.addText(new GText("Percent If FB:" + obj.team2PercentIfFB + "%", GPosition.MIDDLE));
 		scene.addSegment(team1NameLabel);
@@ -1634,8 +1739,8 @@ class Window extends JFrame
 			team2MedianTime.setGeometry(650, 510, 850, 530);
 			team1Form.setGeometry(150, 540, 350, 560);
 			team2Form.setGeometry(650, 540, 850, 560);
-			team1PercentIfFB.setGeometry(150,570,350,590);
-			team2PercentIfFB.setGeometry(650,570,850,590);
+			team1PercentIfFB.setGeometry(150, 570, 350, 590);
+			team2PercentIfFB.setGeometry(650, 570, 850, 590);
 			removeSegments();
 
 			// Loop through the sectors and draw the graphics for each

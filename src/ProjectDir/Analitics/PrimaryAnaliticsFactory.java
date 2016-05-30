@@ -2209,7 +2209,8 @@ public class PrimaryAnaliticsFactory
 		teamString += team[0].EGPoints + ";";
 		teamString += team[0].MGPoints + ";";
 		teamString += team[0].LGPoints + ";";
-		teamString += team[1].name;
+		teamString += team[1].name+";";
+		teamString += team[1].id;
 		teamString += "##";
 		/**TeamInfo [1]**/
 		teamString += team[0].kills + ";";
@@ -2312,7 +2313,8 @@ public class PrimaryAnaliticsFactory
 		teamString += team[1].EGPoints + ";";
 		teamString += team[1].MGPoints + ";";
 		teamString += team[1].LGPoints + ";";
-		teamString += team[0].name;
+		teamString += team[0].name+";";
+		teamString += team[0].id;
 		teamString += "##";
 		/**TeamInfo [1]**/
 		teamString += team[1].kills + ";";

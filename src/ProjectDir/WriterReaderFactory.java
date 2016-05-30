@@ -72,6 +72,7 @@ public class WriterReaderFactory
 		for (int i = 0; i < 2; i++)
 		{
 			writeToFile(teams[i].id, true);
+			teams[i].name=teams[i].name.replaceAll(";","");
 			writeToFile(teams[i].name, true);
 			writeToFile("1000", true);
 			writeToFile(Integer.toString(teams[i].kills), true);
@@ -482,11 +483,8 @@ public class WriterReaderFactory
 					writeToFile(Integer.toString(players[i].minuteGPM[j]), false);
 				if (players[i].minuteGPM[j] < -5000 || players[i].minuteGPM[j] > 5000)
 				{
-					System.out.println(players[i].minuteGPM[j]);
-					System.out.println(i);
-					System.out.println(j);
-					error = true;
-					System.out.println("MinuteGPM Player error");
+					players[i].minuteGPM[j]=800;
+					System.out.println("MinuteGPM Player error but fixed");
 				}
 			}
 			//XPM
@@ -500,9 +498,8 @@ public class WriterReaderFactory
 					writeToFile(Integer.toString(players[i].minuteXPM[j]), false);
 				if (players[i].minuteXPM[j] < -100 || players[i].minuteXPM[j] > 10000)
 				{
-					error = true;
-					System.out.println("Problem with:" + players[i].hero + " XPM:" + players[i].minuteXPM[j]);
-					System.out.println("MinuteXPM error");
+					players[i].minuteXPM[j]=800;
+					System.out.println("MinuteXPM Player error but fixed");
 				}
 			}
 			//LH
