@@ -1,5 +1,6 @@
 package ProjectDir;
 
+import ProjectDir.Analitics.ABCAnalitics;
 import ProjectDir.Analitics.HeatMapAnaliticsFactory;
 import ProjectDir.MatchInfo.AnalizedInfo;
 
@@ -23,6 +24,8 @@ public class DataWorker
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 	Scanner s = new Scanner(System.in);
 	HeatMapAnaliticsFactory heatMapAnaliticsFactory = new HeatMapAnaliticsFactory();
+	ABCAnalitics abcAnalitics=new ABCAnalitics();
+
 
 	public void analizeFutureMatch(String team1Id, String team2Id) throws IOException, ParseException
 	{
@@ -82,7 +85,7 @@ public class DataWorker
 		/**GeneralInfo**/
 		Integer firstAvgMonthEnemyRating = getAverageEnemyRating(firstMonthObjects);
 		Integer firstAvgTenDaysEnemyRating = getAverageEnemyRating(firstTenDaysObjects);
-		Integer firstMonthGamesPlayed = getMonthGamesPlayed(firstObjects);
+		Integer firstMonthGamesPlayed = getMonthGamesPlayed(firstMonthObjects);
 		Integer secondMonthGamesPlayed = getMonthGamesPlayed(secondMonthObjects);
 		Integer secondAvgMonthEnemyRating = getAverageEnemyRating(secondMonthObjects);
 		Integer secondAvgTenDaysEnemyRating = getAverageEnemyRating(secondTenDaysObjects);
@@ -228,13 +231,19 @@ public class DataWorker
 		Integer firstVision = getMediumVision(firstMonthObjects);
 		Integer secondVision = getMediumVision(secondMonthObjects);
 		Integer firstGreatEnemyPercent = getPercentGreatEnemy(firstMonthObjects);
-		Integer secondGreatEnemyPercent = getPercentGreatEnemy(secondObjects);
+		Integer secondGreatEnemyPercent = getPercentGreatEnemy(secondMonthObjects);
 		Integer firstGoodEnemyPercent = getPercentGoodEnemy(firstMonthObjects);
-		Integer secondGoodEnemyPercent = getPercentGoodEnemy(secondObjects);
+		Integer secondGoodEnemyPercent = getPercentGoodEnemy(secondMonthObjects);
 		Integer firstNormalEnemyPercent = getPercentNormalEnemy(firstMonthObjects);
-		Integer secondNormalEnemyPercent = getPercentNormalEnemy(secondObjects);
+		Integer secondNormalEnemyPercent = getPercentNormalEnemy(secondMonthObjects);
 		Integer firstBadEnemyPercent = getPercentBadEnemy(firstMonthObjects);
-		Integer secondBadEnemyPercent = getPercentBadEnemy(secondObjects);
+		Integer secondBadEnemyPercent = getPercentBadEnemy(secondMonthObjects);
+		Integer firstMedianMatchTime=getMedianMatchTime(firstMonthObjects);
+		Integer secondMedianMatchTime=getMedianMatchTime(secondMonthObjects);
+		Integer firstMedianKills=getMedianKills(firstMonthObjects);
+		Integer secondMedianKills=getMedianKills(secondMonthObjects);
+		Integer firstMedianDeaths=getMedianDeaths(firstMonthObjects);
+		Integer secondMedianDeaths=getMedianDeaths(secondMonthObjects);
 		//</editor-fold>
 		//<editor-fold desc="Filling InfoObject">
 
@@ -307,10 +316,12 @@ public class DataWorker
 		while (choice != 9)
 		{
 			System.out.println("/-What do u want to know about future?");
-			System.out.println("/--1: FB Statistics");
-			System.out.println("/--2: F10K Statistics");
-			System.out.println("/--3: Win Analitics");
-			System.out.println("/--9: Exit");
+			System.out.println("/--1: FB Statistics.");
+			System.out.println("/--2: F10K Statistics.");
+			System.out.println("/--3: Win Analitics.");
+			System.out.println("/--4: ABC Analitics.");
+			System.out.println("/--5: Standins Analitics");
+			System.out.println("/--9: Exit.");
 			choice = s.nextInt();
 			switch (choice)
 			{
@@ -500,7 +511,7 @@ public class DataWorker
 						System.out.println("/--3: Enemy's Statistics.");
 						System.out.println("/--4: Last 10 Matches.");
 						System.out.println("/--5: Last 10 days Matches.");
-						System.out.println("/--6: Meetings History.");
+						System.out.println("/--6: Kills and Time Analitics");
 						System.out.println("/--9: Back.");
 						secondChoice = s.nextInt();
 						switch (secondChoice)
@@ -565,12 +576,34 @@ public class DataWorker
 									System.out.println(i + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).matchTime + ";" + matchesHistory.get(i).isWin + ";" + matchesHistory.get(i).matchHardness + ";" + matchesHistory.get(i).EG + ";" + matchesHistory.get(i).MG + ";" + matchesHistory.get(i).LG);
 								}
 							}
+							case 6:
+							{
+								System.out.println(firstMonthObjects.get(0).teamName+" avg. match time:"+firstMedianMatchTime+". Kills:"+firstMedianKills+". Deaths:"+firstMedianDeaths);
+								System.out.println(secondMonthObjects.get(0).teamName+" avg. match time:"+secondMedianMatchTime+". Kills:"+secondMedianKills+". Deaths:"+secondMedianDeaths);
+								System.out.println("---Meetings History---");
+								for (int i = 0; i < matchesHistory.size(); i++)
+								{
+									System.out.println(i + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).matchTime +";"+matchesHistory.get(i).kills+";"+matchesHistory.get(i).deaths);
+								}
+							}
 
 						}
 					}
 					break;
 				}
 				//</editor-fold>
+				//<editor-fold desc="ABC CASE">
+				case 4:
+				{
+					System.out.println("---ABC Analitics---");
+					abcAnalitics.checkForABCMatches(firstMonthObjects,secondMonthObjects);
+				}
+				//</editor-fold
+				case 5:
+				{
+					System.out.println("---Standin's Analitics---");
+
+				}
 				default:
 					break;
 			}
@@ -1193,6 +1226,42 @@ public class DataWorker
 			return winGames / allGames * 100;
 		else
 			return 9999;
+	}
+
+	public Integer getMedianMatchTime(ArrayList<AnalizedInfo> objects)
+	{
+		ArrayList<Integer> array = new ArrayList<>();
+		Integer median = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			array.add(Integer.parseInt(objects.get(i).matchTime));
+		}
+		median = getMedianFromArray(array);
+		return median;
+	}
+
+	public Integer getMedianKills(ArrayList<AnalizedInfo> objects)
+	{
+		ArrayList<Integer> array = new ArrayList<>();
+		Integer median = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			array.add(objects.get(i).kills);
+		}
+		median = getMedianFromArray(array);
+		return median;
+	}
+
+	public Integer getMedianDeaths(ArrayList<AnalizedInfo> objects)
+	{
+		ArrayList<Integer> array = new ArrayList<>();
+		Integer median = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			array.add(objects.get(i).deaths);
+		}
+		median = getMedianFromArray(array);
+		return median;
 	}
 	//</editor-fold>
 

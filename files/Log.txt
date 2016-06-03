@@ -40,5 +40,3 @@ Parsing match with ID:2238811676.
 Parsing failed. One of the teams are not esports team
 Parsing match with ID:2238712917.
 Parsing failed. One of the teams are not esports team
-
-

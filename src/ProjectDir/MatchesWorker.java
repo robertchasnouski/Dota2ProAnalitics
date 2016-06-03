@@ -1,5 +1,6 @@
 package ProjectDir;
 
+import ProjectDir.Analitics.ABCAnalitics;
 import ProjectDir.Analitics.GameStageAnalitics;
 import ProjectDir.MatchInfo.*;
 
@@ -21,6 +22,7 @@ public class MatchesWorker
 	MainAnaliticsFactory mainAnaliticsFactory = new MainAnaliticsFactory();
 	RatingFactory ratingFactory = new RatingFactory();
 	GameStageAnalitics gameStageAnalitics = new GameStageAnalitics();
+	BackupFactory backupFactory=new BackupFactory();
 	Integer alreadyParsedMatches = 0;
 
 	void start_work() throws IOException, InterruptedException, ParseException
@@ -36,7 +38,6 @@ public class MatchesWorker
 		Match match = new Match();
 		Player[] player = new Player[10];
 		Team[] team = new Team[2];
-
 		for (int i = 0; i < 10; i++)
 		{
 			player[i] = new Player();
@@ -45,9 +46,9 @@ public class MatchesWorker
 		{
 			team[i] = new Team();
 		}
-
 		//checkIfTemporaryFileIsClean();
-		//readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+		backupFactory.checkForBackUp();
+		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		ratingFactory.organizeRating();
 		mainAnaliticsFactory.startWork();
 		System.out.println("/-Boss, all work is done.");
