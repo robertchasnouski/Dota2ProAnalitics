@@ -2,6 +2,7 @@ package ProjectDir;
 
 import ProjectDir.Analitics.ABCAnalitics;
 import ProjectDir.Analitics.HeatMapAnaliticsFactory;
+import ProjectDir.Analitics.StandinAnalitics;
 import ProjectDir.MatchInfo.AnalizedInfo;
 
 import java.awt.*;
@@ -24,8 +25,8 @@ public class DataWorker
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 	Scanner s = new Scanner(System.in);
 	HeatMapAnaliticsFactory heatMapAnaliticsFactory = new HeatMapAnaliticsFactory();
-	ABCAnalitics abcAnalitics=new ABCAnalitics();
-
+	ABCAnalitics abcAnalitics = new ABCAnalitics();
+	StandinAnalitics standinAnalitics = new StandinAnalitics();
 
 	public void analizeFutureMatch(String team1Id, String team2Id) throws IOException, ParseException
 	{
@@ -238,12 +239,12 @@ public class DataWorker
 		Integer secondNormalEnemyPercent = getPercentNormalEnemy(secondMonthObjects);
 		Integer firstBadEnemyPercent = getPercentBadEnemy(firstMonthObjects);
 		Integer secondBadEnemyPercent = getPercentBadEnemy(secondMonthObjects);
-		Integer firstMedianMatchTime=getMedianMatchTime(firstMonthObjects);
-		Integer secondMedianMatchTime=getMedianMatchTime(secondMonthObjects);
-		Integer firstMedianKills=getMedianKills(firstMonthObjects);
-		Integer secondMedianKills=getMedianKills(secondMonthObjects);
-		Integer firstMedianDeaths=getMedianDeaths(firstMonthObjects);
-		Integer secondMedianDeaths=getMedianDeaths(secondMonthObjects);
+		Integer firstMedianMatchTime = getMedianMatchTime(firstMonthObjects);
+		Integer secondMedianMatchTime = getMedianMatchTime(secondMonthObjects);
+		Integer firstMedianKills = getMedianKills(firstMonthObjects);
+		Integer secondMedianKills = getMedianKills(secondMonthObjects);
+		Integer firstMedianDeaths = getMedianDeaths(firstMonthObjects);
+		Integer secondMedianDeaths = getMedianDeaths(secondMonthObjects);
 		//</editor-fold>
 		//<editor-fold desc="Filling InfoObject">
 
@@ -578,12 +579,12 @@ public class DataWorker
 							}
 							case 6:
 							{
-								System.out.println(firstMonthObjects.get(0).teamName+" avg. match time:"+firstMedianMatchTime+". Kills:"+firstMedianKills+". Deaths:"+firstMedianDeaths);
-								System.out.println(secondMonthObjects.get(0).teamName+" avg. match time:"+secondMedianMatchTime+". Kills:"+secondMedianKills+". Deaths:"+secondMedianDeaths);
+								System.out.println(firstMonthObjects.get(0).teamName + " avg. match time:" + firstMedianMatchTime + ". Kills:" + firstMedianKills + ". Deaths:" + firstMedianDeaths);
+								System.out.println(secondMonthObjects.get(0).teamName + " avg. match time:" + secondMedianMatchTime + ". Kills:" + secondMedianKills + ". Deaths:" + secondMedianDeaths);
 								System.out.println("---Meetings History---");
 								for (int i = 0; i < matchesHistory.size(); i++)
 								{
-									System.out.println(i + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).matchTime +";"+matchesHistory.get(i).kills+";"+matchesHistory.get(i).deaths);
+									System.out.println(i + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).matchTime + ";" + matchesHistory.get(i).kills + ";" + matchesHistory.get(i).deaths);
 								}
 							}
 
@@ -596,14 +597,18 @@ public class DataWorker
 				case 4:
 				{
 					System.out.println("---ABC Analitics---");
-					abcAnalitics.checkForABCMatches(firstMonthObjects,secondMonthObjects);
+					abcAnalitics.checkForABCMatches(firstMonthObjects, secondMonthObjects);
+					break;
 				}
 				//</editor-fold
+				//<editor-fold desc="STANDIN CASE">
 				case 5:
 				{
 					System.out.println("---Standin's Analitics---");
-
+					standinAnalitics.lookForStandins(firstMonthObjects, firstTenDaysObjects, secondMonthObjects, secondTenDaysObjects);
+					break;
 				}
+				//</editor-fold>
 				default:
 					break;
 			}

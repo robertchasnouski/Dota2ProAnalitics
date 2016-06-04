@@ -48,7 +48,7 @@ public class MatchesWorker
 		}
 		//checkIfTemporaryFileIsClean();
 		backupFactory.checkForBackUp();
-		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+		//readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		ratingFactory.organizeRating();
 		mainAnaliticsFactory.startWork();
 		System.out.println("/-Boss, all work is done.");
