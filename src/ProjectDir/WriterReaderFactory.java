@@ -72,7 +72,7 @@ public class WriterReaderFactory
 		for (int i = 0; i < 2; i++)
 		{
 			writeToFile(teams[i].id, true);
-			teams[i].name=teams[i].name.replaceAll(";","");
+			teams[i].name = teams[i].name.replaceAll(";", "");
 			writeToFile(teams[i].name, true);
 			writeToFile("1000", true);
 			writeToFile(Integer.toString(teams[i].kills), true);
@@ -94,9 +94,10 @@ public class WriterReaderFactory
 				System.out.println("KDA error");
 			}
 			writeToFile(Integer.toString(teams[i].partisipation), true);
-			if (teams[i].partisipation < 0 || teams[i].partisipation > 200)
+			if (teams[i].partisipation < 0 || teams[i].partisipation > 100)
 			{
-				error = true;
+
+				teams[i].partisipation = 100;
 				System.out.println("Partisipation error");
 			}
 			writeToFile(Integer.toString(teams[i].heroHeal), true);
@@ -326,9 +327,9 @@ public class WriterReaderFactory
 				System.out.println("KDA error");
 			}
 			writeToFile(Integer.toString(players[i].partisipation), true);
-			if (players[i].partisipation < 0 || players[i].partisipation > 200)
+			if (players[i].partisipation < 0 || players[i].partisipation > 100)
 			{
-				error = true;
+				players[i].partisipation = 100;
 				System.out.println("Partisipation error");
 			}
 			writeToFile(Integer.toString(players[i].heroHeal), true);
@@ -483,7 +484,7 @@ public class WriterReaderFactory
 					writeToFile(Integer.toString(players[i].minuteGPM[j]), false);
 				if (players[i].minuteGPM[j] < -5000 || players[i].minuteGPM[j] > 5000)
 				{
-					players[i].minuteGPM[j]=800;
+					players[i].minuteGPM[j] = 800;
 					System.out.println("MinuteGPM Player error but fixed");
 				}
 			}
@@ -498,7 +499,7 @@ public class WriterReaderFactory
 					writeToFile(Integer.toString(players[i].minuteXPM[j]), false);
 				if (players[i].minuteXPM[j] < -100 || players[i].minuteXPM[j] > 10000)
 				{
-					players[i].minuteXPM[j]=800;
+					players[i].minuteXPM[j] = 800;
 					System.out.println("MinuteXPM Player error but fixed");
 				}
 			}
@@ -674,9 +675,9 @@ public class WriterReaderFactory
 		writeToFile("##", false);
 
 		writeToFile(Integer.toString(towerEvent.size()), false);
-		if (towerEvent.size() < 3)
+		if (towerEvent.size() < 2)
 		{
-			System.out.println("Only 3 towers? Error!");
+			System.out.println("Only 2 towers? Error!");
 			error = true;
 		}
 		writeToFile("**", false);
@@ -716,6 +717,7 @@ public class WriterReaderFactory
 		}
 		if (error)
 		{
+			fileOperationsFactory.writeToFile("Match "+match.id+" error.","files/Log.txt");
 			String newString = "";
 			String originalFile = fileOperationsFactory.readFile("files/TemporaryMatches.txt");
 			String[] lineByLine = originalFile.split("\n");

@@ -22,7 +22,7 @@ public class MatchesWorker
 	MainAnaliticsFactory mainAnaliticsFactory = new MainAnaliticsFactory();
 	RatingFactory ratingFactory = new RatingFactory();
 	GameStageAnalitics gameStageAnalitics = new GameStageAnalitics();
-	BackupFactory backupFactory=new BackupFactory();
+	BackupFactory backupFactory = new BackupFactory();
 	Integer alreadyParsedMatches = 0;
 
 	void start_work() throws IOException, InterruptedException, ParseException
@@ -48,7 +48,7 @@ public class MatchesWorker
 		}
 		//checkIfTemporaryFileIsClean();
 		backupFactory.checkForBackUp();
-		//readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		ratingFactory.organizeRating();
 		mainAnaliticsFactory.startWork();
 		System.out.println("/-Boss, all work is done.");
@@ -83,7 +83,6 @@ public class MatchesWorker
 	{
 		String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
 		ArrayList<String> leagueLinksArray = new ArrayList<String>(Arrays.asList(leagueLinks));
-		leagueLinksArray.remove("4649");
 		ArrayList<String> matchesFromLeagues = parserHelper.parseMatches(leagueLinksArray);
 		uniqueInfoFactory.needToParseFile(matchesFromLeagues);
 		ArrayList<String> matchesToParse = parserHelper.getParsingMatches();
@@ -138,7 +137,6 @@ public class MatchesWorker
 			fileOperationsFactory.cleanAndWriteToFile(allMatchesfile, "files/Matches.txt");
 		}
 		//uniqueInfoFactory.makeMatchesFileClean("files/Matches.txt");
-
 	}
 }
 

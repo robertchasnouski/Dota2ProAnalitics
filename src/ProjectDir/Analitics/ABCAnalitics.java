@@ -36,6 +36,8 @@ public class ABCAnalitics
 			meeting.FBLoses = 0;
 			meeting.F10KLoses = 0;
 			meeting.F10KWins = 0;
+			meeting.wins=0;
+			meeting.loses=0;
 			for (int j = 0; j < teamMatches.size(); j++)
 			{
 
@@ -51,6 +53,10 @@ public class ABCAnalitics
 						meeting.F10KWins++;
 					else
 						meeting.F10KLoses++;
+					if(teamMatches.get(j).isWin)
+						meeting.wins++;
+					else
+						meeting.loses++;
 				}
 			}
 			teamMeetings.add(meeting);
@@ -66,8 +72,8 @@ public class ABCAnalitics
 			{
 				if (firstTeamMeetings.get(i).enemyTeamId.equals(secondTeamMeetings.get(j).enemyTeamId))
 				{
-					System.out.println(firstTeamMeetings.get(i).myName+" vs "+firstTeamMeetings.get(i).enemyTeamName+" Stats: FB-"+firstTeamMeetings.get(i).FBWins+":"+firstTeamMeetings.get(i).FBLoses+" F10K-"+firstTeamMeetings.get(i).F10KWins+":"+firstTeamMeetings.get(i).F10KLoses);
-					System.out.println(secondTeamMeetings.get(j).myName+" vs "+secondTeamMeetings.get(j).enemyTeamName+" Stats: FB-"+secondTeamMeetings.get(j).FBWins+":"+secondTeamMeetings.get(j).FBLoses+" F10K-"+secondTeamMeetings.get(j).F10KWins+":"+secondTeamMeetings.get(j).F10KLoses);
+					System.out.println(firstTeamMeetings.get(i).myName+" vs "+firstTeamMeetings.get(i).enemyTeamName+" Stats: Win-"+firstTeamMeetings.get(i).wins+":"+firstTeamMeetings.get(i).loses+" FB-"+firstTeamMeetings.get(i).FBWins+":"+firstTeamMeetings.get(i).FBLoses+" F10K-"+firstTeamMeetings.get(i).F10KWins+":"+firstTeamMeetings.get(i).F10KLoses);
+					System.out.println(secondTeamMeetings.get(j).myName+" vs "+secondTeamMeetings.get(j).enemyTeamName+" Stats: Win-"+secondTeamMeetings.get(i).wins+":"+secondTeamMeetings.get(i).loses+" FB-"+secondTeamMeetings.get(j).FBWins+":"+secondTeamMeetings.get(j).FBLoses+" F10K-"+secondTeamMeetings.get(j).F10KWins+":"+secondTeamMeetings.get(j).F10KLoses);
 				}
 			}
 		}
@@ -92,6 +98,8 @@ public class ABCAnalitics
 		public Integer FBLoses;
 		public Integer F10KWins;
 		public Integer F10KLoses;
+		public Integer wins;
+		public Integer loses;
 	}
 
 }

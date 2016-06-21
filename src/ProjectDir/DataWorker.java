@@ -245,6 +245,10 @@ public class DataWorker
 		Integer secondMedianKills = getMedianKills(secondMonthObjects);
 		Integer firstMedianDeaths = getMedianDeaths(firstMonthObjects);
 		Integer secondMedianDeaths = getMedianDeaths(secondMonthObjects);
+		Integer firstPercentKillsOver = getPercentKillsOver(firstMonthObjects);
+		Integer firstPercentTimeOver = getPercentTimeOver(firstMonthObjects);
+		Integer secondPercentKillsOver = getPercentKillsOver(secondMonthObjects);
+		Integer secondPercentTimeOver = getPercentTimeOver(secondMonthObjects);
 		//</editor-fold>
 		//<editor-fold desc="Filling InfoObject">
 
@@ -322,6 +326,7 @@ public class DataWorker
 			System.out.println("/--3: Win Analitics.");
 			System.out.println("/--4: ABC Analitics.");
 			System.out.println("/--5: Standins Analitics");
+			System.out.println("/--6: Kills and Time Analitics");
 			System.out.println("/--9: Exit.");
 			choice = s.nextInt();
 			switch (choice)
@@ -512,7 +517,6 @@ public class DataWorker
 						System.out.println("/--3: Enemy's Statistics.");
 						System.out.println("/--4: Last 10 Matches.");
 						System.out.println("/--5: Last 10 days Matches.");
-						System.out.println("/--6: Kills and Time Analitics");
 						System.out.println("/--9: Back.");
 						secondChoice = s.nextInt();
 						switch (secondChoice)
@@ -577,17 +581,6 @@ public class DataWorker
 									System.out.println(i + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).matchTime + ";" + matchesHistory.get(i).isWin + ";" + matchesHistory.get(i).matchHardness + ";" + matchesHistory.get(i).EG + ";" + matchesHistory.get(i).MG + ";" + matchesHistory.get(i).LG);
 								}
 							}
-							case 6:
-							{
-								System.out.println(firstMonthObjects.get(0).teamName + " avg. match time:" + firstMedianMatchTime + ". Kills:" + firstMedianKills + ". Deaths:" + firstMedianDeaths);
-								System.out.println(secondMonthObjects.get(0).teamName + " avg. match time:" + secondMedianMatchTime + ". Kills:" + secondMedianKills + ". Deaths:" + secondMedianDeaths);
-								System.out.println("---Meetings History---");
-								for (int i = 0; i < matchesHistory.size(); i++)
-								{
-									System.out.println(i + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).matchTime + ";" + matchesHistory.get(i).kills + ";" + matchesHistory.get(i).deaths);
-								}
-							}
-
 						}
 					}
 					break;
@@ -606,6 +599,23 @@ public class DataWorker
 				{
 					System.out.println("---Standin's Analitics---");
 					standinAnalitics.lookForStandins(firstMonthObjects, firstTenDaysObjects, secondMonthObjects, secondTenDaysObjects);
+					break;
+				}
+				//</editor-fold>
+				//<editor-fold desc="KILLS, TIMES CASE">
+				case 6:
+				{
+
+					System.out.println(firstMonthObjects.get(0).teamName + " avg. match time:" + firstMedianMatchTime + ". Kills:" + (firstMedianKills + firstMedianDeaths));
+					System.out.println(secondMonthObjects.get(0).teamName + " avg. match time:" + secondMedianMatchTime + ". Kills:" + (secondMedianKills + secondMedianDeaths));
+					System.out.println(firstMonthObjects.get(0).teamName + " time over 40 mins:" + firstPercentTimeOver + "%. Kills over 45:" + firstPercentKillsOver + "%");
+					System.out.println(secondMonthObjects.get(0).teamName + " time over 40 mins:" + secondPercentTimeOver + "%. Kills over 45:" + secondPercentKillsOver + "%");
+					System.out.println("---Meetings History---");
+					for (int i = 0; i < matchesHistory.size(); i++)
+					{
+						System.out.println(i + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).matchTime + ";" + (matchesHistory.get(i).kills + matchesHistory.get(i).deaths));
+					}
+
 					break;
 				}
 				//</editor-fold>
@@ -1170,9 +1180,12 @@ public class DataWorker
 					winGames++;
 			}
 		}
+		Double percent = 0.0;
 		if (allGames != 0)
-			return winGames / allGames * 100;
-		else
+		{
+			percent = (double) winGames / allGames * 100;
+			return percent.intValue();
+		} else
 			return 9999;
 	}
 
@@ -1189,9 +1202,12 @@ public class DataWorker
 					winGames++;
 			}
 		}
+		Double percent = 0.0;
 		if (allGames != 0)
-			return winGames / allGames * 100;
-		else
+		{
+			percent = (double) winGames / allGames * 100;
+			return percent.intValue();
+		} else
 			return 9999;
 	}
 
@@ -1208,9 +1224,12 @@ public class DataWorker
 					winGames++;
 			}
 		}
+		Double percent = 0.0;
 		if (allGames != 0)
-			return winGames / allGames * 100;
-		else
+		{
+			percent = (double) winGames / allGames * 100;
+			return percent.intValue();
+		} else
 			return 9999;
 	}
 
@@ -1227,9 +1246,12 @@ public class DataWorker
 					winGames++;
 			}
 		}
+		Double percent = 0.0;
 		if (allGames != 0)
-			return winGames / allGames * 100;
-		else
+		{
+			percent = (double) winGames / allGames * 100;
+			return percent.intValue();
+		} else
 			return 9999;
 	}
 
@@ -1267,6 +1289,39 @@ public class DataWorker
 		}
 		median = getMedianFromArray(array);
 		return median;
+	}
+
+	public Integer getPercentKillsOver(ArrayList<AnalizedInfo> objects)
+	{
+		int allGames = 0;
+		int yesGames = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			if (objects.get(i).kills + objects.get(i).deaths >= 45)
+			{
+				yesGames++;
+			}
+			allGames++;
+		}
+		Double percent = (double) yesGames / allGames * 100;
+
+		return percent.intValue();
+	}
+
+	public Integer getPercentTimeOver(ArrayList<AnalizedInfo> objects)
+	{
+		int allGames = 0;
+		int yesGames = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			if (Integer.parseInt(objects.get(i).matchTime) >= 40)
+			{
+				yesGames++;
+			}
+			allGames++;
+		}
+		Double percent = (double) yesGames / allGames * 100;
+		return percent.intValue();
 	}
 	//</editor-fold>
 

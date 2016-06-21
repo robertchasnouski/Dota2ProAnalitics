@@ -2684,7 +2684,6 @@ public class ParserFactory
 	ArrayList<String> parseMatches(ArrayList<String> leagueLinks) throws
 			IOException, InterruptedException, ParseException
 	{
-		//TODO: function gets only first page of matches in given league.
 		SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH");
 		Document doc;
 		Date date = new Date();
@@ -2697,13 +2696,12 @@ public class ParserFactory
 		Document[] docs = new Document[leagueLinks.size()];
 		ArrayList<String> leaguesToParse = new ArrayList<>();
 		ArrayList<String> matchesToParse = new ArrayList<>();
-		leaguesToParse = uniqueInfoFactory.checkIfLeagueParsed(leagueLinks);
+		leaguesToParse = uniqueInfoFactory.checkIfLeaguesMustBeParsed(leagueLinks);
 
 		for (int i = 0; i < leaguesToParse.size(); i++)
 		{
 			System.out.println("Read " + leaguesToParse.get(i) + " league.");
 			docs[i] = parse_html("http://www.dotabuff.com/esports/leagues/" + leaguesToParse.get(i) + "/matches");
-			fileOperationsFactory.writeToFile(leaguesToParse.get(i) + ";" + currentDate, "files/LeaguesParsed.txt");
 			html = docs[i].toString();
 			html = substringer(html, "<tbody>", "</tbody>");
 			if (docs[i].toString().contains("pagination"))

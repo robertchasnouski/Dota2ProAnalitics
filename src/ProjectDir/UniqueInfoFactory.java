@@ -38,7 +38,7 @@ public class UniqueInfoFactory
 		return exist;
 	}
 
-	ArrayList<String> checkIfLeagueParsed(ArrayList<String> getFromSite) throws IOException, ParseException
+	/*ArrayList<String> checkIfLeagueParsed(ArrayList<String> getFromSite) throws IOException, ParseException
 	{
 		ArrayList<String> needToParse = new ArrayList<>();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH");
@@ -86,6 +86,28 @@ public class UniqueInfoFactory
 		}
 		fileOperationsFactory.cleanAndWriteToFile(writeLine, "files/LeaguesParsed.txt");
 		return needToParse;
+	}*/
+
+	ArrayList<String> checkIfLeaguesMustBeParsed(ArrayList<String> getFromSite) throws IOException, ParseException
+	{
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH");
+		String leagueFileString = fileOperationsFactory.readFile("files/LeaguesParsed.txt");
+		Date d1 = null;
+		Date d2 = null;
+		Date date = new Date();
+		String currentDate = format.format(date);
+		d1 = format.parse(currentDate);
+		d2 = format.parse(leagueFileString);
+		long diff = d1.getTime() - d2.getTime();
+		long diffHours = diff / (60 * 60 * 1000);
+		ArrayList<String> emptyArray=new ArrayList<>();
+		if (diffHours > 12)
+		{
+			fileOperationsFactory.cleanAndWriteToFile(currentDate,"files/LeaguesParsed.txt");
+			return getFromSite;
+		}
+		else
+			return emptyArray;
 	}
 
 	void needToParseFile(ArrayList<String> matchesToParse) throws IOException
