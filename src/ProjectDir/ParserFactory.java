@@ -41,7 +41,7 @@ public class ParserFactory
 		if (leaguesParsed == 10)
 		{
 			System.out.println("League rest...");
-			Thread.sleep(120000);
+			Thread.sleep(60000);
 			leaguesParsed = 0;
 		}
 	}
@@ -50,7 +50,7 @@ public class ParserFactory
 	{
 		if (parseCounter == 50)
 		{
-			Thread.sleep(30000);
+			Thread.sleep(15000);
 			parseCounter = 0;
 		}
 		Document doc = new Document("");
@@ -2712,8 +2712,8 @@ public class ParserFactory
 				navigation = navigation.substring(5, navigation.length());
 				String temp = "";
 				Integer howMuchPages = 0;
-				if (Integer.parseInt(navigation) > 20)
-					howMuchPages = 20;
+				if (Integer.parseInt(navigation) > 15)
+					howMuchPages = 15;
 				else
 					howMuchPages = Integer.parseInt(navigation);
 				for (int j = 2; j <= howMuchPages; j++)
@@ -3204,7 +3204,7 @@ public class ParserFactory
 		}
 		long diff = d1.getTime() - d2.getTime();
 		long hours = TimeUnit.MILLISECONDS.toHours(diff);
-		if (hours >= 12 && hours <= 700)
+		if (hours >= 7 && hours <= 700)
 			return true;
 		else
 			return false;

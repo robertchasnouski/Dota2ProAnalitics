@@ -4,9 +4,3 @@ Parameters documentation v0.0 Beta
 
 
 
-
-//TODO: Marks from users
-//TODO: Picks analisys (Live games).
-//TODO: Game in Game Dota2
-
-

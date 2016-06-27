@@ -9,7 +9,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.util.*;
 
-import com.sun.scenario.effect.impl.sw.java.JSWBlend_COLOR_BURNPeer;
 import no.geosoft.cc.geometry.Geometry;
 import no.geosoft.cc.graphics.*;
 
@@ -42,8 +41,8 @@ public class DataWorker
 
 	public void analizeTeamInfo(String team1String, String team2String) throws ParseException, IOException
 	{
-		ArrayList<AnalizedInfo> firstObjects = new ArrayList<AnalizedInfo>();
-		ArrayList<AnalizedInfo> secondObjects = new ArrayList<AnalizedInfo>();
+		ArrayList<AnalizedInfo> firstObjects = new ArrayList<>();
+		ArrayList<AnalizedInfo> secondObjects = new ArrayList<>();
 		fillObject(firstObjects, team1String);
 		fillObject(secondObjects, team2String);
 
@@ -58,20 +57,6 @@ public class DataWorker
 		ArrayList<AnalizedInfo> firstLastTenOrLessGames = separateLastTenOrLessGames(firstObjects);
 		ArrayList<AnalizedInfo> secondLastTenOrLessGames = separateLastTenOrLessGames(secondObjects);
 		ArrayList<AnalizedInfo> secondLastTenGames = separateLastTenGames(secondObjects);
-
-		ArrayList<AnalizedInfo> firstFBBadGames = separateEnemyFBBadGames(firstMonthObjects);
-		ArrayList<AnalizedInfo> firstFBNormalGames = separateEnemyFBNormalGames(firstMonthObjects);
-		ArrayList<AnalizedInfo> firstFBNiceGames = separateEnemyFBNiceGames(firstMonthObjects);
-		ArrayList<AnalizedInfo> secondFBBadGames = separateEnemyFBBadGames(secondMonthObjects);
-		ArrayList<AnalizedInfo> secondFBNormalGames = separateEnemyFBNormalGames(secondMonthObjects);
-		ArrayList<AnalizedInfo> secondFBNiceGames = separateEnemyFBNiceGames(secondMonthObjects);
-
-		ArrayList<AnalizedInfo> firstF10KBadGames = separateEnemyF10KBadGames(firstMonthObjects);
-		ArrayList<AnalizedInfo> firstF10KNormalGames = separateEnemyF10KNormalGames(firstMonthObjects);
-		ArrayList<AnalizedInfo> firstF10KNiceGames = separateEnemyF10KNiceGames(firstMonthObjects);
-		ArrayList<AnalizedInfo> secondF10KBadGames = separateEnemyF10KBadGames(secondMonthObjects);
-		ArrayList<AnalizedInfo> secondF10KNormalGames = separateEnemyF10KNormalGames(secondMonthObjects);
-		ArrayList<AnalizedInfo> secondF10KNiceGames = separateEnemyF10KNiceGames(secondMonthObjects);
 
 		ArrayList<AnalizedInfo> lastTenFirstObjects = separateLastTenGames(firstObjects);
 		ArrayList<AnalizedInfo> lastThreeFirstObjects = separateLastThreeGames(firstObjects);
@@ -96,10 +81,7 @@ public class DataWorker
 		/****First Team****/
 		Integer firstFBMedianTime = getMedianFBTime(firstMonthObjects);
 		Integer secondFBMedianTime = getMedianFBTime(secondMonthObjects);
-		Double firstEnemyFBRatingMonth = getAverageEnemyFBRating(firstMonthObjects);
-		Double secondEnemyFBRatingMonth = getAverageEnemyFBRating(secondMonthObjects);
-		Double firstEnemyFBRatingTen = getAverageEnemyFBRating(firstTenDaysObjects);
-		Double secondEnemyFBRatingTen = getAverageEnemyFBRating(secondTenDaysObjects);
+
 
 		Integer firstFBForm = getFBForm(firstMonthObjects, firstTenDaysObjects);
 		Integer firstAvgFBPercent = getAverageFBPercent(firstMonthObjects);
@@ -108,40 +90,6 @@ public class DataWorker
 		Integer firstNormalGameFBPercent = getNormalGameFBPercent(firstMonthObjects);
 		Integer firstGoodGameFBPercent = getGoodGameFBPercent(firstMonthObjects);
 		Integer firstPerfectGameFBPercent = getPerfectGameFBPercent(firstMonthObjects);
-
-		Integer firstHorribleGameFBPercentNiceEnemy = getHorribleGameFBPercent(firstFBNiceGames);
-		Integer firstBadGameFBPercentNiceEnemy = getBadGameFBPercent(firstFBNiceGames);
-		Integer firstNormalGameFBPercentNiceEnemy = getNormalGameFBPercent(firstFBNiceGames);
-		Integer firstGoodGameFBPercentNiceEnemy = getGoodGameFBPercent(firstFBNiceGames);
-		Integer firstPerfectGameFBPercentNiceEnemy = getPerfectGameFBPercent(firstFBNiceGames);
-		Integer secondHorribleGameFBPercentNiceEnemy = getHorribleGameFBPercent(secondFBNiceGames);
-		Integer secondBadGameFBPercentNiceEnemy = getBadGameFBPercent(secondFBNiceGames);
-		Integer secondNormalGameFBPercentNiceEnemy = getNormalGameFBPercent(secondFBNiceGames);
-		Integer secondGoodGameFBPercentNiceEnemy = getGoodGameFBPercent(secondFBNiceGames);
-		Integer secondPerfectGameFBPercentNiceEnemy = getPerfectGameFBPercent(secondFBNiceGames);
-
-		Integer firstHorribleGameFBPercentNormalEnemy = getHorribleGameFBPercent(firstFBNormalGames);
-		Integer firstBadGameFBPercentNormalEnemy = getBadGameFBPercent(firstFBNormalGames);
-		Integer firstNormalGameFBPercentNormalEnemy = getNormalGameFBPercent(firstFBNormalGames);
-		Integer firstGoodGameFBPercentNormalEnemy = getGoodGameFBPercent(firstFBNormalGames);
-		Integer firstPerfectGameFBPercentNormalEnemy = getPerfectGameFBPercent(firstFBNormalGames);
-		Integer secondHorribleGameFBPercentNormalEnemy = getHorribleGameFBPercent(secondFBNormalGames);
-		Integer secondBadGameFBPercentNormalEnemy = getBadGameFBPercent(secondFBNormalGames);
-		Integer secondNormalGameFBPercentNormalEnemy = getNormalGameFBPercent(secondFBNormalGames);
-		Integer secondGoodGameFBPercentNormalEnemy = getGoodGameFBPercent(secondFBNormalGames);
-		Integer secondPerfectGameFBPercentNormalEnemy = getPerfectGameFBPercent(secondFBNormalGames);
-
-		Integer firstHorribleGameFBPercentBadEnemy = getHorribleGameFBPercent(firstFBBadGames);
-		Integer firstBadGameFBPercentBadEnemy = getBadGameFBPercent(firstFBBadGames);
-		Integer firstNormalGameFBPercentBadEnemy = getNormalGameFBPercent(firstFBBadGames);
-		Integer firstGoodGameFBPercentBadEnemy = getGoodGameFBPercent(firstFBBadGames);
-		Integer firstPerfectGameFBPercentBadEnemy = getPerfectGameFBPercent(firstFBBadGames);
-		Integer secondHorribleGameFBPercentBadEnemy = getHorribleGameFBPercent(secondFBBadGames);
-		Integer secondBadGameFBPercentBadEnemy = getBadGameFBPercent(secondFBBadGames);
-		Integer secondNormalGameFBPercentBadEnemy = getNormalGameFBPercent(secondFBBadGames);
-		Integer secondGoodGameFBPercentBadEnemy = getGoodGameFBPercent(secondFBBadGames);
-		Integer secondPerfectGameFBPercentBadEnemy = getPerfectGameFBPercent(secondFBBadGames);
-
 
 		/****Second Team****/
 		Integer secondFBForm = getFBForm(secondMonthObjects, secondTenDaysObjects);
@@ -157,10 +105,6 @@ public class DataWorker
 		/**F10K**/
 		Integer firstF10KMedianTime = getMedianF10KTime(firstMonthObjects);
 		Integer secondF10KMedianTime = getMedianF10KTime(secondMonthObjects);
-		Double firstEnemyF10KRatingMonth = getAverageEnemyF10KRating(firstMonthObjects);
-		Double secondEnemyF10KRatingMonth = getAverageEnemyF10KRating(secondMonthObjects);
-		Double firstEnemyF10KRatingTen = getAverageEnemyF10KRating(firstTenDaysObjects);
-		Double secondEnemyF10KRatingTen = getAverageEnemyF10KRating(secondTenDaysObjects);
 
 		Integer firstF10KForm = getF10KForm(firstMonthObjects, firstTenDaysObjects);
 		Integer firstAvgF10KPercent = getAverageF10KPercent(firstMonthObjects);
@@ -179,41 +123,6 @@ public class DataWorker
 		Integer secondGoodGameF10KPercent = getGoodGameF10KPercent(secondMonthObjects);
 		Integer secondPerfectGameF10KPercent = getPerfectGameF10KPercent(secondMonthObjects);
 
-
-		Integer firstHorribleGameF10KPercentNiceEnemy = getHorribleGameF10KPercent(firstF10KNiceGames);
-		Integer firstBadGameF10KPercentNiceEnemy = getBadGameF10KPercent(firstF10KNiceGames);
-		Integer firstNormalGameF10KPercentNiceEnemy = getNormalGameF10KPercent(firstF10KNiceGames);
-		Integer firstGoodGameF10KPercentNiceEnemy = getGoodGameF10KPercent(firstF10KNiceGames);
-		Integer firstPerfectGameF10KPercentNiceEnemy = getPerfectGameF10KPercent(firstF10KNiceGames);
-		Integer secondHorribleGameF10KPercentNiceEnemy = getHorribleGameF10KPercent(secondF10KNiceGames);
-		Integer secondBadGameF10KPercentNiceEnemy = getBadGameF10KPercent(secondF10KNiceGames);
-		Integer secondNormalGameF10KPercentNiceEnemy = getNormalGameF10KPercent(secondF10KNiceGames);
-		Integer secondGoodGameF10KPercentNiceEnemy = getGoodGameF10KPercent(secondF10KNiceGames);
-		Integer secondPerfectGameF10KPercentNiceEnemy = getPerfectGameF10KPercent(secondF10KNiceGames);
-
-
-		Integer firstHorribleGameF10KPercentNormalEnemy = getHorribleGameF10KPercent(firstF10KNormalGames);
-		Integer firstBadGameF10KPercentNormalEnemy = getBadGameF10KPercent(firstF10KNormalGames);
-		Integer firstNormalGameF10KPercentNormalEnemy = getNormalGameF10KPercent(firstF10KNormalGames);
-		Integer firstGoodGameF10KPercentNormalEnemy = getGoodGameF10KPercent(firstF10KNormalGames);
-		Integer firstPerfectGameF10KPercentNormalEnemy = getPerfectGameF10KPercent(firstF10KNormalGames);
-		Integer secondHorribleGameF10KPercentNormalEnemy = getHorribleGameF10KPercent(secondF10KNormalGames);
-		Integer secondBadGameF10KPercentNormalEnemy = getBadGameF10KPercent(secondF10KNormalGames);
-		Integer secondNormalGameF10KPercentNormalEnemy = getNormalGameF10KPercent(secondF10KNormalGames);
-		Integer secondGoodGameF10KPercentNormalEnemy = getGoodGameF10KPercent(secondF10KNormalGames);
-		Integer secondPerfectGameF10KPercentNormalEnemy = getPerfectGameF10KPercent(secondF10KNormalGames);
-
-		Integer firstHorribleGameF10KPercentBadEnemy = getHorribleGameF10KPercent(firstF10KBadGames);
-		Integer firstBadGameF10KPercentBadEnemy = getBadGameF10KPercent(firstF10KBadGames);
-		Integer firstNormalGameF10KPercentBadEnemy = getNormalGameF10KPercent(firstF10KBadGames);
-		Integer firstGoodGameF10KPercentBadEnemy = getGoodGameF10KPercent(firstF10KBadGames);
-		Integer firstPerfectGameF10KPercentBadEnemy = getPerfectGameF10KPercent(firstF10KBadGames);
-		Integer secondHorribleGameF10KPercentBadEnemy = getHorribleGameF10KPercent(secondF10KBadGames);
-		Integer secondBadGameF10KPercentBadEnemy = getBadGameF10KPercent(secondF10KBadGames);
-		Integer secondNormalGameF10KPercentBadEnemy = getNormalGameF10KPercent(secondF10KBadGames);
-		Integer secondGoodGameF10KPercentBadEnemy = getGoodGameF10KPercent(secondF10KBadGames);
-		Integer secondPerfectGameF10KPercentBadEnemy = getPerfectGameF10KPercent(secondF10KBadGames);
-
 		Integer firstPercentWhenFBWasGet = getPercentWhenFBWasGet(firstMonthObjects);
 		Integer secondPercentWhenFBWasGet = getPercentWhenFBWasGet(secondMonthObjects);
 		/**************************************************/
@@ -221,8 +130,10 @@ public class DataWorker
 		//<editor-fold desc="Parameters">
 		Integer firstStreak = getCurrentStreak(firstLastTenGames);
 		Integer secondStreak = getCurrentStreak(secondLastTenGames);
+
 		Integer firstDiff = getLastTenMatchesDiff(firstLastTenGames);
 		Integer secondDiff = getLastTenMatchesDiff(secondLastTenGames);
+
 		Integer firstFarming = getMediumFarming(firstMonthObjects);
 		Integer secondFarming = getMediumFarming(secondMonthObjects);
 		Integer firstPushing = getMediumPushing(firstMonthObjects);
@@ -231,6 +142,7 @@ public class DataWorker
 		Integer secondLining = getMediumLining(secondMonthObjects);
 		Integer firstVision = getMediumVision(firstMonthObjects);
 		Integer secondVision = getMediumVision(secondMonthObjects);
+
 		Integer firstGreatEnemyPercent = getPercentGreatEnemy(firstMonthObjects);
 		Integer secondGreatEnemyPercent = getPercentGreatEnemy(secondMonthObjects);
 		Integer firstGoodEnemyPercent = getPercentGoodEnemy(firstMonthObjects);
@@ -239,16 +151,41 @@ public class DataWorker
 		Integer secondNormalEnemyPercent = getPercentNormalEnemy(secondMonthObjects);
 		Integer firstBadEnemyPercent = getPercentBadEnemy(firstMonthObjects);
 		Integer secondBadEnemyPercent = getPercentBadEnemy(secondMonthObjects);
-		Integer firstMedianMatchTime = getMedianMatchTime(firstMonthObjects);
-		Integer secondMedianMatchTime = getMedianMatchTime(secondMonthObjects);
-		Integer firstMedianKills = getMedianKills(firstMonthObjects);
-		Integer secondMedianKills = getMedianKills(secondMonthObjects);
-		Integer firstMedianDeaths = getMedianDeaths(firstMonthObjects);
-		Integer secondMedianDeaths = getMedianDeaths(secondMonthObjects);
-		Integer firstPercentKillsOver = getPercentKillsOver(firstMonthObjects);
-		Integer firstPercentTimeOver = getPercentTimeOver(firstMonthObjects);
-		Integer secondPercentKillsOver = getPercentKillsOver(secondMonthObjects);
-		Integer secondPercentTimeOver = getPercentTimeOver(secondMonthObjects);
+		Integer firstGamesNumberGreatEnemy = getGamesNumberGreatEnemy(firstMonthObjects);
+		Integer secondGamesNumberGreatEnemy = getGamesNumberGreatEnemy(secondMonthObjects);
+		Integer firstGamesNumberGoodEnemy = getGamesNumberGoodEnemy(firstMonthObjects);
+		Integer secondGamesNumberGoodEnemy = getGamesNumberGoodEnemy(secondMonthObjects);
+		Integer firstGamesNumberNormalEnemy = getGamesNumberNormalEnemy(firstMonthObjects);
+		Integer secondGamesNumberNormalEnemy = getGamesNumberNormalEnemy(secondMonthObjects);
+		Integer firstGamesNumberBadEnemy = getGamesNumberBadEnemy(firstMonthObjects);
+		Integer secondGamesNumberBadEnemy = getGamesNumberBadEnemy(secondMonthObjects);
+
+		Integer firstMonthMedianMatchTime = getMedianMatchTime(firstMonthObjects);
+		Integer secondMonthMedianMatchTime = getMedianMatchTime(secondMonthObjects);
+		Integer firstMonthMedianKills = getMedianKills(firstMonthObjects);
+		Integer secondMonthMedianKills = getMedianKills(secondMonthObjects);
+		Integer firstMonthMedianDeaths = getMedianDeaths(firstMonthObjects);
+		Integer secondMonthMedianDeaths = getMedianDeaths(secondMonthObjects);
+		Integer firstTenMedianMatchTime = getMedianMatchTime(firstTenDaysObjects);
+		Integer secondTenMedianMatchTime = getMedianMatchTime(secondTenDaysObjects);
+		Integer firstTenMedianKills = getMedianKills(firstTenDaysObjects);
+		Integer secondTenMedianKills = getMedianKills(secondTenDaysObjects);
+		Integer firstTenMedianDeaths = getMedianDeaths(firstTenDaysObjects);
+		Integer secondTenMedianDeaths = getMedianDeaths(secondTenDaysObjects);
+
+		Integer firstMonthPercentKillsOver = getPercentKillsOver(firstMonthObjects);
+		Integer firstMonthPercentTimeOver = getPercentTimeOver(firstMonthObjects);
+		Integer secondMonthPercentKillsOver = getPercentKillsOver(secondMonthObjects);
+		Integer secondMonthPercentTimeOver = getPercentTimeOver(secondMonthObjects);
+		Integer firstTenPercentKillsOver = getPercentKillsOver(firstTenDaysObjects);
+		Integer firstTenPercentTimeOver = getPercentTimeOver(firstTenDaysObjects);
+		Integer secondTenPercentKillsOver = getPercentKillsOver(secondTenDaysObjects);
+		Integer secondTenPercentTimeOver = getPercentTimeOver(secondTenDaysObjects);
+
+		Double firstMonthAggressionCoefficient = getAggressionCoefficient(firstMonthMedianKills, firstMonthMedianMatchTime);
+		Double secondMonthAggressionCoefficient = getAggressionCoefficient(secondMonthMedianKills, secondMonthMedianMatchTime);
+		Double firstTenAggressionCoefficient = getAggressionCoefficient(firstTenMedianKills, firstTenMedianMatchTime);
+		Double secondTenAggressionCoefficient = getAggressionCoefficient(secondTenMedianKills, secondTenMedianMatchTime);
 		//</editor-fold>
 		//<editor-fold desc="Filling InfoObject">
 
@@ -273,10 +210,12 @@ public class DataWorker
 		infoFBObject.team2GamesPlayed = secondMonthGamesPlayed;
 		infoFBObject.team1AvgEnemyRating = firstAvgMonthEnemyRating;
 		infoFBObject.team2AvgEnemyRating = secondAvgMonthEnemyRating;
-		infoFBObject.team1AvgSkillEnemyRatingMonth = firstEnemyFBRatingMonth;
-		infoFBObject.team2AvgSkillEnemyRatingMonth = secondEnemyFBRatingMonth;
-		infoFBObject.team1AvgSkillEnemyRatingTen = firstEnemyFBRatingTen;
-		infoFBObject.team2AvgSkillEnemyRatingTen = secondEnemyFBRatingTen;
+
+		infoFBObject.team1AvgSkillEnemyRatingMonth=0.0;
+		infoFBObject.team1AvgSkillEnemyRatingTen=0.0;
+		infoFBObject.team2AvgSkillEnemyRatingMonth=0.0;
+		infoFBObject.team2AvgSkillEnemyRatingTen=0.0;
+
 		infoFBObject.team1MedianTime = firstFBMedianTime;
 		infoFBObject.team2MedianTime = secondFBMedianTime;
 		infoFBObject.team1Form = firstFBForm;
@@ -305,10 +244,12 @@ public class DataWorker
 		infoF10KObject.team2GamesPlayed = secondMonthGamesPlayed;
 		infoF10KObject.team1AvgEnemyRating = firstAvgMonthEnemyRating;
 		infoF10KObject.team2AvgEnemyRating = secondAvgMonthEnemyRating;
-		infoF10KObject.team1AvgSkillEnemyRatingMonth = firstEnemyF10KRatingMonth;
-		infoF10KObject.team2AvgSkillEnemyRatingMonth = secondEnemyF10KRatingMonth;
-		infoF10KObject.team1AvgSkillEnemyRatingTen = firstEnemyF10KRatingTen;
-		infoF10KObject.team2AvgSkillEnemyRatingTen = secondEnemyF10KRatingTen;
+
+		infoF10KObject.team1AvgSkillEnemyRatingMonth=0.0;
+		infoF10KObject.team1AvgSkillEnemyRatingTen=0.0;
+		infoF10KObject.team2AvgSkillEnemyRatingMonth=0.0;
+		infoF10KObject.team2AvgSkillEnemyRatingTen=0.0;
+
 		infoF10KObject.team1MedianTime = firstF10KMedianTime;
 		infoF10KObject.team2MedianTime = secondF10KMedianTime;
 		infoF10KObject.team1Form = firstF10KForm;
@@ -339,73 +280,37 @@ public class DataWorker
 					while (secondChoice != 9)
 					{
 						System.out.println("/-- FB Statistics.");
-						System.out.println("/--1: NiceEnemy Statistics.");
-						System.out.println("/--2: NormalEnemy Statistics.");
-						System.out.println("/--3: BadEnemy Statistics.");
-						System.out.println("/--4: Last 10 Matches.");
-						System.out.println("/--5: Last 10 Days Matches.");
+						System.out.println("/--1: Last 10 Matches.");
+						System.out.println("/--2: Last 10 Days Matches.");
 						System.out.println("/--9: Back.");
 						secondChoice = s.nextInt();
 						switch (secondChoice)
 						{
 							case 1:
 							{
-								System.out.println("---FB Nice Enemy Statistics---");
-								System.out.println("Games Played:" + firstFBNiceGames.size() + "\tSecond Games Played:" + secondFBNiceGames.size());
-								System.out.println("First HorribleGames Percent:" + firstHorribleGameFBPercentNiceEnemy + "\t\tSecond HorribleGames Percent:" + secondHorribleGameFBPercentNiceEnemy);
-								System.out.println("First BadGames Percent:" + firstBadGameFBPercentNiceEnemy + "\t\tSecond BadGames Percent:" + secondBadGameFBPercentNiceEnemy);
-								System.out.println("First NormalGames Percent:" + firstNormalGameFBPercentNiceEnemy + "\t\tSecond NormalGames Percent:" + secondNormalGameFBPercentNiceEnemy);
-								System.out.println("First GoodGames Percent:" + firstGoodGameFBPercentNiceEnemy + "\t\tSecond GoodGames Percent:" + secondGoodGameFBPercentNiceEnemy);
-								System.out.println("First PerfectGames Percent:" + firstPerfectGameFBPercentNiceEnemy + "\t\tSecond PerfectGames Percent:" + secondPerfectGameFBPercentNiceEnemy);
-								break;
-							}
-							case 2:
-							{
-								System.out.println("---FB Normal Enemy Statistics---");
-								System.out.println("Games Played:" + firstFBNormalGames.size() + "\tSecond Games Played:" + secondFBNormalGames.size());
-								System.out.println("First HorribleGames Percent:" + firstHorribleGameFBPercentNormalEnemy + "\t\tSecond HorribleGames Percent:" + secondHorribleGameFBPercentNormalEnemy);
-								System.out.println("First BadGames Percent:" + firstBadGameFBPercentNormalEnemy + "\t\tSecond BadGames Percent:" + secondBadGameFBPercentNormalEnemy);
-								System.out.println("First NormalGames Percent:" + firstNormalGameFBPercentNormalEnemy + "\t\tSecond NormalGames Percent:" + secondNormalGameFBPercentNormalEnemy);
-								System.out.println("First GoodGames Percent:" + firstGoodGameFBPercentNormalEnemy + "\t\tSecond GoodGames Percent:" + secondGoodGameFBPercentNormalEnemy);
-								System.out.println("First PerfectGames Percent:" + firstPerfectGameFBPercentNormalEnemy + "\t\tSecond PerfectGames Percent:" + secondPerfectGameFBPercentNormalEnemy);
-								break;
-							}
-							case 3:
-							{
-								System.out.println("---FB Bad Enemy Statistics---");
-								System.out.println("First Games Played:" + firstFBBadGames.size() + "\tSecond Games Played:" + secondFBBadGames.size());
-								System.out.println("First HorribleGames Percent:" + firstHorribleGameFBPercentBadEnemy + "\t\tSecond HorribleGames Percent:" + secondHorribleGameFBPercentBadEnemy);
-								System.out.println("First BadGames Percent:" + firstBadGameFBPercentBadEnemy + "\t\tSecond BadGames Percent:" + secondBadGameFBPercentBadEnemy);
-								System.out.println("First NormalGames Percent:" + firstNormalGameFBPercentBadEnemy + "\t\tSecond NormalGames Percent:" + secondNormalGameFBPercentBadEnemy);
-								System.out.println("First GoodGames Percent:" + firstGoodGameFBPercentBadEnemy + "\t\tSecond GoodGames Percent:" + secondGoodGameFBPercentBadEnemy);
-								System.out.println("First PerfectGames Percent:" + firstPerfectGameFBPercentBadEnemy + "\t\tSecond PerfectGames Percent:" + secondPerfectGameFBPercentBadEnemy);
-								break;
-							}
-							case 4:
-							{
 								System.out.println("---" + firstName + " Team Last 10 Games---");
 								for (int i = 0; i < firstLastTenOrLessGames.size(); i++)
 								{
-									System.out.println(firstLastTenOrLessGames.get(i).date + ";" + firstLastTenOrLessGames.get(i).enemyTeamName + ";" + firstLastTenOrLessGames.get(i).enemyFBRating + ";" + firstLastTenOrLessGames.get(i).isFB + ";" + firstLastTenOrLessGames.get(i).FB + ".");
+									System.out.println(firstLastTenOrLessGames.get(i).date + ";" + firstLastTenOrLessGames.get(i).enemyTeamName + ";" + firstLastTenOrLessGames.get(i).isFB + ";" + firstLastTenOrLessGames.get(i).FB + ".");
 								}
 								System.out.println("---" + secondName + " Team Last 10 Games---");
 								for (int i = 0; i < secondLastTenOrLessGames.size(); i++)
 								{
-									System.out.println(secondLastTenOrLessGames.get(i).date + ";" + secondLastTenOrLessGames.get(i).enemyTeamName + ";" + secondLastTenOrLessGames.get(i).enemyFBRating + ";" + secondLastTenOrLessGames.get(i).isFB + ";" + secondLastTenOrLessGames.get(i).FB + ".");
+									System.out.println(secondLastTenOrLessGames.get(i).date + ";" + secondLastTenOrLessGames.get(i).enemyTeamName + ";" + secondLastTenOrLessGames.get(i).isFB + ";" + secondLastTenOrLessGames.get(i).FB + ".");
 								}
 								break;
 							}
-							case 5:
+							case 2:
 							{
 								System.out.println("---" + firstName + " Team Last 10 days Matches---");
 								for (int i = 0; i < firstTenDaysObjects.size(); i++)
 								{
-									System.out.println(firstTenDaysObjects.get(i).date + ";" + firstTenDaysObjects.get(i).enemyTeamName + ";" + firstTenDaysObjects.get(i).enemyFBRating + ";" + firstTenDaysObjects.get(i).isFB + ";" + firstTenDaysObjects.get(i).FB + ".");
+									System.out.println(firstTenDaysObjects.get(i).date + ";" + firstTenDaysObjects.get(i).enemyTeamName + ";" + firstTenDaysObjects.get(i).isFB + ";" + firstTenDaysObjects.get(i).FB + ".");
 								}
 								System.out.println("---" + secondName + " Team Last 10 days Matches---");
 								for (int i = 0; i < secondTenDaysObjects.size(); i++)
 								{
-									System.out.println(secondTenDaysObjects.get(i).date + ";" + secondTenDaysObjects.get(i).enemyTeamName + ";" + secondTenDaysObjects.get(i).enemyFBRating + ";" + secondTenDaysObjects.get(i).isFB + ";" + secondTenDaysObjects.get(i).FB + ".");
+									System.out.println(secondTenDaysObjects.get(i).date + ";" + secondTenDaysObjects.get(i).enemyTeamName + ";" + secondTenDaysObjects.get(i).isFB + ";" + secondTenDaysObjects.get(i).FB + ".");
 								}
 								System.out.println("--- Meetings History:");
 								for (int i = 0; i < matchesHistory.size(); i++)
@@ -426,73 +331,37 @@ public class DataWorker
 					while (secondChoice != 9)
 					{
 						System.out.println("/---  F10K Statistics.");
-						System.out.println("/--1: NiceEnemy Statistics.");
-						System.out.println("/--2: NormalEnemy Statistics.");
-						System.out.println("/--3: BadEnemy Statistics.");
-						System.out.println("/--4: Last 10 Matches.");
-						System.out.println("/--5: Last 10 Days Matches.");
+						System.out.println("/--1: Last 10 Matches.");
+						System.out.println("/--2: Last 10 Days Matches.");
 						System.out.println("/--9: Back.");
 						secondChoice = s.nextInt();
 						switch (secondChoice)
 						{
 							case 1:
 							{
-								System.out.println("---F10K Nice Enemy Statistics---");
-								System.out.println("Games Played:" + firstF10KNiceGames.size() + "\tSecond Games Played:" + secondF10KNiceGames.size());
-								System.out.println("First HorribleGames Percent:" + firstHorribleGameF10KPercentNiceEnemy + "\t\tSecond HorribleGames Percent:" + secondHorribleGameF10KPercentNiceEnemy);
-								System.out.println("First BadGames Percent:" + firstBadGameF10KPercentNiceEnemy + "\t\tSecond BadGames Percent:" + secondBadGameF10KPercentNiceEnemy);
-								System.out.println("First NormalGames Percent:" + firstNormalGameF10KPercentNiceEnemy + "\t\tSecond NormalGames Percent:" + secondNormalGameF10KPercentNiceEnemy);
-								System.out.println("First GoodGames Percent:" + firstGoodGameF10KPercentNiceEnemy + "\t\tSecond GoodGames Percent:" + secondGoodGameF10KPercentNiceEnemy);
-								System.out.println("First PerfectGames Percent:" + firstPerfectGameF10KPercentNiceEnemy + "\t\tSecond PerfectGames Percent:" + secondPerfectGameF10KPercentNiceEnemy);
-								break;
-							}
-							case 2:
-							{
-								System.out.println("---F10K Normal Enemy Statistics---");
-								System.out.println("Games Played:" + firstF10KNormalGames.size() + "\tSecond Games Played:" + secondF10KNormalGames.size());
-								System.out.println("First HorribleGames Percent:" + firstHorribleGameF10KPercentNormalEnemy + "\t\tSecond HorribleGames Percent:" + secondHorribleGameF10KPercentNormalEnemy);
-								System.out.println("First BadGames Percent:" + firstBadGameF10KPercentNormalEnemy + "\t\tSecond BadGames Percent:" + secondBadGameF10KPercentNormalEnemy);
-								System.out.println("First NormalGames Percent:" + firstNormalGameF10KPercentNormalEnemy + "\t\tSecond NormalGames Percent:" + secondNormalGameF10KPercentNormalEnemy);
-								System.out.println("First GoodGames Percent:" + firstGoodGameF10KPercentNormalEnemy + "\t\tSecond GoodGames Percent:" + secondGoodGameF10KPercentNormalEnemy);
-								System.out.println("First PerfectGames Percent:" + firstPerfectGameF10KPercentNormalEnemy + "\t\tSecond PerfectGames Percent:" + secondPerfectGameF10KPercentNormalEnemy);
-								break;
-							}
-							case 3:
-							{
-								System.out.println("---F10K Bad Enemy Statistics---");
-								System.out.println("Games Played:" + firstF10KBadGames.size() + "\tSecond Games Played:" + secondF10KBadGames.size());
-								System.out.println("First HorribleGames Percent:" + firstHorribleGameF10KPercentBadEnemy + "\t\tSecond HorribleGames Percent:" + secondHorribleGameF10KPercentBadEnemy);
-								System.out.println("First BadGames Percent:" + firstBadGameF10KPercentBadEnemy + "\t\tSecond BadGames Percent:" + secondBadGameF10KPercentBadEnemy);
-								System.out.println("First NormalGames Percent:" + firstNormalGameF10KPercentBadEnemy + "\t\tSecond NormalGames Percent:" + secondNormalGameF10KPercentBadEnemy);
-								System.out.println("First GoodGames Percent:" + firstGoodGameF10KPercentBadEnemy + "\t\tSecond GoodGames Percent:" + secondGoodGameF10KPercentBadEnemy);
-								System.out.println("First PerfectGames Percent:" + firstPerfectGameF10KPercentBadEnemy + "\t\tSecond PerfectGames Percent:" + secondPerfectGameF10KPercentBadEnemy);
-								break;
-							}
-							case 4:
-							{
 								System.out.println("---" + firstName + " Team Last 10 Games---");
 								for (int i = 0; i < firstLastTenOrLessGames.size(); i++)
 								{
-									System.out.println(firstLastTenOrLessGames.get(i).date + ";" + firstLastTenOrLessGames.get(i).enemyTeamName + ";" + firstLastTenOrLessGames.get(i).enemyF10KRating + ";" + firstLastTenOrLessGames.get(i).isF10K + ";" + firstLastTenOrLessGames.get(i).tenKills);
+									System.out.println(firstLastTenOrLessGames.get(i).date + ";" + firstLastTenOrLessGames.get(i).enemyTeamName  + ";" + firstLastTenOrLessGames.get(i).isF10K + ";" + firstLastTenOrLessGames.get(i).tenKills);
 								}
 								System.out.println("---" + secondName + " Team Last 10 Games---");
 								for (int i = 0; i < secondLastTenOrLessGames.size(); i++)
 								{
-									System.out.println(secondLastTenOrLessGames.get(i).date + ";" + secondLastTenOrLessGames.get(i).enemyTeamName + ";" + secondLastTenOrLessGames.get(i).enemyF10KRating + ";" + secondLastTenOrLessGames.get(i).isF10K + ";" + secondLastTenOrLessGames.get(i).tenKills);
+									System.out.println(secondLastTenOrLessGames.get(i).date + ";" + secondLastTenOrLessGames.get(i).enemyTeamName  + ";" + secondLastTenOrLessGames.get(i).isF10K + ";" + secondLastTenOrLessGames.get(i).tenKills);
 								}
 								break;
 							}
-							case 5:
+							case 2:
 							{
 								System.out.println("---" + firstName + " Team Last 10 days Matches---");
 								for (int i = 0; i < firstTenDaysObjects.size(); i++)
 								{
-									System.out.println(firstTenDaysObjects.get(i).date + ";" + firstTenDaysObjects.get(i).enemyTeamName + ";" + firstTenDaysObjects.get(i).enemyF10KRating + ";" + firstTenDaysObjects.get(i).isF10K + ";" + firstTenDaysObjects.get(i).tenKills);
+									System.out.println(firstTenDaysObjects.get(i).date + ";" + firstTenDaysObjects.get(i).enemyTeamName + ";" + firstTenDaysObjects.get(i).isF10K + ";" + firstTenDaysObjects.get(i).tenKills);
 								}
 								System.out.println("---" + secondName + " Team Last 10 days Matches---");
 								for (int i = 0; i < secondTenDaysObjects.size(); i++)
 								{
-									System.out.println(secondTenDaysObjects.get(i).date + ";" + secondTenDaysObjects.get(i).enemyTeamName + ";" + secondTenDaysObjects.get(i).enemyF10KRating + ";" + secondTenDaysObjects.get(i).isF10K + ";" + secondTenDaysObjects.get(i).tenKills);
+									System.out.println(secondTenDaysObjects.get(i).date + ";" + secondTenDaysObjects.get(i).enemyTeamName + ";" + secondTenDaysObjects.get(i).isF10K + ";" + secondTenDaysObjects.get(i).tenKills);
 								}
 								System.out.println("--- Meetings History:");
 								for (int i = 0; i < matchesHistory.size(); i++)
@@ -543,10 +412,14 @@ public class DataWorker
 							case 3:
 							{
 								System.out.println("---Enemy's Statistic's---");
-								System.out.println("Great Enemy. First:" + firstGreatEnemyPercent + "\tSecond:" + secondGreatEnemyPercent);
-								System.out.println("Good Enemy. First:" + firstGoodEnemyPercent + "\tSecond:" + secondGoodEnemyPercent);
-								System.out.println("Normal Enemy. First:" + firstNormalEnemyPercent + "\tSecond:" + secondNormalEnemyPercent);
-								System.out.println("Bad Enemy. First:" + firstBadEnemyPercent + "\tSecond:" + secondBadEnemyPercent);
+								System.out.println("\t\t\t\tGreat enemy");
+								System.out.println("First:" + firstGamesNumberGreatEnemy + " games with " + firstGreatEnemyPercent + "%" + "\tSecond:" + secondGamesNumberGreatEnemy + " games with " + secondGreatEnemyPercent + "%");
+								System.out.println("\t\t\t\tGood enemy");
+								System.out.println("First:" + firstGamesNumberGoodEnemy + " games with " + firstGoodEnemyPercent + "%" + "\tSecond:" + secondGamesNumberGoodEnemy + " games with " + secondGoodEnemyPercent + "%");
+								System.out.println("\t\t\t\tNormal enemy");
+								System.out.println("First:" + firstGamesNumberNormalEnemy + " games with " + firstNormalEnemyPercent + "%" + "\tSecond:" + secondGamesNumberNormalEnemy + " games with " + secondNormalEnemyPercent + "%");
+								System.out.println("\t\t\t\tBad enemy");
+								System.out.println("First:" + firstGamesNumberBadEnemy + " games with " + firstBadEnemyPercent + "%" + "\tSecond:" + secondGamesNumberBadEnemy + " games with " + secondBadEnemyPercent + "%");
 								break;
 							}
 							case 4:
@@ -589,8 +462,32 @@ public class DataWorker
 				//<editor-fold desc="ABC CASE">
 				case 4:
 				{
-					System.out.println("---ABC Analitics---");
-					abcAnalitics.checkForABCMatches(firstMonthObjects, secondMonthObjects);
+					Integer abcChoice = 0;
+					while (abcChoice != 9)
+					{
+						System.out.println("/--- ABC Analitics.");
+						System.out.println("/--1: Month ABC.");
+						System.out.println("/--2: Ten Days ABC.");
+						System.out.println("/--9: Back.");
+						abcChoice = s.nextInt();
+						switch (abcChoice)
+						{
+							case 1:
+							{
+								abcAnalitics.checkForABCMatches(firstMonthObjects, secondMonthObjects);
+								break;
+							}
+							case 2:
+							{
+								abcAnalitics.checkForABCMatches(firstTenDaysObjects, secondTenDaysObjects);
+								break;
+							}
+							case 9:
+							{
+								break;
+							}
+						}
+					}
 					break;
 				}
 				//</editor-fold
@@ -605,17 +502,52 @@ public class DataWorker
 				//<editor-fold desc="KILLS, TIMES CASE">
 				case 6:
 				{
-
-					System.out.println(firstMonthObjects.get(0).teamName + " avg. match time:" + firstMedianMatchTime + ". Kills:" + (firstMedianKills + firstMedianDeaths));
-					System.out.println(secondMonthObjects.get(0).teamName + " avg. match time:" + secondMedianMatchTime + ". Kills:" + (secondMedianKills + secondMedianDeaths));
-					System.out.println(firstMonthObjects.get(0).teamName + " time over 40 mins:" + firstPercentTimeOver + "%. Kills over 45:" + firstPercentKillsOver + "%");
-					System.out.println(secondMonthObjects.get(0).teamName + " time over 40 mins:" + secondPercentTimeOver + "%. Kills over 45:" + secondPercentKillsOver + "%");
-					System.out.println("---Meetings History---");
-					for (int i = 0; i < matchesHistory.size(); i++)
+					Integer tkChoice = 0;
+					while (tkChoice != 9)
 					{
-						System.out.println(i + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).matchTime + ";" + (matchesHistory.get(i).kills + matchesHistory.get(i).deaths));
+						System.out.println("/--- Total Time and Kills Analitics.");
+						System.out.println("/--1: Global Statistics.");
+						System.out.println("/--2: Last 5 Games.");
+						System.out.println("/--9: Back.");
+						tkChoice = s.nextInt();
+						switch (tkChoice)
+						{
+							case 1:
+							{
+								System.out.println("\t\t\t\tGlobal Statistics:");
+								System.out.println(firstMonthObjects.get(0).teamName + " avg. match time:" + firstMonthMedianMatchTime+"/"+firstTenMedianMatchTime + ". Kills:" + (firstMonthMedianKills + firstMonthMedianDeaths)+"/"+(firstTenMedianKills + firstTenMedianDeaths));
+								System.out.println(secondMonthObjects.get(0).teamName + " avg. match time:" + secondMonthMedianMatchTime+"/"+secondTenMedianMatchTime + ". Kills:" + (secondMonthMedianKills + secondMonthMedianDeaths)+"/"+ (secondTenMedianKills + secondTenMedianDeaths));
+								System.out.println(firstMonthObjects.get(0).teamName + " time over 40 mins:" + firstMonthPercentTimeOver+"/"+firstTenPercentTimeOver + "%. Kills over 45:" + firstMonthPercentKillsOver+"/"+firstTenPercentKillsOver + "%");
+								System.out.println(secondMonthObjects.get(0).teamName + " time over 40 mins:" + secondMonthPercentTimeOver+"/"+secondTenPercentTimeOver + "%. Kills over 45:" + secondMonthPercentKillsOver+"/"+secondTenPercentKillsOver + "%");
+								System.out.println(firstMonthObjects.get(0).teamName + " aggression coefficient:" + firstMonthAggressionCoefficient+"/"+secondTenAggressionCoefficient);
+								System.out.println(secondMonthObjects.get(0).teamName + " aggression coefficient:" + secondMonthAggressionCoefficient+"/"+secondTenAggressionCoefficient);
+								System.out.println("Agression coefficient Sum:" + (firstMonthAggressionCoefficient + secondMonthAggressionCoefficient)+"/"+(firstTenAggressionCoefficient + secondTenAggressionCoefficient));
+								break;
+							}
+							case 2:
+							{
+								System.out.println("\t\t\t\t"+firstMonthObjects.get(0).teamName+" Last 5 Games:");
+								for (int i = 0; i < firstLastFiveGames.size(); i++)
+								{
+									System.out.println((i+1)+":"+firstLastFiveGames.get(i).enemyTeamName+";"+firstLastFiveGames.get(i).matchTime+";"+(firstLastFiveGames.get(i).kills+firstLastFiveGames.get(i).deaths));
+								}
+								System.out.println("\t\t\t\t"+secondMonthObjects.get(0).teamName+" Last 5 Games:");
+								for (int i = 0; i < secondLastFiveGames.size(); i++)
+								{
+									System.out.println((i+1)+":"+secondLastFiveGames.get(i).enemyTeamName+";"+secondLastFiveGames.get(i).matchTime+";"+(secondLastFiveGames.get(i).kills+secondLastFiveGames.get(i).deaths));
+								}
+							}
+							case 3:
+							{
+								System.out.println("\t\t\t\tMeetingsHistory:");
+								for (int i = 0; i < matchesHistory.size(); i++)
+								{
+									System.out.println((i+1) + ":" + matchesHistory.get(i).date + ";" + matchesHistory.get(i).teamName + ";" + matchesHistory.get(i).enemyTeamName + ";" + matchesHistory.get(i).matchTime + ";" + (matchesHistory.get(i).kills + matchesHistory.get(i).deaths));
+								}
+								break;
+							}
+						}
 					}
-
 					break;
 				}
 				//</editor-fold>
@@ -624,6 +556,7 @@ public class DataWorker
 			}
 		}
 	}
+
 
 	public void fillObject(ArrayList<AnalizedInfo> objects, String allMatches) throws IOException
 	{
@@ -641,10 +574,8 @@ public class DataWorker
 			String F10KInfo = eachMatch[i].split("##")[6];
 			String FRInfo = eachMatch[i].split("##")[7];
 			String killEventsInfo = eachMatch[i].split("##")[8];
-			String enemyFBRating = eachMatch[i].split("##")[9];
-			String enemyF10KRating = eachMatch[i].split("##")[10];
-			String matchHardness = eachMatch[i].split("##")[11];
-			String ratingChanges = eachMatch[i].split("##")[12];
+			String matchHardness = eachMatch[i].split("##")[9];
+			String ratingChanges = eachMatch[i].split("##")[10];
 
 			object.id = matchGeneralInfo.split(";")[0];
 			object.date = matchGeneralInfo.split(";")[1];
@@ -694,8 +625,6 @@ public class DataWorker
 
 			object.mineRating = Integer.parseInt(ratingChanges.split(";")[1]);
 			object.enemyRating = Integer.parseInt(ratingChanges.split(";")[2]);
-			object.enemyFBRating = enemyFBRating;
-			object.enemyF10KRating = enemyF10KRating;
 
 			objects.add(object);
 		}
@@ -742,26 +671,6 @@ public class DataWorker
 			}
 		}
 		return getMedianFromArray(FBTimeArray);
-	}
-
-	public Double getAverageEnemyFBRating(ArrayList<AnalizedInfo> objects)
-	{
-		Double avgRating = 0.0;
-		Integer counter = 0;
-		for (int i = 0; i < objects.size(); i++)
-		{
-			if (objects.get(i).enemyFBRating.equals("bad"))
-				avgRating += 1.0;
-			if (objects.get(i).enemyFBRating.equals("normal"))
-				avgRating += 2.0;
-			if (objects.get(i).enemyFBRating.equals("nice"))
-				avgRating += 3.0;
-			if (objects.get(i).enemyFBRating.equals("perfect"))
-				avgRating += 4.0;
-			counter++;
-		}
-		avgRating = avgRating / counter;
-		return Math.round(avgRating * 100.0) / 100.0;
 	}
 
 	public Integer getAverageFBPercent(ArrayList<AnalizedInfo> objects) throws ParseException
@@ -921,25 +830,7 @@ public class DataWorker
 		return getMedianFromArray(F10KTimeArray);
 	}
 
-	public Double getAverageEnemyF10KRating(ArrayList<AnalizedInfo> objects)
-	{
-		Double avgRating = 0.0;
-		Integer counter = 0;
-		for (int i = 0; i < objects.size(); i++)
-		{
-			if (objects.get(i).enemyF10KRating.equals("bad"))
-				avgRating += 1.0;
-			if (objects.get(i).enemyF10KRating.equals("normal"))
-				avgRating += 2.0;
-			if (objects.get(i).enemyF10KRating.equals("nice"))
-				avgRating += 3.0;
-			if (objects.get(i).enemyF10KRating.equals("perfect"))
-				avgRating += 4.0;
-			counter++;
-		}
-		avgRating = avgRating / counter;
-		return Math.round(avgRating * 100.0) / 100.0;
-	}
+
 
 	public Integer getAverageF10KPercent(ArrayList<AnalizedInfo> objects) throws ParseException
 	{
@@ -1068,6 +959,14 @@ public class DataWorker
 	//</editor-fold>
 
 	//<editor-fold desc="WinData">
+	private Double getAggressionCoefficient(Integer medianKills, Integer medianMatchTime)
+	{
+		Double coef = (double) medianKills / medianMatchTime * 100;
+		Integer some = coef.intValue();
+		coef = (double) some / 100;
+		return coef;
+	}
+
 	public Integer getCurrentStreak(ArrayList<AnalizedInfo> objects)
 	{
 		Integer streak = 0;
@@ -1253,6 +1152,58 @@ public class DataWorker
 			return percent.intValue();
 		} else
 			return 9999;
+	}
+
+	public Integer getGamesNumberGreatEnemy(ArrayList<AnalizedInfo> objects)
+	{
+		Integer allGames = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			if (objects.get(i).enemyRating >= 1500)
+			{
+				allGames++;
+			}
+		}
+		return allGames;
+	}
+
+	public Integer getGamesNumberGoodEnemy(ArrayList<AnalizedInfo> objects)
+	{
+		Integer allGames = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			if (objects.get(i).enemyRating >= 1250 && objects.get(i).enemyRating < 1500)
+			{
+				allGames++;
+			}
+		}
+		return allGames;
+	}
+
+	public Integer getGamesNumberNormalEnemy(ArrayList<AnalizedInfo> objects)
+	{
+		Integer allGames = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			if (objects.get(i).enemyRating >= 1000 && objects.get(i).enemyRating < 1250)
+			{
+				allGames++;
+			}
+		}
+		return allGames;
+	}
+
+	public Integer getGamesNumberBadEnemy(ArrayList<AnalizedInfo> objects)
+	{
+		Integer allGames = 0;
+		for (int i = 0; i < objects.size(); i++)
+		{
+			if (objects.get(i).enemyRating < 1000)
+			{
+				allGames++;
+			}
+		}
+		return allGames;
 	}
 
 	public Integer getMedianMatchTime(ArrayList<AnalizedInfo> objects)
@@ -1495,79 +1446,6 @@ public class DataWorker
 	//</editor-fold>
 
 	//<editor-fold desc="Object separators">
-
-	public ArrayList<AnalizedInfo> separateEnemyF10KNiceGames(ArrayList<AnalizedInfo> array)
-	{
-		ArrayList<AnalizedInfo> newArray = new ArrayList<>();
-
-		for (int i = 0; i < array.size(); i++)
-		{
-			if (array.get(i).enemyF10KRating.equals("nice"))
-				newArray.add(array.get(i));
-		}
-		return newArray;
-	}
-
-	public ArrayList<AnalizedInfo> separateEnemyF10KNormalGames(ArrayList<AnalizedInfo> array)
-	{
-		ArrayList<AnalizedInfo> newArray = new ArrayList<>();
-
-		for (int i = 0; i < array.size(); i++)
-		{
-			if (array.get(i).enemyF10KRating.equals("normal"))
-				newArray.add(array.get(i));
-		}
-		return newArray;
-	}
-
-	public ArrayList<AnalizedInfo> separateEnemyF10KBadGames(ArrayList<AnalizedInfo> array)
-	{
-		ArrayList<AnalizedInfo> newArray = new ArrayList<>();
-
-		for (int i = 0; i < array.size(); i++)
-		{
-			if (array.get(i).enemyF10KRating.equals("bad"))
-				newArray.add(array.get(i));
-		}
-		return newArray;
-	}
-
-	public ArrayList<AnalizedInfo> separateEnemyFBNiceGames(ArrayList<AnalizedInfo> array)
-	{
-		ArrayList<AnalizedInfo> newArray = new ArrayList<>();
-
-		for (int i = 0; i < array.size(); i++)
-		{
-			if (array.get(i).enemyFBRating.equals("nice"))
-				newArray.add(array.get(i));
-		}
-		return newArray;
-	}
-
-	public ArrayList<AnalizedInfo> separateEnemyFBNormalGames(ArrayList<AnalizedInfo> array)
-	{
-		ArrayList<AnalizedInfo> newArray = new ArrayList<>();
-
-		for (int i = 0; i < array.size(); i++)
-		{
-			if (array.get(i).enemyFBRating.equals("normal"))
-				newArray.add(array.get(i));
-		}
-		return newArray;
-	}
-
-	public ArrayList<AnalizedInfo> separateEnemyFBBadGames(ArrayList<AnalizedInfo> array)
-	{
-		ArrayList<AnalizedInfo> newArray = new ArrayList<>();
-
-		for (int i = 0; i < array.size(); i++)
-		{
-			if (array.get(i).enemyFBRating.equals("bad"))
-				newArray.add(array.get(i));
-		}
-		return newArray;
-	}
-
 	public ArrayList<AnalizedInfo> separateLastThreeGames(ArrayList<AnalizedInfo> array) throws ParseException
 	{
 		ArrayList<AnalizedInfo> newArray = new ArrayList<>();

@@ -91,22 +91,21 @@ public class UniqueInfoFactory
 	ArrayList<String> checkIfLeaguesMustBeParsed(ArrayList<String> getFromSite) throws IOException, ParseException
 	{
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH");
-		String leagueFileString = fileOperationsFactory.readFile("files/LeaguesParsed.txt");
+		String leagueFileString = fileOperationsFactory.readFile("files/Configuration.txt");
 		Date d1 = null;
 		Date d2 = null;
 		Date date = new Date();
 		String currentDate = format.format(date);
 		d1 = format.parse(currentDate);
-		d2 = format.parse(leagueFileString);
+		d2 = format.parse(leagueFileString.split("\n")[1]);
 		long diff = d1.getTime() - d2.getTime();
 		long diffHours = diff / (60 * 60 * 1000);
-		ArrayList<String> emptyArray=new ArrayList<>();
+		ArrayList<String> emptyArray = new ArrayList<>();
 		if (diffHours > 12)
 		{
-			fileOperationsFactory.cleanAndWriteToFile(currentDate,"files/LeaguesParsed.txt");
+			fileOperationsFactory.cleanAndWriteToFile(leagueFileString.split("\n")[0] + "\n" + currentDate, "files/Configuration.txt");
 			return getFromSite;
-		}
-		else
+		} else
 			return emptyArray;
 	}
 

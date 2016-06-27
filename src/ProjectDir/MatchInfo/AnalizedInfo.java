@@ -25,8 +25,6 @@ public class AnalizedInfo
 	public Integer lining;
 	public Integer vision;
 	public String FB;
-	public String enemyFBRating;
-	public String enemyF10KRating;
 	public String tenKills;
 	public Integer farming;
 	public Boolean isFB;

@@ -22,7 +22,6 @@ public class AverageAnaliticsFactory
 		Integer getF10K = getPercentGetF10K(teamMatches);
 	}
 
-
 	public Integer getAverageFBTime(String matches)
 	{
 		String[] oneMatchString = matches.split("\n");

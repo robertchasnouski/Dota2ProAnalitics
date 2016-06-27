@@ -36,14 +36,12 @@ public class PrimaryAnaliticsFactory
 		String radiantKillAbilityString = analizeRadiantKillAbility(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		Integer direKillAbility = 1;
 		String direKillAbilityString = analizeDireKillAbility(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
-		//System.out.println("Radiant KillAbility:" + radiantKillAbility);
-		//System.out.println("Dire KillAbility:" + direKillAbility);
 
 		/*****Pushing****/
 		Integer radiantPushing = analizeRadiantPushing(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		Integer direPushing = analizeDirePushing(averageDataFactory, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
-		//System.out.println("Radiant Pushing:" + radiantPushing);
 		//System.out.println("Dire Pushing:" + direPushing);
+		//System.out.println("Radiant Pushing:" + radiantPushing);
 		if (direPushing < -400 || direPushing > 2500 || radiantPushing < -400 || radiantPushing > 2500)
 		{
 			System.out.println(match.id);
@@ -112,31 +110,19 @@ public class PrimaryAnaliticsFactory
 		//System.out.println("Radiant FB:" + radiantFB);
 		//System.out.println("Dire FB:" + direFB);
 
-		/**FBRatings**/
-		ArrayList<String> radiantFBMarks = new ArrayList<>();
-		ArrayList<String> direFBMarks = new ArrayList<>();
-		Date matchDate = formatter.parse(match.date);
-		String team1Id = team[0].id;
-		String team2Id = team[1].id;
-		radiantFBMarks = getFBMarks(team1Id, matchDate);
-		direFBMarks = getFBMarks(team2Id, matchDate);
-		String radiantFBRating = getFBRating(radiantFBMarks);
-		String direFBRating = getFBRating(direFBMarks);
-		/**F10KRating**/
-		ArrayList<String> radiantF10KMarks = new ArrayList<>();
-		ArrayList<String> direF10KMarks = new ArrayList<>();
-		radiantF10KMarks = getF10KMarks(team1Id, matchDate);
-		direF10KMarks = getF10KMarks(team2Id, matchDate);
-		String radiantF10KRating = getF10KRating(radiantF10KMarks);
-		String direF10KRating = getF10KRating(direF10KMarks);
 		/**MatchHardness**/
-		String matchHardness=calculateMatchHardness(team[0].kills+"",team[1].kills+"",team[0].totalGold+"",team[1].totalGold+"",match.matchTime+"");
+		String matchHardness = calculateMatchHardness(team[0].kills + "", team[1].kills + "", team[0].totalGold + "", team[1].totalGold + "", match.matchTime + "");
+		/**KillsDeaths Aggression Coefficient**/
+		Double radiantAgrKills = analizeRadiantAggressionKills(killEventArrayList);
+		Double radiantAgrDeaths = analizeRadiantAggressionDeaths(killEventArrayList);
+		Double direAgrKills = analizeDireAggressionKills(killEventArrayList);
+		Double direAgrDeaths = analizeDireAggressionDeaths(killEventArrayList);
 		/**End analizing**/
 		/*** Write info to file **/
 
 		///Write that match was analized
-		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, direFBRating, direF10KRating, matchHardness);
-		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, radiantFBRating, radiantF10KRating,matchHardness);
+		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, radiantAgrKills, radiantAgrDeaths, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, direAgrKills, direAgrDeaths, matchHardness);
+		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, radiantAgrKills, radiantAgrDeaths, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, direAgrKills, direAgrDeaths, matchHardness);
 		writePlayersInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 
 		System.out.println("Match " + match.id + " was analized.");
@@ -1449,6 +1435,91 @@ public class PrimaryAnaliticsFactory
 
 	//</editor-fold>
 
+	//<editor-fold desc="FB,F10K">
+	public Double analizeRadiantAggressionKills(ArrayList<KillEvent> killEventArrayList)
+	{
+		Integer killsCounter = 0;
+		Integer deathsCounter = 0;
+		for (int i = 0; i < killEventArrayList.size(); i++)
+		{
+			if (killEventArrayList.get(i).second <= 900)
+			{
+				if (killEventArrayList.get(i).dier >= 6)
+					killsCounter++;
+				else
+					deathsCounter++;
+			}
+		}
+		double coef = (double) killsCounter / 10;
+		coef = coef * 100;
+		coef = Math.round(coef);
+		coef = coef / 100;
+		return coef;
+	}
+
+	public Double analizeRadiantAggressionDeaths(ArrayList<KillEvent> killEventArrayList)
+	{
+		Integer killsCounter = 0;
+		Integer deathsCounter = 0;
+		for (int i = 0; i < killEventArrayList.size(); i++)
+		{
+			if (killEventArrayList.get(i).second < 900)
+			{
+				if (killEventArrayList.get(i).dier >= 6)
+					killsCounter++;
+				else
+					deathsCounter++;
+			}
+		}
+		double coef = (double) deathsCounter / 10;
+		coef = coef * 100;
+		coef = Math.round(coef);
+		coef = coef / 100;
+		return coef;
+	}
+
+	public Double analizeDireAggressionKills(ArrayList<KillEvent> killEventArrayList)
+	{
+		Integer killsCounter = 0;
+		Integer deathsCounter = 0;
+		for (int i = 0; i < killEventArrayList.size(); i++)
+		{
+			if (killEventArrayList.get(i).second < 900)
+			{
+				if (killEventArrayList.get(i).dier <= 5)
+					killsCounter++;
+				else
+					deathsCounter++;
+			}
+		}
+		double coef = (double) killsCounter / 10;
+		coef = coef * 100;
+		coef = Math.round(coef);
+		coef = coef / 100;
+		return coef;
+	}
+
+	public Double analizeDireAggressionDeaths(ArrayList<KillEvent> killEventArrayList)
+	{
+		Integer killsCounter = 0;
+		Integer deathsCounter = 0;
+		for (int i = 0; i < killEventArrayList.size(); i++)
+		{
+			if (killEventArrayList.get(i).second < 900)
+			{
+				if (killEventArrayList.get(i).dier <= 5)
+					killsCounter++;
+				else
+					deathsCounter++;
+			}
+		}
+		double coef = (double) deathsCounter / 10;
+		coef = coef * 100;
+		coef = Math.round(coef);
+		coef = coef / 100;
+		return coef;
+	}
+
 	public String analizeRadiantFB(AverageDataFactory averageDataFactory, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
 	{
 		if (killEventArrayList.get(0).second <= 90)
@@ -1620,6 +1691,7 @@ public class PrimaryAnaliticsFactory
 
 		return "normal";
 	}
+	//</editor-fold>
 
 	//<editor-fold desc="FB F10K ratings">
 	public String getFBRating(ArrayList<String> fbMarks)
@@ -2196,7 +2268,7 @@ public class PrimaryAnaliticsFactory
 	}
 	//</editor-fold>
 
-	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, String enemyFBRating, String enemyF10KRating, String matchHardness) throws IOException
+	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Double radiantAgrKills, Double radiantAgrDeaths, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, Double direAgrKills, Double direAgrDeaths, String matchHardness) throws IOException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -2209,8 +2281,10 @@ public class PrimaryAnaliticsFactory
 		teamString += team[0].EGPoints + ";";
 		teamString += team[0].MGPoints + ";";
 		teamString += team[0].LGPoints + ";";
-		teamString += team[1].name+";";
-		teamString += team[1].id;
+		teamString += team[1].name + ";";
+		teamString += team[1].id + ";";
+		teamString += match.leagueName + ";";
+		teamString += match.leagueId;
 		teamString += "##";
 		/**TeamInfo [1]**/
 		teamString += team[0].kills + ";";
@@ -2254,7 +2328,9 @@ public class PrimaryAnaliticsFactory
 		teamString += "##";
 		/**F10K Information [6]**/
 		teamString += (match.first10KillsRadiant ? "true" : "false") + ";";
-		teamString += match.F10KTime;
+		teamString += match.F10KTime + ";";
+		teamString += radiantAgrKills + ";";
+		teamString += radiantAgrDeaths;
 		teamString += "##";
 		/**FR Information [7]**/
 		teamString += (match.firstRoshanRadiant ? "true" : "false") + ";";
@@ -2269,16 +2345,10 @@ public class PrimaryAnaliticsFactory
 				teamString += "||";
 		}
 		teamString += "##";
-		/**FBRating [9]**/
-		teamString += enemyFBRating;
-		teamString += "##";
-		/**F10KRating [10]**/
-		teamString += enemyF10KRating;
-		teamString += "##";
-		/**MatchHardness [11]**/
+		/**MatchHardness [9]**/
 		teamString += matchHardness;
 		teamString += "##";
-		/**Rating Changes [12]**/
+		/**Rating Changes [10]**/
 		String oldString = fileControlFactory.readFile("files/teams/" + team[0].id + "/TeamMatches.txt");
 		String[] stringInFile = oldString.split("\n");
 		String ratingChanges = "";
@@ -2297,10 +2367,9 @@ public class PrimaryAnaliticsFactory
 		{
 			fileControlFactory.writeToFile(stringInFile[i], "files/teams/" + team[0].id + "/TeamMatches.txt");
 		}
-		System.out.println("Team " + team[0].id + " file was changed.");
 	}
 
-	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, String enemyFBRating, String enemyF10KRating,String matchHardness) throws IOException
+	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Double radiantAgrKills, Double radiantAgrDeaths, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, Double direAgrKills, Double direAgrDeaths, String matchHardness) throws IOException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -2313,8 +2382,10 @@ public class PrimaryAnaliticsFactory
 		teamString += team[1].EGPoints + ";";
 		teamString += team[1].MGPoints + ";";
 		teamString += team[1].LGPoints + ";";
-		teamString += team[0].name+";";
-		teamString += team[0].id;
+		teamString += team[0].name + ";";
+		teamString += team[0].id + ";";
+		teamString += match.leagueName + ";";
+		teamString += match.leagueId;
 		teamString += "##";
 		/**TeamInfo [1]**/
 		teamString += team[1].kills + ";";
@@ -2358,7 +2429,9 @@ public class PrimaryAnaliticsFactory
 		teamString += "##";
 		/**F10K Information [6]**/
 		teamString += (match.first10KillsRadiant ? "false" : "true") + ";";
-		teamString += match.F10KTime;
+		teamString += match.F10KTime + ";";
+		teamString += direAgrKills + ";";
+		teamString += direAgrDeaths;
 		teamString += "##";
 		/**FR Information [7]**/
 		teamString += (match.firstRoshanRadiant ? "false" : "true") + ";";
@@ -2373,14 +2446,10 @@ public class PrimaryAnaliticsFactory
 				teamString += "||";
 		}
 		teamString += "##";
-		/**FBRating[9] F10KRating[10]**/
-		teamString += enemyFBRating;
-		teamString += "##";
-		teamString += enemyF10KRating;
-		teamString += "##";
+		/**MatchHardness[9]**/
 		teamString += matchHardness;
 		teamString += "##";
-		/**Rating Changes [11]**/
+		/**Rating Changes [10]**/
 		String oldString = fileControlFactory.readFile("files/teams/" + team[1].id + "/TeamMatches.txt");
 		String[] stringInFile = oldString.split("\n");
 		String ratingChanges = "";
@@ -2398,7 +2467,6 @@ public class PrimaryAnaliticsFactory
 		{
 			fileControlFactory.writeToFile(stringInFile[i], "files/teams/" + team[1].id + "/TeamMatches.txt");
 		}
-		System.out.println("Team " + team[1].id + " file was changed.");
 	}
 
 	public void writePlayersInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException

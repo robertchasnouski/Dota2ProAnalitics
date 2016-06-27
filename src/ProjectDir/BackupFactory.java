@@ -16,9 +16,9 @@ public class BackupFactory
 
 	public void checkForBackUp() throws IOException, ParseException
 	{
-		String lastBackup = fileOperationsFactory.readFile("files/BackUpInfo.txt");
+		String lastBackup = fileOperationsFactory.readFile("files/Configuration.txt");
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date lastBackupDate = formatter.parse(lastBackup);
+		Date lastBackupDate = formatter.parse(lastBackup.split("\n")[0]);
 		String todayDate = formatter.format(new Date());
 		String dirName = "BackUp/" + todayDate;
 		if (getDifferenceDays(lastBackupDate) >= 7)
@@ -62,7 +62,7 @@ public class BackupFactory
 			{
 				e1.printStackTrace();
 			}
-			fileOperationsFactory.cleanAndWriteToFile(todayDate, "files/BackUpInfo.txt");
+			fileOperationsFactory.cleanAndWriteToFile(todayDate + "\n" + lastBackup.split("\n")[1], "files/Configuration.txt");
 		}
 	}
 
