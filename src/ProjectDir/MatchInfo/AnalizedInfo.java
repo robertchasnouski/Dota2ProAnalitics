@@ -10,6 +10,7 @@ public class AnalizedInfo
 	public String teamName;
 	public String enemyTeamName;
 	public String leagueName;
+	public Integer leagueId;
 	public Boolean isWin;
 	public Integer side;
 	public Integer kills;
@@ -20,12 +21,15 @@ public class AnalizedInfo
 	public Integer LG;
 	public String[] playerId = new String[5];
 	public Integer[] playerEPP = new Integer[5];
+	public Integer[] playerRole=new Integer[5];
 	public Integer killAbility;
 	public Integer pushing;
 	public Integer lining;
 	public Integer vision;
 	public String FB;
 	public String tenKills;
+	public Double tenMinutesKillsCoef;
+	public Double tenMinutesDeathsCoef;
 	public Integer farming;
 	public Boolean isFB;
 	public Boolean isF10K;
@@ -33,7 +37,10 @@ public class AnalizedInfo
 	public Integer FBTime;
 	public Integer FRTime;
 	public Integer F10KTime;
-	public Integer mineRating;
-	public Integer enemyRating;
+	public Integer mineGlobalRating;
+	public Integer enemyGlobalRating;
+	public Integer mineTierRating;
+	public Integer enemyTierRating;
+	public Integer tier;
 	public String matchHardness;
 }

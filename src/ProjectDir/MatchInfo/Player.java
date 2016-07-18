@@ -8,6 +8,7 @@ public class Player
 	public Integer middle;
 	public Integer jungle;
 	public Integer roaming;
+	public String firstLine;
 
 	public String playerId;
 

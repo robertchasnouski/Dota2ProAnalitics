@@ -1,7 +1,5 @@
 package ProjectDir;
 
-import ProjectDir.Analitics.ABCAnalitics;
-import ProjectDir.Analitics.GameStageAnalitics;
 import ProjectDir.MatchInfo.*;
 
 import java.io.IOException;
@@ -21,7 +19,6 @@ public class MatchesWorker
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 	MainAnaliticsFactory mainAnaliticsFactory = new MainAnaliticsFactory();
 	RatingFactory ratingFactory = new RatingFactory();
-	GameStageAnalitics gameStageAnalitics = new GameStageAnalitics();
 	BackupFactory backupFactory = new BackupFactory();
 	Integer alreadyParsedMatches = 0;
 
@@ -47,10 +44,10 @@ public class MatchesWorker
 			team[i] = new Team();
 		}
 		//checkIfTemporaryFileIsClean();
-		backupFactory.checkForBackUp();
-		//readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
-		ratingFactory.organizeRating();
-		mainAnaliticsFactory.startWork();
+		//backupFactory.checkForBackUp();
+		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+		//ratingFactory.organizeRating();
+		//mainAnaliticsFactory.startWork();
 		System.out.println("/-Boss, all work is done.");
 	}
 
@@ -61,7 +58,7 @@ public class MatchesWorker
 		if (alreadyParsedMatches == 20)
 		{
 			System.out.println("Okay. Let's have a rest for a while.");
-			Thread.sleep(120000);
+			Thread.sleep(60000);
 			alreadyParsedMatches = 0;
 		}
 	}
@@ -90,7 +87,7 @@ public class MatchesWorker
 
 		String[] tempArray = fileOperationsFactory.readFile("files/Matches.txt").split("\n");
 		String lastMatchDateString = tempArray[tempArray.length - 1].split(";")[1];
-		Date lastMatchDate = formatter.parse("2015-06-23"/*lastMatchDateString*/);
+		Date lastMatchDate = formatter.parse(lastMatchDateString);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		date.setTime(lastMatchDate.getTime() - 24 * 60 * 60 * 1000);
@@ -115,7 +112,6 @@ public class MatchesWorker
 						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 						writerReaderFactory.makeZeros(team, player, match);
 					}
-
 				}
 			}
 		uniqueInfoFactory.removeFirstEnter("files/TemporaryMatches.txt");
@@ -131,7 +127,13 @@ public class MatchesWorker
 			fileOperationsFactory.cleanAndWriteToFile("", "files/TemporaryMatches.txt");
 			fileOperationsFactory.cleanAndWriteToFile(allMatchesfile, "files/Matches.txt");
 		}
-		//uniqueInfoFactory.makeMatchesFileClean("files/Matches.txt");
+		/*SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+		Date date = formatter.parse("2013-05-05");
+		parserHelper.parseMatchById(date, "2511367362", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+		writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
+		*/
+		// uniqueInfoFactory.makeMatchesFileClean("files/Matches.txt");
 	}
 }
 

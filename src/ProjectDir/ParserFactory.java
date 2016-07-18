@@ -41,7 +41,8 @@ public class ParserFactory
 		if (leaguesParsed == 10)
 		{
 			System.out.println("League rest...");
-			Thread.sleep(60000);
+			Thread.sleep(30000);
+			Thread.sleep(0);
 			leaguesParsed = 0;
 		}
 	}
@@ -50,7 +51,8 @@ public class ParserFactory
 	{
 		if (parseCounter == 50)
 		{
-			Thread.sleep(15000);
+			Thread.sleep(20000);
+			//Thread.sleep(0);
 			parseCounter = 0;
 		}
 		Document doc = new Document("");
@@ -63,12 +65,12 @@ public class ParserFactory
 			{
 				doc = Jsoup.connect(html)
 						.userAgent("Mozilla/5.0 (Windows NT 6.0) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.46 Safari/536.5")
-						.get();
+						.timeout(3000).get();
 				break;
 			} catch (HttpStatusException e)
 			{
 				System.out.println("HttpStatusException." + html + ". Trying to repeat...");
-				Thread.sleep(5000);
+				Thread.sleep(10000);
 				continue;
 			} catch (SocketTimeoutException e)
 			{
@@ -76,10 +78,9 @@ public class ParserFactory
 				Thread.sleep(10000);
 				continue;
 			}
-
 		}
 		parseCounter++;
-		Thread.sleep(800);
+		Thread.sleep(2000);
 		return doc;
 	}
 
@@ -157,10 +158,10 @@ public class ParserFactory
 		Document docKillsPage = parse_html("http://www.dotabuff.com/matches/" + id + "/kills");
 		Document docFarmPage = parse_html("http://www.dotabuff.com/matches/" + id + "/farm");
 		Document docObjectivesPage = parse_html("http://www.dotabuff.com/matches/" + id + "/objectives");
-		Document docRunesPage = parse_html("http://www.dotabuff.com/matches/" + id + "/runes");
+		//Document docRunesPage = parse_html("http://www.dotabuff.com/matches/" + id + "/runes");
 		Document docVisionPage = parse_html("http://www.dotabuff.com/matches/" + id + "/vision");
 		Document docLogPage = parse_html("http://www.dotabuff.com/matches/" + id + "/log");
-		if (docKillsPage.toString().equals("") || docFarmPage.toString().equals("") || docObjectivesPage.toString().equals("") || docRunesPage.toString().equals("") || docVisionPage.toString().equals("") || docLogPage.toString().equals(""))
+		if (docKillsPage.toString().equals("") || docFarmPage.toString().equals("") || docObjectivesPage.toString().equals("") ||/* docRunesPage.toString().equals("") || */docVisionPage.toString().equals("") || docLogPage.toString().equals(""))
 			return false;
 		//</editor-fold>
 
@@ -168,7 +169,7 @@ public class ParserFactory
 		String stringKillsPage = docKillsPage.toString();
 		String stringFarmPage = docFarmPage.toString();
 		String stringObjectivesPage = docObjectivesPage.toString();
-		String stringRunesPage = docRunesPage.toString();
+	//	String stringRunesPage = docRunesPage.toString();
 		String stringVisionPage = docVisionPage.toString();
 		String stringLogPage = docLogPage.toString();
 		//</editor-fold>
@@ -2337,12 +2338,9 @@ public class ParserFactory
 		}
 
 		rolesDetector(player);
-
 		checkIfMiderExist(player);
-
 		checkIfCarryExist(player);
-
-		checkIfHardlinerExist(player);
+		checkIfHardExist(player);
 		//</editor-fold>
 
 		//<editor-fold desc="EXPIRIENCE: Player.minuteXPM, Team. minuteXPM"
@@ -2637,8 +2635,8 @@ public class ParserFactory
 		//</editor-fold>
 
 		//<editor-fold desc="TEAM RATINGS">
-		team[0].rating = ratingFactory.getRatingById(team[0].id, team[0].name);
-		team[1].rating = ratingFactory.getRatingById(team[1].id, team[1].name);
+		team[0].rating = 1000;
+		team[1].rating = 1000;
 		//</editor-fold>
 
 		//<editor-fold desc="RAXES COUNT">
@@ -2681,8 +2679,7 @@ public class ParserFactory
 		return true;
 	}
 
-	ArrayList<String> parseMatches(ArrayList<String> leagueLinks) throws
-			IOException, InterruptedException, ParseException
+	ArrayList<String> parseMatches(ArrayList<String> leagueLinks) throws IOException, InterruptedException, ParseException
 	{
 		SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH");
 		Document doc;
@@ -2763,6 +2760,7 @@ public class ParserFactory
 		return temp;
 	}
 
+	//<editor-fold desc="RolesDetector">
 	void fillRolesDetectorInfo(Player[] players, String input, Integer number)
 	{
 		//<editor-fold desc="Count lines">
@@ -2905,6 +2903,19 @@ public class ParserFactory
 		}
 		jungle += count;
 		//</editor-fold>
+
+		input = input.replaceAll("\n", "");
+		input = input.replaceAll(" ", "");
+
+		int index;
+		if (input.contains("<i"))
+			index = input.indexOf("<i");
+		else if (input.contains("</div"))
+			index = input.indexOf("</div");
+		else index = input.length();
+		input = input.substring(0, index);
+
+		players[number].firstLine = input;
 		players[number].jungle = jungle;
 		players[number].safeLine = topSafe + botSafe;
 		players[number].offLine = topOff + botOff;
@@ -2974,50 +2985,8 @@ public class ParserFactory
 	{
 		for (int i = 0; i < 10; i++)
 		{
-			//Jungler
-			if (player[i].jungle > player[i].middle && player[i].jungle > player[i].safeLine && player[i].jungle > player[i].offLine && player[i].jungle > player[i].roaming)
-			{
-				player[i].role = 5;
-				continue;
-			}
-			//Hardliner
-			if ((player[i].offLine > player[i].middle && player[i].offLine > player[i].jungle && player[i].offLine > player[i].safeLine && player[i].offLine >= player[i].roaming) || (player[i].safeLine > player[i].middle && player[i].safeLine > player[i].jungle && player[i].safeLine > player[i].offLine && player[i].safeLine >= player[i].roaming))
-			{
-				Boolean offExist = false;
-				Boolean safeExist = false;
-				if (i < 5)
-				{
-					for (int j = 0; j < 5; j++)
-					{
-						if (i == j)
-							continue;
-						if (player[j].safeLine > 1)
-							safeExist = true;
-						if (player[j].offLine > 1)
-							offExist = true;
-					}
-				} else
-				{
-					for (int j = 5; j < 10; j++)
-					{
-						if (i == j)
-							continue;
-						if (player[j].safeLine > 1)
-							safeExist = true;
-						if (player[j].offLine > 1)
-							offExist = true;
-					}
-				}
-				if (player[i].offLine > player[i].middle && player[i].offLine > player[i].jungle && player[i].offLine > player[i].safeLine && player[i].offLine >= player[i].roaming)
-					if (!offExist && player[i].networthPosition >= 3)
-						player[i].role = 4;
-				if (player[i].safeLine > player[i].middle && player[i].safeLine > player[i].jungle && player[i].safeLine > player[i].offLine && player[i].safeLine >= player[i].roaming)
-					if (!safeExist && player[i].networthPosition >= 3)
-						player[i].role = 4;
-
-			}
 			//Mider
-			if (player[i].middle > player[i].safeLine && player[i].middle > player[i].offLine && player[i].middle > player[i].jungle && player[i].middle >= player[i].roaming)
+			if (player[i].firstLine.equals("Middle"))
 			{
 				if (player[i].networthPosition <= 2)
 				{
@@ -3033,53 +3002,65 @@ public class ParserFactory
 					player[i].role = 2;
 					continue;
 				}
-
 			}
-			if (player[i].networthPosition == 1 && player[i].middle <= 1)
+			//Support
+			if (player[i].networthPosition > 3)
 			{
-				player[i].role = 2;
+				player[i].role = 3;
 				continue;
 			}
-			if (player[i].networthPosition >= 3 && player[i].role == 0 && (player[i].heroHeal >= 1000 || player[i].smokeHits != 0 || player[i].observerWardsPlaced != 0))
-				player[i].role = 3;
-			if (player[i].role == 0)
-				player[i].role = 6;
 
+			player[i].role = 6;
 		}
 	}
 
 	void checkIfCarryExist(Player[] player)
 	{
+		Boolean exist = false;
 		for (int i = 0; i < 10; i++)
 		{
-			if (player[i].role == 6 && player[i].networthPosition <= 3)
-				player[i].role = 2;
+			if (player[i].role == 2)
+				exist = true;
 		}
-		//If no carry and hardliner has good <=3
-	}
-
-	void checkIfMiderExist(Player[] player)
-	{
-		for (int i = 0; i < 10; i++)
+		if (!exist)
 		{
-			if (player[i].role == 6 && player[i].middle >= 2 && player[i].networthPosition <= 3)
+			for (int i = 0; i < 10; i++)
 			{
-				player[i].role = 1;
+				if (player[i].role == 6 && player[i].networthPosition <= 2)
+					player[i].role = 2;
 			}
 		}
 	}
 
-	void checkIfHardlinerExist(Player[] player)
+	void checkIfMiderExist(Player[] player)
+	{
+		Boolean exist = false;
+		for (int i = 0; i < 10; i++)
+		{
+			if (player[i].role == 1)
+				exist = true;
+		}
+		if (!exist)
+		{
+			for (int i = 0; i < 10; i++)
+			{
+				if (player[i].role == 6 && player[i].firstLine.equals("Middle") && player[i].networthPosition <= 3)
+				{
+					player[i].role = 1;
+				}
+			}
+		}
+	}
+
+	void checkIfHardExist(Player[] player)
 	{
 		for (int i = 0; i < 10; i++)
 		{
-			if (player[i].role == 6 && player[i].networthPosition <= 3)
+			if (player[i].role == 6)
 				player[i].role = 4;
-			if (player[i].role == 6 && player[i].networthPosition >= 4)
-				player[i].role = 3;
-
 		}
 	}
+	//</editor-fold>
 
 	String html2text(String html)
 	{

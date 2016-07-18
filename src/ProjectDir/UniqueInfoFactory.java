@@ -9,6 +9,7 @@ public class UniqueInfoFactory
 {
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	Scanner reader = new Scanner(System.in);
 
 	Boolean checkIfIdAlreadyParsed(String id) throws IOException
 	{
@@ -198,5 +199,32 @@ public class UniqueInfoFactory
 			return date1.compareTo(date2);
 		}
 	};
+
+	public ArrayList<String> checkLeaguePrizePool(ArrayList<String> leagues) throws IOException
+	{
+		String leaguesFile=fileOperationsFactory.readFile("files/LeaguesTier.txt");
+
+		Integer prizePool=0;
+		Integer tier=0;
+
+		for (int i = 0; i < leagues.size(); i++)
+		{
+			tier=0;
+			prizePool=0;
+			if(!leaguesFile.contains(leagues.get(i)))
+			{
+				System.out.println("New league, Boss("+leagues.get(i)+"). Enter please prize pool:");
+				prizePool=reader.nextInt();
+				while(tier<1 || tier>4)
+				{
+					System.out.println("Enter league tier:");
+					tier = reader.nextInt();
+				}
+				String writeString=leagues.get(i)+";"+prizePool+";"+tier;
+				fileOperationsFactory.writeToFile(writeString,"files/LeaguesTier.txt");
+			}
+		}
+		return leagues;
+	}
 }
 

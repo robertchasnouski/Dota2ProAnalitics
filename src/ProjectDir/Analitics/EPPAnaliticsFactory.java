@@ -28,70 +28,62 @@ public class EPPAnaliticsFactory
 				//HDM
 				player[i].EPP += (int) ((0.25 * 1000 * player[i].heroDamage / match.matchTime) / averageDataFactory.avgMiderHDM);
 				//GPM
-				player[i].EPP += (int) ((0.25 * 1000 * player[i].totalGPM) / averageDataFactory.avgMiderGPM);
-				//TDM
-				player[i].EPP += (int) ((0.10 * 1000 * player[i].towerDamage / match.matchTime) / averageDataFactory.avgMiderTDM);
+				player[i].EPP += (int) ((0.3 * 1000 * player[i].totalGPM) / averageDataFactory.avgMiderGPM);
 				//GfK-GF
-				player[i].EPP += (int) ((0.20 * 1000 * (player[i].goldForKills - player[i].goldFed) / match.matchTime) / averageDataFactory.avgMiderGfKGFDifference);
+				player[i].EPP += (int) ((0.25 * 1000 * (player[i].goldForKills - player[i].goldFed) / match.matchTime) / averageDataFactory.avgMiderGfKGFDifference);
 				//LHF10M
-				player[i].EPP += (int) ((0.20 * 1000 * LH10M) / averageDataFactory.avgMiderCreepsF10M);
+				player[i].EPP += (int) ((0.2 * 1000 * LH10M) / averageDataFactory.avgMiderCreepsF10M);
 				//KDA
 				player[i].EPP += (int) (0.4 * (300 * player[i].kills / match.matchTime) / averageDataFactory.avgMiderKM);
-				player[i].EPP += (int) (0.33 * (2 * 300 - ((300 * player[i].deaths / match.matchTime) / averageDataFactory.avgMiderDM)));
-				player[i].EPP += (int) (0.27 * (300 * player[i].assists / match.matchTime) / averageDataFactory.avgMiderAM);
+				player[i].EPP += (int) (0.40 * (2 * 300 - ((300 * player[i].deaths / match.matchTime) / averageDataFactory.avgMiderDM)));
+				player[i].EPP += (int) (0.2 * (300 * player[i].assists / match.matchTime) / averageDataFactory.avgMiderAM);
 			}
 			//Carry
 			else if (player[i].role == 2)
 			{
 				//GPM
-				player[i].EPP += (int) ((0.3 * 1000 * player[i].totalGPM) / averageDataFactory.avgCarryGPM);
+				player[i].EPP += (int) ((0.35 * 1000 * player[i].totalGPM) / averageDataFactory.avgCarryGPM);
 				//HDM
-				player[i].EPP += (int) ((0.3 * 1000 * player[i].heroDamage / match.matchTime) / averageDataFactory.avgCarryHDM);
+				player[i].EPP += (int) ((0.25 * 1000 * player[i].heroDamage / match.matchTime) / averageDataFactory.avgCarryHDM);
 				//GfK-GF
-				player[i].EPP += (int) ((0.1 * 1000 * (player[i].goldForKills - player[i].goldFed)) / averageDataFactory.avgCarryGfKGFDifference);
-				//TDM
-				player[i].EPP += (int) ((0.1 * 1000 * player[i].towerDamage / match.matchTime) / averageDataFactory.avgCarryTDM);
+				player[i].EPP += (int) ((0.2 * 1000 * (player[i].goldForKills - player[i].goldFed)) / averageDataFactory.avgCarryGfKGFDifference);
 				//LHF15M
 				player[i].EPP += (int) ((0.2 * 1000 * LH15M) / averageDataFactory.avgCarryCreepsF15M);
 				//KDA
-				player[i].EPP += (int) (0.3 * (300 * player[i].kills / match.matchTime) / averageDataFactory.avgCarryKM);
+				player[i].EPP += (int) (0.35 * (300 * player[i].kills / match.matchTime) / averageDataFactory.avgCarryKM);
 				player[i].EPP += (int) (0.4 * (2 * 300 - ((300 * player[i].deaths / match.matchTime) / averageDataFactory.avgCarryDM)));
-				player[i].EPP += (int) (0.3 * (300 * player[i].assists / match.matchTime) / averageDataFactory.avgCarryAM);
+				player[i].EPP += (int) (0.25 * (300 * player[i].assists / match.matchTime) / averageDataFactory.avgCarryAM);
 			}
 			//Support
 			else if (player[i].role == 3)
 			{
 				//GWD
-				player[i].EPP += (int) ((0.2 * 1000 * player[i].observerWardsDestroyed / match.matchTime) / averageDataFactory.avgSupportWDM);
-				//Partisipate
-				player[i].EPP += (int) ((0.20 * 1000 * player[i].partisipation) / averageDataFactory.avgSupportPartisipate);
+				player[i].EPP += (int) ((0.15 * 1000 * player[i].observerWardsDestroyed / match.matchTime) / averageDataFactory.avgSupportWDM);
 				//HD
 				player[i].EPP += (int) ((0.25 * 1000 * player[i].heroDamage / match.matchTime) / averageDataFactory.avgSupportHDM);
-				//HH
-				player[i].EPP += (int) ((0.075 * 1000 * player[i].heroHeal / match.matchTime) / averageDataFactory.avgSupportHHM);
+				//XPM
+				player[i].EPP += (int) ((0.35 * 1000 * player[i].totalXPM) / averageDataFactory.avgSupportXPM);
 				//GPM
-				player[i].EPP += (int) ((0.2 * 1000 * player[i].totalGPM) / averageDataFactory.avgSupportGPM);
+				player[i].EPP += (int) ((0.25 * 1000 * player[i].totalGPM) / averageDataFactory.avgSupportGPM);
+
 				//KDA
-				player[i].EPP += (int) (0.4 * (300 * player[i].kills / match.matchTime) / averageDataFactory.avgSupportKM);
-				player[i].EPP += (int) (0.2 * (2 * 300 - ((300 * player[i].deaths / match.matchTime) / averageDataFactory.avgSupportDM)));
-				player[i].EPP += (int) (0.4 * (300 * player[i].assists / match.matchTime) / averageDataFactory.avgSupportAM);
+				player[i].EPP += (int) (0.25 * (300 * player[i].kills / match.matchTime) / averageDataFactory.avgSupportKM);
+				player[i].EPP += (int) (0.3 * (2 * 300 - ((300 * player[i].deaths / match.matchTime) / averageDataFactory.avgSupportDM)));
+				player[i].EPP += (int) (0.45 * (300 * player[i].assists / match.matchTime) / averageDataFactory.avgSupportAM);
 			}
 			//HardLiner
 			else if (player[i].role == 4)
 			{
 				//HDM
-				player[i].EPP += (int) ((0.25 * 1000 * player[i].heroDamage / match.matchTime) / averageDataFactory.avgHardlinerHDM);
+				player[i].EPP += (int) ((0.35 * 1000 * player[i].heroDamage / match.matchTime) / averageDataFactory.avgHardlinerHDM);
 				//GPM
-				player[i].EPP += (int) ((0.3 * 1000 * player[i].totalGPM) / averageDataFactory.avgHardlinerGPM);
-				//partisipation
-				player[i].EPP += (int) ((0.25 * 1000 * player[i].partisipation) / averageDataFactory.avgHardlinerPartisipate);
+				player[i].EPP += (int) ((0.4 * 1000 * player[i].totalGPM) / averageDataFactory.avgHardlinerGPM);
 				//XPMF10M
-				player[i].EPP += (int) ((0.20 * 1000 * XPMF10M) / averageDataFactory.avgHardlinerXPMF10M);
+				player[i].EPP += (int) ((0.25 * 1000 * XPMF10M) / averageDataFactory.avgHardlinerXPMF10M);
 				//KDA
-				player[i].EPP += (int) (0.33 * (300 * player[i].kills / match.matchTime) / averageDataFactory.avgHardlinerKM);
-				player[i].EPP += (int) (0.33 * (2 * 300 - ((300 * player[i].deaths / match.matchTime) / averageDataFactory.avgHardlinerDM)));
-				player[i].EPP += (int) (0.33 * (300 * player[i].assists / match.matchTime) / averageDataFactory.avgHardlinerAM);
-
+				player[i].EPP += (int) (0.35 * (300 * player[i].kills / match.matchTime) / averageDataFactory.avgHardlinerKM);
+				player[i].EPP += (int) (0.35 * (2 * 300 - ((300 * player[i].deaths / match.matchTime) / averageDataFactory.avgHardlinerDM)));
+				player[i].EPP += (int) (0.3 * (300 * player[i].assists / match.matchTime) / averageDataFactory.avgHardlinerAM);
 			}
 			//Jungler
 			else if (player[i].role == 5)

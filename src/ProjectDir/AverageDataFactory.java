@@ -34,6 +34,7 @@ public class AverageDataFactory
 	public Double avgSupportDM = 0.0;
 	public Double avgSupportAM = 0.0;
 	public Double avgSupportWLT;
+	public Double avgSupportXPM=0.0;
 	public Double avgSupportWDM = 0.0;
 	public Double avgSupportPartisipate = 0.0;
 	public Double avgSupportGPM = 0.0;
@@ -151,6 +152,7 @@ public class AverageDataFactory
 					avgSupportDM += Integer.parseInt(onePlayerInfo[5]) / matchTime;
 					avgSupportAM += Integer.parseInt(onePlayerInfo[6]) / matchTime;
 					avgSupportGPM += Integer.parseInt(onePlayerInfo[11]);
+					avgSupportXPM += Integer.parseInt(onePlayerInfo[12]);
 					avgSupportPartisipate += Integer.parseInt(onePlayerInfo[7]);
 					avgSupportWDM += Integer.parseInt(onePlayerInfo[23]) / matchTime;
 					//TODO: WardLifeTime
@@ -232,6 +234,7 @@ public class AverageDataFactory
 		avgSupportGPM = avgSupportGPM / supportCounter;
 		avgSupportPartisipate = avgSupportPartisipate / supportCounter;
 		avgSupportWDM = avgSupportWDM / supportCounter;
+		avgSupportXPM=avgSupportXPM/supportCounter;
 
 		avgHardlinerKM = avgHardlinerKM / hardlinerCounter;
 		avgHardlinerDM = avgHardlinerDM / hardlinerCounter;
@@ -325,6 +328,7 @@ public class AverageDataFactory
 	public Double avgLHF5M = 0.0;
 	public Double avgLHF510M = 0.0;
 	public Double avgXPMF10M = 0.0;
+	public Double avgGPMF10M = 0.0;
 	public Double avgF10KTime = 0.0;
 	public Double avgLHM = 0.0;
 	public Double avgGPM = 0.0;
@@ -362,7 +366,9 @@ public class AverageDataFactory
 		Integer LHF510M = 0;
 		Integer LHF510MCounter = 0;
 		Integer XPMCounter = 0;
+		Integer GPMCounter = 0;
 		Integer XPMF10M = 0;
+		Integer GPMF10M = 0;
 		Integer F10KTime = 0;
 		Integer F10KCounter = 0;
 		Integer minutesCounter = 0;
@@ -389,6 +395,9 @@ public class AverageDataFactory
 			{
 				XPMF10M += team[0].minuteXPM[j];
 				XPMF10M += team[1].minuteXPM[j];
+
+				GPMF10M += team[0].minuteGPM[j];
+				GPMF10M += team[1].minuteGPM[j];
 			}
 			for (int j = 0; j < match.matchTime; j++)
 			{
@@ -397,6 +406,7 @@ public class AverageDataFactory
 			}
 			minutesCounter += match.matchTime * 2;
 			XPMCounter += 2;
+			GPMCounter += 2;
 			LHF5MCounter += 2;
 			LHF510MCounter += 2;
 			allKills += (double) (team[0].kills + team[1].kills) / match.matchTime;
@@ -461,6 +471,7 @@ public class AverageDataFactory
 		avgLHM = (double) totalLH / minutesCounter;
 		avgF10KTime = (double) F10KTime / F10KCounter;
 		avgXPMF10M = (double) XPMF10M / XPMCounter;
+		avgGPMF10M = (double) GPMF10M / GPMCounter;
 		avgLHF5M = (double) LHF5M / LHF5MCounter;
 		avgLHF510M = (double) LHF510M / LHF510MCounter;
 		avgWardLifeTime = (double) wardLifeTime / wardsPlaced;

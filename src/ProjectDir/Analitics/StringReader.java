@@ -163,6 +163,7 @@ public class StringReader
 		match.FBTime = Integer.parseInt(matchInfoArray[11]);
 		match.F10KTime = Integer.parseInt(matchInfoArray[12]);
 		match.FRoshanTime = Integer.parseInt(matchInfoArray[13]);
+
 		//</editor-fold>
 
 		//<editor-fold desc="TEAMS">
