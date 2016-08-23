@@ -10,8 +10,15 @@ public class GameStageAnalitics
 	{
 		if (match.matchTime < 15)
 		{
-			team[0].EGPoints = 9999;
-			team[1].EGPoints = 9999;
+			if (match.winRadiant)
+			{
+				team[0].EGPoints = 2000;
+				team[1].EGPoints = 0;
+			} else
+			{
+				team[0].EGPoints = 0;
+				team[1].EGPoints = 2000;
+			}
 			return;
 		}
 		Integer killsRadiantCounter = 0;
@@ -36,7 +43,7 @@ public class GameStageAnalitics
 				killsRadiantCounter++;
 			}
 		}
-		//AVG22400
+		//AVG
 		for (int i = 0; i < 15; i++)
 		{
 			totalRadiantGPM += team[0].minuteGPM[i];
@@ -49,12 +56,12 @@ public class GameStageAnalitics
 		for (int i = 0; i < towerEventArrayList.size(); i++)
 		{
 			if (towerEventArrayList.get(i).whoDestroy.contains("Radiant") && towerEventArrayList.get(i).second <= 900)
-				towerRadiantPoints += 100;
+				towerRadiantPoints += 120;
 		}
 		for (int i = 0; i < roshanEventArrayList.size(); i++)
 		{
 			if (roshanEventArrayList.get(i).whoKill.equals("Radiant") && roshanEventArrayList.get(i).second <= 900)
-				roshanRadiantPoints += 100;
+				roshanRadiantPoints += 150;
 		}
 		//</editor-fold>
 		//<editor-fold desc="Dire EG">
@@ -76,19 +83,18 @@ public class GameStageAnalitics
 		for (int i = 0; i < towerEventArrayList.size(); i++)
 		{
 			if (towerEventArrayList.get(i).whoDestroy.contains("Dire") && towerEventArrayList.get(i).second <= 900)
-				towerDirePoints += 100;
+				towerDirePoints += 120;
 		}
 		for (int i = 0; i < roshanEventArrayList.size(); i++)
 		{
 			if (roshanEventArrayList.get(i).whoKill.equals("Dire") && roshanEventArrayList.get(i).second <= 900)
-				roshanDirePoints += 100;
+				roshanDirePoints += 150;
 		}
 		//</editor-fold>
-		//System.out.println("In EG Radiant gets: " + (0.4 * 1000 * killsRadiantCounter / 10) + " points for kills," + (0.33 * 1000 * totalRadiantGPM / 22000) + " points for GPM," + (0.27 * 1000 * totalRadiantLH / 235) + " points for LH." + "Towers:" + towerRadiantPoints + ".Roshan:" + roshanRadiantPoints);
-		//System.out.println("In EG Dire gets: " + (0.4 * 1000 * killsDireCounter / 10) + " points for kills," + (0.33 * 1000 * totalDireGPM / 22000) + " points for GPM," + (0.27 * 1000 * totalDireLH / 235) + " points for LH." + "Towers:" + towerDirePoints + ".Roshan:" + roshanDirePoints);
+
 		//Calculate
-		Double radiantPoints = ((0.4 * 1000 * killsRadiantCounter / 10) + (0.33 * 1000 * totalRadiantGPM / 22000) + (0.27 * 1000 * totalRadiantLH / 235)) + towerRadiantPoints + roshanRadiantPoints;
-		Double direPoints = ((0.4 * 1000 * killsDireCounter / 10) + (0.33 * 1000 * totalDireGPM / 22000) + (0.27 * 1000 * totalDireLH / 235)) + towerDirePoints + roshanDirePoints;
+		Double radiantPoints = ((0.2 * 1000 * killsRadiantCounter / 10) + (0.4 * 1000 * totalRadiantGPM / 22000) + (0.4 * 1000 * totalRadiantLH / 235)) + towerRadiantPoints + roshanRadiantPoints;
+		Double direPoints = ((0.2 * 1000 * killsDireCounter / 10) + (0.4 * 1000 * totalDireGPM / 22000) + (0.4 * 1000 * totalDireLH / 235)) + towerDirePoints + roshanDirePoints;
 		team[0].EGPoints = radiantPoints.intValue();
 		team[1].EGPoints = direPoints.intValue();
 	}
@@ -147,7 +153,7 @@ public class GameStageAnalitics
 		for (int i = 0; i < roshanEventArrayList.size(); i++)
 		{
 			if (roshanEventArrayList.get(i).whoKill.equals("Radiant") && roshanEventArrayList.get(i).second > 900 && roshanEventArrayList.get(i).second <= 1800)
-				roshanRadiantPoints += 100;
+				roshanRadiantPoints += 120;
 		}
 		//</editor-fold>
 		//<editor-fold desc="Dire MG">
@@ -179,15 +185,12 @@ public class GameStageAnalitics
 		for (int i = 0; i < roshanEventArrayList.size(); i++)
 		{
 			if (roshanEventArrayList.get(i).whoKill.equals("Dire") && roshanEventArrayList.get(i).second > 900 && roshanEventArrayList.get(i).second <= 1800)
-				roshanDirePoints += 100;
+				roshanDirePoints += 120;
 		}
 		//</editor-fold>
 
-		//System.out.println("In MG Radiant gets: " + (0.25 * 1000 * killsRadiantCounter / 10) + " points for kills," + (0.45 * 1000 * totalRadiantGPM / 28500) + " points for GPM," + (0.30 * 1000 * totalRadiantLH / 330) + " points for LH." + "Towers:" + towerRadiantPoints + ".Roshan:" + roshanRadiantPoints);
-		//System.out.println("In MG Dire gets: " + (0.25 * 1000 * killsDireCounter / 10) + " points for kills," + (0.45 * 1000 * totalDireGPM / 28500) + " points for GPM," + (0.30 * 1000 * totalDireLH / 330) + " points for LH." + "Towers:" + towerDirePoints + ".Roshan:" + roshanDirePoints);
-
-		Double radiantPoints = ((0.25 * 1000 * killsRadiantCounter / 10) + (0.45 * 1000 * totalRadiantGPM / 28500) + (0.3 * 1000 * totalRadiantLH / 330)) + towerRadiantPoints + roshanRadiantPoints;
-		Double direPoints = ((0.25 * 1000 * killsDireCounter / 10) + (0.45 * 1000 * totalDireGPM / 28500) + (0.3 * 1000 * totalDireLH / 330)) + towerDirePoints + roshanDirePoints;
+		Double radiantPoints = ((0.25 * 1000 * killsRadiantCounter / 10) + (0.4 * 1000 * totalRadiantGPM / 28500) + (0.35 * 1000 * totalRadiantLH / 330)) + towerRadiantPoints + roshanRadiantPoints;
+		Double direPoints = ((0.25 * 1000 * killsDireCounter / 10) + (0.4 * 1000 * totalDireGPM / 28500) + (0.35 * 1000 * totalDireLH / 330)) + towerDirePoints + roshanDirePoints;
 
 		team[0].MGPoints = radiantPoints.intValue();
 		team[1].MGPoints = direPoints.intValue();
@@ -243,7 +246,7 @@ public class GameStageAnalitics
 		for (int i = 0; i < roshanEventArrayList.size(); i++)
 		{
 			if (roshanEventArrayList.get(i).whoKill.equals("Radiant") && roshanEventArrayList.get(i).second > 1800 && roshanEventArrayList.get(i).second < 2700)
-				roshanRadiantPoints += 100;
+				roshanRadiantPoints += 150;
 		}
 		//</editor-fold>
 		//<editor-fold desc="Dire LG">
@@ -275,14 +278,12 @@ public class GameStageAnalitics
 		for (int i = 0; i < roshanEventArrayList.size(); i++)
 		{
 			if (roshanEventArrayList.get(i).whoKill.equals("Dire") && roshanEventArrayList.get(i).second > 1800 && roshanEventArrayList.get(i).second < 2700)
-				roshanDirePoints += 100;
+				roshanDirePoints += 150;
 		}
 		//</editor-fold>
-		//	System.out.println("In LG Radiant gets: " + (0.33 * 1000 * killsRadiantCounter / 14) + " points for kills," + (0.33 * 1000 * totalRadiantGPM / 33000) + " points for GPM," + (0.33 * 1000 * totalRadiantLH / 355) + " points for LH." + "Towers:" + towerRadiantPoints + ".Roshan:" + roshanRadiantPoints);
-		//System.out.println("In LG Dire gets: " + (0.33 * 1000 * killsDireCounter / 14) + " points for kills," + (0.33 * 1000 * totalDireGPM / 33000) + " points for GPM," + (0.33 * 1000 * totalDireLH / 355) + " points for LH." + "Towers:" + towerDirePoints + ".Roshan:" + roshanDirePoints);
 
-		Double radiantPoints = (0.25 * 1000 * killsRadiantCounter / 14) + (0.45 * 1000 * totalRadiantGPM / 33000) + (0.3 * 1000 * totalRadiantLH / 355) + towerRadiantPoints + roshanRadiantPoints;
-		Double direPoints = (0.25 * 1000 * killsDireCounter / 14) + (0.45 * 1000 * totalDireGPM / 33000) + (0.3 * 1000 * totalDireLH / 355) + towerDirePoints + roshanDirePoints;
+		Double radiantPoints = (0.5 * 1000 * killsRadiantCounter / 14) + (0.5 * 1000 * totalRadiantGPM / 33000) + towerRadiantPoints + roshanRadiantPoints;
+		Double direPoints = (0.5 * 1000 * killsDireCounter / 14) + (0.5 * 1000 * totalDireGPM / 33000) + towerDirePoints + roshanDirePoints;
 		team[0].LGPoints = radiantPoints.intValue();
 		team[1].LGPoints = direPoints.intValue();
 	}

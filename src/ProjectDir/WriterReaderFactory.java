@@ -2,10 +2,7 @@ package ProjectDir;
 
 import ProjectDir.MatchInfo.*;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class WriterReaderFactory
@@ -235,18 +232,8 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].sentryWardsPlaced) + ";";
 			//writeToFile(Integer.toString(teams[i].sentryWardsPlaced), true);
-			if (teams[i].sentryWardsPlaced < 0 || teams[i].sentryWardsPlaced > 70)
-			{
-				error = true;
-				System.out.println("SentryWardsPlaced error");
-			}
 			writeString += Integer.toString(teams[i].sentryWardsDestroyed) + ";";
 			//writeToFile(Integer.toString(teams[i].sentryWardsDestroyed), true);
-			if (teams[i].sentryWardsDestroyed < 0 || teams[i].sentryWardsDestroyed > 50)
-			{
-				error = true;
-				System.out.println("SentryWardsDestroyed error");
-			}
 			writeString += Integer.toString(teams[i].dustHits) + ";";
 			//writeToFile(Integer.toString(teams[i].dustHits), true);
 			if (teams[i].dustHits < 0 || teams[i].dustHits > 50)
@@ -786,11 +773,6 @@ public class WriterReaderFactory
 		//writeToFile("##", false);
 		writeString += Integer.toString(glyphEvent.size());
 		//writeToFile(Integer.toString(glyphEvent.size()), false);
-		if (glyphEvent.size() < 1)
-		{
-			error = true;
-			System.out.println("Only 1 glyph? Error!");
-		}
 		writeString += "**";
 		//writeToFile("**", false);
 
@@ -850,11 +832,6 @@ public class WriterReaderFactory
 		//writeToFile("##", false);
 		writeString += Integer.toString(towerEvent.size());
 		//writeToFile(Integer.toString(towerEvent.size()), false);
-		if (towerEvent.size() < 2)
-		{
-			System.out.println("Only 2 towers? Error!");
-			error = true;
-		}
 		writeString += "**";
 		//writeToFile("**", false);
 		for (int i = 0; i < towerEvent.size(); i++)

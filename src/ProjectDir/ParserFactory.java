@@ -6,16 +6,16 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import java.io.*;
+import java.io.IOException;
 import java.net.SocketTimeoutException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
-
-
-//TODO: Update RolesDetector.
 
 public class ParserFactory
 {
@@ -25,6 +25,7 @@ public class ParserFactory
 		public String date;
 	}
 
+	Integer agentNum = 0;
 	Integer direRoaming = 0;
 	Integer radiantRoaming = 0;
 	UniqueInfoFactory uniqueInfoFactory = new UniqueInfoFactory();
@@ -63,9 +64,29 @@ public class ParserFactory
 				Thread.sleep(200000);
 			try
 			{
-				doc = Jsoup.connect(html)
-						.userAgent("Mozilla/5.0 (Windows NT 6.0) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.46 Safari/536.5")
-						.timeout(3000).get();
+				if (agentNum == 0)
+				{
+					doc = Jsoup.connect(html)
+							.userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1")
+							.referrer("http://www.google.com")
+							.timeout(10000).get();
+					agentNum++;
+				} else if (agentNum == 1)
+				{
+					doc = Jsoup.connect(html)
+							.userAgent("Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.4.2661.78 Safari/537.36")
+							.referrer("http://www.yandex.ru")
+							.timeout(10000).get();
+					agentNum++;
+				} else
+				{
+					doc = Jsoup.connect(html)
+							.userAgent("Opera/9.80 (X11; Linux i686; Ubuntu/14.10) Presto/2.12.388 Version/12.16")
+							.referrer("http://www.yahoo.com/")
+							.timeout(10000).get();
+					agentNum = 0;
+				}
+
 				break;
 			} catch (HttpStatusException e)
 			{
@@ -169,7 +190,7 @@ public class ParserFactory
 		String stringKillsPage = docKillsPage.toString();
 		String stringFarmPage = docFarmPage.toString();
 		String stringObjectivesPage = docObjectivesPage.toString();
-	//	String stringRunesPage = docRunesPage.toString();
+		//	String stringRunesPage = docRunesPage.toString();
 		String stringVisionPage = docVisionPage.toString();
 		String stringLogPage = docLogPage.toString();
 		//</editor-fold>
@@ -2338,8 +2359,10 @@ public class ParserFactory
 		}
 
 		rolesDetector(player);
-		checkIfMiderExist(player);
-		checkIfCarryExist(player);
+		checkIfRadiantMiderExist(player);
+		checkIfDireMiderExist(player);
+		checkIfRadiantCarryExist(player);
+		checkIfDireCarryExist(player);
 		checkIfHardExist(player);
 		//</editor-fold>
 
@@ -3014,17 +3037,17 @@ public class ParserFactory
 		}
 	}
 
-	void checkIfCarryExist(Player[] player)
+	void checkIfRadiantCarryExist(Player[] player)
 	{
 		Boolean exist = false;
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 5; i++)
 		{
 			if (player[i].role == 2)
 				exist = true;
 		}
 		if (!exist)
 		{
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < 5; i++)
 			{
 				if (player[i].role == 6 && player[i].networthPosition <= 2)
 					player[i].role = 2;
@@ -3032,17 +3055,55 @@ public class ParserFactory
 		}
 	}
 
-	void checkIfMiderExist(Player[] player)
+	void checkIfDireCarryExist(Player[] player)
 	{
 		Boolean exist = false;
-		for (int i = 0; i < 10; i++)
+		for (int i = 5; i < 10; i++)
+		{
+			if (player[i].role == 2)
+				exist = true;
+		}
+		if (!exist)
+		{
+			for (int i = 5; i < 10; i++)
+			{
+				if (player[i].role == 6 && player[i].networthPosition <= 2)
+					player[i].role = 2;
+			}
+		}
+	}
+
+	void checkIfRadiantMiderExist(Player[] player)
+	{
+		Boolean exist = false;
+		for (int i = 0; i < 5; i++)
 		{
 			if (player[i].role == 1)
 				exist = true;
 		}
 		if (!exist)
 		{
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < 5; i++)
+			{
+				if (player[i].role == 6 && player[i].firstLine.equals("Middle") && player[i].networthPosition <= 3)
+				{
+					player[i].role = 1;
+				}
+			}
+		}
+	}
+
+	void checkIfDireMiderExist(Player[] player)
+	{
+		Boolean exist = false;
+		for (int i = 5; i < 10; i++)
+		{
+			if (player[i].role == 1)
+				exist = true;
+		}
+		if (!exist)
+		{
+			for (int i = 5; i < 10; i++)
 			{
 				if (player[i].role == 6 && player[i].firstLine.equals("Middle") && player[i].networthPosition <= 3)
 				{
@@ -3185,7 +3246,7 @@ public class ParserFactory
 		}
 		long diff = d1.getTime() - d2.getTime();
 		long hours = TimeUnit.MILLISECONDS.toHours(diff);
-		if (hours >= 7 && hours <= 700)
+		if (hours >= 5 && hours <= 700)
 			return true;
 		else
 			return false;

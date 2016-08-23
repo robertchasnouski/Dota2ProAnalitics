@@ -44,10 +44,10 @@ public class MatchesWorker
 			team[i] = new Team();
 		}
 		//checkIfTemporaryFileIsClean();
-		//backupFactory.checkForBackUp();
+		backupFactory.checkForBackUp();
 		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
-		//ratingFactory.organizeRating();
-		//mainAnaliticsFactory.startWork();
+		ratingFactory.organizeRating();
+		mainAnaliticsFactory.startWork();
 		System.out.println("/-Boss, all work is done.");
 	}
 
@@ -58,7 +58,7 @@ public class MatchesWorker
 		if (alreadyParsedMatches == 20)
 		{
 			System.out.println("Okay. Let's have a rest for a while.");
-			Thread.sleep(60000);
+			Thread.sleep(120000);
 			alreadyParsedMatches = 0;
 		}
 	}
@@ -87,7 +87,7 @@ public class MatchesWorker
 
 		String[] tempArray = fileOperationsFactory.readFile("files/Matches.txt").split("\n");
 		String lastMatchDateString = tempArray[tempArray.length - 1].split(";")[1];
-		Date lastMatchDate = formatter.parse(lastMatchDateString);
+		Date lastMatchDate = formatter.parse(/*lastMatchDateString*/"2013-06-06");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		date.setTime(lastMatchDate.getTime() - 24 * 60 * 60 * 1000);
