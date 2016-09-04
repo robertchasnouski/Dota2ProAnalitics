@@ -22,6 +22,11 @@ public class AnalizedInfo
 	public String[] playerId = new String[5];
 	public Integer[] playerEPP = new Integer[5];
 	public Integer[] playerRole=new Integer[5];
+	public Integer[] playerGPM=new Integer[5];
+	public Integer[] playerXPM=new Integer[5];
+	public Integer[] playerKills=new Integer[5];
+	public Integer[] playerDeaths=new Integer[5];
+	public Integer[] playerAssists=new Integer[5];
 	public Integer killAbility;
 	public Integer pushing;
 	public Integer lining;

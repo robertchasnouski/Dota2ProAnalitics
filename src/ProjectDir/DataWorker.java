@@ -789,18 +789,47 @@ public class DataWorker
 			object.playerId[0] = eachEPPs[0].split(";")[0];
 			object.playerEPP[0] = Integer.parseInt(eachEPPs[0].split(";")[1]);
 			object.playerRole[0] = Integer.parseInt(eachEPPs[0].split(";")[2]);
+			object.playerGPM[0] = Integer.parseInt(eachEPPs[0].split(";")[3]);
+			object.playerXPM[0] = Integer.parseInt(eachEPPs[0].split(";")[4]);
+			object.playerKills[0] = Integer.parseInt(eachEPPs[0].split(";")[5]);
+			object.playerDeaths[0] = Integer.parseInt(eachEPPs[0].split(";")[6]);
+			object.playerAssists[0] = Integer.parseInt(eachEPPs[0].split(";")[7]);
+
 			object.playerId[1] = eachEPPs[1].split(";")[0];
 			object.playerEPP[1] = Integer.parseInt(eachEPPs[1].split(";")[1]);
 			object.playerRole[1] = Integer.parseInt(eachEPPs[1].split(";")[2]);
+			object.playerGPM[1] = Integer.parseInt(eachEPPs[1].split(";")[3]);
+			object.playerXPM[1] = Integer.parseInt(eachEPPs[1].split(";")[4]);
+			object.playerKills[1] = Integer.parseInt(eachEPPs[1].split(";")[5]);
+			object.playerDeaths[1] = Integer.parseInt(eachEPPs[1].split(";")[6]);
+			object.playerAssists[1] = Integer.parseInt(eachEPPs[1].split(";")[7]);
+
 			object.playerId[2] = eachEPPs[2].split(";")[0];
 			object.playerEPP[2] = Integer.parseInt(eachEPPs[2].split(";")[1]);
 			object.playerRole[2] = Integer.parseInt(eachEPPs[2].split(";")[2]);
+			object.playerGPM[2] = Integer.parseInt(eachEPPs[2].split(";")[3]);
+			object.playerXPM[2] = Integer.parseInt(eachEPPs[2].split(";")[4]);
+			object.playerKills[2] = Integer.parseInt(eachEPPs[2].split(";")[5]);
+			object.playerDeaths[2] = Integer.parseInt(eachEPPs[2].split(";")[6]);
+			object.playerAssists[2] = Integer.parseInt(eachEPPs[2].split(";")[7]);
+
 			object.playerId[3] = eachEPPs[3].split(";")[0];
 			object.playerEPP[3] = Integer.parseInt(eachEPPs[3].split(";")[1]);
 			object.playerRole[3] = Integer.parseInt(eachEPPs[3].split(";")[2]);
+			object.playerGPM[3] = Integer.parseInt(eachEPPs[3].split(";")[3]);
+			object.playerXPM[3] = Integer.parseInt(eachEPPs[3].split(";")[4]);
+			object.playerKills[3] = Integer.parseInt(eachEPPs[3].split(";")[5]);
+			object.playerDeaths[3] = Integer.parseInt(eachEPPs[3].split(";")[6]);
+			object.playerAssists[3] = Integer.parseInt(eachEPPs[3].split(";")[7]);
+
 			object.playerId[4] = eachEPPs[4].split(";")[0];
 			object.playerEPP[4] = Integer.parseInt(eachEPPs[4].split(";")[1]);
 			object.playerRole[4] = Integer.parseInt(eachEPPs[4].split(";")[2]);
+			object.playerGPM[4] = Integer.parseInt(eachEPPs[4].split(";")[3]);
+			object.playerXPM[4] = Integer.parseInt(eachEPPs[4].split(";")[4]);
+			object.playerKills[4] = Integer.parseInt(eachEPPs[4].split(";")[5]);
+			object.playerDeaths[4] = Integer.parseInt(eachEPPs[4].split(";")[6]);
+			object.playerAssists[4] = Integer.parseInt(eachEPPs[4].split(";")[7]);
 
 			object.killAbility = Integer.parseInt(parameters.split(";")[0]);
 			object.pushing = Integer.parseInt(parameters.split(";")[1]);
