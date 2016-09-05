@@ -80,6 +80,8 @@ public class MatchesWorker
 	{
 		String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
 		ArrayList<String> leagueLinksArray = new ArrayList<String>(Arrays.asList(leagueLinks));
+		leagueLinksArray.add("4688");
+		leagueLinksArray.add("4833");
 		ArrayList<String> matchesFromLeagues = parserHelper.parseMatches(leagueLinksArray);
 		uniqueInfoFactory.needToParseFile(matchesFromLeagues);
 		ArrayList<String> matchesToParse = parserHelper.getParsingMatches();

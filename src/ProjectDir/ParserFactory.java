@@ -2723,6 +2723,19 @@ public class ParserFactory
 			System.out.println("Read " + leaguesToParse.get(i) + " league.");
 			docs[i] = parse_html("http://www.dotabuff.com/esports/leagues/" + leaguesToParse.get(i) + "/matches");
 			html = docs[i].toString();
+			//CHECK first match date
+			String lastDate = substringer(html, "data-time-ago", "</time");
+			lastDate = lastDate.substring(lastDate.indexOf(">") + 1, lastDate.length());
+			Date nowDate = Calendar.getInstance().getTime();
+			Date lastMatchDate = formatter.parse(lastDate);
+			long diff = nowDate.getTime() - lastMatchDate.getTime();
+			long hours = TimeUnit.MILLISECONDS.toHours(diff);
+			if (hours >= 24 * 5)
+			{
+				System.out.println("There is no new matches. Continue...");
+				continue;
+			}
+
 			html = substringer(html, "<tbody>", "</tbody>");
 			if (docs[i].toString().contains("pagination"))
 			{
@@ -2732,8 +2745,8 @@ public class ParserFactory
 				navigation = navigation.substring(5, navigation.length());
 				String temp = "";
 				Integer howMuchPages = 0;
-				if (Integer.parseInt(navigation) > 15)
-					howMuchPages = 15;
+				if (Integer.parseInt(navigation) > 5)
+					howMuchPages = 5;
 				else
 					howMuchPages = Integer.parseInt(navigation);
 				for (int j = 2; j <= howMuchPages; j++)

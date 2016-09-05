@@ -73,7 +73,6 @@ public class WriterReaderFactory
 		//writeToFile(Integer.toString(match.FRoshanTime), false);
 		if ((match.FRoshanTime > match.matchTime * 60 || match.FRoshanTime < -90) && match.FRoshanTime != 9999)
 		{
-			error = true;
 			System.out.println("FRTime error");
 		}
 		writeString += "##";
