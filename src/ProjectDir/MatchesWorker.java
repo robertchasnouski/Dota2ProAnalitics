@@ -106,7 +106,6 @@ public class MatchesWorker
 						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 						writerReaderFactory.makeZeros(team, player, match);
 						tooManyRequestsChecker(true);
-
 					} else
 					{
 						tooManyRequestsChecker(false);

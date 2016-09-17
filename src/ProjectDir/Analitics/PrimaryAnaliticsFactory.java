@@ -1610,7 +1610,10 @@ public class PrimaryAnaliticsFactory
 		teamString += player[0].totalXPM + ";";
 		teamString += player[0].kills + ";";
 		teamString += player[0].deaths + ";";
-		teamString += player[0].assists + "||";
+		teamString += player[0].assists + ";";
+		teamString += player[0].heroDamage + ";";
+		teamString += player[0].heroHeal + ";";
+		teamString += player[0].towerDamage + "||";
 
 		teamString += player[1].playerId + ";";
 		teamString += player[1].EPP + ";";
@@ -1620,7 +1623,10 @@ public class PrimaryAnaliticsFactory
 		teamString += player[1].totalXPM + ";";
 		teamString += player[1].kills + ";";
 		teamString += player[1].deaths + ";";
-		teamString += player[1].assists + "||";
+		teamString += player[1].assists + ";";
+		teamString += player[1].heroDamage + ";";
+		teamString += player[1].heroHeal + ";";
+		teamString += player[1].towerDamage + "||";
 
 		teamString += player[2].playerId + ";";
 		teamString += player[2].EPP + ";";
@@ -1630,7 +1636,10 @@ public class PrimaryAnaliticsFactory
 		teamString += player[2].totalXPM + ";";
 		teamString += player[2].kills + ";";
 		teamString += player[2].deaths + ";";
-		teamString += player[2].assists + "||";
+		teamString += player[2].assists + ";";
+		teamString += player[2].heroDamage + ";";
+		teamString += player[2].heroHeal + ";";
+		teamString += player[2].towerDamage + "||";
 
 		teamString += player[3].playerId + ";";
 		teamString += player[3].EPP + ";";
@@ -1640,7 +1649,10 @@ public class PrimaryAnaliticsFactory
 		teamString += player[3].totalXPM + ";";
 		teamString += player[3].kills + ";";
 		teamString += player[3].deaths + ";";
-		teamString += player[3].assists + "||";
+		teamString += player[3].assists + ";";
+		teamString += player[3].heroDamage + ";";
+		teamString += player[3].heroHeal + ";";
+		teamString += player[3].towerDamage + "||";
 
 		teamString += player[4].playerId + ";";
 		teamString += player[4].EPP + ";";
@@ -1650,7 +1662,15 @@ public class PrimaryAnaliticsFactory
 		teamString += player[4].totalXPM + ";";
 		teamString += player[4].kills + ";";
 		teamString += player[4].deaths + ";";
-		teamString += player[4].assists;
+		teamString += player[4].assists + ";";
+		teamString += player[4].heroDamage + ";";
+		teamString += player[4].heroHeal + ";";
+		teamString += player[4].towerDamage + "||";
+		teamString += player[5].hero + ";";
+		teamString += player[6].hero + ";";
+		teamString += player[7].hero + ";";
+		teamString += player[8].hero + ";";
+		teamString += player[9].hero;
 		teamString += "##";
 		/**Parameters [3]**/
 		teamString += radiantKillAbility + ";";
@@ -1750,8 +1770,10 @@ public class PrimaryAnaliticsFactory
 		teamString += player[5].totalXPM + ";";
 		teamString += player[5].kills + ";";
 		teamString += player[5].deaths + ";";
-		teamString += player[5].assists + "||";
-
+		teamString += player[5].assists + ";";
+		teamString += player[5].heroDamage + ";";
+		teamString += player[5].heroHeal + ";";
+		teamString += player[5].towerDamage + "||";
 		teamString += player[6].playerId + ";";
 		teamString += player[6].EPP + ";";
 		teamString += player[6].role + ";";
@@ -1760,7 +1782,10 @@ public class PrimaryAnaliticsFactory
 		teamString += player[6].totalXPM + ";";
 		teamString += player[6].kills + ";";
 		teamString += player[6].deaths + ";";
-		teamString += player[6].assists + "||";
+		teamString += player[6].assists + ";";
+		teamString += player[6].heroDamage + ";";
+		teamString += player[6].heroHeal + ";";
+		teamString += player[6].towerDamage + "||";
 
 		teamString += player[7].playerId + ";";
 		teamString += player[7].EPP + ";";
@@ -1770,7 +1795,10 @@ public class PrimaryAnaliticsFactory
 		teamString += player[7].totalXPM + ";";
 		teamString += player[7].kills + ";";
 		teamString += player[7].deaths + ";";
-		teamString += player[7].assists + "||";
+		teamString += player[7].assists + ";";
+		teamString += player[7].heroDamage + ";";
+		teamString += player[7].heroHeal + ";";
+		teamString += player[7].towerDamage + "||";
 
 		teamString += player[8].playerId + ";";
 		teamString += player[8].EPP + ";";
@@ -1780,7 +1808,10 @@ public class PrimaryAnaliticsFactory
 		teamString += player[8].totalXPM + ";";
 		teamString += player[8].kills + ";";
 		teamString += player[8].deaths + ";";
-		teamString += player[8].assists + "||";
+		teamString += player[8].assists + ";";
+		teamString += player[8].heroDamage + ";";
+		teamString += player[8].heroHeal + ";";
+		teamString += player[8].towerDamage + "||";
 
 		teamString += player[9].playerId + ";";
 		teamString += player[9].EPP + ";";
@@ -1790,7 +1821,15 @@ public class PrimaryAnaliticsFactory
 		teamString += player[9].totalXPM + ";";
 		teamString += player[9].kills + ";";
 		teamString += player[9].deaths + ";";
-		teamString += player[9].assists;
+		teamString += player[9].assists + ";";
+		teamString += player[9].heroDamage + ";";
+		teamString += player[9].heroHeal + ";";
+		teamString += player[9].towerDamage + "||";
+		teamString += player[0].hero + ";";
+		teamString += player[1].hero + ";";
+		teamString += player[2].hero + ";";
+		teamString += player[3].hero + ";";
+		teamString += player[4].hero;
 		teamString += "##";
 		/**Parameters [3]**/
 		teamString += direKillAbility + ";";
