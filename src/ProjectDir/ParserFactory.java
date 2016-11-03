@@ -86,7 +86,6 @@ public class ParserFactory
 							.timeout(10000).get();
 					agentNum = 0;
 				}
-
 				break;
 			} catch (HttpStatusException e)
 			{
@@ -101,7 +100,7 @@ public class ParserFactory
 			}
 		}
 		parseCounter++;
-		Thread.sleep(2000);
+		Thread.sleep(2300);
 		return doc;
 	}
 
@@ -3259,7 +3258,7 @@ public class ParserFactory
 		}
 		long diff = d1.getTime() - d2.getTime();
 		long hours = TimeUnit.MILLISECONDS.toHours(diff);
-		if (hours >= 5 && hours <= 700)
+		if (hours >= 2 && hours <= 700)
 			return true;
 		else
 			return false;

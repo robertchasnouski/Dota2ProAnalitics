@@ -1577,7 +1577,7 @@ public class PrimaryAnaliticsFactory
 	}
 	//</editor-fold>
 
-	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Double radiantAgrKills, Double radiantAgrDeaths, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, Double direAgrKills, Double direAgrDeaths, String matchHardness, String leagueTier) throws IOException
+	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Double radiantAgrKills, Double radiantAgrDeaths, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, Double direAgrKills, Double direAgrDeaths, String matchHardness, String leagueTier) throws IOException, ParseException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -1720,24 +1720,31 @@ public class PrimaryAnaliticsFactory
 		String oldString = fileControlFactory.readFile("files/teams/" + team[0].id + "/TeamMatches.txt");
 		String[] stringInFile = oldString.split("\n");
 		String ratingChanges = "";
-
+		int missedStringNum = 0;
 		for (int i = 0; i < stringInFile.length; i++)
 		{
 			String matchId = stringInFile[i].split(";")[0];
-			if (matchId.equals(match.id) && stringInFile[i].length() <= 40)
+			if (matchId.equals(match.id) && stringInFile[i].length() <= 70)
 			{
 				ratingChanges = stringInFile[i];
 				stringInFile[i] = teamString + ratingChanges;
+				missedStringNum = i;
 			}
 		}
+		boolean shouldNotWrite = checkIfShouldNotBeWrited(team[0].id, match.date);
+
 		fileControlFactory.cleanAndWriteToFile("", "files/teams/" + team[0].id + "/TeamMatches.txt");
 		for (int i = 0; i < stringInFile.length; i++)
 		{
-			fileControlFactory.writeToFile(stringInFile[i], "files/teams/" + team[0].id + "/TeamMatches.txt");
+			if (shouldNotWrite && i == missedStringNum)
+			{
+				System.out.println("I don't write match for team " + team[0].id);
+			} else fileControlFactory.writeToFile(stringInFile[i], "files/teams/" + team[0].id + "/TeamMatches.txt");
 		}
+
 	}
 
-	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Double radiantAgrKills, Double radiantAgrDeaths, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, Double direAgrKills, Double direAgrDeaths, String matchHardness, String leagueTier) throws IOException
+	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Double radiantAgrKills, Double radiantAgrDeaths, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, Double direAgrKills, Double direAgrDeaths, String matchHardness, String leagueTier) throws IOException, ParseException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -1879,6 +1886,7 @@ public class PrimaryAnaliticsFactory
 		String oldString = fileControlFactory.readFile("files/teams/" + team[1].id + "/TeamMatches.txt");
 		String[] stringInFile = oldString.split("\n");
 		String ratingChanges = "";
+		int missedStringNum = 0;
 		for (int i = 0; i < stringInFile.length; i++)
 		{
 			String matchId = stringInFile[i].split(";")[0];
@@ -1886,12 +1894,54 @@ public class PrimaryAnaliticsFactory
 			{
 				ratingChanges = stringInFile[i];
 				stringInFile[i] = teamString + ratingChanges;
+				missedStringNum = i;
 			}
 		}
+		boolean shouldNotWrite = checkIfShouldNotBeWrited(team[1].id, match.date);
 		fileControlFactory.cleanAndWriteToFile("", "files/teams/" + team[1].id + "/TeamMatches.txt");
 		for (int i = 0; i < stringInFile.length; i++)
 		{
-			fileControlFactory.writeToFile(stringInFile[i], "files/teams/" + team[1].id + "/TeamMatches.txt");
+			if (shouldNotWrite && i == missedStringNum)
+			{
+				System.out.println("I don't write match for team " + team[1].id);
+			} else fileControlFactory.writeToFile(stringInFile[i], "files/teams/" + team[1].id + "/TeamMatches.txt");
+		}
+	}
+
+	private boolean checkIfShouldNotBeWrited(String id, String date) throws ParseException
+	{
+		ArrayList<String> depricatedId = new ArrayList<>();
+		depricatedId.add("15");//LGD
+		depricatedId.add("2581813");//Exec
+		depricatedId.add("350190");//Fnatic
+		depricatedId.add("46");//Empire
+		depricatedId.add("2586976");//OG
+		depricatedId.add("1838315");//Secret
+		depricatedId.add("1883502");//VP
+		depricatedId.add("3");//Comlexity
+		depricatedId.add("1375614");//Newbee
+		depricatedId.add("726228");//Vg
+		depricatedId.add("2108395");//TNC
+		depricatedId.add("2767921");//Rave
+		depricatedId.add("3210352");//Rave
+		depricatedId.add("2776208");//WFG
+		depricatedId.add("20");//Tongfu
+
+		boolean exist = false;
+		for (int i = 0; i < depricatedId.size(); i++)
+		{
+			if (id.equals(depricatedId.get(i)))
+				exist = true;
+		}
+		if (exist)
+		{
+			if (formatter.parse(date).after(formatter.parse("2016-09-10")))
+				return false;
+			else return true;
+		} else
+		{
+			return false;
+
 		}
 	}
 
@@ -1905,8 +1955,11 @@ public class PrimaryAnaliticsFactory
 				playerString += team[0].id + ";";
 			else
 				playerString += team[1].id + ";";
+
 			playerString += match.date + ";";
+			playerString += getLeagueTier(match.leagueId, match.leagueName) + ";";
 			playerString += player[i].EPP + ";";
+			playerString += player[i].role + ";";
 			if (i <= 4)
 			{
 				if (match.winRadiant)

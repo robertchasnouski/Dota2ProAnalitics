@@ -64,7 +64,7 @@ public class WriterReaderFactory
 		}
 		writeString += Integer.toString(match.F10KTime) + ";";
 		//writeToFile(Integer.toString(match.F10KTime), true);
-		if ((match.F10KTime > match.matchTime * 60 || match.F10KTime < -90) && match.F10KTime != 9999)
+		if ((match.F10KTime > (match.matchTime-1) * 60 || match.F10KTime < -90) && match.F10KTime != 9999)
 		{
 			error = true;
 			System.out.println("F10KTime error");
@@ -507,7 +507,6 @@ public class WriterReaderFactory
 			//writeToFile(Integer.toString(players[i].sentryWardsPlaced), true);
 			if (players[i].sentryWardsPlaced < 0 || players[i].sentryWardsPlaced > 50)
 			{
-				error = true;
 				System.out.println("SentryWardsPlaced error");
 			}
 			writeString += Integer.toString(players[i].sentryWardsDestroyed) + ";";

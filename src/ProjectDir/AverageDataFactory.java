@@ -155,7 +155,6 @@ public class AverageDataFactory
 					avgSupportXPM += Integer.parseInt(onePlayerInfo[12]);
 					avgSupportPartisipate += Integer.parseInt(onePlayerInfo[7]);
 					avgSupportWDM += Integer.parseInt(onePlayerInfo[23]) / matchTime;
-					//TODO: WardLifeTime
 					avgSupportHHM += Integer.parseInt(onePlayerInfo[8]) / matchTime;
 					avgSupportHDM += Integer.parseInt(onePlayerInfo[9]) / matchTime;
 				}
