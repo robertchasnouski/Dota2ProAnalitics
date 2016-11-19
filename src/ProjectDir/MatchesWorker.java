@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Scanner;
 
 
 public class MatchesWorker
@@ -89,10 +90,11 @@ public class MatchesWorker
 
 		String[] tempArray = fileOperationsFactory.readFile("files/Matches.txt").split("\n");
 		String lastMatchDateString = tempArray[tempArray.length - 1].split(";")[1];
-		Date lastMatchDate = formatter.parse(/*lastMatchDateString*/"2013-06-06");
+		Date lastMatchDate = formatter.parse(lastMatchDateString);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		date.setTime(lastMatchDate.getTime() - 24 * 60 * 60 * 1000);
+
 
 		if (parse)
 			for (int i = 0; i < matchesToParse.size(); i++)
@@ -128,6 +130,8 @@ public class MatchesWorker
 			fileOperationsFactory.cleanAndWriteToFile("", "files/TemporaryMatches.txt");
 			fileOperationsFactory.cleanAndWriteToFile(allMatchesfile, "files/Matches.txt");
 		}
+
+		//parserHelper.parseMatchById(date, "2749571296", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		/*SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
 		Date date = formatter.parse("2013-05-05");
@@ -135,6 +139,20 @@ public class MatchesWorker
 		writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 		*/
 		// uniqueInfoFactory.makeMatchesFileClean("files/Matches.txt");
+	}
+
+	public void updateTeamsTier() throws IOException
+	{
+		String file = fileOperationsFactory.readFile("files/TeamRatings.txt");
+		String[] eachTeam = file.split("\n");
+		String writeString = "";
+		for (int i = 0; i < eachTeam.length; i++)
+		{
+
+			writeString += "\n" + eachTeam[i].split(";")[0] + ";" + eachTeam[i].split(";")[1] + ";5";
+		}
+		writeString=writeString.replaceFirst("\n","");
+		fileOperationsFactory.cleanAndWriteToFile(writeString,"files/TeamsTier.txt");
 	}
 }
 

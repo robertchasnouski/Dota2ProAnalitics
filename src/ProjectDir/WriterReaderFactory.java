@@ -46,17 +46,7 @@ public class WriterReaderFactory
 		writeString += Boolean.toString(match.first10KillsRadiant) + ";";
 		writeString += Boolean.toString(match.firstRoshanRadiant) + ";";
 		writeString += Integer.toString(match.FBTime) + ";";
-		/*
-		writeToFile(match.team1Id, true);
-		writeToFile(match.team2Id, true);
-		writeToFile(Integer.toString(match.leagueId), true);
-		writeToFile(match.leagueName, true);
-		writeToFile(Boolean.toString(match.winRadiant), true);
-		writeToFile(Boolean.toString(match.firstBloodRadiant), true);
-		writeToFile(Boolean.toString(match.first10KillsRadiant), true);
-		writeToFile(Boolean.toString(match.firstRoshanRadiant), true);
-		writeToFile(Integer.toString(match.FBTime), true);
-		*/
+
 		if ((match.FBTime > match.matchTime * 60 || match.FBTime < -90) && match.FBTime != 9999)
 		{
 			error = true;
@@ -80,6 +70,33 @@ public class WriterReaderFactory
 		//Team
 		for (int i = 0; i < 2; i++)
 		{
+			teams[i].totalGPM=0;
+			teams[i].totalXPM=0;
+			teams[i].totalLH=0;
+			teams[i].totalDenies=0;
+			teams[i].towersDestroyed=0;
+			teams[i].towersDenied=0;
+			teams[i].roshanKills=0;
+			teams[i].goldForKills=0;
+			teams[i].goldFed=0;
+			teams[i].goldLost=0;
+			teams[i].totalGold=0;
+			teams[i].observerWardsPlaced=0;
+			teams[i].observerWardsDestroyed=0;
+			teams[i].sentryWardsDestroyed=0;
+			teams[i].sentryWardsPlaced=0;
+			teams[i].dustHits=0;
+			teams[i].dustAccuracy=0;
+			teams[i].towerDamage=0;
+			teams[i].heroDamage=0;
+			teams[i].heroHeal=0;
+			teams[i].partisipation=0;
+			teams[i].smokeHits=0;
+			teams[i].smokeTotalHeroes=0;
+			teams[i].gemsBought=0;
+			teams[i].gemsDropped=0;
+			teams[i].gemTimeCarried=0;
+
 			writeString += teams[i].id + ";";
 			//writeToFile(teams[i].id, true);
 			teams[i].name = teams[i].name.replaceAll(";", "");
@@ -110,13 +127,11 @@ public class WriterReaderFactory
 			}
 			if (teams[i].partisipation < 0 || teams[i].partisipation > 100)
 			{
-
 				teams[i].partisipation = 100;
 				System.out.print("Partisipation error but fixed");
 			}
 			writeString += Integer.toString(teams[i].partisipation) + ";";
 			//writeToFile(Integer.toString(teams[i].partisipation), true);
-
 			writeString += Integer.toString(teams[i].heroHeal) + ";";
 			//writeToFile(Integer.toString(teams[i].heroHeal), true);
 			if (teams[i].heroHeal < 0 || teams[i].heroHeal > 100000)
@@ -125,6 +140,7 @@ public class WriterReaderFactory
 				System.out.println("HeroHeal error");
 			}
 			writeString += Integer.toString(teams[i].heroDamage) + ";";
+
 			//writeToFile(Integer.toString(teams[i].heroDamage), true);
 			if (teams[i].heroDamage < 0 || teams[i].heroDamage > 250000)
 			{
@@ -133,6 +149,7 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].towerDamage) + ";";
 			//writeToFile(Integer.toString(teams[i].towerDamage), true);
+
 			if (teams[i].towerDamage < 0 || teams[i].towerDamage > 100000)
 			{
 				error = true;
@@ -140,20 +157,23 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].totalGPM) + ";";
 			//writeToFile(Integer.toString(teams[i].totalGPM), true);
-			if (teams[i].totalGPM < 50 || teams[i].totalGPM > 12000)
+
+			if (teams[i].totalGPM < 0 || teams[i].totalGPM > 12000)
 			{
 				error = true;
 				System.out.println("TotalGPM team error");
 			}
 			writeString += Integer.toString(teams[i].totalXPM) + ";";
 			//writeToFile(Integer.toString(teams[i].totalXPM), true);
-			if (teams[i].totalXPM < 0 || teams[i].totalXPM > 10000)
+
+			if (teams[i].totalXPM < 0 || teams[i].totalXPM > 12000)
 			{
 				error = true;
 				System.out.println("TotalXPM error");
 			}
 			writeString += Integer.toString(teams[i].totalLH) + ";";
 			//writeToFile(Integer.toString(teams[i].totalLH), true);
+
 			if (teams[i].totalLH < 0 || teams[i].totalLH > 15000)
 			{
 				error = true;
@@ -161,6 +181,7 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].totalDenies) + ";";
 			//writeToFile(Integer.toString(teams[i].totalDenies), true);
+
 			if (teams[i].totalDenies < 0 || teams[i].totalDenies > 2000)
 			{
 				error = true;
@@ -168,6 +189,7 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].towersDestroyed) + ";";
 			//writeToFile(Integer.toString(teams[i].towersDestroyed), true);
+
 			if (teams[i].towersDestroyed < 0 || teams[i].towersDestroyed > 12)
 			{
 				error = true;
@@ -175,6 +197,7 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].towersDenied) + ";";
 			//writeToFile(Integer.toString(teams[i].towersDenied), true);
+
 			if (teams[i].towersDenied < 0 || teams[i].towersDenied > 12)
 			{
 				error = true;
@@ -182,6 +205,7 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].roshanKills) + ";";
 			//writeToFile(Integer.toString(teams[i].roshanKills), true);
+
 			if (teams[i].roshanKills < 0 || teams[i].roshanKills > 10)
 			{
 				error = true;
@@ -189,6 +213,7 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].goldForKills) + ";";
 			//writeToFile(Integer.toString(teams[i].goldForKills), true);
+
 			if (teams[i].goldForKills < 0 || teams[i].goldForKills > 100000)
 			{
 				error = true;
@@ -196,6 +221,7 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].goldFed) + ";";
 			//writeToFile(Integer.toString(teams[i].goldFed), true);
+
 			if (teams[i].goldFed < 0 || teams[i].goldFed > 100000)
 			{
 				error = true;
@@ -203,6 +229,7 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].goldLost) + ";";
 			//writeToFile(Integer.toString(teams[i].goldLost), true);
+
 			if (teams[i].goldLost < 0 || teams[i].goldLost > 100000)
 			{
 				error = true;
@@ -210,6 +237,7 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].totalGold) + ";";
 			//writeToFile(Integer.toString(teams[i].totalGold), true);
+
 			if (teams[i].totalGold < 0 || teams[i].totalGold > 250000)
 			{
 				error = true;
@@ -217,6 +245,7 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].observerWardsPlaced) + ";";
 			//writeToFile(Integer.toString(teams[i].observerWardsPlaced), true);
+
 			if (teams[i].observerWardsPlaced < 0 || teams[i].observerWardsPlaced > 60)
 			{
 				error = true;
@@ -224,11 +253,13 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].observerWardsDestroyed) + ";";
 			//writeToFile(Integer.toString(teams[i].observerWardsDestroyed), true);
+
 			if (teams[i].observerWardsDestroyed < 0 || teams[i].observerWardsDestroyed > 50)
 			{
 				error = true;
 				System.out.println("ObserwerWardsDestroyed error");
 			}
+
 			writeString += Integer.toString(teams[i].sentryWardsPlaced) + ";";
 			//writeToFile(Integer.toString(teams[i].sentryWardsPlaced), true);
 			writeString += Integer.toString(teams[i].sentryWardsDestroyed) + ";";
@@ -240,6 +271,7 @@ public class WriterReaderFactory
 				error = true;
 				System.out.println("DustHits error");
 			}
+
 			writeString += Integer.toString(teams[i].dustAccuracy) + ";";
 			//writeToFile(Integer.toString(teams[i].dustAccuracy), true);
 			if (teams[i].dustAccuracy < 0 || teams[i].dustAccuracy > 100)
@@ -249,6 +281,7 @@ public class WriterReaderFactory
 			}
 			writeString += Integer.toString(teams[i].smokeHits) + ";";
 			//writeToFile(Integer.toString(teams[i].smokeHits), true);
+
 			if (teams[i].smokeHits < 0 || teams[i].smokeHits > 20)
 			{
 				error = true;
@@ -365,8 +398,9 @@ public class WriterReaderFactory
 			//writeToFile(players[i].playerId, true);
 			writeString += players[i].hero + ";";
 			//writeToFile(players[i].hero, true);
-			writeString += Integer.toString(players[i].role) + ";";
+			writeString += players[i].firstLine + ";";
 			//writeToFile(Integer.toString(players[i].role), true);
+			players[i].level=0;
 			writeString += Integer.toString(players[i].level) + ";";
 			//writeToFile(Integer.toString(players[i].level), true);
 			writeString += Integer.toString(players[i].kills) + ";";
@@ -714,174 +748,23 @@ public class WriterReaderFactory
 
 		//WardEvent
 		writeString += "##";
-		//writeToFile("##", false);
-		writeString += Integer.toString(wardEvent.size());
-		//writeToFile(Integer.toString(wardEvent.size()), false);
-		if (wardEvent.size() < 5)
-		{
-			error = true;
-			System.out.println("Only 5 wards? Error!");
-		}
+		writeString += Integer.toString(0);
 		writeString += "**";
-		//writeToFile("**", false);
-
-		for (int i = 0; i < wardEvent.size(); i++)
-		{
-			writeString += Float.toString(wardEvent.get(i).x) + ";";
-			//writeToFile(Float.toString(wardEvent.get(i).x), true);
-			if (wardEvent.get(i).x < 0.0f || wardEvent.get(i).x > 100.0f)
-			{
-				error = true;
-				System.out.println("Ward X error");
-			}
-			writeString += Float.toString(wardEvent.get(i).y) + ";";
-			//writeToFile(Float.toString(wardEvent.get(i).y), true);
-			if (wardEvent.get(i).y < 0.0f || wardEvent.get(i).y > 100.0f)
-			{
-				error = true;
-				System.out.println("Ward Y error");
-			}
-			writeString += Integer.toString(wardEvent.get(i).second) + ";";
-			//writeToFile(Integer.toString(wardEvent.get(i).second), true);
-			if (wardEvent.get(i).second < -90 || wardEvent.get(i).second > (match.matchTime + 2) * 60)
-			{
-				error = true;
-				System.out.println("Ward Second error");
-			}
-			writeString += Integer.toString(wardEvent.get(i).lifeTime) + ";";
-			//writeToFile(Integer.toString(wardEvent.get(i).lifeTime), true);
-
-			if (wardEvent.get(i).lifeTime < 0 || wardEvent.get(i).lifeTime > 420)
-			{
-				error = true;
-				System.out.println("Ward Lifetime error");
-			}
-			writeString += Integer.toString(wardEvent.get(i).side);
-			//writeToFile(Integer.toString(wardEvent.get(i).side), false);
-
-			if (i != wardEvent.size() - 1)
-			{
-				//writeToFile("**", false);
-				writeString += "**";
-			}
-		}
-
 		//GlyphEvent
 		writeString += "##";
-		//writeToFile("##", false);
-		writeString += Integer.toString(glyphEvent.size());
-		//writeToFile(Integer.toString(glyphEvent.size()), false);
+		writeString += Integer.toString(0);
 		writeString += "**";
-		//writeToFile("**", false);
-
-		for (int i = 0; i < glyphEvent.size(); i++)
-		{
-			writeString += Integer.toString(glyphEvent.get(i).side) + ";";
-			//writeToFile(Integer.toString(glyphEvent.get(i).side), true);
-			if (glyphEvent.get(i).side < 0 || glyphEvent.get(i).side > 2)
-			{
-				error = true;
-				System.out.println("Glyph side error");
-			}
-			writeString += Integer.toString(glyphEvent.get(i).second);
-			//writeToFile(Integer.toString(glyphEvent.get(i).second), false);
-			if (glyphEvent.get(i).second < -90 || glyphEvent.get(i).second > (match.matchTime + 2) * 60)
-			{
-				error = true;
-				System.out.println("Glyph second error");
-			}
-			if (i != glyphEvent.size() - 1)
-			{
-				writeString += "**";
-				//writeToFile("**", false);
-			}
-		}
-
 		//BuyBackEvent
 		writeString += "##";
-		//writeToFile("##", false);
-		writeString += Integer.toString(buyBackEvent.size());
-		//writeToFile(Integer.toString(buyBackEvent.size()), false);
+		writeString += Integer.toString(0);
 		writeString += "**";
-		//writeToFile("**", false);
-
-		for (int i = 0; i < buyBackEvent.size(); i++)
-		{
-			writeString += buyBackEvent.get(i).whoBoughtBack + ";";
-			//writeToFile(buyBackEvent.get(i).whoBoughtBack, true);
-			writeString += Integer.toString(buyBackEvent.get(i).second) + ";";
-			//writeToFile(Integer.toString(buyBackEvent.get(i).second), true);
-			if (buyBackEvent.get(i).second < -90 || buyBackEvent.get(i).second > (match.matchTime + 2) * 60)
-			{
-				error = true;
-				System.out.println("BuyBackEvent second error");
-			}
-			writeString += Integer.toString(buyBackEvent.get(i).goldCost);
-			//writeToFile(Integer.toString(buyBackEvent.get(i).goldCost), false);
-			if (i != buyBackEvent.size() - 1)
-			{
-				//writeToFile("**", false);
-				writeString += "**";
-			}
-		}
-
 		//TowerEvent
 		writeString += "##";
-		//writeToFile("##", false);
-		writeString += Integer.toString(towerEvent.size());
-		//writeToFile(Integer.toString(towerEvent.size()), false);
+		writeString += Integer.toString(0);
 		writeString += "**";
-		//writeToFile("**", false);
-		for (int i = 0; i < towerEvent.size(); i++)
-		{
-			writeString += towerEvent.get(i).whoDestroy + ";";
-			//writeToFile(towerEvent.get(i).whoDestroy, true);
-			writeString += Integer.toString(towerEvent.get(i).second) + ";";
-			//writeToFile(Integer.toString(towerEvent.get(i).second), true);
-			if (towerEvent.get(i).second < -90 || towerEvent.get(i).second > (match.matchTime + 2) * 60)
-			{
-				error = true;
-				System.out.println("Tower second error");
-			}
-			writeString += Integer.toString(towerEvent.get(i).tierLevel) + ";";
-			//writeToFile(Integer.toString(towerEvent.get(i).tierLevel), true);
-			if (towerEvent.get(i).tierLevel < 1 || towerEvent.get(i).tierLevel > 4)
-			{
-				error = true;
-				System.out.println("Tower level error");
-			}
-			writeString += towerEvent.get(i).line;
-			//writeToFile(towerEvent.get(i).line, false);
-			if (i != towerEvent.size() - 1)
-			{
-				writeString += "**";
-				//writeToFile("**", false);
-			}
-		}
 		writeString += "##";
-		//writeToFile("##", false);
-		writeString += Integer.toString(roshanEvent.size());
-		//writeToFile(Integer.toString(roshanEvent.size()), false);
+		writeString += Integer.toString(0);
 		writeString += "**";
-		//writeToFile("**", false);
-		for (int i = 0; i < roshanEvent.size(); i++)
-		{
-			writeString += roshanEvent.get(i).whoKill + ";";
-			//	writeToFile(roshanEvent.get(i).whoKill, true);
-			writeString += Integer.toString(roshanEvent.get(i).second);
-			//writeToFile(Integer.toString(roshanEvent.get(i).second), false);
-			if (roshanEvent.get(i).second < -90 || roshanEvent.get(i).second > (match.matchTime + 2) * 60)
-			{
-				error = true;
-				System.out.println("Roshan second error");
-			}
-			if (i != roshanEvent.size() - 1)
-			{
-				writeString += "**";
-				//writeToFile("**", false);
-			}
-		}
-
 
 		if (error)
 		{

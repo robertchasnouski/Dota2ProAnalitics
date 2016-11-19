@@ -31,7 +31,6 @@ public class RatingFactory
 				String matchTime = matchInfo.split(";")[2];
 				String team1Id = team1Info.split(";")[0];
 				String team1Name = team1Info.split(";")[1];
-
 				String team2Id = team2Info.split(";")[0];
 				String team2Name = team2Info.split(";")[1];
 
@@ -43,11 +42,7 @@ public class RatingFactory
 				Integer team2MainRating = getRatingById(team2Id, team2Name, 0);
 
 				Boolean firstTeamWin = Boolean.parseBoolean(matchInfo.split(";")[7]);
-				String team1Kills = team1Info.split(";")[3];
-				String team2Kills = team2Info.split(";")[3];
-				String team1totalGold = team1Info.split(";")[20];
-				String team2totalGold = team2Info.split(";")[20];
-				String matchHardness = calculateMatchHardness(team1Kills, team2Kills, team1totalGold, team2totalGold, matchTime);
+				String matchHardness = "H";
 				String ratingDifference = calculateRatingDifference(team1Rating, team2Rating);
 				Double winMultiplier = 1.0;
 				Double loseMultiplier = 1.0;

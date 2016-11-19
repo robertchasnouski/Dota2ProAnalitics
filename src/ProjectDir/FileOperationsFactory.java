@@ -22,7 +22,7 @@ public class FileOperationsFactory
 		writer.close();
 	}
 
-	String readFile(String fileName) throws IOException
+	public String readFile(String fileName) throws IOException
 	{
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		try
