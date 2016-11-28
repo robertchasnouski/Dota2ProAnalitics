@@ -3,6 +3,7 @@ package ProjectDir.Analitics;
 import ProjectDir.AverageDataFactory;
 import ProjectDir.FileOperationsFactory;
 import ProjectDir.MatchInfo.*;
+import ProjectDir.TierWorker;
 
 import java.io.*;
 import java.text.ParseException;
@@ -18,9 +19,10 @@ public class PrimaryAnaliticsFactory
 	AverageDataFactory averageDataFactory = new AverageDataFactory();
 	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
+	TierWorker tierWorker = new TierWorker();
 	Scanner reader = new Scanner(System.in);
 
-	public void analizeMatch(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException, ParseException
+	public void analizeMatch(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException, ParseException, InterruptedException
 	{
 		/**Create team file if not exists**/
 		fileControlFactory.createTeamFileIfNotExists(team[0].id);
@@ -61,13 +63,14 @@ public class PrimaryAnaliticsFactory
 		Double direAgrKills = 0.0;//analizeDireAggressionKills(killEventArrayList);
 		Double direAgrDeaths = 0.0;//analizeDireAggressionDeaths(killEventArrayList);
 		/**LeagueTier**/
-		String leagueTier = getLeagueTier(match.leagueId, match.leagueName);
+		String team1Tier = tierWorker.getTeamTier(team[0].id);
+		String team2Tier = tierWorker.getTeamTier(team[1].id);
 		/**End analizing**/
 		/*** Write info to file **/
 		///Write that match was analized
 
-		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, radiantAgrKills, radiantAgrDeaths, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, direAgrKills, direAgrDeaths, matchHardness, leagueTier);
-		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, radiantAgrKills, radiantAgrDeaths, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, direAgrKills, direAgrDeaths, matchHardness, leagueTier);
+		writeRadiantInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, radiantAgrKills, radiantAgrDeaths, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, direAgrKills, direAgrDeaths, matchHardness, team2Tier);
+		writeDireInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, radiantKillAbility, radiantPushing, radiantVision, radiantLining, radiantTenKills, radiantFarming, radiantFB, radiantAgrKills, radiantAgrDeaths, direKillAbility, direPushing, direVision, direLining, direTenKills, direFarming, direFB, direAgrKills, direAgrDeaths, matchHardness, team1Tier);
 		writePlayersInfoToFile(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList);
 		System.out.println("Match " + match.id + " was analized.");
 	}
@@ -1567,7 +1570,7 @@ public class PrimaryAnaliticsFactory
 	}
 	//</editor-fold>
 
-	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Double radiantAgrKills, Double radiantAgrDeaths, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, Double direAgrKills, Double direAgrDeaths, String matchHardness, String leagueTier) throws IOException, ParseException
+	public void writeRadiantInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Double radiantAgrKills, Double radiantAgrDeaths, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, Double direAgrKills, Double direAgrDeaths, String matchHardness, String enemyTeamTier) throws IOException, ParseException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -1584,7 +1587,7 @@ public class PrimaryAnaliticsFactory
 		teamString += team[1].id + ";";
 		teamString += match.leagueName + ";";
 		teamString += match.leagueId + ";";
-		teamString += leagueTier + ";";
+		teamString += enemyTeamTier + ";";
 		teamString += team[0].name;
 		teamString += "##";
 		/**TeamInfo [1]**/
@@ -1735,7 +1738,7 @@ public class PrimaryAnaliticsFactory
 
 	}
 
-	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Double radiantAgrKills, Double radiantAgrDeaths, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, Double direAgrKills, Double direAgrDeaths, String matchHardness, String leagueTier) throws IOException, ParseException
+	public void writeDireInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, Integer radiantKillAbility, Integer radiantPushing, Integer radiantWardAbility, Integer radiantLining, String radiantTenKills, Integer radiantFarming, String radiantFB, Double radiantAgrKills, Double radiantAgrDeaths, Integer direKillAbility, Integer direPushing, Integer direWardAbility, Integer direLining, String direTenKills, Integer direFarming, String direFB, Double direAgrKills, Double direAgrDeaths, String matchHardness, String enemyTeamTier) throws IOException, ParseException
 	{
 		String teamString = "";
 		/**General Information [0]**/
@@ -1752,7 +1755,7 @@ public class PrimaryAnaliticsFactory
 		teamString += team[0].id + ";";
 		teamString += match.leagueName + ";";
 		teamString += match.leagueId + ";";
-		teamString += leagueTier + ";";
+		teamString += enemyTeamTier + ";";
 		teamString += team[1].name;
 		teamString += "##";
 		/**TeamInfo [1]**/
@@ -1937,7 +1940,7 @@ public class PrimaryAnaliticsFactory
 		}
 	}
 
-	public void writePlayersInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException
+	public void writePlayersInfoToFile(Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList) throws IOException, InterruptedException
 	{
 		for (int i = 0; i < 10; i++)
 		{
@@ -1949,7 +1952,10 @@ public class PrimaryAnaliticsFactory
 				playerString += team[1].id + ";";
 
 			playerString += match.date + ";";
-			playerString += getLeagueTier(match.leagueId, match.leagueName) + ";";
+			if (i <= 4)
+				playerString += tierWorker.getTeamTier(team[1].id) + ";";
+			else
+				playerString += tierWorker.getTeamTier(team[0].id) + ";";
 			playerString += player[i].EPP + ";";
 			playerString += player[i].firstLine + ";";
 			if (i <= 4)
@@ -1966,16 +1972,14 @@ public class PrimaryAnaliticsFactory
 					playerString += "true";
 			}
 			if (i <= 4)
-				playerString += ";"+team[1].id;
+				playerString += ";" + team[1].id;
 			else
-				playerString += ";"+team[0].id;
+				playerString += ";" + team[0].id;
 
 			fileControlFactory.createPlayerFileIfNotExist(player[i].playerId);
 			fileControlFactory.writeToFile(playerString, "files/players/" + player[i].playerId + ".txt");
 		}
 	}
-
-
 
 	String readFile(String fileName) throws IOException
 	{

@@ -31,7 +31,7 @@ public class CleanerWorker
 			String[] eachMatch = teamFile.split("\n");
 			String newTeamName = eachMatch[eachMatch.length - 1].split(";")[14];
 			newTeamName = newTeamName.substring(0, newTeamName.indexOf("##"));
-			newTeamsFile += "\n" + eachTeamRating[i].split(";")[0] + ";" + newTeamName + ";" + eachTeamRating[i].split(";")[2] + ";" + eachTeamRating[i].split(";")[3] + ";" + eachTeamRating[i].split(";")[4] + ";" + eachTeamRating[i].split(";")[5] + ";" + eachTeamRating[i].split(";")[6];
+			newTeamsFile += "\n" + eachTeamRating[i].split(";")[0] + ";" + newTeamName + ";" + eachTeamRating[i].split(";")[2] + ";" + eachTeamRating[i].split(";")[3] + ";" + eachTeamRating[i].split(";")[4] + ";" + eachTeamRating[i].split(";")[5] + ";" + eachTeamRating[i].split(";")[6] + ";" + eachTeamRating[i].split(";")[7];
 		}
 		newTeamsFile = newTeamsFile.replaceFirst("\n", "");
 		fileOperationsFactory.cleanAndWriteToFile(newTeamsFile, "files/TeamRatings.txt");
@@ -50,7 +50,7 @@ public class CleanerWorker
 			String[] eachMatch = teamFile.split("\n");
 			Date lastMatchDate = sourceFormat.parse(eachMatch[eachMatch.length - 1].split(";")[1]);
 			long daysDiff = ((new Date()).getTime() - lastMatchDate.getTime()) / (60 * 60 * 24 * 1000);
-			if (daysDiff < 60)
+			if (daysDiff < 90)
 				newTeamsFile += "\n" + eachTeamRating[i];
 		}
 		newTeamsFile = newTeamsFile.replaceFirst("\n", "");

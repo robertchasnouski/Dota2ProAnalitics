@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Scanner;
 
 
 public class MatchesWorker
@@ -45,7 +44,7 @@ public class MatchesWorker
 			team[i] = new Team();
 		}
 		//checkIfTemporaryFileIsClean();
-		backupFactory.checkForBackUp();
+		//backupFactory.checkForBackUp();
 		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		ratingFactory.organizeRating();
 		mainAnaliticsFactory.startWork();
@@ -151,8 +150,8 @@ public class MatchesWorker
 
 			writeString += "\n" + eachTeam[i].split(";")[0] + ";" + eachTeam[i].split(";")[1] + ";5";
 		}
-		writeString=writeString.replaceFirst("\n","");
-		fileOperationsFactory.cleanAndWriteToFile(writeString,"files/TeamsTier.txt");
+		writeString = writeString.replaceFirst("\n", "");
+		fileOperationsFactory.cleanAndWriteToFile(writeString, "files/TeamsTier.txt");
 	}
 }
 

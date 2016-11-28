@@ -20,7 +20,7 @@ public class MainAnaliticsFactory
 	StringReader stringReader = new StringReader();
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
 
-	public void startWork() throws IOException, ParseException
+	public void startWork() throws IOException, ParseException, InterruptedException
 	{
 		ArrayList<KillEvent> killEventArrayList = new ArrayList<KillEvent>();
 		ArrayList<BuyBackEvent> buyBackEventArrayList = new ArrayList<BuyBackEvent>();

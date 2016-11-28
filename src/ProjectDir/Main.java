@@ -1,7 +1,5 @@
 package ProjectDir;
 
-import java.util.Scanner;
-
 public class Main
 {
 	public static void main(String[] args) throws Exception
@@ -9,7 +7,7 @@ public class Main
 		MatchesWorker matchesWorker = new MatchesWorker();
 		ReceptionWorker receptionWorker = new ReceptionWorker();
 		HeroesAverageStatsWorker heroesAverageStatsWorker = new HeroesAverageStatsWorker();
-		CleanerWorker cleanerWorker=new CleanerWorker();
+		CleanerWorker cleanerWorker = new CleanerWorker();
 		//EngineerWorker engineerWorker=new EngineerWorker();
 		//engineerWorker.start_work();
 		//Scanner in = new Scanner(System.in);
@@ -19,10 +17,8 @@ public class Main
 		//	heroesAverageStatsWorker.updateStats();
 
 		matchesWorker.start_work();
-		cleanerWorker.cleanShit();
+		//cleanerWorker.cleanShit();
 		//matchesWorker.updateTeamsTier();
-
-
 	}
 }
 

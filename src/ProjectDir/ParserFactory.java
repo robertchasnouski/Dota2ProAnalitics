@@ -383,15 +383,31 @@ public class ParserFactory
 		//<editor-fold desc="PLAYER ID">
 		for (int i = 0; i < 5; i++)
 		{
-			tempString = substringer(mainPageRadiantHeroLine[i], "href=\"/players/", "\">");
-			tempString = tempString.replaceAll("href=\"/players/", "");
-			player[i].playerId = tempString;
+			if (mainPageRadiantHeroLine[i].indexOf("href=\"/esports/players/") != -1)
+			{
+				tempString = substringer(mainPageRadiantHeroLine[i], "href=\"/esports/players/", "\">");
+				tempString = tempString.replaceAll("href=\"/esports/players/", "");
+				player[i].playerId = tempString;
+			} else
+			{
+				tempString = substringer(mainPageRadiantHeroLine[i], "href=\"/players/", "\">");
+				tempString = tempString.replaceAll("href=\"/players/", "");
+				player[i].playerId = tempString;
+			}
 		}
 		for (int i = 0; i < 5; i++)
 		{
-			tempString = substringer(mainPageDireHeroLine[i], "href=\"/players/", "\">");
-			tempString = tempString.replaceAll("href=\"/players/", "");
-			player[i + 5].playerId = tempString;
+			if (mainPageDireHeroLine[i].indexOf("href=\"/esports/players/") != -1)
+			{
+				tempString = substringer(mainPageDireHeroLine[i], "href=\"/esports/players/", "\">");
+				tempString = tempString.replaceAll("href=\"/esports/players/", "");
+				player[i + 5].playerId = tempString;
+			} else
+			{
+				tempString = substringer(mainPageDireHeroLine[i], "href=\"/players/", "\">");
+				tempString = tempString.replaceAll("href=\"/players/", "");
+				player[i + 5].playerId = tempString;
+			}
 		}
 
 		//</editor-fold>
@@ -1351,7 +1367,7 @@ public class ParserFactory
 		team[0].rating = 1000;
 		team[1].rating = 1000;
 		//</editor-fold>
-
+		
 		return true;
 	}
 
