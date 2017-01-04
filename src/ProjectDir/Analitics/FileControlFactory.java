@@ -4,7 +4,6 @@ import java.io.*;
 
 public class FileControlFactory
 {
-
 	public void createTeamFileIfNotExists(String id) throws IOException
 	{
 

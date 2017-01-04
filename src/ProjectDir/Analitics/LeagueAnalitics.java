@@ -6,27 +6,7 @@ import java.util.ArrayList;
 
 public class LeagueAnalitics
 {
-	public void start_work(ArrayList<AnalizedInfo> firstMonthObjects, ArrayList<AnalizedInfo> firstTenObjects, ArrayList<AnalizedInfo> secondMonthObjects, ArrayList<AnalizedInfo> secondTenObjects)
-	{
-		showLeaguesInfo(firstMonthObjects, firstTenObjects);
-		showLeaguesInfo(secondMonthObjects, secondTenObjects);
-	}
 
-	private void showLeaguesInfo(ArrayList<AnalizedInfo> monthObjects, ArrayList<AnalizedInfo> tenObjects)
-	{
-		System.out.println("\t\t\t\t---" + monthObjects.get(0).teamName + " Leagues Statistics---");
-		ArrayList<String> activeLeagues = getLastTeamLeagues(monthObjects);
-		for (int i = 0; i < activeLeagues.size(); i++)
-		{
-			Integer winRate = getLeagueWinRate(monthObjects, activeLeagues.get(i));
-			Integer monthPoints = getLeaguePoints(monthObjects, activeLeagues.get(i));
-			Integer tenPoints = getLeaguePoints(tenObjects, activeLeagues.get(i));
-			Integer form = getLeagueForm(monthPoints, tenPoints);
-			Integer matchesPlayed = getLeagueMatchesPlayed(monthObjects, activeLeagues.get(i));
-			String leagueName = getLeagueNameById(monthObjects, activeLeagues.get(i));
-			System.out.println("League:" + leagueName + ". WinRate:" + winRate + "%. Games Played:" + matchesPlayed + ". Points:" + monthPoints + ".Form:" + form + "%");
-		}
-	}
 
 	private Integer getLeaguePoints(ArrayList<AnalizedInfo> objects, String leagueId)
 	{
@@ -39,7 +19,7 @@ public class LeagueAnalitics
 				Integer r2 = objects.get(i).enemyTierRating;
 				String difference = calculateRatingDifference(r1, r2);
 				//TODO Add MatchHardNess or not?
-				Integer incrementator = calculateIncrementator(objects.get(i).isWin, difference, objects.get(i).matchHardness);
+				Integer incrementator = calculateIncrementator(objects.get(i).isWin, difference);
 				points+=incrementator;
 			}
 		}
@@ -121,7 +101,7 @@ public class LeagueAnalitics
 		}
 	}
 
-	public Integer calculateIncrementator(Boolean isWin, String difference, String hardNess)
+	public Integer calculateIncrementator(Boolean isWin, String difference)
 	{
 		Integer incrementator = 0;
 		if (isWin)

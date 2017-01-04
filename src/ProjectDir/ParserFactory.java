@@ -23,11 +23,12 @@ public class ParserFactory
 	}
 
 	Integer agentNum = 0;
+	public int parseCounter = 0;
 	Integer direRoaming = 0;
 	Integer radiantRoaming = 0;
 	UniqueInfoFactory uniqueInfoFactory = new UniqueInfoFactory();
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
-	public int parseCounter = 0;
+
 	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
 	Integer leaguesParsed = 0;
@@ -46,7 +47,7 @@ public class ParserFactory
 
 	public Document parse_html(String html) throws IOException, InterruptedException
 	{
-		if (parseCounter == 50)
+		if (parseCounter == 100)
 		{
 			Thread.sleep(20000);
 			//Thread.sleep(0);
@@ -136,7 +137,7 @@ public class ParserFactory
 		return leagueLink;
 	}
 
-	Boolean parseMatchById(Date lastMatchDate, String id, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException, InterruptedException, ParseException
+	Boolean parseMatchById(Date lastMatchDate, String id, Team[] team, Player[] player, Match match) throws IOException, InterruptedException, ParseException
 	{
 		System.out.println("Parsing match with ID:" + id + ".");
 		Document docMainPage = parse_html("http://www.dotabuff.com/matches/" + id);
@@ -163,26 +164,7 @@ public class ParserFactory
 			System.out.println("Parsing failed. One of the teams are not esports team");
 			return false;
 		}
-		if (!stringMainPage.contains("Kills") || !stringMainPage.contains("Objectives"))
-		{
-			System.out.println("Parsing failed. There is no kills page.");
-			return false;
-		}
-		/*********DOCUMENTS,PAGE STRINGS**********/
-		//<editor-fold desc="DOCUMENTS">
 
-		Document docKillsPage = parse_html("http://www.dotabuff.com/matches/" + id + "/kills");
-		Document docFarmPage = parse_html("http://www.dotabuff.com/matches/" + id + "/farm");
-		Document docLogPage = parse_html("http://www.dotabuff.com/matches/" + id + "/log");
-		if (docKillsPage.toString().equals("") || docFarmPage.toString().equals("") || docLogPage.toString().equals(""))
-			return false;
-		//</editor-fold>
-
-		//<editor-fold desc="STRINGS">
-		String stringKillsPage = docKillsPage.toString();
-		String stringFarmPage = docFarmPage.toString();
-		//</editor-fold>
-		/*************GLOBAL CREATION ************/
 		int currentIndex;
 		int tempIndex;
 		int currentIndex2;
@@ -223,101 +205,8 @@ public class ParserFactory
 		mainPageDireTotalLine = substringer(tempString, "<tfoot>", "</tfoot>");
 		//</editor-fold>
 
-		//<editor-fold desc="KILLS PAGE PARSER">
-		/***********Documentation*************/
-		/** killsPageRadiantHeroLine - array(0-5, 6-empty one) of strings of each hero result(Radiant)**/
-		/** killsPageRadiantTotalLine -  string of total results(Radiant)**/
-		/** killsMap - **/
-		/*************Variables***************/
-
-		String killsPageRadiantTotalLine;
-		String killsPageDireTotalLine;
-		String killsMap;
-		/*************Workspace***************/
-		/**GLOBAL**/
-		/**KillsMap**/
-		currentIndex = stringKillsPage.indexOf("time-clock");
-		tempIndex = stringKillsPage.indexOf("</article>", currentIndex);
-		tempString = stringKillsPage.substring(currentIndex, tempIndex);
-		killsMap = tempString;
-
-		/**RADIANT**/
-		tempString = substringer(stringKillsPage, "<section class=\"radiant\">", "</section>");
-		tempString = substringer(tempString, "<article class=\"r-tabbed-table\"", "</article>");
-		tempString = substringer(tempString, "<tbody>", "</tbody>");
-		String[] killsPageRadiantHeroLine = tempString.split("</tr>");
-
-		tempString = substringer(stringKillsPage, "<section class=\"radiant\">", "</section>");
-		killsPageRadiantTotalLine = substringer(tempString, "<tfoot>", "</tfoot>");
-
-		/***DIRE***/
-		tempString = substringer(stringKillsPage, "<section class=\"dire\">", "</section>");
-		tempString = substringer(tempString, "<article class=\"r-tabbed-table\"", "</article>");
-		tempString = substringer(tempString, "<tbody>", "</tbody>");
-		String[] killsPageDireHeroLine = tempString.split("</tr>");
-
-		tempString = substringer(stringKillsPage, "<section class=\"dire\">", "</section>");
-		killsPageDireTotalLine = substringer(tempString, "<tfoot>", "</tfoot>");
-
-		//</editor-fold>
-
-		//<editor-fold desc="FARM PAGE PARSER">
-		/***********Documentation*************/
-		/** farmPageRadiantHeroLine - array(0-5, 6-empty one) of strings of each hero result(Radiant)**/
-		/** farmPageRadiantTotalLine -  string of total results(Radiant)**/
-
-		/*************Variables***************/
-
-		String farmPageRadiantTotalLine;
-		String farmPageDireTotalLine;
-		/*************Workspace***************/
-		/**GLOBAL**/
-
-		/**RADIANT**/
-		tempString = substringer(stringFarmPage, "<section class=\"radiant\">", "</section>");
-		tempString = substringer(tempString, "<article class=\"r-tabbed-table\"", "</article>");
-		tempString = substringer(tempString, "<tbody>", "</tbody>");
-		String[] farmPageRadiantHeroLine = tempString.split("</tr>");
-
-		tempString = substringer(stringFarmPage, "<section class=\"radiant\">", "</section>");
-		farmPageRadiantTotalLine = substringer(tempString, "<tfoot>", "</tfoot>");
-		/***DIRE***/
-		tempString = substringer(stringFarmPage, "<section class=\"dire\">", "</section>");
-		tempString = substringer(tempString, "<article class=\"r-tabbed-table\"", "</article>");
-		tempString = substringer(tempString, "<tbody>", "</tbody>");
-		String[] farmPageDireHeroLine = tempString.split("</tr>");
-
-		tempString = substringer(stringFarmPage, "<section class=\"dire\">", "</section>");
-		farmPageDireTotalLine = substringer(tempString, "<tfoot>", "</tfoot>");
-
-		//</editor-fold>
-
-		//<editor-fold desc="LOG PAGE PARSER">
-		/***********Documentation*************/
-		/*logLine- array of log lines*/
-		/*************Variables***************/
-
-		/*************Workspace***************/
-
-		Elements elemsLogPage = docLogPage.select("div.line");
-		Object[] objsLog = elemsLogPage.toArray();
-		String[] logLine = new String[objsLog.length];
-		for (int i = 0; i < objsLog.length; i++)
-		{
-			logLine[i] = objsLog[i].toString();
-		}
-		//</editor-fold>
-
-		//<editor-fold desc="HEADER PAGE PARSER">
-		/***********Documentation*************/
-		/*logLine- array of log lines*/
-		/*************Variables***************/
-
-		/*************Workspace***************/
-
 		String headerString = substringer(stringMainPage, "header-content-secondary", "</div>");
 
-		//</editor-fold>
 
 		/****PARAMETERS****/
 
@@ -360,6 +249,8 @@ public class ParserFactory
 		teamName = teamName.replaceAll("\"", "");
 		teamName = teamName.replaceAll("\\;", "");
 		teamName = teamName.replaceAll(";", "");
+		teamName = teamName.replaceAll("&", "");
+		teamName = teamName.replaceAll("\\&", "");
 		teamName = replaceAllSeparators(teamName);
 		team[0].id = teamId;
 		team[0].name = teamName;
@@ -375,9 +266,6 @@ public class ParserFactory
 		teamName = replaceAllSeparators(teamName);
 		team[1].id = teamId;
 		team[1].name = teamName;
-
-		team[0].totalLevel = 0;
-		team[1].totalLevel = 0;
 		//</editor-fold>
 
 		//<editor-fold desc="PLAYER ID">
@@ -417,7 +305,6 @@ public class ParserFactory
 		/**RADIANT**/
 		for (int i = 0; i < mainPageRadiantHeroLine.length - 1; i++)
 		{
-			player[i].level = 0;
 			/**HeroName**/
 			tempString = substringer(mainPageRadiantHeroLine[i], "<a href=\"/heroes", "</a>");
 			tempString = substringer(tempString, "title=", "data");
@@ -446,7 +333,6 @@ public class ParserFactory
 			player[i].assists = Integer.parseInt(radiantHeroKDA[2]);
 
 			/**HeroHeal, HeroDamage, towerDamage, totalXPM, totalGPM**/
-
 			tempString = substringer(mainPageRadiantHeroLine[i], "<td class=\"tf-r r-tab r-group-2 cell-minor\">", "<span class=\"color-item-observer");
 
 			tempString = removeTags(tempString);
@@ -463,43 +349,17 @@ public class ParserFactory
 				if (table[j].contains("-"))
 					table[j] = "0";
 			}
-			player[i].totalLH = Integer.parseInt(table[0]);
 			player[i].totalXPM = Integer.parseInt(table[5]);
 			player[i].totalGPM = Integer.parseInt(table[3]);
 			player[i].heroDamage = Integer.parseInt(table[6]);
 			player[i].heroHeal = Integer.parseInt(table[7]);
 			player[i].towerDamage = Integer.parseInt(table[8]);
-			/**Items**/
-			/*tempString = substringer(mainPageRadiantHeroLine[i], "<td class=\"r-tab r-group-4\">", "</td>");
-
-			tempString = tempString.replaceAll("<td class=\"r-tab r-group-4\">", "");
-			String[] heroRadiantItems = tempString.split("<div class=\"match-item>");
-			int howMuchItems = 0;
-			if (heroRadiantItems.length > 6)
-				howMuchItems = 6;
-			else
-				howMuchItems = heroRadiantItems.length;
-			for (int j = 0; j < howMuchItems; j++)
-			{
-				if (heroRadiantItems[j].contains("title"))
-				{
-					heroRadiantItems[j] = substringer(heroRadiantItems[j], "title=\"", "data");
-					heroRadiantItems[j] = heroRadiantItems[j].replaceAll("title=", "");
-					heroRadiantItems[j] = heroRadiantItems[j].replaceAll("\"", "");
-					heroRadiantItems[j] = heroRadiantItems[j].substring(0, heroRadiantItems[j].length() - 1);
-					player[i].item[j] = heroRadiantItems[j];
-				} else
-					player[i].item[j] = "nottoparse";
-			}*/
-			for (int j = 0; j < 6; j++)
-				player[i].item[j] = "nottoparse";
 		}
 		//</editor-fold>
 		//<editor-fold desc="DIRE GENERAL INFO">
 		/**RADIANT**/
 		for (int i = 0; i < mainPageDireHeroLine.length - 1; i++)
 		{
-			player[i].level = 0;
 			/**HeroName**/
 			tempString = substringer(mainPageDireHeroLine[i], "<a href=\"/heroes", "</a>");
 			tempString = substringer(tempString, "title=", "data");
@@ -544,36 +404,11 @@ public class ParserFactory
 				if (table[j].contains("-"))
 					table[j] = "0";
 			}
-			player[i + 5].totalLH = Integer.parseInt(table[0]);
 			player[i + 5].totalXPM = Integer.parseInt(table[5]);
 			player[i + 5].totalGPM = Integer.parseInt(table[3]);
 			player[i + 5].heroDamage = Integer.parseInt(table[6]);
 			player[i + 5].heroHeal = Integer.parseInt(table[7]);
 			player[i + 5].towerDamage = Integer.parseInt(table[8]);
-			/**Items**/
-			/*tempString = substringer(mainPageRadiantHeroLine[i], "<td class=\"r-tab r-group-4\">", "</td>");
-
-			tempString = tempString.replaceAll("<td class=\"r-tab r-group-4\">", "");
-			String[] heroRadiantItems = tempString.split("<div class=\"match-item>");
-			int howMuchItems = 0;
-			if (heroRadiantItems.length > 6)
-				howMuchItems = 6;
-			else
-				howMuchItems = heroRadiantItems.length;
-			for (int j = 0; j < howMuchItems; j++)
-			{
-				if (heroRadiantItems[j].contains("title"))
-				{
-					heroRadiantItems[j] = substringer(heroRadiantItems[j], "title=\"", "data");
-					heroRadiantItems[j] = heroRadiantItems[j].replaceAll("title=", "");
-					heroRadiantItems[j] = heroRadiantItems[j].replaceAll("\"", "");
-					heroRadiantItems[j] = heroRadiantItems[j].substring(0, heroRadiantItems[j].length() - 1);
-					player[i].item[j] = heroRadiantItems[j];
-				} else
-					player[i].item[j] = "nottoparse";
-			}*/
-			for (int j = 0; j < 6; j++)
-				player[i + 5].item[j] = "nottoparse";
 		}
 		//</editor-fold>
 		//</editor-fold>
@@ -582,7 +417,6 @@ public class ParserFactory
 		//<editor-fold desc="RADIANT">
 		/**RADIANT**/
 		/**ProjectDir.MatchInfo.Team Total Kills % partisipation**/
-		team[0].partisipation = 0;
 		tempString = substringer(mainPageRadiantTotalLine, "<td class=\"tf-r r-tab r-group-1\">", "<td class=\"tf-r r-tab r-group-1 color-stat-gold\">");
 		tempString = removeTags(tempString);
 		tempString = tempString.replaceAll(" ", "");
@@ -595,15 +429,11 @@ public class ParserFactory
 		team[0].kills = Integer.parseInt(team1KDA[0]);
 		team[0].deaths = Integer.parseInt(team1KDA[1]);
 		team[0].assists = Integer.parseInt(team1KDA[2]);
-		for (int i = 0; i < killsPageRadiantHeroLine.length - 1; i++)
-		{
-			player[i].partisipation = 0;
-		}
+
 		//</editor-fold>
 		//<editor-fold desc="DIRE">
 		/**DIRE**/
 		/**ProjectDir.MatchInfo.Team Total Kills % partisipation**/
-		team[1].partisipation = 0;
 		tempString = substringer(mainPageDireTotalLine, "<td class=\"tf-r r-tab r-group-1\">", "<td class=\"tf-r r-tab r-group-1 color-stat-gold\">");
 		tempString = removeTags(tempString);
 		tempString = tempString.replaceAll(" ", "");
@@ -616,220 +446,12 @@ public class ParserFactory
 		team[1].kills = Integer.parseInt(team2KDA[0]);
 		team[1].deaths = Integer.parseInt(team2KDA[1]);
 		team[1].assists = Integer.parseInt(team2KDA[2]);
-		for (int i = 0; i < killsPageDireHeroLine.length - 1; i++)
-		{
-			player[i + 5].partisipation = 0;
-		}
 		//</editor-fold>
-		//</editor-fold>
-
-		//<editor-fold desc="GENERAL INFO[2]:  ProjectDir.MatchInfo.Team: HH,HD,LH,DN ">
-		//<editor-fold desc="Radiant GlobalInfo">
-
-		team[0].totalLH = 0;
-		team[0].totalDenies = 0;
-		team[0].totalXPM = 0;
-		team[0].totalGPM = 0;
-		team[0].heroDamage = 0;
-		team[0].heroHeal = 0;
-		//</editor-fold>
-		//<editor-fold desc="Dire GlobalInfo">
-		team[1].totalLH = 0;
-		team[1].totalDenies = 0;
-		team[1].totalXPM = 0;
-		team[1].totalGPM = 0;
-		team[1].heroDamage = 0;
-		team[1].heroHeal = 0;
-		//</editor-fold>
-		//</editor-fold>
-
-		//<editor-fold desc="KILLMAP">
-		String[] tempKillsArray = killsMap.split("</div>");
-		KillEvent[] killEvents = new KillEvent[(tempKillsArray.length - 3) / 2];
-		for (
-				int i = 0;
-				i < (tempKillsArray.length - 3) / 2; i++)
-
-		{
-			killEvents[i] = new KillEvent();
-		}
-
-		Integer killsCounter = 0;
-
-		for (int i = 1; i < tempKillsArray.length - 2; i++)
-		{
-			if (tempKillsArray[i].contains("suicide") || tempKillsArray[i].contains("Suicided"))
-				continue;
-
-			//	tempKillsArray [1..length-2]
-			String killTime;
-			Float xKill;
-			Float yKill;
-			Integer numberofasssisters;
-			String assisters;
-			if (i % 2 == 0)//killEvent
-			{
-				//<editor-fold desc="Dier and killers">
-				tempString = tempKillsArray[i];
-				String[] doubleString = new String[2];
-				if (tempString.contains("The Dire") || tempString.contains("The Radiant"))
-				{
-					tempIndex = tempString.indexOf("died at");
-					String whoDie = tempString.substring(tempIndex - 40, tempIndex);
-					tempIndex = whoDie.indexOf(">");
-					currentIndex = whoDie.indexOf("<");
-					whoDie = whoDie.substring(tempIndex + 2, currentIndex);
-					Integer numberWhoDie = 0;
-					for (int j = 0; j < 10; j++)
-					{
-						if (player[j].hero.contains(whoDie))
-							numberWhoDie = j + 1;
-					}
-					killEvents[killsCounter].dier = numberWhoDie;
-					if (tempString.contains("Assisted"))
-					{
-						String assistersString = substringer(tempString, "Assisted by", "Respawned");
-						assistersString = assistersString.replace("Assisted by", "");
-						assistersString = assistersString.replace("<br />", "");
-						assistersString = assistersString.replaceAll("/n", "");
-
-						String[] assistersKills = assistersString.split("</a>");
-						Integer assistsCounter = 1;
-						for (int j = 0; j < assistersKills.length - 1; j++)
-						{
-							String whoAssists = substringer(assistersKills[j], "img alt=\"", "\" ");
-							whoAssists = whoAssists.substring(9, whoAssists.length());
-							Integer numberWhoAssists = 0;
-							for (int k = 0; k < 10; k++)
-							{
-								if (player[k].hero.contains(whoAssists))
-								{
-									if (assistsCounter != 5)
-									{
-										killEvents[killsCounter].killers[assistsCounter] = k + 1;
-										assistsCounter++;
-										k = 10;
-									}
-								}
-							}
-						}
-					}
-				} else
-				{
-					if (tempString.contains("died at"))
-					{
-						String whoKill = substringer(tempString, "Killed by", "</a>");
-						whoKill = removeTags(whoKill);
-						whoKill = whoKill.replaceAll("\n", "");
-						whoKill = whoKill.replaceAll("Killed by ", "");
-						whoKill = whoKill.replaceAll("  ", "");
-						whoKill = whoKill.replaceFirst(" ", "");
-						Integer numberWhoKill = 0;
-						for (int j = 0; j < 10; j++)
-						{
-							if (player[j].hero.contains(whoKill))
-								numberWhoKill = j + 1;
-						}
-						killEvents[killsCounter].killers[0] = numberWhoKill;
-
-						tempIndex = tempString.indexOf("died at");
-						String whoDie = tempString.substring(tempIndex - 40, tempIndex);
-						tempIndex = whoDie.indexOf(">");
-						currentIndex = whoDie.indexOf("<");
-						whoDie = whoDie.substring(tempIndex + 2, currentIndex);
-						Integer numberWhoDie = 0;
-						for (int j = 0; j < 10; j++)
-						{
-							if (player[j].hero.contains(whoDie))
-								numberWhoDie = j + 1;
-						}
-						killEvents[killsCounter].dier = numberWhoDie;
-						if (tempString.contains("Assisted"))
-						{
-							String assistersString = "";
-							if (tempString.contains("Respawned"))
-								assistersString = substringer(tempString, "Assisted by", "Respawned");
-							else
-								assistersString = substringer(tempString, "Assisted by", "Lost");
-							assistersString = assistersString.replace("Assisted by", "");
-							assistersString = assistersString.replace("<br />", "");
-							assistersString = assistersString.replaceAll("/n", "");
-
-							String[] assistersKills = assistersString.split("</a>");
-							Integer assistsCounter = 1;
-							for (int j = 0; j < assistersKills.length - 1; j++)
-							{
-								String whoAssists = substringer(assistersKills[j], "img alt=\"", "\" ");
-								whoAssists = whoAssists.substring(9, whoAssists.length());
-
-								Integer numberWhoAssists = 0;
-								for (int k = 0; k < 10; k++)
-								{
-									if (player[k].hero.contains(whoAssists))
-									{
-										if (assistsCounter != 5)
-										{
-											killEvents[killsCounter].killers[assistsCounter] = k + 1;
-											assistsCounter++;
-											k = 10;
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				//</editor-fold>
-				if (!tempKillsArray[i].contains("Assisted by"))
-					killEvents[killsCounter].assistsNumber = 0;
-				else
-				{
-					if (tempKillsArray[i].contains("Respawned"))
-						assisters = substringer(tempKillsArray[i], "Assisted by", "Respawned");
-					else
-						assisters = substringer(tempKillsArray[i], "Assisted by", "Lost");
-					String[] againTempArray = assisters.split("</a>");
-					killEvents[killsCounter].assistsNumber = againTempArray.length - 1;
-				}
-
-				killEvents[killsCounter].whoKill = 1;
-				killsCounter++;
-			} else //Coords : X, Y, Time
-			{
-				tempString = substringer(tempKillsArray[i], "top:", "%");
-				tempString = tempString.replaceAll("top:", "");
-				tempString = tempString.replaceAll(" ", "");
-				killEvents[killsCounter].y = Float.parseFloat(tempString);
-				tempString = substringer(tempKillsArray[i], "left:", "%");
-				tempString = tempString.replaceAll("left:", "");
-				tempString = tempString.replaceAll(" ", "");
-				killEvents[killsCounter].x = Float.parseFloat(tempString);
-				//System.out.println(tempKillsArray[i]);
-				if (tempKillsArray[i].contains("data-slider-max"))
-				{
-					tempString = substringer(tempKillsArray[i], "data-slider-min=", "data-slider-max");
-					tempString = tempString.replaceAll("data-slider-min=", "");
-					tempString = tempString.replaceAll("\"", "");
-					tempString = tempString.replaceAll(" ", "");
-					currentIndex = tempString.indexOf(".");
-					tempString = tempString.substring(0, currentIndex);
-					killEvents[killsCounter].second = Integer.parseInt(tempString);
-				}
-			}
-
-		}
-
-		for (int i = 0; i < killEvents.length; i++)
-		{
-			if (killEvents[i].second != null && killEvents[i].dier != null)
-				killEventArrayList.add(killEvents[i]);
-		}
-
 		//</editor-fold>
 
 		match.universalX = 0;
 
-		//<editor-fold desc="TIME: Match: matchTime, FBTime, F10KTime; ProjectDir.MatchInfo.Player: timeDead">
+		//<editor-fold desc="TIME: Match: matchTime, FBTime, F10KTime;">
 
 		tempString = substringer(headerString, "Region", "</dd>");
 
@@ -839,500 +461,12 @@ public class ParserFactory
 		tempString = tempString.replaceAll("\n", "");
 		tempString = tempString.replaceAll(" ", "");
 		match.matchTime = timeToMinutes(tempString);
-		int tempKillsDireCounter = 0;
-		int tempKillsRadiantCounter = 0;
-		Boolean fbbool = false;
-		Boolean f10kbool = false;
-		for (int j = 0; j < logLine.length; j++)
-		{
-			if (logLine[j].contains("killed") && !logLine[j].contains("roshan") && !logLine[j].contains("courier"))
-			{
-				tempString = logLine[j];
-				currentIndex = tempString.indexOf("faction-dire");
-				tempIndex = tempString.indexOf("faction-radiant");
-				if (currentIndex < tempIndex)
-				{
-					if (fbbool == false)
-					{
-						currentIndex2 = tempString.indexOf("time\">");
-						tempIndex2 = tempString.indexOf("</span", currentIndex2);
 
-						String fbtime = tempString.substring(currentIndex2 + 6, tempIndex2);
-						match.FBTime = mapTimeToSeconds(fbtime);
-						match.firstBloodRadiant = true;
-						fbbool = true;
-					}
-					tempKillsRadiantCounter++;
-				}
-				if (tempIndex < currentIndex)
-				{
-					if (fbbool == false)
-					{
-						currentIndex2 = tempString.indexOf("time\">");
-						tempIndex2 = tempString.indexOf("</span");
-						String fbtime = tempString.substring(currentIndex2 + 6, tempIndex2);
-						match.FBTime = mapTimeToSeconds(fbtime);
-
-						match.firstBloodRadiant = false;
-						fbbool = true;
-					}
-					tempKillsDireCounter++;
-				}
-
-				if (tempKillsRadiantCounter == 10 && f10kbool == false)
-				{
-					currentIndex2 = tempString.indexOf("time\">");
-					tempIndex2 = tempString.indexOf("</span");
-					String f10killstime = tempString.substring(currentIndex2 + 6, tempIndex2);
-					match.F10KTime = mapTimeToSeconds(f10killstime);
-					match.first10KillsRadiant = true;
-					f10kbool = true;
-				}
-
-				if (tempKillsDireCounter == 10 && f10kbool == false)
-				{
-					currentIndex2 = tempString.indexOf("time\">");
-					tempIndex2 = tempString.indexOf("</span");
-					String f10killstime = tempString.substring(currentIndex2 + 6, tempIndex2);
-					match.F10KTime = mapTimeToSeconds(f10killstime);
-
-					match.first10KillsRadiant = false;
-					f10kbool = true;
-				}
-			}
-		}
-
-		//</editor-fold>
-
-		//<editor-fold desc="GOLD EARNINGS:    ProjectDir.MatchInfo.Player: goldFromKills, goldLost, goldFed">
-		//<editor-fold desc="Radiant GOLD EARNINGS">
-		for (int i = 0; i < 5; i++)
-		{
-			currentIndex = farmPageRadiantHeroLine[i].indexOf("r-tab r-group-3");
-			tempIndex = farmPageRadiantHeroLine[i].indexOf("</td>", currentIndex);
-			tempString = farmPageRadiantHeroLine[i].substring(currentIndex, tempIndex);
-			tempString = removeTags(tempString);
-			currentIndex = tempString.indexOf("\">");
-			tempString = tempString.substring(currentIndex + 2, tempString.length());
-			tempString = tempString.replaceAll(",", "");
-			tempString = tempString.replaceAll("\n", "");
-			tempString = tempString.replaceAll(" ", "");
-			player[i].goldForKills = Integer.parseInt(tempString);
-
-			currentIndex = farmPageRadiantHeroLine[i].indexOf("r-tab r-group-3", tempIndex + 15);
-			tempIndex = farmPageRadiantHeroLine[i].indexOf("</td>", currentIndex + 15);
-			tempString = farmPageRadiantHeroLine[i].substring(currentIndex, tempIndex);
-			tempString = removeTags(tempString);
-			currentIndex = tempString.indexOf("\">");
-			tempString = tempString.substring(currentIndex + 2, tempString.length());
-			tempString = tempString.replaceAll(",", "");
-			tempString = tempString.replaceAll("\n", "");
-			tempString = tempString.replaceAll(" ", "");
-			player[i].goldLost = Integer.parseInt(tempString);
-
-
-			currentIndex = farmPageRadiantHeroLine[i].indexOf("r-tab r-group-3", tempIndex + 15);
-			tempIndex = farmPageRadiantHeroLine[i].indexOf("</td>", currentIndex + 15);
-			tempString = farmPageRadiantHeroLine[i].substring(currentIndex, tempIndex);
-			tempString = removeTags(tempString);
-			currentIndex = tempString.indexOf("\">");
-			tempString = tempString.substring(currentIndex + 2, tempString.length());
-			tempString = tempString.replaceAll(",", "");
-			tempString = tempString.replaceAll("\n", "");
-			tempString = tempString.replaceAll(" ", "");
-			player[i].goldFed = Integer.parseInt(tempString);
-		}
-
-		currentIndex = farmPageRadiantTotalLine.indexOf("r-tab r-group-3");
-		tempIndex = farmPageRadiantTotalLine.indexOf("</td>", currentIndex);
-		tempString = farmPageRadiantTotalLine.substring(currentIndex, tempIndex);
-		tempString = removeTags(tempString);
-
-		currentIndex = tempString.indexOf("\">");
-		tempString = tempString.substring(currentIndex + 2, tempString.length());
-		tempString = tempString.replaceAll(",", "");
-		tempString = tempString.replaceAll("\n", "");
-		tempString = tempString.replaceAll(" ", "");
-		team[0].goldForKills = Integer.parseInt(tempString);
-
-		currentIndex = farmPageRadiantTotalLine.indexOf("r-tab r-group-3", tempIndex + 15);
-		tempIndex = farmPageRadiantTotalLine.indexOf("</td>", currentIndex + 15);
-		tempString = farmPageRadiantTotalLine.substring(currentIndex, tempIndex);
-		tempString = removeTags(tempString);
-
-		currentIndex = tempString.indexOf("\">");
-		tempString = tempString.substring(currentIndex + 2, tempString.length());
-		tempString = tempString.replaceAll(",", "");
-		tempString = tempString.replaceAll("\n", "");
-		tempString = tempString.replaceAll(" ", "");
-		team[0].goldLost = Integer.parseInt(tempString);
-
-
-		currentIndex = farmPageRadiantTotalLine.indexOf("r-tab r-group-3", tempIndex + 15);
-		tempIndex = farmPageRadiantTotalLine.indexOf("</td>", currentIndex + 15);
-		tempString = farmPageRadiantTotalLine.substring(currentIndex, tempIndex);
-		tempString = removeTags(tempString);
-
-		currentIndex = tempString.indexOf("\">");
-		tempString = tempString.substring(currentIndex + 2, tempString.length());
-		tempString = tempString.replaceAll(",", "");
-		tempString = tempString.replaceAll("\n", "");
-		tempString = tempString.replaceAll(" ", "");
-		team[0].goldFed = Integer.parseInt(tempString);
-		//</editor-fold>
-		//<editor-fold desc="Dire GOLD EARNINGS">
-		for (
-				int i = 0;
-				i < 5; i++)
-
-		{
-			currentIndex = farmPageDireHeroLine[i].indexOf("r-tab r-group-3");
-			tempIndex = farmPageDireHeroLine[i].indexOf("</td>", currentIndex);
-			tempString = farmPageDireHeroLine[i].substring(currentIndex, tempIndex);
-			tempString = removeTags(tempString);
-			currentIndex = tempString.indexOf("\">");
-			tempString = tempString.substring(currentIndex + 2, tempString.length());
-			tempString = tempString.replaceAll(",", "");
-			tempString = tempString.replaceAll("\n", "");
-			tempString = tempString.replaceAll(" ", "");
-			player[i + 5].goldForKills = Integer.parseInt(tempString);
-
-			currentIndex = farmPageDireHeroLine[i].indexOf("r-tab r-group-3", tempIndex + 15);
-			tempIndex = farmPageDireHeroLine[i].indexOf("</td>", currentIndex + 15);
-			tempString = farmPageDireHeroLine[i].substring(currentIndex, tempIndex);
-			tempString = removeTags(tempString);
-			currentIndex = tempString.indexOf("\">");
-			tempString = tempString.substring(currentIndex + 2, tempString.length());
-			tempString = tempString.replaceAll(",", "");
-			tempString = tempString.replaceAll("\n", "");
-			tempString = tempString.replaceAll(" ", "");
-			player[i + 5].goldLost = Integer.parseInt(tempString);
-
-
-			currentIndex = farmPageDireHeroLine[i].indexOf("r-tab r-group-3", tempIndex + 15);
-			tempIndex = farmPageDireHeroLine[i].indexOf("</td>", currentIndex + 15);
-			tempString = farmPageDireHeroLine[i].substring(currentIndex, tempIndex);
-			tempString = removeTags(tempString);
-			currentIndex = tempString.indexOf("\">");
-			tempString = tempString.substring(currentIndex + 2, tempString.length());
-			tempString = tempString.replaceAll(",", "");
-			tempString = tempString.replaceAll("\n", "");
-			tempString = tempString.replaceAll(" ", "");
-			player[i + 5].goldFed = Integer.parseInt(tempString);
-		}
-
-		currentIndex = farmPageDireTotalLine.indexOf("r-tab r-group-3");
-		tempIndex = farmPageDireTotalLine.indexOf("</td>", currentIndex);
-		tempString = farmPageDireTotalLine.substring(currentIndex, tempIndex);
-		tempString = removeTags(tempString);
-
-		currentIndex = tempString.indexOf("\">");
-		tempString = tempString.substring(currentIndex + 2, tempString.length());
-		tempString = tempString.replaceAll(",", "");
-		tempString = tempString.replaceAll("\n", "");
-		tempString = tempString.replaceAll(" ", "");
-		team[1].goldForKills = Integer.parseInt(tempString);
-
-		currentIndex = farmPageDireTotalLine.indexOf("r-tab r-group-3", tempIndex + 15);
-		tempIndex = farmPageDireTotalLine.indexOf("</td>", currentIndex + 15);
-		tempString = farmPageDireTotalLine.substring(currentIndex, tempIndex);
-		tempString = removeTags(tempString);
-
-		currentIndex = tempString.indexOf("\">");
-		tempString = tempString.substring(currentIndex + 2, tempString.length());
-		tempString = tempString.replaceAll(",", "");
-		tempString = tempString.replaceAll("\n", "");
-		tempString = tempString.replaceAll(" ", "");
-		team[1].goldLost = Integer.parseInt(tempString);
-
-
-		currentIndex = farmPageDireTotalLine.indexOf("r-tab r-group-3", tempIndex + 15);
-		tempIndex = farmPageDireTotalLine.indexOf("</td>", currentIndex + 15);
-		tempString = farmPageDireTotalLine.substring(currentIndex, tempIndex);
-		tempString = removeTags(tempString);
-
-		currentIndex = tempString.indexOf("\">");
-		tempString = tempString.substring(currentIndex + 2, tempString.length());
-		tempString = tempString.replaceAll(",", "");
-		tempString = tempString.replaceAll("\n", "");
-		tempString = tempString.replaceAll(" ", "");
-		team[1].goldFed = Integer.parseInt(tempString);
-
-		//</editor-fold>
-		//</editor-fold>
-
-		//<editor-fold desc="LAST HITS:    ProjectDir.MatchInfo.Player: minuteLastHits, perMinuteLastHits ; ProjectDir.MatchInfo.Team: minuteLastHits, perMinuteLastHits; ">
-		//<editor-fold desc="Radiant LastHits">
-		/*for (
-				int i = 0;
-				i < 5; i++)
-
-		{
-			currentIndex = farmPageRadiantHeroLine[i].lastIndexOf("r-tab r-group-2");
-			tempIndex = farmPageRadiantHeroLine[i].indexOf("</td>", currentIndex);
-			tempString = farmPageRadiantHeroLine[i].substring(currentIndex, tempIndex);
-			currentIndex = tempString.indexOf("<span data");
-			tempIndex = tempString.indexOf("</span>", currentIndex);
-			tempString = tempString.substring(currentIndex, tempIndex);
-			tempString = removeTags(tempString);
-			String[] minuteLastHits = tempString.split(",");
-			int sum = 0;
-			for (int j = 0; j < minuteLastHits.length; j++)
-			{
-				sum += Integer.parseInt(minuteLastHits[j]);
-				player[i].perMinuteLastHits[j] = Integer.parseInt(minuteLastHits[j]);
-				player[i].minuteLastHits[j] = sum;
-				.out.println("LAST1:" + player[i].minuteLastHits[i]);
-			}
-		}
-
-		for (int i = 0; i < 150; i++)
-		{
-			for (int j = 0; j < 5; j++)
-			{
-				if (player[j].minuteLastHits[i] != 9999)
-				{
-					team[0].minuteLastHits[i] += player[j].minuteLastHits[i];
-					team[0].perMinuteLastHits[i] += player[j].perMinuteLastHits[i];
-				}
-			}
-		}*/
-		//</editor-fold>
-		//<editor-fold desc="Dire LastHits">
-		/*for (int i = 0; i < 5; i++)
-		{
-			currentIndex = farmPageDireHeroLine[i].lastIndexOf("r-tab r-group-2");
-			tempIndex = farmPageDireHeroLine[i].indexOf("</td>", currentIndex);
-			tempString = farmPageDireHeroLine[i].substring(currentIndex, tempIndex);
-			currentIndex = tempString.indexOf("<span data");
-			tempIndex = tempString.indexOf("</span>", currentIndex);
-			tempString = tempString.substring(currentIndex, tempIndex);
-			tempString = removeTags(tempString);
-			String[] minuteLastHits = tempString.split(",");
-			int sum = 0;
-			for (int j = 0; j < minuteLastHits.length; j++)
-			{
-				sum += Integer.parseInt(minuteLastHits[j]);
-				player[i + 5].perMinuteLastHits[j] =0;
-				player[i + 5].minuteLastHits[j] = 0;
-				System.out.println("LAST2:" + player[i + 5].perMinuteLastHits[i]);
-			}
-		}
-
-		for (int i = 0; i < 150; i++)
-		{
-			for (int j = 0; j < 5; j++)
-			{
-				if (player[j + 5].minuteLastHits[i] != 9999)
-				{
-					team[1].minuteLastHits[i] += player[j + 5].minuteLastHits[i];
-					team[1].perMinuteLastHits[i] += player[j + 5].perMinuteLastHits[i];
-				}
-			}
-		}*/
-		//</editor-fold>
 		//</editor-fold>
 
 		//<editor-fold desc="OBJECTIVES:     ProjectDir.MatchInfo.Player: TowersDestroyed, TowersDenied, RoshanKills, TowerDamage;  ProjectDir.MatchInfo.Team: TowersDestroyed, TowersDenied, RoshanKills, TowerDamage;">
-		//<editor-fold desc="Radiant objectives">
-		for (int i = 0; i < 5; i++)
-		{
-			//Towers destroyed and denied
 
-			player[i].towersDestroyed = 0;
-			player[i].towersDenied = 0;
-			player[i].roshanKills = 0;
-		}
-		team[0].towersDestroyed = 0;
-		team[0].towersDenied = 0;
-		team[0].towerDamage = 0;
-		team[0].roshanKills = 0;
-		//</editor-fold>
-		//<editor-fold desc="Dire objectives">
 
-		for (int i = 0; i < 5; i++)
-		{
-			player[i + 5].towersDestroyed = 0;
-			player[i + 5].towersDenied = 0;
-			player[i + 5].roshanKills = 0;
-		}
-
-		team[1].towersDestroyed = 0;
-		team[1].towersDenied = 0;
-		team[1].towerDamage = 0;
-		team[1].roshanKills = 0;
-
-		//</editor-fold>
-		//</editor-fold>
-
-		//<editor-fold desc="ROLES DETECTOR: Player.role">
-		fillNetworthPositions(player);
-		for (int i = 0; i < mainPageRadiantHeroLine.length - 1; i++)
-		{
-			currentIndex = mainPageRadiantHeroLine[i].indexOf("tf-fa");
-			tempIndex = mainPageRadiantHeroLine[i].indexOf("</td>", currentIndex);
-			tempString = mainPageRadiantHeroLine[i].substring(currentIndex, tempIndex);
-			currentIndex2 = tempString.indexOf("title=\"");
-			tempIndex2 = tempString.indexOf("\"", currentIndex2 + 7);
-			tempString = tempString.substring(currentIndex2, tempIndex2);
-			if (tempString.contains("Support"))
-				player[i].firstLine = "Support";
-			else
-				player[i].firstLine = "Core";
-
-		}
-		//rolesDetector(player);
-		//</editor-fold>
-
-		//<editor-fold desc="EXPIRIENCE: Player.minuteXPM, Team. minuteXPM"
-		//<editor-fold desc="Radiant Expirience">
-		/*for (
-				int i = 0;
-				i < 5; i++)
-
-		{
-			tempString = substringer(farmPageRadiantHeroLine[i], "<td class=\"r-tab r-group-2\"", "</td>");
-			tempString = removeTag(tempString, "span");
-			tempString = removeTag(tempString, "td");
-			tempString = removeTag(tempString, "div");
-			tempIndex = tempString.indexOf(" ");
-			tempString = tempString.substring(tempIndex, tempString.length());
-			tempString = tempString.replaceAll(" ", "");
-			tempString = tempString.replaceAll("\n", "");
-			String[] tempXPMArray = tempString.split(",");
-			for (int j = 0; j < tempXPMArray.length; j++)
-			{
-				player[i].minuteXPM[j] = Integer.parseInt(tempXPMArray[j]);
-			}
-		}
-
-		for (
-				int i = 0;
-				i < 150; i++)
-
-		{
-			for (int j = 0; j < 5; j++)
-			{
-				if (player[j].minuteXPM[i] != 9999)
-				{
-					team[0].minuteXPM[i] += player[j].minuteXPM[i];
-				}
-			}
-		}*/
-		//</editor-fold>
-		//<editor-fold desc="Dire Expirience">
-		/*for (
-				int i = 0;
-				i < 5; i++)
-
-		{
-			tempString = substringer(farmPageDireHeroLine[i], "<td class=\"r-tab r-group-2\"", "</td>");
-			tempString = removeTag(tempString, "span");
-			tempString = removeTag(tempString, "td");
-			tempString = removeTag(tempString, "div");
-			tempIndex = tempString.indexOf(" ");
-			tempString = tempString.substring(tempIndex, tempString.length());
-			tempString = tempString.replaceAll(" ", "");
-			tempString = tempString.replaceAll("\n", "");
-			String[] tempXPMArray = tempString.split(",");
-			for (int j = 0; j < tempXPMArray.length; j++)
-			{
-				player[i + 5].minuteXPM[j] = Integer.parseInt(tempXPMArray[j]);
-			}
-		}
-
-		for (
-				int i = 0;
-				i < 150; i++)
-
-		{
-			for (int j = 0; j < 5; j++)
-			{
-				if (player[j + 5].minuteXPM[i] != 9999)
-					team[1].minuteXPM[i] += player[j + 5].minuteXPM[i];
-			}
-		}*/
-		//</editor-fold>
-		//</editor-fold>
-
-		//<editor-fold desc="FIRST OBJECTIVES">
-		Boolean roshanDetected = false;
-		Boolean FBDetected = false;
-		Boolean F10KDetected = false;
-		Integer radiantKillsCounter = 0;
-		Integer direKillsCounter = 0;
-		for (int i = 0; i < logLine.length; i++)
-		{
-			if (logLine[i].contains("killed") && !logLine[i].contains("Roshan") && !logLine[i].contains("The Radiant") && !logLine[i].contains("The Dire") && !logLine[i].contains("creeps"))
-			{
-				currentIndex = logLine[i].indexOf("faction-dire");
-				tempIndex = logLine[i].indexOf("faction-radiant");
-				if (tempIndex < currentIndex)
-				{
-					direKillsCounter++;
-					if (!FBDetected)
-					{
-						tempString = substringer(logLine[i], "<span class=\"time", "</span>");
-						tempString = removeTags(tempString);
-						match.FBTime = mapTimeToSeconds(tempString);
-						team[0].isFirstBlood = false;
-						team[1].isFirstBlood = true;
-						FBDetected = true;
-					}
-					if (direKillsCounter == 10 && !F10KDetected)
-					{
-						tempString = substringer(logLine[i], "<span class=\"time", "</span>");
-						tempString = removeTags(tempString);
-						match.F10KTime = mapTimeToSeconds(tempString);
-						team[0].isF10K = false;
-						team[1].isF10K = true;
-						F10KDetected = true;
-					}
-				}
-				if (currentIndex < tempIndex)
-				{
-					radiantKillsCounter++;
-					if (!FBDetected)
-					{
-						tempString = substringer(logLine[i], "<span class=\"time", "</span>");
-						tempString = removeTags(tempString);
-						match.FBTime = mapTimeToSeconds(tempString);
-						team[0].isFirstBlood = true;
-						match.firstBloodRadiant = true;
-						team[1].isFirstBlood = false;
-						FBDetected = true;
-					}
-					if (radiantKillsCounter == 10 && !F10KDetected)
-					{
-						tempString = substringer(logLine[i], "<span class=\"time", "</span>");
-						tempString = removeTags(tempString);
-						match.F10KTime = mapTimeToSeconds(tempString);
-						team[0].isF10K = true;
-						match.first10KillsRadiant = true;
-						team[1].isF10K = false;
-						F10KDetected = true;
-					}
-				}
-			}
-			if (logLine[i].contains("Roshan") && !roshanDetected)
-			{
-				tempString = substringer(logLine[i], "<span class=\"time", "</span>");
-				tempString = removeTags(tempString);
-				match.FRoshanTime = mapTimeToSeconds(tempString);
-				if (logLine[i].contains("The Dire") && !roshanDetected)
-				{
-					team[1].isFirstRoshan = true;
-					match.firstRoshanRadiant = false;
-					roshanDetected = true;
-				}
-				if (logLine[i].contains("The Radiant") && !roshanDetected)
-				{
-					team[0].isFirstRoshan = true;
-					match.firstRoshanRadiant = true;
-					roshanDetected = true;
-				}
-			}
-		}
 		//</editor-fold>
 
 		//<editor-fold desc="MATCH GENERAL INFO">
@@ -1367,40 +501,8 @@ public class ParserFactory
 		team[0].rating = 1000;
 		team[1].rating = 1000;
 		//</editor-fold>
-		
-		return true;
-	}
 
-	private void fillNetworthPositions(Player[] player)
-	{
-		ArrayList<Integer> radiantNetworth = new ArrayList<>();
-		ArrayList<Integer> direNetworth = new ArrayList<>();
-		for (int i = 0; i < 5; i++)
-		{
-			radiantNetworth.add(player[i].totalGPM);
-		}
-		for (int i = 5; i < 10; i++)
-		{
-			direNetworth.add(player[i].totalGPM);
-		}
-		Collections.sort(radiantNetworth);
-		Collections.sort(direNetworth);
-		for (int i = 0; i < radiantNetworth.size(); i++)
-		{
-			for (int j = 0; j < 5; j++)
-			{
-				if (player[j].totalGPM == radiantNetworth.get(i))
-					player[j].networthPosition = 5 - i;
-			}
-		}
-		for (int i = 0; i < direNetworth.size(); i++)
-		{
-			for (int j = 5; j < 10; j++)
-			{
-				if (player[j].totalGPM == direNetworth.get(i))
-					player[j].networthPosition = 5 - i;
-			}
-		}
+		return true;
 	}
 
 	ArrayList<String> parseMatches(ArrayList<String> leagueLinks) throws IOException, InterruptedException, ParseException
@@ -1431,7 +533,7 @@ public class ParserFactory
 			Date lastMatchDate = formatter.parse(lastDate);
 			long diff = nowDate.getTime() - lastMatchDate.getTime();
 			long hours = TimeUnit.MILLISECONDS.toHours(diff);
-			if (hours >= 24 * 5)
+			if (hours >= 24 * 30)
 			{
 				System.out.println("There is no new matches. Continue...");
 				continue;
@@ -1604,10 +706,10 @@ public class ParserFactory
 
 	}
 
-	Boolean calculateIfMatchCanBeParsed(String time)
+	Boolean calculateIfMatchCanBeParsed(String time) throws ParseException
 	{
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-
+		Date patchUpBorder = format.parse("2016-12-15 00:00");
 		Date d1 = null;
 		Date d2 = null;
 		try
@@ -1620,10 +722,13 @@ public class ParserFactory
 		}
 		long diff = d1.getTime() - d2.getTime();
 		long hours = TimeUnit.MILLISECONDS.toHours(diff);
-		if (hours >= 2 && hours <= 700)
-			return true;
-		else
-			return false;
+		if (d2.after(patchUpBorder))
+		{
+			if (hours >= 2 && hours <= 700)
+				return true;
+			else
+				return false;
+		} else return false;
 	}
 
 	public String replaceAllSeparators(String string)

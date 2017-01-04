@@ -5,8 +5,6 @@ public class Main
 	public static void main(String[] args) throws Exception
 	{
 		MatchesWorker matchesWorker = new MatchesWorker();
-		ReceptionWorker receptionWorker = new ReceptionWorker();
-		HeroesAverageStatsWorker heroesAverageStatsWorker = new HeroesAverageStatsWorker();
 		CleanerWorker cleanerWorker = new CleanerWorker();
 		//EngineerWorker engineerWorker=new EngineerWorker();
 		//engineerWorker.start_work();

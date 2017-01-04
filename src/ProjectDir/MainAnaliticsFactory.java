@@ -9,12 +9,8 @@ import java.util.ArrayList;
 
 public class MainAnaliticsFactory
 {
-	AverageAnaliticsFactory averageAnaliticsFactory = new AverageAnaliticsFactory();
 	PrimaryAnaliticsFactory primaryAnaliticsFactory = new PrimaryAnaliticsFactory();
-
-	EPPAnaliticsFactory eppAnaliticsFactory = new EPPAnaliticsFactory();
 	UniqueInfoFactory uniqueInfoFactory = new UniqueInfoFactory();
-	AverageDataFactory averageDataFactory = new AverageDataFactory();
 	FileControlFactory fileControlFactory = new FileControlFactory();
 	WriterReaderFactory writerReaderFactory = new WriterReaderFactory();
 	StringReader stringReader = new StringReader();
@@ -22,12 +18,6 @@ public class MainAnaliticsFactory
 
 	public void startWork() throws IOException, ParseException, InterruptedException
 	{
-		ArrayList<KillEvent> killEventArrayList = new ArrayList<KillEvent>();
-		ArrayList<BuyBackEvent> buyBackEventArrayList = new ArrayList<BuyBackEvent>();
-		ArrayList<GlyphEvent> glyphEventArrayList = new ArrayList<GlyphEvent>();
-		ArrayList<TowerEvent> towerEventArrayList = new ArrayList<TowerEvent>();
-		ArrayList<WardEvent> wardEventArrayList = new ArrayList<WardEvent>();
-		ArrayList<RoshanEvent> roshanEventArrayList = new ArrayList<RoshanEvent>();
 		Match match = new Match();
 		Player[] player = new Player[10];
 		Team[] team = new Team[2];
@@ -42,24 +32,15 @@ public class MainAnaliticsFactory
 		}
 		/**PrimaryAnaliticsFactory and EPPFactory**/
 		String matchesFile = fileControlFactory.readFile("files/Matches.txt");
-		//String matchesFile = fileControlFactory.readFile("files/TestMatch.txt");
 		String[] matches = matchesFile.split("\n");
 		for (int i = 0; i < matches.length; i++)
 		{
 			String matchId = matches[i].split(";")[0];
 			if (uniqueInfoFactory.checkIfIdAlreadyAnalized(matchId))
 				continue;
-			stringReader.fillArraysFromFile(matches[i], team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
-			team[0].EGPoints = 0;
-			team[1].EGPoints = 0;
-			team[0].MGPoints = 0;
-			team[1].MGPoints = 0;
-			team[0].LGPoints = 0;
-			team[1].LGPoints = 0;
-			eppAnaliticsFactory.calculatePlayersEPP(team, player, match, killEventArrayList,buyBackEventArrayList,glyphEventArrayList,towerEventArrayList,wardEventArrayList,roshanEventArrayList);
-			primaryAnaliticsFactory.analizeMatch(team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+			stringReader.fillArraysFromFile(matches[i], team, player, match);
+			primaryAnaliticsFactory.analizeMatch(team, player, match);
 			writerReaderFactory.makeZeros(team, player, match);
-			writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 			fileOperationsFactory.writeToFile(matchId, "files/MatchesAnalized.txt");
 		}
 	}

@@ -8,7 +8,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class EngineerWorker
 {
 	FileOperationsFactory fileOperationsFactory = new FileOperationsFactory();
-	DataWorker dataWorker = new DataWorker();
 	ParserFactory parser = new ParserFactory();
 
 	public ArrayList<String> listFilesForFolder(final File folder)
@@ -61,7 +60,7 @@ public class EngineerWorker
 			{
 				medianEPP.add(Integer.parseInt(lines[j].split(";")[4]));
 			}
-			Integer epp = dataWorker.getMedianFromArray(medianEPP);
+			Integer epp = 0;
 			Integer form = ThreadLocalRandom.current().nextInt(-25, 25 + 1);
 			Integer fighting = 0;
 			Integer positioning = 0;

@@ -37,14 +37,12 @@ public class RatingFactory
 
 				String team1Tier = tierWorker.getTeamTier(team1Id);
 				String team2Tier = tierWorker.getTeamTier(team2Id);
-
 				Integer team1Rating = getRatingById(team1Id, team1Name, Integer.parseInt(team2Tier));
 				Integer team2Rating = getRatingById(team2Id, team2Name, Integer.parseInt(team1Tier));
 				Integer team1MainRating = getRatingById(team1Id, team1Name, 0);
 				Integer team2MainRating = getRatingById(team2Id, team2Name, 0);
 
 				Boolean firstTeamWin = Boolean.parseBoolean(matchInfo.split(";")[7]);
-				String matchHardness = "H";
 				String ratingDifference = calculateRatingDifference(team1Rating, team2Rating);
 				Double winMultiplier = 1.0;
 				Double loseMultiplier = 1.0;
@@ -127,7 +125,7 @@ public class RatingFactory
 				fileOperationsFactory.writeToFile(matchId + ";" + team1MainRating + ";" + team2MainRating + ";" + 50 + ";" + team1Rating + ";" + team2Rating, "files/teams/" + team1Id + "/TeamMatches.txt");
 				fileOperationsFactory.writeToFile(matchId + ";" + team2MainRating + ";" + team1MainRating + ";" + 50 + ";" + team2Rating + ";" + team1Rating, "files/teams/" + team2Id + "/TeamMatches.txt");
 				fileOperationsFactory.writeToFile(matchId, "files/MatchesRated.txt");
-				System.out.println("Match " + matchId + " was rated. Match HardNess:" + matchHardness);
+				System.out.println("Match " + matchId + " was rated");
 			}
 		}
 	}
@@ -147,56 +145,6 @@ public class RatingFactory
 				return "T2BD";
 			} else return "T2SD";
 		}
-	}
-
-	public String calculateMatchHardness(String team1Kills, String team2Kills, String team1totalGold, String team2totalGold, String duration)
-	{
-		Double t1K = Double.parseDouble(team1Kills);
-		Double t2K = Double.parseDouble(team2Kills);
-		Double t1G = Double.parseDouble(team1totalGold);
-		Double t2G = Double.parseDouble(team2totalGold);
-		Integer matchDuration = Integer.parseInt(duration);
-
-		int durationHardness;
-		int killsHardness;
-		int goldHardness;
-
-		if ((Math.max(t1K, t2K) / Math.min(t1K, t2K)) >= 2)
-			killsHardness = 0;
-		else if ((Math.max(t1K, t2K) / Math.min(t1K, t2K)) >= 1.6 && (Math.max(t1K, t2K) / Math.min(t1K, t2K)) < 2)
-			killsHardness = 33;
-		else if ((Math.max(t1K, t2K) / Math.min(t1K, t2K)) >= 1.3 && (Math.max(t1K, t2K) / Math.min(t1K, t2K)) < 1.6)
-			killsHardness = 66;
-		else killsHardness = 100;
-
-
-		if ((Math.max(t1G, t2G) / Math.min(t1G, t2G)) >= 1.45)
-			goldHardness = 0;
-		else if ((Math.max(t1G, t2G) / Math.min(t1G, t2G)) >= 1.28 && (Math.max(t1G, t2G) / Math.min(t1G, t2G)) < 1.45)
-			goldHardness = 33;
-		else if ((Math.max(t1G, t2G) / Math.min(t1G, t2G)) > 1.11 && (Math.max(t1G, t2G) / Math.min(t1G, t2G)) < 1.28)
-			goldHardness = 66;
-		else goldHardness = 100;
-
-		if (matchDuration >= 50)
-			durationHardness = 100;
-		else if (matchDuration > 36 && matchDuration < 50)
-			durationHardness = 66;
-		else if (matchDuration <= 36 && matchDuration > 25)
-			durationHardness = 33;
-		else durationHardness = 0;
-
-		float matchHardness = (durationHardness + goldHardness + killsHardness) / 3;
-
-
-		if (matchHardness >= 80)
-			return "MH";
-		else if (matchHardness < 80 && matchHardness >= 50)
-			return "H";
-		else if (matchHardness < 50 && matchHardness >= 20)
-			return "L";
-		else
-			return "ML";
 	}
 
 	public void addTeamToFileIfNotExists(String teamName, String teamId) throws IOException
@@ -310,23 +258,4 @@ public class RatingFactory
 		fileOperationsFactory.cleanAndWriteToFile(outputString, "files/TeamRatings.txt");
 	}
 
-	public Integer getLeagueTier(Integer leagueId, String leagueName) throws IOException
-	{
-		String file = fileOperationsFactory.readFile("files/LeaguesTier.txt");
-		String[] eachLeagueInfo = file.split("\n");
-		for (int i = 0; i < eachLeagueInfo.length; i++)
-		{
-			if (eachLeagueInfo[i].contains(leagueId.toString()))
-			{
-				return Integer.parseInt(eachLeagueInfo[i].split(";")[2]);
-			}
-		}
-		System.out.println(leagueName + "(" + leagueId + ")" + " league wasn't founded. Please enter Prize Pool:");
-		Integer prizePool = reader.nextInt();
-		System.out.println("Enter league tier:");
-		Integer tier = reader.nextInt();
-		String writeString = leagueId + ";" + prizePool + ";" + tier;
-		fileOperationsFactory.writeToFile(writeString, "files/LeaguesTier.txt");
-		return tier;
-	}
 }

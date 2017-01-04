@@ -9,10 +9,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Scanner;
 
 
 public class MatchesWorker
 {
+	Scanner in = new Scanner(System.in);
 	ParserFactory parserHelper = new ParserFactory();
 	UniqueInfoFactory uniqueInfoFactory = new UniqueInfoFactory();
 	WriterReaderFactory writerReaderFactory = new WriterReaderFactory();
@@ -26,12 +28,6 @@ public class MatchesWorker
 	{
 		System.out.println("/----------------Patrick--------------------/");
 		System.out.println("/-What's up, Boss?");
-		ArrayList<KillEvent> killEventArrayList = new ArrayList<KillEvent>();
-		ArrayList<BuyBackEvent> buyBackEventArrayList = new ArrayList<BuyBackEvent>();
-		ArrayList<GlyphEvent> glyphEventArrayList = new ArrayList<GlyphEvent>();
-		ArrayList<TowerEvent> towerEventArrayList = new ArrayList<TowerEvent>();
-		ArrayList<WardEvent> wardEventArrayList = new ArrayList<WardEvent>();
-		ArrayList<RoshanEvent> roshanEventArrayList = new ArrayList<RoshanEvent>();
 		Match match = new Match();
 		Player[] player = new Player[10];
 		Team[] team = new Team[2];
@@ -44,8 +40,12 @@ public class MatchesWorker
 			team[i] = new Team();
 		}
 		//checkIfTemporaryFileIsClean();
-		//backupFactory.checkForBackUp();
-		readNewMatches(true, team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
+		System.out.println("Boss, shall i do backup? Y/N");
+		String s = in.next();
+		if (s.equals("Y") || s.equals("y"))
+			backupFactory.checkForBackUp();
+
+		readNewMatches(true, team, player, match);
 		ratingFactory.organizeRating();
 		mainAnaliticsFactory.startWork();
 		System.out.println("/-Boss, all work is done.");
@@ -55,7 +55,7 @@ public class MatchesWorker
 	{
 		if (parsed)
 			alreadyParsedMatches++;
-		if (alreadyParsedMatches == 20)
+		if (alreadyParsedMatches == 50)
 		{
 			System.out.println("Okay. Let's have a rest for a while.");
 			Thread.sleep(120000);
@@ -76,12 +76,10 @@ public class MatchesWorker
 		fileOperationsFactory.cleanAndWriteToFile("", "files/TemporaryMatches.txt");
 	}
 
-	void readNewMatches(boolean parse, Team[] team, Player[] player, Match match, ArrayList<KillEvent> killEventArrayList, ArrayList<BuyBackEvent> buyBackEventArrayList, ArrayList<GlyphEvent> glyphEventArrayList, ArrayList<TowerEvent> towerEventArrayList, ArrayList<WardEvent> wardEventArrayList, ArrayList<RoshanEvent> roshanEventArrayList) throws IOException, ParseException, InterruptedException
+	void readNewMatches(boolean parse, Team[] team, Player[] player, Match match) throws IOException, ParseException, InterruptedException
 	{
 		String[] leagueLinks = parserHelper.getLeagues(parserHelper.parse_html("http://www.dotabuff.com/esports/leagues"));
 		ArrayList<String> leagueLinksArray = new ArrayList<String>(Arrays.asList(leagueLinks));
-		leagueLinksArray.add("4688");
-		leagueLinksArray.add("4833");
 		ArrayList<String> matchesFromLeagues = parserHelper.parseMatches(leagueLinksArray);
 		uniqueInfoFactory.needToParseFile(matchesFromLeagues);
 		ArrayList<String> matchesToParse = parserHelper.getParsingMatches();
@@ -94,28 +92,27 @@ public class MatchesWorker
 		Date date = new Date();
 		date.setTime(lastMatchDate.getTime() - 24 * 60 * 60 * 1000);
 
-
 		if (parse)
+		{
 			for (int i = 0; i < matchesToParse.size(); i++)
 			{
 				if (!uniqueInfoFactory.checkIfIdAlreadyParsed(matchesToParse.get(i)))
 				{
-					if (parserHelper.parseMatchById(date, matchesToParse.get(i), team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList))
+					if (parserHelper.parseMatchById(date, matchesToParse.get(i), team, player, match))
 					{
-						if (writerReaderFactory.writeMatchInfoToFile(player, team, match, wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList))
+						if (writerReaderFactory.writeMatchInfoToFile(player, team, match))
 							fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/MatchesParsed.txt");
-						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 						writerReaderFactory.makeZeros(team, player, match);
 						tooManyRequestsChecker(true);
 					} else
 					{
 						tooManyRequestsChecker(false);
 						fileOperationsFactory.writeToFile(matchesToParse.get(i), "files/BrokenMatches.txt");
-						writerReaderFactory.cleanArrayLists(wardEventArrayList, towerEventArrayList, killEventArrayList, glyphEventArrayList, buyBackEventArrayList, roshanEventArrayList);
 						writerReaderFactory.makeZeros(team, player, match);
 					}
 				}
 			}
+		}
 		uniqueInfoFactory.removeFirstEnter("files/TemporaryMatches.txt");
 
 		uniqueInfoFactory.makeMatchesFileClean("files/TemporaryMatches.txt");
@@ -129,7 +126,6 @@ public class MatchesWorker
 			fileOperationsFactory.cleanAndWriteToFile("", "files/TemporaryMatches.txt");
 			fileOperationsFactory.cleanAndWriteToFile(allMatchesfile, "files/Matches.txt");
 		}
-
 		//parserHelper.parseMatchById(date, "2749571296", team, player, match, killEventArrayList, buyBackEventArrayList, glyphEventArrayList, towerEventArrayList, wardEventArrayList, roshanEventArrayList);
 		/*SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 

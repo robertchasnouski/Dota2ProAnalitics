@@ -1,6 +1,0 @@
-Dota2ProAnalitics (c) All rights reserved to Robert.
-
-Parameters documentation v0.0 Beta
-
-
-
