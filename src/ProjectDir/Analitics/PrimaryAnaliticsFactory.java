@@ -47,15 +47,16 @@ public class PrimaryAnaliticsFactory
 		teamString += match.id + ";";//[0]
 		teamString += match.date + ";";//[1]
 		teamString += match.matchTime + ";";//[2]
-		teamString += team[0].id + ";";//[3]
-		teamString += (match.winRadiant ? "true" : "false") + ";";//[4]
-		teamString += "0" + ";";//[5]
-		teamString += team[1].name + ";";
-		teamString += team[1].id + ";";
-		teamString += match.leagueName + ";";
-		teamString += match.leagueId + ";";
-		teamString += enemyTeamTier + ";";
-		teamString += team[0].name;
+		teamString += team[0].name+";";//[3]
+		teamString += team[0].id + ";";//[4]
+		teamString += (match.winRadiant ? "true" : "false") + ";";//[5]
+		teamString += "0" + ";";//[6]
+		teamString += team[1].name + ";";//[7]
+		teamString += team[1].id + ";";//[8]
+		teamString += match.leagueName + ";";//[9]
+		teamString += match.leagueId + ";";//[10]
+		teamString += enemyTeamTier;//[11]
+
 		teamString += "##";
 		/**TeamInfo [1]**/
 		teamString += team[0].kills + ";";
@@ -82,7 +83,7 @@ public class PrimaryAnaliticsFactory
 		teamString += player[8].hero + ";";
 		teamString += player[9].hero;
 		teamString += "##";
-		/**Rating Changes [10]**/
+		/**Rating Changes [3]**/
 		String oldString = fileControlFactory.readFile("files/teams/" + team[0].id + "/TeamMatches.txt");
 		String[] stringInFile = oldString.split("\n");
 		String ratingChanges = "";
@@ -111,6 +112,7 @@ public class PrimaryAnaliticsFactory
 		teamString += match.id + ";";//[0]
 		teamString += match.date + ";";//[1]
 		teamString += match.matchTime + ";";//[2]
+		teamString += team[1].name+";";
 		teamString += team[1].id + ";";//[3]
 		teamString += (match.winRadiant ? "false" : "true") + ";";
 		teamString += "1" + ";";//[4]
@@ -118,8 +120,7 @@ public class PrimaryAnaliticsFactory
 		teamString += team[0].id + ";";
 		teamString += match.leagueName + ";";
 		teamString += match.leagueId + ";";
-		teamString += enemyTeamTier + ";";
-		teamString += team[1].name;
+		teamString += enemyTeamTier;
 		teamString += "##";
 		/**TeamInfo [1]**/
 		teamString += team[1].kills + ";";

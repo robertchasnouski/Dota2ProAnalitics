@@ -4,20 +4,14 @@ package ProjectDir.MatchInfo;
 public class Match
 {
 	public Boolean winRadiant;
-
 	public String date;
 	public String team1Id;
 	public String team2Id;
 	public String id;
 	public String leagueName;
 	public Integer leagueId;
-
-	public Integer universalX;
-
-	//<editor-fold desc="Event Times">
 	public Integer matchTime;
-	//</editor-fold>
-
+	public Integer universalX;
 
 	public Match()
 	{
@@ -48,6 +42,4 @@ public class Match
 
 		this.matchTime = 9999;
 	}
-
-
 }

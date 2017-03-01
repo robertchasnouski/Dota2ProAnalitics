@@ -33,18 +33,6 @@ public class ParserFactory
 
 	Integer leaguesParsed = 0;
 
-	void tooManyRequestsChecker() throws InterruptedException
-	{
-		leaguesParsed++;
-		if (leaguesParsed == 10)
-		{
-			System.out.println("League rest...");
-			Thread.sleep(30000);
-			Thread.sleep(0);
-			leaguesParsed = 0;
-		}
-	}
-
 	public Document parse_html(String html) throws IOException, InterruptedException
 	{
 		if (parseCounter == 100)
@@ -524,8 +512,10 @@ public class ParserFactory
 		for (int i = 0; i < leaguesToParse.size(); i++)
 		{
 			System.out.println("Read " + leaguesToParse.get(i) + " league.");
+
 			docs[i] = parse_html("http://www.dotabuff.com/esports/leagues/" + leaguesToParse.get(i) + "/matches");
 			html = docs[i].toString();
+
 			//CHECK first match date
 			String lastDate = substringer(html, "data-time-ago", "</time");
 			lastDate = lastDate.substring(lastDate.indexOf(">") + 1, lastDate.length());
@@ -538,7 +528,19 @@ public class ParserFactory
 				System.out.println("There is no new matches. Continue...");
 				continue;
 			}
-
+			String leagueName=html.substring(html.indexOf("class=\"header-content-title\"")+29,html.indexOf("<small>",html.indexOf("class=\"header-content-title\"")+29));
+			leagueName=leagueName.replaceAll("\n","");
+			leagueName=removeTags(leagueName);
+			ArrayList<String> acceptedLeagues=new ArrayList<>(Arrays.asList(fileOperationsFactory.readFile("files/AcceptedLeagues.txt").split("\n")));
+			if(!acceptedLeagues.contains(leaguesToParse.get(i)))
+			{
+				System.out.println("Shall I parse " + leagueName + " league?");
+				Scanner in = new Scanner(System.in);
+				String s = in.next();
+				if (!(s.equals("Y") || s.equals("y")))
+					continue;
+				fileOperationsFactory.writeToFile(leaguesToParse.get(i),"files/AcceptedLeagues.txt");
+			}
 			html = substringer(html, "<tbody>", "</tbody>");
 			if (docs[i].toString().contains("pagination"))
 			{
@@ -574,7 +576,6 @@ public class ParserFactory
 						matchesToParse.add(tempString);
 				}
 			}
-			tooManyRequestsChecker();
 		}
 		return matchesToParse;
 	}

@@ -86,8 +86,8 @@ public class MatchesWorker
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
 		String[] tempArray = fileOperationsFactory.readFile("files/Matches.txt").split("\n");
-		String lastMatchDateString = tempArray[tempArray.length - 1].split(";")[1];
-		Date lastMatchDate = formatter.parse(lastMatchDateString);
+//		String lastMatchDateString = tempArray[tempArray.length - 1].split(";")[1];
+		Date lastMatchDate = formatter.parse("2016-12-15"/*lastMatchDateString*/);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		date.setTime(lastMatchDate.getTime() - 24 * 60 * 60 * 1000);
@@ -143,7 +143,6 @@ public class MatchesWorker
 		String writeString = "";
 		for (int i = 0; i < eachTeam.length; i++)
 		{
-
 			writeString += "\n" + eachTeam[i].split(";")[0] + ";" + eachTeam[i].split(";")[1] + ";5";
 		}
 		writeString = writeString.replaceFirst("\n", "");

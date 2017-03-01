@@ -1,880 +1,199 @@
-1105664;Rex Regum QEON;3
-1366458;R a v e;3
-2662139;Mineski-X;4
-3095098;God of war;5
-2581813;Execration;2
-3;compLexity Gaming;2
-2738555;Beyond_Infinity;3
-2748441;G1 eSports;4
-98301;Power Gaming;2
-1927365; s1.Lykos;3
-2783913;Escape Gaming;2
-4;EHOME;1
-36;Natus Vincere;2
-39;Evil Geniuses;1
-15;LGD-GAMING;2
-2586976;OG Dota2;1
-1836806;the wings gaming;1
-2108395;TNC Pro Team;3
-111474;Alliance;2
-1838315;Team Secret;1
-2777247;Vici_Gaming Reborn;3
-350190;Fnatic;2
-1375614;Newbee;1
-2163;Team Liquid;1
-2512249;Digital Chaos;1
-1148284;MVP Phoenix;1
-296530;Dark Seiya Gaming;5
-3127543;INGAME;5
-2932795;New Logic;5
-1144241;No Respeta;5
-1917764;ColDeathMask;5
-3069495;ZENNIT;5
-2797460;Killer Instinct X;5
-3095485;2 BIG 4 U;5
-2909129;LIQUID IXMIKE88;5
-2289950;Balrogs e-Sport;4
-827550;Team Bolivia;5
-2052867;The Peruvians;5
-3150095;The Mercenaries;5
-2854237;FTW-India;5
-1971815;Surekh Gaming!!!;5
-2886271;Noobs. inc;5
-2897338;XR;5
-1218336;Eternal;5
-2866609;Exploit;5
-2970441;Team UnKnown;5
-1798782;Exotic Nexus;5
-2899037;FuckT Old Monk;5
-3149621;DruGz.;5
-3148633;Team Surprise Gaming;5
-2891708;MegaNoobs;5
-2637817;CYBERLORDS;5
-2920874;GGWP Boiz ;5
-2548953;Jaguar Gaming;5
-2850822;King Arthur4 Knights;5
-2923316;INfamous _;3
-3149918;Beyond Creation;5
-3020072;DUOBAO.INT;5
-2644737;Next-Gen VietNam;3
-2398232;Acion Arena - Dota2;3
-2789395;Orange.Taring;3
-1276785;The Mongolz;3
-2521210;Extremist Dota 2;5
-699943;Kuroko no doto;5
-990533;MeeT YouR Mak3rS;5
-2687313;Skyville!;4
-24;Signature.Dota2;3
-1727267;Frostic;5
-1907726;Team {A}nonymous;5
-2925765;TeaM Envy;5
-2751377;Jil Jung Juk;5
-2646608;E-HomeOP;5
-2670836;Tesla Reborn;5
-2899573;Furious Gaming !;5
-2765221;Minions;5
-3152366;Kite Gaming;5
-2919372;SOS;5
-2867175;PuckYou;5
-2099268;StanDiN-5;5
-2913409;silent killers;5
-237586;Seniors Reborn;5
-2628839;Team_.HaloXen;5
-1762814;rizeGaming International;5
-2967393;VeA;5
-2642451;Kamikaze In The Face;5
-2727654;Exiled Legion;5
-3156681;GRAVITY FALLS;5
-2904117;Waifu Team;5
-2860369;WilD ExecuTioN;4
-1363031;Stealth._.Gaming;5
-2011288;&quotTeam Umbrella&quot;5
-2676492;Virus Nirvana;5
-2577368;Los Mentalistas;5
-1633432;Not Today !;3
-2628204;Logic System;5
-2770170;GO SURE;5
-2913195;Sacrifice;5
-2850065;'Mad Scientists';5
-3148819;Eternal Sobers;5
-3156795;Team Sabertooth;5
-2912737;Super Speed Panama;5
-2730514;Black Jack;5
-1979704;Lost Protocol;5
-715818;All 5tar TeaM;5
-1403764;NEGATIVE`;5
-2920902;Synergy;5
-2559369;LosBackyardigans.;5
-3069376;SKY;5
-2770071;myR.IND;5
-2888228;Shit Happens;5
-2921333;Team Retribution;5
-1737491;Total-Annihilation;5
-2213967;DevilsInTheDark;5
-3156755;Akatsuki;5
-2852022;Noobswith_Attitude;5
-2052901;God Of War;5
-2384935;RoaR E-SportS;5
-2751690;Team Exthious;5
-2910143;ComeBack;5
-2883794;Phoenyx;5
-3156594;aSessinns Gaming;5
-3100019;Turtle Boys;5
-568941;N.x^;5
-2849610;THODAPPAKKATTAI WARRIORS;5
-2769003;M()cKiNg JoR!)aNs;5
-2923671;KNIGHTS OF ILLUMINATION;5
-2922425;Insane5;5
-3107877;7 Eleven ;5
-2659468;WarriorsGaming.Unity;2
-795543;Arcanys Gaming;3
-2699723;NoLifer5;3
-2790766;Rebels!;2
-2968181;Be Safe!;5
-2890350;ShadowGamerz;5
-2754835;Revival E-sports MKSR;5
-3155028;dota 2 imba;5
-2440854;INDEFATIGABLEZz ESPORTS;5
-2486519;GUS-GAMING.COM;4
-2413318;E-lab;3
-2118290;Team KoKo Gaming;5
-2724159;_Oram Po_;5
-3155271;Team JMD;5
-2931260;Injoker Boys;5
-2822304;Team Arcsaber;5
-1514479; CheQmate ;5
-711486;-=D.N.A GamerZ=-;5
-3100469;Team kKs;5
-2642461;Sport Gaming LCA;5
-2762745;BrooDMotherS;3
-2931505;TEAM DOGE;4
-2376763;CRoWn GAminG;5
-1863244;Dota Council;5
-59;Kaipi;3
-2538753;Fantastic Five;2
-2537636;Elements Pro Gaming;3
-1896486;noooooooooooobs;5
-543897;Mineski.GGNetwork;2
-2246141;Team Alternate Attax;3
-2867419;Twisted Gamers;5
-2114763;Rulers Of Destiny!;5
-2578382;Yellow Submarine !;4
-2552670;Prodota GaminG;2
-2897409;Troll2Win;5
-2888789;KNS;5
-2790329;Team Optix;5
-2818688;Rane Jogs and Takes Selfies;5
-2879968;KNIGHTS OF ILLUMINATION;5
-2881728;Team MisCommuNicaTioN;5
-3210649;PRIES;3
-3148988;Nemesis;4
-2856589;Valkyrie eSports;3
-2788336;4Vikings+Dane;3
-2533075;The Imperial;2
-2842794;Team Bad English;3
-1964407;Comanche;3
-2919736;Mortality Gaming ;5
-2783809;Majapahit Esports;5
-2916788;choko boys;5
-2678752;Team Maven;5
-32150;Gseven;5
-55;_PowerRangers;3
-2789910;Team Santet;5
-3212911;Orange Ninja;5
-2850016;Sanguine Sharks;3
-2283526;Dark Rises;5
-2255987;Gloryous;5
-1869017;Victorious- Secret;5
-1841789;The Fab 5;5
-2913570;Sukha Blyatt;5
-3152713;IKEA;4
-1962472;Docler Myrmidons;5
-2880387;Yolo Knight;5
-46;Team Empire;2
-2642171;Team AD FINEM;1
-3047209;ScareCrow;5
-571290;EviL.EmpiRe;5
-2632277;Pichau Arena;5
-2006913;Vega Squadron;2
-2759317;Elements One;3
-3259709;Overseer;5
-713699;Celestial Onslaught;5
-2112366;Halberd Valeera;5
-1703527;RIP THE DREAM;5
-2634364;Exodus;5
-2428289;Elite Wolves PERU;4
-2609939;Soul of Indonesian;5
-1171026;Electra Cyber Sport;5
-2883718;DreamScape;5
-3261159;Maximum Effort ;5
-3264863;WINGSHADOW;5
-3259541;GARRY;5
-2570590;FromEast;5
-3212253;Absolutely Gaspol;5
-3265083;Coeg Gaming;5
-3263712;FRY.net;5
-3156116;Cetan Ceyem;5
-3265020;Silence;5
-3032298;WEYUUAAAAA!!!;5
-2586189;-IdiotGeneration-;5
-3261423;Gruduk Gaming;5
-3265016;Dark Revenge;5
-2929788;OverPower Gaming;5
-2674663;Geass Team;5
-3266024;Lv;5
-2983942;????????;5
-3265212;1K MMR SCRUBS;5
-2583702;Duzzy Crew;5
-3262498;Tokek Gaming;5
-3264848;Shine of Al-Fath;5
-2799801;KanayaGaming;5
-1637253;NIEZA GAMING;5
-1890226;Overdose;5
-2927909;ALPHA;5
-2621376;Team AKAZI;5
-3047213;Black Knight;5
-1477412;Cat Doto ;5
-869361;RCNT;5
-3266307;Union;5
-2435301;Voracious Wind;5
-2452860;eKeepo;5
-3266020;BigBoys;5
-3153135;INFINITY GAMING;5
-2930884;WodeenWolfEntertainment;5
-2907696;PakTani The Return;5
-2688686;Malaikat Kegelapan;5
-3265632;PondokGaming;5
-2966341;TeamForbidden;5
-3213348;Sentry;5
-2783733;Sleepyng Beauty Reborn;5
-2501784;Restu Ibu Gaming;5
-3286764;We Are Not Team;5
-2692980;Mystify Gaming;5
-2672298;Infamous -_^;3
-2438184;iNCANATUS Gaming;5
-2568083;Gallunggung KING CYBER;5
-3154895;REVENGE;5
-2604408;Ezthmus.CHRISTNET;5
-2633856;EleganceEvolution;5
-3313166;BILLING OBELIX;5
-3262331;Team EVOS;4
-2881024;Polarity Gaming;3
-1843166;Team Slimy Mollusks;5
-3313892;Los vatidolkaz;5
-3313312;BILLING OBELIX;5
-739717;Tt.Cascade1xBet;5
-67;paiN Gaming;3
-2832413;The Meme Regime;5
-2600882;LONELYBOYZ;5
-2761651;REKT_Hajadla;5
-3215121;Cyber Gaming;5
-645123;Rozb&iacuteje?i;5
-3096793;BeFree;5
-2920011;Too much Salt;5
-1252828;Scrofulous;5
-3214118;Cyber Gaming;5
-3313610;3 Claritky;5
-2610270;Fox;5
-2728038;Soggy Mitts;5
-2122095;Illuminati Gaming.;5
-1237931;Nullius in Verba;5
-1909341;Team Teletubbie;5
-2898684;The Team;5
-2386699;Luis + 4;5
-2857445;GoXpE Dream Team;5
-2913028;Seven Lan Center ;5
-3320817;DilecomTeam;5
-2874304;LINAJE GAMING E-SPORT;5
-2928396;Bac Gaming ;5
-3290820;Gosu e-Sports;5
-147;Learn2Gank;4
-1347728;ZENO GAMING T;5
-3321900;DilecomTeam;4
-1585447;Wrong5;5
-2930561;AVIUS;5
-3212263;KAPPA;5
-3264781;Stay Calm And Rape;5
-2607096;AHOJAHOJ2;5
-3214090;HippoManiacs;5
-2204438;KS KommandO;5
-2739170;NA STARY KOLENA;5
-2548789;HellRaisers Dota 2;5
-3322685;Indian Dota;5
-1319202;HighHopes;5
-3154882;do you even DOTA;5
-3321494;Stray Dogs;5
-3323705;YK;5
-3323460;Nub Squad;5
-2362377;D.N.A GamerZ;5
-3315253;Farm For Fame;5
-3323503;Chainsmokers;5
-3323563;Blades of Chaos;5
-3157536;ABKOL;5
-2576685;Arunachal Warriors;5
-3319006;PokemonGo;5
-3324533;LEAF SHINOBI;5
-3324625;fab5;5
-2308925;J1NCHUUR1K1 Gam1ng;5
-3261352;Team IITM;5
-2899111;Team MuGiWaRA;5
-3324612;Chup Re Otye;5
-3321481;urban contact;5
-2626685;EHOME.KEEN;3
-3323378;Tangerine;5
-2111961;ForXtreme;5
-1919870;Mayonaise Hope;5
-2205056;No Secret;5
-3319358;Journey.Surabaya;5
-3150099;Destiny Gaming;5
-3312477;TEAM FARROS;5
-2735023;Anti Venge`s;5
-2873011;Laughing Child;5
-2413370;Senpai brotherhood;5
-2777181;Quiet Revenant;5
-2849457;TFC Esports;5
-2938636;TKD.Young;5
-3271628;RAGE;5
-3320084;Sekrups Already Ded;5
-2919938;Team Arcsaber;5
-2477859;AJ;5
-2890277;Juke's On You;5
-148164;Flawless;5
-2880264;Bikini Bottom;5
-2849454;WoW No Cure;5
-3152876;Virtual Reality;5
-3325637;Team KoNG;5
-2970447;FXGaming;5
-3095882;incredible five;5
-2923621;Palihmana Gaming;5
-3326101;Too EzZ;5
-2925930;Got5?;5
-2469050;Team Blackshift;5
-3270973;GamerZone;5
-2704256;Invunerable;5
-2840185;Carraway Was Right;5
-2117050;FURIOUS GAMING;5
-3326357;Wreacks;5
-2128741;Dota till i die;5
-2126942;Team KAZAMA;5
-2048731;Auroth;5
-535718;Joe Net Phenomenon;5
-3327682;NEW KING GALUNG;5
-3323407;REUNITED;5
-3327766;team faadu;5
-584193;FataL Formation;5
-2664588;The Prime Cinderpina;5
-3259767;TAMPAN BERANI;5
-3319964;NASI CAMPUR88;5
-3318260;5 Idiots Gaming;5
-2503295;Project-Final;5
-2524482;GEMBEL GAMING;5
-3314165;IMPERIAL;5
-3321313;CYCLONE BROTHERS;5
-2893691;Indian Gamers ;5
-3329900;Ancient Mr Beans;5
-2527544;T Show;3
-1618462;Shore Gaming ;5
-2650787;FINGER;5
-2925790;Pixel Elite;5
-2557977;IndomieAU;5
-2901283;Team Titan;5
-2896883;Flair Gaming Red;5
-2752010;Aero Esports;5
-3325398;HELL HOGS;5
-3316534;Scapegoat.esports;5
-3331852;Relic Gaming;5
-992217;Dare 2 Dream;5
-2934622;Eskimo;5
-3098628;Brain DDOSed;5
-1395362;Virtually Challenged;5
-2861986;The Soup Kitchen;5
-2970103;friends;2
-3023818;Team FuroX;5
-3210117;BASIC'Gameing;5
-3330817;BAITED;5
-2446959;Team Nation;5
-3327985;RaveDota;3
-2635279;X-Generation E-Sports;5
-2875905;Nyx.Nyx.Nyx;5
-3321220;T Show;3
-1199060;Operation Kino eSports;5
-3259967;Big and Black;5
-1961656;FLUX.DOTA2;5
-1857050;Slapnut Magoo's;5
-3322396;ENTiTY ESPORTS;3
-3324849;Rumah Depok Bersama;5
-3329893;DTT GAMING;5
-3322406;A4P;5
-3325427;Meet The MULIs;5
-3337797;TEAM FAADU;5
-2860081;team_ftd_a;3
-20;TongFu;3
-3337906;UC  REBORN;5
-2634810;EHOME.LUMINOUS;3
-3322300;s1 Lykos;3
-2414475;We.are.young;3
-3326126;Team VG.J;2
-2208748;Team DuoBao;3
-1951061;Newbee.Young;3
-2854119;Chup re Otye...;5
-726228;Vici Gaming;2
-3333361;the wild witch doctors;3
-1272244;EHOME.X;3
-2640025;iG.Vitality;1
-2677025;FriendshipDedicationLove;2
-1730778;Avernus.ir;5
-1236083;FelMysT;5
-1983234;Team Braveheart;3
-2414095;Avalon_Club;3
-5;Invictus Gaming;2
-3334608;Not Today !!;3
-3214108;Team NP;1
-3331948;LGD.Forever Young;1
-1520578;CDEC Gaming;2
-3328958;Black Lobsters;5
-3100930;Perfect Storm;5
-3333433;Doo Wop;3
-2776208;White Fries Gaming;3
-3022558;King Of Dota;5
-723471;No soosmar;5
-3332295;Friends;2
-1883502;Virtus.pro;1
-3330347;LEVEL UP;3
-3322382;Mysterious Dynasty;5
+4;EHOME;2
 3335660;team_ftd_c;2
-1196376;sALTo ers;5
-3213075;Max.X;4
-2909240;Rock;5
-1633758;Shark+4;4
-3266322;Authentic Gaming;5
-3332745;Sabun E-Sport Redbull;5
-3318843;lw;5
-2921910;Late Night Gamers;5
-254140;First Departure;5
-3326875;Faceless;1
-3324727;Wrong5;5
-2922244;Eternal Creed;5
-2851420;Urang Minang;5
-2668269;ChewToy.Reborn;4
-3338817;Moscow Gaming;5
-1736680;Return Of The Empire;5
-2849265;ZERO'ONE;4
-3152604;memoirs of memes;5
-2854942;MAX.Y;4
-2828740;We Are Young.Amazing;3
-3317512;DUOBAO Young;3
-2887364;aRe yoU Angry;5
-2811728;NEWGATE;5
-2833354;Vici Gaming Potential;3
-2551098;QQQDU;5
-2822317;To.be.or.not.to.be;3
-2488123;Core Net;5
-2973432;JEMBER SUPER GAMING;5
-2794355;Team.Phantom;5
-2908389;AoA Reborn;5
-3350919;AliceSnow;5
-3317243;Maravillas;5
-3349719;Old Generation Dota;5
-3350653;Veni Vidi Vici;5
-2596939;Purplesugar;5
-3262148;HARAMBE;5
-3259436;Team Warcil;5
-3347940;Navigo Gaming;5
-3318905;Conqueror;5
-2890328;sembarang;5
-3350993;S.Team;5
-3022446;TEAM FEVER;5
-2972493;No More Heros;5
-1884586;VegetableBee;5
-2789129;BraveHeart.Zombie;3
-2901121;TOP;5
-2233998;Brilliant.;5
-2760732;Risper;5
-2564430;??7.5;5
-2831312;IMG;5
-2038409;The One Pis!;5
-3353081;Angle.j;5
-1947079;The.Wolf.pack;5
-3353334;Nub Squad;5
-3332623;Dark Karma;5
-3353280;This is fucking Crazy;5
-3353368;FANTASTIC5;5
-3354117;Aggressive Gaming;5
-2956898;Assorted Knights;5
-2317852;Elephant in the Room;5
-3325406;Romania;5
-3316078;Paragon eSports;3
+2640025;iG.Vitality;1
+2414475;We.are.young;3
+15;LGD-GAMING;2
+3546261;DeathBeforeDefeat;5
+3380524;TeamNV;5
+2547352;MOBILEGIRL;5
+3331948;LGD.ForeverYoung;1
+5;InvictusGaming;1
+3688387;PRODOTAGAMING;2
+726228;ViciGaming;2
+2552670;ProdotaGaminG;2
 3326680;Horde;2
-3313149;Zeta Pegasi;5
-3351387;WOOF;3
-1869482;Wombat-Gaming;3
-3337522;Butterfly Effect;4
-3334209;Team Ukraine;5
-3326679;Zero Hoots Given;5
-3333047;Team DK ;5
-3334489;Ne Rus?;5
-2856814;NecroRaisers;5
-2831883;Que La Famille;5
-691927;TEAM XENEX;5
-3333191;Joke  Team Gaming Esports;5
-1937291;Almost Is Never Enough;5
-3023244;VisioN;5
-3266276;Too EzZ;5
-3356967;Heisenberg;5
-3340589;White Wolf;5
-3322097;Area31D;5
-2921347;Team END;5
-1970096;Team Anon Fives;5
-3356941;Low Priority;5
-3345478;Lexus Gaming;5
-2545047;Blonde Hard;5
-3355251;Meet The MULIs;5
-2259991;Value $65.07;5
-3322951;LEVEL UP;3
-3099734;ROYAL GAMING;5
-3346421;CupuTapiLucu;5
-2813614;Zenith. MN;5
-3347214;CLASSIC ;5
-2701571;DMC - Devil May Cry;5
-965163;- Accelerate;5
-3237806;FREEZEE;5
-3330230;Five Rejects;5
-2577846;INSIDE FREEDOM;5
-2925921;Team envy;5
-3378725;MEME Team;5
-2777986;Invincible Xtreme;5
-2714312;Aggressive 5;5
-3341892;TRIGGERED;5
-476200;Black'List Gaming;5
-3323060;Wolf Squad;5
-3379569;Made in Bombay;5
-3210601;NeMeSiS;5
-3379265;Team Saiyan;5
-2965949;@PlasmaNation;5
-2419551;AGGGGTMR;5
-2521184;Paz;5
-2713678;Disaster in DotA2 Reborn;5
-2827285;Oh Well.;3
-3357303;MeeT YouR MaKerS ;4
-3381602;Walrus Punch;4
-3335901;DX;4
-2775251;Tarantula Gaming;4
-3381675;Question Mark;4
-3354045;Division 1 Cursed Eagle;5
-3334062;NoLifer5.Reborn;4
-2932717;BG Gaming;5
-2570995;Sin Sponsors;5
-2665688;Vicious Viper Empire;5
-2730618;G.T.;5
-1330124;Secret Joke;5
-2134429;Out of our League.;5
-3412077;Question Mark;4
-3258149;CAVALRY;4
-3349045;RUSH B;4
-3336725;Rampage Gaming;4
-3264833;The Team;5
-3414796;VULTUR TEAM;4
-1061269;KINGAO + 4;4
-3415050;Rebirth Esports;5
-2859105;Team DileCom;5
-2788415;Team One !;4
-2579961;Farm And Throw;5
-2646086;SkillOffBacotOn;5
-3343420;The Prime Shine;5
-2660436;Satria Pride;5
-2108325;FrostMourne;5
-3412501;Queen Of Pain Reborn;5
-3415078;Non Thinking Feed Squad;5
-3441765;TeamEvil Clutch;5
-2308619;Note;5
-2887177;Dusa+4;5
-3354505;TEAM JESUS.;5
-3437010;Possitive Meepo;5
-1804536;STARK.gg;5
-3110857;CELCOM GAMERS;5
-3338336;2D girls for life;5
-2525571;All_Burden;5
-2881840;Sweet Boys;5
-2226499;Hell Boys E-Sport;5
-1835728;Sand Blut;5
-989159;Dame tus Moneditass;5
-2898368;Ban Chen;5
-3313780;AggTmRpe;5
-3349012;Undaunted;5
-3412219;Leafre;5
-2835402;TeamGorilla!;5
-1333775;planet hype;5
-2650635;TeamOnodera;5
-1787630;Enigma Stole Our Bikes;5
-2622695;LUCCINI GAMING $$;3
-3355514;:bbtcat:;5
-3414163;Elite Revenge;5
-2901980;Dream Seekers Gaming;5
-370775;Eternity;5
-2674713;San German Rejects;5
-3357051;FirveDogs;5
-2880140;Fire Dragoon E-Sports;5
-2607563;Quantum Suicide;5
-3441242;ALCH;5
-3413495;BI?T ??I C&AgraveY RANK;5
-3380524;Triggered;5
-3339998;PleaseReportTimbersawReborn;5
-3321512;Reborn Gaming;5
-2907535;VMAST;5
-2835573;DISCIPULOS DE ATAHUALPA;5
-1170473;VolcaniaGaming;5
-2767412;Vivo Fibra Keyd Stars;5
-3325891;90's Gaming;5
-3333501;Rainbows and Sunshine;5
-3379942;No Anime;5
-2513928;Watermelon Delight;5
-3266312;Evil Corporation;5
-2666603;Old School Gaming.;5
-1661412;Mastodon eSports;5
-3323862;LAN CENTER GAMING BETA;5
-448327;Ecke Der Toten;5
-1265213;Raw Talent;5
-2299652;Can't Stop - sensei;5
-3345357;DVK;5
-708206;DAGGER-GAMING;5
-3326728;S O L I D U D E S ;3
-3437005;Play4What;5
-1418375;Qenobi;5
-2904162;Team BlackNao;5
-2904292;TEAM WARSONG;5
-2548365;Walking Dragons;5
-3356445;ZRY PAPUS LA KAGUE;5
-1939134;Res Non Verba;5
-3340161;Coup_Of_Grace;5
-2449883;Dragons no Knight;5
-3334621;Hard Question;5
-3444306;The Crew;5
-2639697;Sasssy Cats;5
-1079752;Ode;5
-3345979;Anthrax;5
-3444287;JYR;5
-3357631;No Anime;5
-2679744;Intelligence Quotient xD;5
-1245961;ZephyrDota;5
-3380408;Team.ZS;5
-2619801;Ability Gaming;5
-3262512;ThePrime.NND;4
-1294226;European &lt3 Story;5
-2347280;tusk or feed;5
-3412116;Koshpendiler;5
-2202484;Effect;5
-3354224;Disorder;5
-2701329;Team Freedom Dota 2;4
-2740064;Immortal Red Wargame;5
-2524677;MAWOET DOTO BEST DOTO!!;5
-3476337;EHOME.LUMINOUS;3
-3478132;Team Dotamaster Disciples;5
-3411871;MoonShiners;5
-3477515;Team Harass;5
-3317685;ALL COME HERE;5
-3314510;PKL;5
-3413002;Empirez eSports;5
-3471400;TEAM KENANGAN;5
-2833547;ZooM;5
-2486047;Bigo Live Team;5
-3444630;NewHope;5
-3480835;Dream Team;5
-3482511;Crimsonbright;5
-3410388;Nightmare Gaming;5
-3212928;CLAN CWAF;5
-2522510;'Syncronize-;5
-2895509;Legacy rEflex Gaming;5
-2722185;MGS_D2 E.Sport;5
-3478479;BOBOGAMING;5
-2496510;Kaboom! Gaming;5
-3457201;Team EnvyUS;5
-571134;Zuckerberg and Friends;5
-2824381;Padat Berisi;5
-3410005;One  For  All;5
-2662515;Tentacle Visual;5
-3447106;ARCHER LADIES;5
-3477208;Midas Club Elite;5
-2750190;FilosFilia;5
-3508243;Meow 111;3
-39700;Low Skill Dickheads;5
-2970537;Sky Ladies;5
-1400459;SMAIKUM;5
-3481244;Team Instinct;5
-3513004;ROFL ESPORTS;5
-3513460;END;5
-3325212;Natural 9;5
-2151103;Team Taivnaa;5
-3513553;Hard Question;5
-2913565;MVP AEGIS;5
-3350307;™.v3s;5
-3457125;Palomas Gaming;5
-3516662;Evin Geniuses;5
-1182889;CheeToz;5
-3510168;The Council;5
-1698450;Podkoni a zak;5
-3313343;Raven G-Club;5
-2925965;Dogshit Dynasty;5
-3516840;Terpacu Gaming;5
-3471134;TEAM LUNA;5
-2100741;AfterGlow;5
-1434155;START GAME LAN CENTER;5
-1871453;Oblivion;5
-2905843;MDG.LanCenter;5
-3563081;GenomaGaming;5
-3481746;Gakki;5
-3341663;Returnoftheking;5
-2329041;NEWERA;5
-3574159;SADBOYS;5
-3546686;CASONA.NETCOMPUTERE.I.R.L;5
-3574277;NaoH;5
-3210354;PhantomNation;5
-3557556;BUATIVANABANGGA;5
-2219811;TooHardForRetards;5
-3561144;BanSepurNgunut;5
-3317586;TheCoreAlphas;5
-2701735;StrengthPlusGaming;5
-3343967;Wings.Red;5
-2600813;ValhallaWarriors;5
-1272762;BesitoAvenger;5
-3547650;WeAreHandsome;5
-3551256;Whisper;5
-2828758;WOLVES.GG;5
-3471382;EIGHTFINITY;5
-3549060;BUNDLEOFDREAM;5
-2633249;BUATIVANABANGGA;5
-3574278;SoftMaster;5
-3354310;CQDU.FeS;5
-3562785;SAHABAT~;5
-3512319;EXPECTATION;5
-3503670;PUXLYAWI;5
-2898100;?????????????:-?;5
-3480045;JevuzcaGG;5
-3016098;Aggtmr1;5
-3324822;shkolnuyavtobus;5
-2824034;PolyKIngs;5
-2552118;FTDcluba;5
-1871453;Oblivion;5
-3477268;infamouze;5
-3516794;AdVanced'Gaming;5
-2371045;WhiteNigga;5
-3262665;Cryptex;5
-3414728;TeamSikrit;5
+111474;Alliance;2
 3586078;GeekFam;5
-3414627;Hordelicious;5
-2285416;ViciousFAME;5
-3413786;90'sOldRevenge;5
-2968878;FireGaming;5
-3549974;PowerOfIronBranch;5
-3581011;StrongChinChoppa;5
-3619395;PrincesofPersia;5
-3510968;TeamNop;5
-2277843;ICLENBUTORAL;5
-2738689;DTT;5
-3515204;TemplareSports.AU;5
-3511141;TheTemplarseSports;5
-3620949;TheReturn;5
-3544750;NoTimbersaw;5
-3622520;SAMORGIISMISSING;5
-3589568;NoFancy;5
-3623934;SeeYouAgain;5
-3587592;TeamHero13;5
-3625918;Dicky+4;5
-2826226;HardtoSee;5
-3442385;Leafre;5
-3466947;Mysquad;5
-3587284;VALORESPORTS;5
-3366879;PlatinumGaming;5
-3334225;ExperienceGaming;5
-2304216;7nvyse-;5
-3343583;Monkey.BusinesS;5
-1182760;DAMEQUETEDOY;5
-3327180;NeverThought;5
-2592576;TeamBibu;5
-1944906;TheInvincibleSwordOfGod;5
-2130812;OwlSight;5
-3626479;TheReturn;5
-2845183;RevengeSpirit-Reborn;5
-2803901;FantasticGamingDotaTeam;5
-3625645;BungaMelati;5
 3623538;DestinyGaming;5
-2141593;LegendsOfDarknes;5
+2163;TeamLiquid;1
+3332295;Friends;2
+2659468;WarriorsGaming.Unity;2
 3413162;ChickenRice1;5
-3586106;NFGEsports;5
-3636997;GoodGaming;5
-2272664;CHOPPYBOYS;5
-3588152;Doctor;5
-3584142;WhyShouldI?;5
-3629981;Athletico;5
-3655584;InvisibleWings;5
-3343641;3cheers4DivineAscension;5
-2663631;4Mer!caL(360GamingZone);5
-2205611;LeyHorse;5
-3587018;UNLEASHEDGAMING;5
-3476158;SEPRENDIOESTAMIERDA;5
-2388639;TengoHambreTeam;5
-3621413;TEAMFOUNTAIN;5
-3625359;DOTADOEA;5
-3623669;TheLastSpartans;5
-3210464;KISSGAMING;5
-3617620;GakLapo-Lapo;5
-3625702;CHILIHUNTER;5
-3580606;SGe-sports;5
-3688387;PRODOTAGAMING;5
-2095771;feralpina;5
-3547888;UGINF.SPIDERBLUE;5
-2047484;HardCore;5
-3337143;INFINITY;5
-3586479;UnionPower;5
-3586501;4humansand1homunculus;5
-3456993;;5
-3689321;Infamous.Black;5
-485526;Life.;5
-3686761;BoRe;5
-3691279;PONDOKGAMING;5
-2047411;JG.BRUTALATOR;5
-3688831;HeavenHell;5
-3691991;HardQuestion;5
-3581614;8000;5
+2880140;FireDragoon;5
+2592576;TeamBibu;5
+3662845;RiptideDota2;5
+1633432;NotToday!;3
+3513460;END;3
+2246141;TeamAlternateAttax;3
+2775251;TarantulaGaming;3
+3413786;90'sOldRevenge;5
+2803901;FantasticGamingDotaTeam;5
+2845183;RevengeSpirit-Reborn;5
+3690568;UnknownForce;5
+2285416;ViciousFAME;5
+2662139;Mineski-X;3
 3326927;DivineGaming;5
-3660389;SICKGAMING;5
-672504;HurricaneFestival;5
-3583224;Rabotyagi;5
-3688649;eLMoke-;5
-1216337;FrontPembelaIcomon;5
-3695713;FEXONOMICON;5
-3511018;HardCoreX;5
-3581862;Seven.Lc;5
-3692512;Waifu4Laifu;5
-3384304;Supernova;5
+2833354;ViciGamingPotential;3
+2626685;EHOME.KEEN;2
+3326126;TeamVG.J;2
+3581614;8000;3
+3702845;80085;4
+46;TeamEmpire;3
+2537636;ElementsProGaming;3
+3691991;HardQuestion;3
+3333433;DooWop;3
+2701329;TeamFreedomDota2;3
+2634810;EHOME.LUMINOUS;3
+2776208;WhiteFriesGaming;3
+3703188;DanishBears;2
+3336725;RampageGaming;5
+1520578;CDECGaming;2
+3625157;PeasandCarrots;5
+3580606;SGe-sports;2
+2850016;SanguineSharks;2
+2672298;Infamous-_^;2
+2533075;Cloud9;2
+3706211;BoRe;3
+1375614;Newbee;1
+3266312;EvilCorporation;3
+2790766;Rebels!;2
+3705914;AW;5
+2677025;someteam;5
+3707335;AW;5
+3152713;IKEA;3
+3334621;HardQuestion;3
+1272244;EHOME.X;3
+2414095;Avalon_Club;3
+3258149;CAVALRY;3
+2208748;TeamDuoBao;3
+1836806;thewingsgaming;1
+1983234;TeamBraveheart;3
+1951061;Newbee.Young;3
+3343967;Wings.Red;3
+20;Newbee.Boss;2
+2854942;MAX.Y;3
+2789129;Bheart.Zombie;5
+3456993;dsda;5
+2860081;team_ftd_a;3
+3349045;RUSHB;3
+2006913;VegaSquadron;2
+3547682;TeamVGJ;2
+2828433;Monsters;5
+3623934;SeeYouAgain;3
+3414796;VULTURTEAM;3
+2897892;AlphaProGaming;5
+3713339;NullstoneGaming;5
+3724222;TeamRed;3
+3705786;MadKings;3
+3415515;VINCETEIPSUM;5
+370775;Eternity;3
+3728003;LQ;3
+3715938;SanguineSharks;3
+1883502;Virtus.pro;1
+350190;Fnatic;2
+2581813;Execration;1
+2512249;DigitalChaos;1
+3214108;TeamNP;1
+3477208;MidasClubElite;3
+3730002;END;3
+3322396;ENTiTYESPORTS;3
+3725701;HappyFeet;3
+3262331;TeamEVOS;3
+543897;Mineski.GGNetwork;1
+1905619;WheelWhreckWhileWhistling;5
+3622247;TeamLegion;5
+3726949;TeamFDL;3
+1105664;RexRegumQEON;3
+3737715;Signature.Dota2;3
+2822317;To.be.or.not.to.be;3
+3321220;TShow;3
+3661849;TeamPewPew;3
+3325406;Romania;3
+1964407;Comanche;3
+3334209;TeamUkraine;2
+2293742;mYinsanity;3
+3714164;OverPower;5
+1302201;BravadoEmotion;5
+2538753;FantasticFive;2
+3334489;NeRus?;3
+2788415;TeamOne!;3
+2108395;TNCProTeam;2
+2859105;TeamDileCom;3
+3264479;aboshamaleh;5
+1276785;TheMongolz;3
+3718685;MVP.Revolution;3
+2745129;-DarkPassageeSports-;3
+3317512;DUOBAOYoung;3
+3322300;s1Lykos;3
+3412044;NOVAeSport;5
+3659536;ClutchGamers;5
 2338511;TasikAntiRata;5
 2338533;NgahulengTarik;5
-3700503;lodagaming;5
-3702845;80085lt;3;5
-3703188;DanishBears;5
-1544907;NoPerrito;5
-3551323;swallowyourpride;5
 2314139;Trones.Gaming;5
-2816249;Patahhati;5
-3625157;PeasandCarrots;5
-3706211;BoRe;5
+3516840;TerpacuGaming;5
 2588154;KangenMantan;5
-3705914;AW;5
-3657755;INSIDEFREEDOM;5
-3707335;AW;5
+1218336;Eternal;3
 3686302;TEAMTAI;5
+3657755;INSIDEFREEDOM;5
 2293253;Sejarah10;5
 3588528;HGCV;5
 2486559;PUSSYALERTTINGLINGLING;5
 3099617;Pioneers;5
 3658895;MINDAUTAMA;5
 2419591;ClayReborn;5
-3547682;TeamVGJ;5
+3457201;TeamEnvyUS;3
 3719038;BoboGaming;5
-2828433;Monsters;5
 3658537;BKSMEILANBKS;5
+2283526;[D]arkRises;5
 2916875;LimitedEdition;5
-2897892;AlphaProGaming;5
-3713339;NullstoneGaming;5
-3724222;TeamRed;5
-3707302;Knight'sofRen;5
-3546532;DNLTEAM;5
+3704482;Goingin;5
+3728410;LMNTRIX;5
+1975134;EMIM;3
+3444630;NewHope;3
+3326875;Faceless;1
+98301;PowerGaming;2
+2059672;FireDota;5
+2881840;SweetBoys;3
+3729377;January25th;2
+3331735;DigitalCompany;5
+3334146;SquadYOUNGLEX;5
+2851343;FierceAssasins;5
+3149809;-|-VIP-|SIA|-;5
+3411521;PerfectGamerTeam;5
+2586976;OGDota2;1
+39;EvilGeniuses;1
+3743790;Emim;3
+1838315;TeamSecret;1
+3477268;infamouze;5
+3722973;TeamOnyx;5
+2642171;TeamADFINEM;5
+3738495;Kemalanjinglama;5
+3;compLexityGaming;5
+3409295;AnostigEvolution;5
+36;NatusVincere;5
+3543907;ArrowGaming;5
+3785182;Xfinity;5
+3722485;B)ears;5
+2644737;NextGenVietNam;5
+2621843;Team.Spirit;5
+24;Trust;5
+3720366;WanteD;5
+2910546;PASALAPLATA;5
+3726983;NEIGHBORHOODTALENT;5
+3774904;TeamInspire?;5
+2913028;SevenLanCenter;5
+3581862;Seven.Lc;5
+2754114;NONENAS;5
+3749940;Losemosylaconchasumare;5
+3783713;GIANDKLOVERS;5
+3618485;1Lose=Disband;5
+2201839;MVPHOT6;5
+3763318;YoungMinds;5
+3847866;Ha-rmape;5
+3759540;TeamBogazici;5
+3327688;TeamHala;5
+3851150;NoLogicGaming;5
+3848449;Hive;5
+3763625;DoubleDimension;5
+3851482;DD.Dota;5
+3847430;Team425;5

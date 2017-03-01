@@ -38,10 +38,10 @@ Invoker
 Io
 Jakiro
 Juggernaut
-Keeper if the Light
+Keeper of the Light
 Kunkka
 Legion Commander
-Leshrak
+Leshrac
 Lich
 Lifestealer
 Lina
@@ -67,7 +67,7 @@ Phantom Assassin
 Phantom Lancer
 Phoenix
 Puck
-Pugde
+Pudge
 Pugna
 Queen of Pain
 Razor
